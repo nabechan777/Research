@@ -1,0 +1,466 @@
+
+==================== FINAL INTERFACE ====================
+2017-12-09 07:19:13.633878 UTC
+
+interface Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Library.Interface 8002
+  interface hash: 16fd5655605330a71a191bf03172ba69
+  ABI hash: d725e515517db33b2dd892ce03429d52
+  export-list hash: f3c950d66c84e5de0e1c97793faa9735
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: e47d04c2c32dd373ac3335b6f4283ab2
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Library.Interface.createChoices
+  Library.Interface.createFrame
+  Library.Interface.run
+  Library.Interface.OneDayLecture
+  Library.Interface.OneWeekLecture
+module dependencies:
+package dependencies: array-0.5.1.1@array-0.5.1.1 base-4.9.1.0
+                      bytestring-0.10.8.1@bytestring-0.10.8.1
+                      containers-0.5.7.1@containers-0.5.7.1
+                      deepseq-1.4.2.0@deepseq-1.4.2.0 directory-1.3.0.0@directory-1.3.0.0
+                      filepath-1.4.1.1@filepath-1.4.1.1 ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1 stm-2.4.4.1@stm-2.4.4.1-JQn4hNPyYjP5m9AcbI88Ve
+                      time-1.6.0.1@time-1.6.0.1 unix-2.7.2.1@unix-2.7.2.1
+                      wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz
+                      wxcore-0.92.3.0@wxcore-0.92.3.0-7crw4DOSyVYLnCcwhdBKS4
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+         stm-2.4.4.1@stm-2.4.4.1-JQn4hNPyYjP5m9AcbI88Ve:Control.Monad.STM
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
+         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
+         wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Controls
+         wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Dialogs
+         wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Draw
+         wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Media
+         wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Menu
+         wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Timer
+         wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.TopLevelWindow
+         wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Variable
+         wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Window
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Complex base-4.9.1.0:Data.Either
+                         base-4.9.1.0:Data.Functor.Const base-4.9.1.0:Data.Functor.Identity
+                         base-4.9.1.0:Data.List.NonEmpty base-4.9.1.0:Data.Monoid
+                         base-4.9.1.0:Data.Semigroup base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:Data.Version base-4.9.1.0:Data.Void
+                         base-4.9.1.0:GHC.Exts base-4.9.1.0:GHC.Generics
+                         base-4.9.1.0:GHC.IO.Exception base-4.9.1.0:GHC.TypeLits
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+import  -/  base-4.9.1.0:Data.Traversable 556020d7cf3c4a34a774600512918a37
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.List ab8c4e523e6c479c549d3bcd5fc4a439
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
+import  -/  wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX 580e6e327edc42b60df1e18c3a1ae8dd
+import  -/  wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Attributes f2e729fe6b66704877f3b1183a6f346b
+import  -/  wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Classes a7321a4073b2f6d4604f4750da5caa56
+import  -/  wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Controls 32799540b9c20569fa499accf41ee4fa
+import  -/  wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Frame fedfe1b53b87a8a8afd3262bbea63fdb
+import  -/  wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Layout 155b606047d018d49f14bf002c61fe72
+import  -/  wxcore-0.92.3.0@wxcore-0.92.3.0-7crw4DOSyVYLnCcwhdBKS4:Graphics.UI.WXCore.Layout 12a5f5b0fd742a112b4ce3f8d327f98a
+import  -/  wxcore-0.92.3.0@wxcore-0.92.3.0-7crw4DOSyVYLnCcwhdBKS4:Graphics.UI.WXCore.WxcClassTypes d8b54310f824ba76594f80c10bbb7459
+import  -/  wxcore-0.92.3.0@wxcore-0.92.3.0-7crw4DOSyVYLnCcwhdBKS4:Graphics.UI.WXCore.WxcTypes 30d2cf586e9de67cea5712514876afd6
+12669b34c12f2d512658f046736184d8
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   Library.Interface.$trModule2
+                   Library.Interface.$trModule1) -}
+f73d8dbbe36349fe272a8a9b96673716
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Library.Interface"#) -}
+32ee9599c38bf9537478c49ef97a7d10
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u"#) -}
+dbbe5a10e6bdffba005694d0ea324e78
+  $wxs :: GHC.Prim.Int# -> [[[[GHC.Types.Char]]]]
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+acf629705b896cb3afae4d4529718cb8
+  type OneDayLecture = [[GHC.Base.String]]
+e9ac0e38d5631ab42a32b3e00c3f8f8b
+  type OneWeekLecture = [[[GHC.Base.String]]]
+4bcbf76b7371aca2448f6d92bb847759
+  createChoices ::
+    Graphics.UI.WXCore.WxcClassTypes.Frame ()
+    -> Library.Interface.OneWeekLecture
+    -> GHC.Types.IO Graphics.UI.WXCore.Layout.Layout
+  {- Arity: 3, Strictness: <L,U><S,1*U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Library.Interface.createChoices1
+                  `cast`
+                (<Graphics.UI.WXCore.WxcClassTypes.Frame ()>_R
+                 ->_R <Library.Interface.OneWeekLecture>_R
+                 ->_R Sym (GHC.Types.N:IO[0]
+                               <Graphics.UI.WXCore.Layout.Layout>_R)) -}
+cc56cb91bdb9ce2a99910c3b1bbf8141
+  createChoices1 ::
+    Graphics.UI.WXCore.WxcClassTypes.Frame ()
+    -> Library.Interface.OneWeekLecture
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Graphics.UI.WXCore.Layout.Layout #)
+  {- Arity: 3, Strictness: <L,U><S,1*U><S,U>,
+     Unfolding: (\ (f :: Graphics.UI.WXCore.WxcClassTypes.Frame ())
+                   (wl :: Library.Interface.OneWeekLecture)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case Library.Interface.createChoices7
+                        (GHC.Base.map
+                           @ [[GHC.Base.String]]
+                           @ (GHC.Types.IO Graphics.UI.WXCore.Layout.Layout)
+                           (\ (ol :: Library.Interface.OneDayLecture)
+                              (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                            case Library.Interface.createChoices6
+                                   (GHC.Base.map
+                                      @ [GHC.Base.String]
+                                      @ (GHC.Types.IO (Graphics.UI.WXCore.WxcClassTypes.Choice ()))
+                                      (\ (l :: [GHC.Base.String]) ->
+                                       Graphics.UI.WX.Controls.choiceEx
+                                         @ (Graphics.UI.WXCore.WxcClassTypes.CTopLevelWindow
+                                              (Graphics.UI.WXCore.WxcClassTypes.CFrame ()))
+                                         f
+                                         Graphics.UI.WX.Controls.$fSelectionObject17
+                                         (GHC.Types.:
+                                            @ (Graphics.UI.WX.Attributes.Prop
+                                                 (Graphics.UI.WXCore.WxcClassTypes.Choice ()))
+                                            (Graphics.UI.WX.Attributes.:=
+                                               @ (Graphics.UI.WXCore.WxcClassTypes.Choice ())
+                                               @ [GHC.Base.String]
+                                               (Graphics.UI.WX.Controls.$fItemsObject[]2_$citems
+                                                  @ ())
+                                               l)
+                                            (GHC.Types.[]
+                                               @ (Graphics.UI.WX.Attributes.Prop
+                                                    (Graphics.UI.WXCore.WxcClassTypes.Choice ())))))
+                                      ol)
+                                   s1 of ds1 { (#,#) ipv ipv1 ->
+                            (# ipv,
+                               let {
+                                 w2 :: [[Graphics.UI.WXCore.Layout.Layout]]
+                                 = GHC.Base.map
+                                     @ (Graphics.UI.WXCore.WxcObject.Object
+                                          (Graphics.UI.WXCore.WxcClassTypes.CWxObject
+                                             (Graphics.UI.WXCore.WxcClassTypes.CEvtHandler
+                                                (Graphics.UI.WXCore.WxcClassTypes.CWindow
+                                                   (Graphics.UI.WXCore.WxcClassTypes.CControl
+                                                      (Graphics.UI.WXCore.WxcClassTypes.CChoice
+                                                         ()))))))
+                                     @ [Graphics.UI.WXCore.Layout.Layout]
+                                     Library.Interface.createChoices5
+                                     ipv1
+                               } in
+                               let {
+                                 hashstretch :: Data.Monoid.Any
+                                 = Graphics.UI.WXCore.Layout.grid_go1
+                                     (Data.OldList.transpose @ Graphics.UI.WXCore.Layout.Layout w2)
+                               } in
+                               let {
+                                 hasvstretch :: Data.Monoid.Any
+                                 = Graphics.UI.WXCore.Layout.grid_go w2
+                               } in
+                               Graphics.UI.WXCore.Layout.Grid
+                                 (Graphics.UI.WXCore.Layout.LayoutOptions
+                                    hashstretch `cast` (Data.Monoid.N:Any[0])
+                                    hasvstretch `cast` (Data.Monoid.N:Any[0])
+                                    (GHC.Types.[] @ Graphics.UI.WXCore.Layout.Margin)
+                                    Graphics.UI.WXCore.Layout.layoutFromWindow1
+                                    Graphics.UI.WXCore.Layout.AlignLeft
+                                    Graphics.UI.WXCore.Layout.AlignTop
+                                    (case hasvstretch `cast` (Data.Monoid.N:Any[0]) of wild {
+                                       GHC.Types.False
+                                       -> case hashstretch `cast` (Data.Monoid.N:Any[0]) of wild1 {
+                                            GHC.Types.False -> Graphics.UI.WXCore.Layout.FillNone
+                                            GHC.Types.True -> Graphics.UI.WXCore.Layout.Fill }
+                                       GHC.Types.True -> Graphics.UI.WXCore.Layout.Fill })
+                                    (GHC.Base.Nothing @ Graphics.UI.WXCore.WxcTypes.Size)
+                                    GHC.Types.False)
+                                 Library.Interface.createChoices4
+                                 w2 #) })
+                             `cast`
+                           (<Library.Interface.OneDayLecture>_R
+                            ->_R Sym (GHC.Types.N:IO[0] <Graphics.UI.WXCore.Layout.Layout>_R))
+                           wl)
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    let {
+                      hashstretch :: Data.Monoid.Any
+                      = Graphics.UI.WXCore.Layout.grid_go1
+                          (Data.OldList.transpose_$stranspose
+                             @ Graphics.UI.WXCore.Layout.Layout
+                             ipv1
+                             (GHC.Types.[] @ [Graphics.UI.WXCore.Layout.Layout]))
+                    } in
+                    let {
+                      w2 :: [[Graphics.UI.WXCore.Layout.Layout]]
+                      = GHC.Types.:
+                          @ [Graphics.UI.WXCore.Layout.Layout]
+                          ipv1
+                          (GHC.Types.[] @ [Graphics.UI.WXCore.Layout.Layout])
+                    } in
+                    let {
+                      hasvstretch :: Data.Monoid.Any
+                      = Graphics.UI.WXCore.Layout.grid_go w2
+                    } in
+                    Graphics.UI.WXCore.Layout.Grid
+                      (Graphics.UI.WXCore.Layout.LayoutOptions
+                         hashstretch `cast` (Data.Monoid.N:Any[0])
+                         hasvstretch `cast` (Data.Monoid.N:Any[0])
+                         (GHC.Types.[] @ Graphics.UI.WXCore.Layout.Margin)
+                         Graphics.UI.WXCore.Layout.layoutFromWindow1
+                         Graphics.UI.WXCore.Layout.AlignLeft
+                         Graphics.UI.WXCore.Layout.AlignTop
+                         (case hasvstretch `cast` (Data.Monoid.N:Any[0]) of wild {
+                            GHC.Types.False
+                            -> case hashstretch `cast` (Data.Monoid.N:Any[0]) of wild1 {
+                                 GHC.Types.False -> Graphics.UI.WXCore.Layout.FillNone
+                                 GHC.Types.True -> Graphics.UI.WXCore.Layout.Fill }
+                            GHC.Types.True -> Graphics.UI.WXCore.Layout.Fill })
+                         (GHC.Base.Nothing @ Graphics.UI.WXCore.WxcTypes.Size)
+                         GHC.Types.False)
+                      Library.Interface.createChoices2
+                      w2 #) }) -}
+fad66ec349229ef18fffc0c60dbf40f8
+  createChoices2 :: Graphics.UI.WXCore.WxcTypes.Size2D GHC.Types.Int
+  {- HasNoCafRefs,
+     Unfolding: (Graphics.UI.WXCore.WxcTypes.Size
+                   @ GHC.Types.Int
+                   Library.Interface.createChoices3
+                   Graphics.UI.WXCore.Layout.column2) -}
+53139353db28141761d78773da890f53
+  createChoices3 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 10#) -}
+0b3d436cf6e16d048ef6f73238c0a2db
+  createChoices4 :: Graphics.UI.WXCore.WxcTypes.Size2D GHC.Types.Int
+  {- HasNoCafRefs,
+     Unfolding: (Graphics.UI.WXCore.WxcTypes.Size
+                   @ GHC.Types.Int
+                   Graphics.UI.WXCore.Layout.column2
+                   Library.Interface.createChoices3) -}
+35a5807ed8c359c1ce70264f8c97a558
+  createChoices5 ::
+    Graphics.UI.WXCore.WxcObject.Object
+      (Graphics.UI.WXCore.WxcClassTypes.CWxObject
+         (Graphics.UI.WXCore.WxcClassTypes.CEvtHandler
+            (Graphics.UI.WXCore.WxcClassTypes.CWindow
+               (Graphics.UI.WXCore.WxcClassTypes.CControl
+                  (Graphics.UI.WXCore.WxcClassTypes.CChoice ())))))
+    -> [Graphics.UI.WXCore.Layout.Layout]
+  {- Arity: 1,
+     Unfolding: (\ (x7 :: Graphics.UI.WXCore.WxcObject.Object
+                            (Graphics.UI.WXCore.WxcClassTypes.CWxObject
+                               (Graphics.UI.WXCore.WxcClassTypes.CEvtHandler
+                                  (Graphics.UI.WXCore.WxcClassTypes.CWindow
+                                     (Graphics.UI.WXCore.WxcClassTypes.CControl
+                                        (Graphics.UI.WXCore.WxcClassTypes.CChoice ())))))) ->
+                 GHC.Types.:
+                   @ Graphics.UI.WXCore.Layout.Layout
+                   (Graphics.UI.WXCore.Layout.layoutFromWindow
+                      @ (Graphics.UI.WXCore.WxcClassTypes.CControl
+                           (Graphics.UI.WXCore.WxcClassTypes.CChoice ()))
+                      x7)
+                   (GHC.Types.[] @ Graphics.UI.WXCore.Layout.Layout)) -}
+4dbe419bb6f648dfb3d9649a289e7a6c
+  createChoices6 ::
+    [GHC.Types.IO (Graphics.UI.WXCore.WxcClassTypes.Choice ())]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          [Graphics.UI.WXCore.WxcClassTypes.Choice ()] #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,U> -}
+62ec2e2e4a7e1da474e395d16b9b2a8d
+  createChoices7 ::
+    [GHC.Types.IO Graphics.UI.WXCore.Layout.Layout]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          [Graphics.UI.WXCore.Layout.Layout] #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,U> -}
+4a32f86c0483eabff62e061d09760b9e
+  createFrame ::
+    GHC.Types.IO (Graphics.UI.WXCore.WxcClassTypes.Frame ())
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Library.Interface.createFrame1
+                  `cast`
+                (Sym (GHC.Types.N:IO[0]
+                          <Graphics.UI.WXCore.WxcClassTypes.Frame ()>_R)) -}
+593943d863005e2998849af7c74657ad
+  createFrame1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Graphics.UI.WXCore.WxcClassTypes.Frame () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (1, True, True)
+                (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 Library.Interface.createFrame2
+                   `cast`
+                 (GHC.Types.N:IO[0] <Graphics.UI.WXCore.WxcClassTypes.Frame ()>_R)
+                   s) -}
+332afe777057cb36c6e6174934a24a8f
+  createFrame10 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 1000#) -}
+e5ea5f3811b0eda0c9c9c00dba7f6515
+  createFrame11 ::
+    Graphics.UI.WX.Attributes.Prop
+      (Graphics.UI.WXCore.WxcClassTypes.Frame ())
+  {- Unfolding: (Graphics.UI.WX.Attributes.:=
+                   @ (Graphics.UI.WXCore.WxcClassTypes.Frame ())
+                   @ GHC.Base.String
+                   (Graphics.UI.WX.Window.$fTextualObject_$ctext
+                      @ (Graphics.UI.WXCore.WxcClassTypes.CTopLevelWindow
+                           (Graphics.UI.WXCore.WxcClassTypes.CFrame ())))
+                   Library.Interface.createFrame12) -}
+91c5a54fc7a5602c7b5d5ae3d384f808
+  createFrame12 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Research"#) -}
+b95ec71d29a747c6073a5637f7636c6e
+  createFrame2 ::
+    GHC.Types.IO (Graphics.UI.WXCore.WxcClassTypes.Frame ())
+  {- Unfolding: (Graphics.UI.WX.Frame.frameEx
+                   @ GHC.Prim.Any
+                   Graphics.UI.WXCore.Frame.frameDefaultStyle
+                   Library.Interface.createFrame3
+                   (Graphics.UI.WXCore.WxcObject.objectNull
+                      @ (Graphics.UI.WXCore.WxcClassTypes.CWxObject
+                           (Graphics.UI.WXCore.WxcClassTypes.CEvtHandler
+                              (Graphics.UI.WXCore.WxcClassTypes.CWindow GHC.Prim.Any))))) -}
+a3853a353d014c4e5b6ad878ddbdc589
+  createFrame3 ::
+    [Graphics.UI.WX.Attributes.Prop
+       (Graphics.UI.WXCore.WxcClassTypes.Frame ())]
+  {- Unfolding: (GHC.Types.:
+                   @ (Graphics.UI.WX.Attributes.Prop
+                        (Graphics.UI.WXCore.WxcClassTypes.Frame ()))
+                   Library.Interface.createFrame11
+                   Library.Interface.createFrame4) -}
+419d535c5b5d3996d220dbae247a1aa0
+  createFrame4 ::
+    [Graphics.UI.WX.Attributes.Prop
+       (Graphics.UI.WXCore.WxcClassTypes.Frame ())]
+  {- Unfolding: (GHC.Types.:
+                   @ (Graphics.UI.WX.Attributes.Prop
+                        (Graphics.UI.WXCore.WxcClassTypes.Frame ()))
+                   Library.Interface.createFrame7
+                   Library.Interface.createFrame5) -}
+8b9a8786894f00a4df0cde208a441ca6
+  createFrame5 ::
+    [Graphics.UI.WX.Attributes.Prop
+       (Graphics.UI.WXCore.WxcClassTypes.Frame ())]
+  {- Unfolding: (GHC.Types.:
+                   @ (Graphics.UI.WX.Attributes.Prop
+                        (Graphics.UI.WXCore.WxcClassTypes.Frame ()))
+                   Library.Interface.createFrame6
+                   (GHC.Types.[]
+                      @ (Graphics.UI.WX.Attributes.Prop
+                           (Graphics.UI.WXCore.WxcClassTypes.Frame ())))) -}
+45fa5b5476bd0a0de39ed71f173cc4f7
+  createFrame6 ::
+    Graphics.UI.WX.Attributes.Prop
+      (Graphics.UI.WXCore.WxcClassTypes.Frame ())
+  {- Unfolding: (Graphics.UI.WX.Attributes.:=
+                   @ (Graphics.UI.WXCore.WxcClassTypes.Frame ())
+                   @ GHC.Types.Bool
+                   (Graphics.UI.WX.TopLevelWindow.windowResizeable
+                      @ (Graphics.UI.WXCore.WxcClassTypes.CTopLevelWindow
+                           (Graphics.UI.WXCore.WxcClassTypes.CFrame ())))
+                   GHC.Types.True) -}
+a50c11193e936206de9acb44c768a682
+  createFrame7 ::
+    Graphics.UI.WX.Attributes.Prop
+      (Graphics.UI.WXCore.WxcClassTypes.Frame ())
+  {- Unfolding: (Graphics.UI.WX.Attributes.:=
+                   @ (Graphics.UI.WXCore.WxcClassTypes.Frame ())
+                   @ Graphics.UI.WXCore.WxcTypes.Size
+                   (Graphics.UI.WX.Window.$fDimensionsObject_$cclientSize
+                      @ (Graphics.UI.WXCore.WxcClassTypes.CTopLevelWindow
+                           (Graphics.UI.WXCore.WxcClassTypes.CFrame ())))
+                   Library.Interface.createFrame8) -}
+37b3452a061676a48920f1b4d0b9a105
+  createFrame8 :: Graphics.UI.WXCore.WxcTypes.Size2D GHC.Types.Int
+  {- HasNoCafRefs,
+     Unfolding: (Graphics.UI.WXCore.WxcTypes.Size
+                   @ GHC.Types.Int
+                   Library.Interface.createFrame10
+                   Library.Interface.createFrame9) -}
+fa0ac3e97ed96982ae9b93a9c8d88d98
+  createFrame9 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 700#) -}
+827796ed4622f0b9d93e34d77c5e4823
+  run :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Library.Interface.run1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+8392b041a087f814c6855aca6bff0a60
+  run1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta :: GHC.Prim.State#
+                             GHC.Prim.RealWorld)[OneShot] ->
+                 case Graphics.UI.WXCore.GHCiSupport.enableGUI1
+                        eta of ds1 { (#,#) ipv ipv1 ->
+                 case Graphics.UI.WXCore.Events.appOnInit1
+                        Library.Interface.run2 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 case {__pkg_ccall_GC base-4.9.1.0 performMajorGC GHC.Prim.State#
+                                                                    GHC.Prim.RealWorld
+                                                                  -> (# GHC.Prim.State#
+                                                                          GHC.Prim.RealWorld #)}
+                        ipv2 of wild { Unit# ds3 ->
+                 case {__pkg_ccall_GC base-4.9.1.0 performMajorGC GHC.Prim.State#
+                                                                    GHC.Prim.RealWorld
+                                                                  -> (# GHC.Prim.State#
+                                                                          GHC.Prim.RealWorld #)}
+                        ds3 of wild1 { Unit# ds4 ->
+                 (# ds4, GHC.Tuple.() #) } } } }) -}
+5b600f76585ef9d51a04ebff3191aedc
+  run2 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case {__pkg_ccall_GC wxcore-0.92.3.0@wxcore-0.92.3.0-7crw4DOSyVYLnCcwhdBKS4 ELJApp_InitAllImageHandlers GHC.Prim.State#
+                                                                                                                           GHC.Prim.RealWorld
+                                                                                                                         -> (# GHC.Prim.State#
+                                                                                                                                 GHC.Prim.RealWorld #)}
+                        s of wild { Unit# ds2 ->
+                 case Library.Interface.createFrame2
+                        `cast`
+                      (GHC.Types.N:IO[0] <Graphics.UI.WXCore.WxcClassTypes.Frame ()>_R)
+                        ds2 of ds1 { (#,#) ipv ipv1 ->
+                 case Library.Interface.createChoices1
+                        ipv1
+                        Library.Interface.run3
+                        ipv of ds4 { (#,#) ipv2 ipv3 ->
+                 case Graphics.UI.WX.Attributes.set1
+                        @ (Graphics.UI.WXCore.WxcClassTypes.Frame ())
+                        ipv1
+                        (GHC.Types.:
+                           @ (Graphics.UI.WX.Attributes.Prop
+                                (Graphics.UI.WXCore.WxcClassTypes.Frame ()))
+                           (Graphics.UI.WX.Attributes.:=
+                              @ (Graphics.UI.WXCore.WxcClassTypes.Frame ())
+                              @ Graphics.UI.WXCore.Layout.Layout
+                              (Graphics.UI.WX.TopLevelWindow.$fFormObject_$clayout @ ())
+                              ipv3)
+                           (GHC.Types.[]
+                              @ (Graphics.UI.WX.Attributes.Prop
+                                   (Graphics.UI.WXCore.WxcClassTypes.Frame ()))))
+                        ipv2 of ds5 { (#,#) ipv4 ipv5 ->
+                 (# ipv4, GHC.Tuple.() #) } } } }) -}
+6263d073fee5ccda8de2ddfacb20dca1
+  run3 :: [[[[GHC.Types.Char]]]]
+  {- Unfolding: (Library.Interface.$wxs 7#) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

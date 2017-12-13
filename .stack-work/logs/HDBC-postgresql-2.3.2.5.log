@@ -1,0 +1,28 @@
+[1 of 2] Compiling Main             ( /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack2129/HDBC-postgresql-2.3.2.5/Setup.hs, /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack2129/HDBC-postgresql-2.3.2.5/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/Main.o )
+
+/private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack2129/HDBC-postgresql-2.3.2.5/Setup.hs:49:20: warning: [-Wdeprecations]
+    In the use of ‘findProgramLocation’
+    (imported from Distribution.Simple.Program, but defined in Distribution.Simple.Utils):
+    Deprecated: "No longer used within Cabal, try findProgramOnSearchPath"
+
+/private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack2129/HDBC-postgresql-2.3.2.5/Setup.hs:50:20: warning: [-Wdeprecations]
+    In the use of ‘findProgramLocation’
+    (imported from Distribution.Simple.Program, but defined in Distribution.Simple.Utils):
+    Deprecated: "No longer used within Cabal, try findProgramOnSearchPath"
+[2 of 2] Compiling StackSetupShim   ( /Users/Daiki/.stack/setup-exe-src/setup-shim-mPHDZzAJ.hs, /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack2129/HDBC-postgresql-2.3.2.5/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/StackSetupShim.o )
+Linking /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack2129/HDBC-postgresql-2.3.2.5/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/setup ...
+Configuring HDBC-postgresql-2.3.2.5...
+Building HDBC-postgresql-2.3.2.5...
+Preprocessing library HDBC-postgresql-2.3.2.5...
+[1 of 9] Compiling Database.HDBC.PostgreSQL.Types ( Database/HDBC/PostgreSQL/Types.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL/Types.o )
+[2 of 9] Compiling Database.HDBC.PostgreSQL.Utils ( .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL/Utils.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL/Utils.o )
+[3 of 9] Compiling Database.HDBC.PostgreSQL.Parser ( Database/HDBC/PostgreSQL/Parser.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL/Parser.o )
+[4 of 9] Compiling Database.HDBC.PostgreSQL.PTypeConv ( .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL/PTypeConv.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL/PTypeConv.o )
+[5 of 9] Compiling Database.HDBC.PostgreSQL.Statement ( .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL/Statement.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL/Statement.o )
+[6 of 9] Compiling Database.HDBC.PostgreSQL.ErrorCodes ( Database/HDBC/PostgreSQL/ErrorCodes.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL/ErrorCodes.o )
+[7 of 9] Compiling Database.HDBC.PostgreSQL.ConnectionImpl ( Database/HDBC/PostgreSQL/ConnectionImpl.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL/ConnectionImpl.o )
+[8 of 9] Compiling Database.HDBC.PostgreSQL.Connection ( .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL/Connection.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL/Connection.o )
+[9 of 9] Compiling Database.HDBC.PostgreSQL ( Database/HDBC/PostgreSQL.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL.o )
+Installing library in
+/Users/Daiki/Git/Research/.stack-work/install/x86_64-osx/lts-9.13/8.0.2/lib/x86_64-osx-ghc-8.0.2/HDBC-postgresql-2.3.2.5-8DjPA5M2Phy2z1B24f9HKN
+Registering HDBC-postgresql-2.3.2.5...

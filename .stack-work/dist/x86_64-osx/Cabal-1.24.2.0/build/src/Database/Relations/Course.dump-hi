@@ -1,0 +1,3113 @@
+
+==================== FINAL INTERFACE ====================
+2017-12-09 07:19:22.426219 UTC
+
+interface Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Course [family instance module] 8002
+  interface hash: 428deebc25d0d8c29246862002f6bae6
+  ABI hash: f44ff6f74beefde536a0ae22a72c6167
+  export-list hash: 497c789105c69a20c8cb9b5f484d1906
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 5320a755f0678d3de6dbb8c17ea710e9
+  sig of: Nothing
+  used TH splices: True
+  where
+exports:
+  Database.Relations.Course.columnOffsetsCourse
+  Database.Relations.Course.course
+  Database.Relations.Course.courseId'
+  Database.Relations.Course.insertCourse
+  Database.Relations.Course.insertQueryCourse
+  Database.Relations.Course.lectureId'
+  Database.Relations.Course.score'
+  Database.Relations.Course.selectCourse
+  Database.Relations.Course.studentId'
+  Database.Relations.Course.tableOfCourse
+  Database.Relations.Course.updateCourse
+  Database.Relations.Course.Course{Database.Relations.Course.Course courseId lectureId score studentId}
+module dependencies: Database.Record.TH.PostgreSQL
+package dependencies: HDBC-2.4.0.2@HDBC-2.4.0.2-CMf0h3SvMqFJUriR2hhqrA
+                      HDBC-postgresql-2.3.2.5@HDBC-postgresql-2.3.2.5-8DjPA5M2Phy2z1B24f9HKN
+                      HDBC-session-0.1.1.1@HDBC-session-0.1.1.1-8iI0BgP0QiAFY1v4elsx1d
+                      array-0.5.1.1@array-0.5.1.1 base-4.9.1.0
+                      binary-0.8.3.0@binary-0.8.3.0
+                      bytestring-0.10.8.1@bytestring-0.10.8.1
+                      containers-0.5.7.1@containers-0.5.7.1
+                      convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE
+                      deepseq-1.4.2.0@deepseq-1.4.2.0
+                      dlist-0.8.0.3@dlist-0.8.0.3-BHFBNaw8k6n9WiaUNzoXpk
+                      ghc-boot-th-8.0.2@ghc-boot-th-8.0.2 ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1 mtl-2.2.1@mtl-2.2.1-BLKBelFsPB3BoFeSWSOYj6
+                      names-th-0.2.0.3@names-th-0.2.0.3-FWd9uhhaPk73vacdw3xBxG
+                      old-locale-1.0.0.7@old-locale-1.0.0.7-KGBP1BSKxH5GCm0LnZP04j
+                      old-time-1.1.0.3@old-time-1.1.0.3-KWRsMSdY26c2L27Y9n9cyq
+                      parsec-3.1.11@parsec-3.1.11-1aqiimsgq2dCv7eoaC8WuX
+                      persistable-record-0.5.1.1@persistable-record-0.5.1.1-8Nzb50WMmIH2ecrfnqIMY
+                      pretty-1.1.3.3@pretty-1.1.3.3
+                      relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8
+                      relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0
+                      relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa
+                      sql-words-0.1.5.1@sql-words-0.1.5.1-6ekOanNrtOKYD1ABcjRAD
+                      template-haskell-2.11.1.0
+                      text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00
+                      th-data-compat-0.0.2.4@th-data-compat-0.0.2.4-GbISCvWnyQk60k5xubIzhH
+                      th-reify-compat-0.0.1.3@th-reify-compat-0.0.1.3-FdL2m7tyb2p89Gevm936I5
+                      time-1.6.0.1@time-1.6.0.1
+                      time-locale-compat-0.1.1.3@time-locale-compat-0.1.1.3-KZ1jqNx8uhlHjmuPPj6V1Y
+                      transformers-0.5.2.0@transformers-0.5.2.0
+                      utf8-string-1.0.1.1@utf8-string-1.0.1.1-1DpjxLeTvGg7ttZZojxJR5
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+         binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
+         bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE:Data.Convertible.Instances.C
+         convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE:Data.Convertible.Instances.Map
+         convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE:Data.Convertible.Instances.Num
+         convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE:Data.Convertible.Instances.Text
+         convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE:Data.Convertible.Instances.Time
+         persistable-record-0.5.1.1@persistable-record-0.5.1.1-8Nzb50WMmIH2ecrfnqIMY:Database.Record.Instances
+         persistable-record-0.5.1.1@persistable-record-0.5.1.1-8Nzb50WMmIH2ecrfnqIMY:Database.Record.TupleInstances
+         relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Monad.Aggregate
+         relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Projection
+         relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Pure
+         relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.TupleInstances
+         relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0:Database.HDBC.Record.Persistable
+         relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0:Database.HDBC.Schema.PostgreSQL
+         relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0:Database.HDBC.SqlValueExtra
+         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text
+         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text.Lazy
+         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text.Show
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
+         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Complex base-4.9.1.0:Data.Either
+                         base-4.9.1.0:Data.Functor.Const base-4.9.1.0:Data.Functor.Identity
+                         base-4.9.1.0:Data.List.NonEmpty base-4.9.1.0:Data.Monoid
+                         base-4.9.1.0:Data.Semigroup base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:Data.Version base-4.9.1.0:Data.Void
+                         base-4.9.1.0:GHC.Exts base-4.9.1.0:GHC.Generics
+                         base-4.9.1.0:GHC.IO.Exception base-4.9.1.0:GHC.TypeLits
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         dlist-0.8.0.3@dlist-0.8.0.3-BHFBNaw8k6n9WiaUNzoXpk:Data.DList
+                         ghc-boot-th-8.0.2@ghc-boot-th-8.0.2:GHC.LanguageExtensions.Type
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
+                         relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa:Database.Relational.Schema.PgCatalog.PgAttribute
+                         relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa:Database.Relational.Schema.PgCatalog.PgClass
+                         relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa:Database.Relational.Schema.PgCatalog.PgConstraint
+                         relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa:Database.Relational.Schema.PgCatalog.PgNamespace
+                         relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa:Database.Relational.Schema.PgCatalog.PgType
+                         template-haskell-2.11.1.0:Language.Haskell.TH.Syntax
+                         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text
+                         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text.Lazy
+import  -/  HDBC-2.4.0.2@HDBC-2.4.0.2-CMf0h3SvMqFJUriR2hhqrA:Database.HDBC.SqlValue 81c8c7ba328011d887c39476cf67caed
+import  -/  Database.Record.TH.PostgreSQL e196b55e2d7637d108cfb8ab34ba8970
+  exports: b41da3922b09972de925422838a4011b
+  defineTable ba3c3261311faca2b170936a284e77d6
+import  -/  array-0.5.1.1@array-0.5.1.1:Data.Array.Base a1a813de21dd195f39f7a053a2142a3f
+import  -/  base-4.9.1.0:GHC.Arr dbae05e7a9c0aba55cc706ecf0406507
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Generics 1dbec2bc7dd1c5bd8c89ed857eaed19b
+import  -/  base-4.9.1.0:GHC.Int e6f85fcab22769385fba2b5fce0acb40
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+import  -/  persistable-record-0.5.1.1@persistable-record-0.5.1.1-8Nzb50WMmIH2ecrfnqIMY:Database.Record.FromSql 7e729004faa8af09889fb54a8ec3b92b
+import  -/  persistable-record-0.5.1.1@persistable-record-0.5.1.1-8Nzb50WMmIH2ecrfnqIMY:Database.Record.KeyConstraint f4c8f549cd6adb080f72864b8e8b54bc
+import  -/  persistable-record-0.5.1.1@persistable-record-0.5.1.1-8Nzb50WMmIH2ecrfnqIMY:Database.Record.Persistable 1ebca24166184a0800431fb6bdcb7f49
+import  -/  persistable-record-0.5.1.1@persistable-record-0.5.1.1-8Nzb50WMmIH2ecrfnqIMY:Database.Record.ToSql 7ad42e7383d6911ede7b6e736e9e6eb8
+import  -/  relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Constraint 67b0f3b3e330dcc1b5e2bf7370efda97
+import  -/  relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Derives 6554064bbd92332a7e60a76713dfeb35
+import  -/  relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Monad.BaseType 0d6f3b243e166c0bee65a69da6258818
+import  -/  relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Pi c1150b1e2b5dc241ff85f9aac6a6e86d
+import  -/  relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Pi.Unsafe 74dd2540171737cd8688c8680a12feb9
+import  -/  relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.ProjectableClass b60bb16c0a3267d92438e804b95c5114
+import  -/  relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Relation b88e647d987f06689e2bd0841aedb368
+import  -/  relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Table 6b446be5743f5d6378c268c137ce27d6
+import  -/  relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Type d1402393a966655860ff9f46dcc3e30b
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fFromSqlSqlValueCourse ::
+    Database.Record.FromSql.FromSql
+      Database.HDBC.SqlValue.SqlValue Database.Relations.Course.Course
+  DFunId
+  {- Arity: 1, Strictness: <L,U>m, Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Database.Relations.Course.$fFromSqlSqlValueCourse_$crecordFromSql
+                  `cast`
+                (Sym (Database.Record.FromSql.N:FromSql[0]) <Database.HDBC.SqlValue.SqlValue>_N <Database.Relations.Course.Course>_N) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fFromSqlSqlValueCourse1 ::
+    [Database.HDBC.SqlValue.SqlValue]
+    -> (Database.Relations.Course.Course,
+        [Database.HDBC.SqlValue.SqlValue])
+  {- Arity: 1, Strictness: <L,U>m, Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: [Database.HDBC.SqlValue.SqlValue]) ->
+                 case Database.Relations.Course.$w$crecordFromSql
+                        w of ww { (#,#) ww1 ww2 ->
+                 (ww1, ww2) }) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fFromSqlSqlValueCourse_$crecordFromSql ::
+    Database.Record.FromSql.RecordFromSql
+      Database.HDBC.SqlValue.SqlValue Database.Relations.Course.Course
+  {- Arity: 1, Strictness: <L,U>m,
+     Unfolding: InlineRule (0, True, True)
+                Database.Relations.Course.$fFromSqlSqlValueCourse1
+                  `cast`
+                (Sym (Database.Record.FromSql.N:RecordFromSql[0]
+                          <Database.HDBC.SqlValue.SqlValue>_R
+                          <Database.Relations.Course.Course>_R)) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fGenericCourse ::
+    GHC.Generics.Generic Database.Relations.Course.Course
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Database.Relations.Course.Course
+                  Database.Relations.Course.$fGenericCourse_$cfrom
+                  Database.Relations.Course.$fGenericCourse_$cto -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fGenericCourse1 ::
+    Database.Relations.Course.Course
+    -> GHC.Generics.M1
+         GHC.Generics.C
+         ('GHC.Generics.MetaCons
+            "Course" 'GHC.Generics.PrefixI 'GHC.Types.True)
+         ((GHC.Generics.M1
+             GHC.Generics.S
+             ('GHC.Generics.MetaSel
+                ('GHC.Base.Just "courseId")
+                'GHC.Generics.NoSourceUnpackedness
+                'GHC.Generics.SourceStrict
+                'GHC.Generics.DecidedUnpack)
+             (GHC.Generics.K1 GHC.Generics.R GHC.Int.Int32)
+           GHC.Generics.:*: GHC.Generics.M1
+                              GHC.Generics.S
+                              ('GHC.Generics.MetaSel
+                                 ('GHC.Base.Just "studentId")
+                                 'GHC.Generics.NoSourceUnpackedness
+                                 'GHC.Generics.SourceStrict
+                                 'GHC.Generics.DecidedStrict)
+                              (GHC.Generics.K1 GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)))
+          GHC.Generics.:*: (GHC.Generics.M1
+                              GHC.Generics.S
+                              ('GHC.Generics.MetaSel
+                                 ('GHC.Base.Just "lectureId")
+                                 'GHC.Generics.NoSourceUnpackedness
+                                 'GHC.Generics.SourceStrict
+                                 'GHC.Generics.DecidedStrict)
+                              (GHC.Generics.K1 GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32))
+                            GHC.Generics.:*: GHC.Generics.M1
+                                               GHC.Generics.S
+                                               ('GHC.Generics.MetaSel
+                                                  ('GHC.Base.Just "score")
+                                                  'GHC.Generics.NoSourceUnpackedness
+                                                  'GHC.Generics.SourceStrict
+                                                  'GHC.Generics.DecidedStrict)
+                                               (GHC.Generics.K1
+                                                  GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32))))
+         x
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSSS),1*U(U,U,U,U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ x (x1 :: Database.Relations.Course.Course) ->
+                 case x1 of wild { Database.Relations.Course.Course dt g2 g3 g4 ->
+                 (GHC.Generics.:*:
+                    @ (GHC.Generics.M1
+                         GHC.Generics.S
+                         ('GHC.Generics.MetaSel
+                            ('GHC.Base.Just "courseId")
+                            'GHC.Generics.NoSourceUnpackedness
+                            'GHC.Generics.SourceStrict
+                            'GHC.Generics.DecidedUnpack)
+                         (GHC.Generics.K1 GHC.Generics.R GHC.Int.Int32)
+                       GHC.Generics.:*: GHC.Generics.M1
+                                          GHC.Generics.S
+                                          ('GHC.Generics.MetaSel
+                                             ('GHC.Base.Just "studentId")
+                                             'GHC.Generics.NoSourceUnpackedness
+                                             'GHC.Generics.SourceStrict
+                                             'GHC.Generics.DecidedStrict)
+                                          (GHC.Generics.K1
+                                             GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)))
+                    @ (GHC.Generics.M1
+                         GHC.Generics.S
+                         ('GHC.Generics.MetaSel
+                            ('GHC.Base.Just "lectureId")
+                            'GHC.Generics.NoSourceUnpackedness
+                            'GHC.Generics.SourceStrict
+                            'GHC.Generics.DecidedStrict)
+                         (GHC.Generics.K1 GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32))
+                       GHC.Generics.:*: GHC.Generics.M1
+                                          GHC.Generics.S
+                                          ('GHC.Generics.MetaSel
+                                             ('GHC.Base.Just "score")
+                                             'GHC.Generics.NoSourceUnpackedness
+                                             'GHC.Generics.SourceStrict
+                                             'GHC.Generics.DecidedStrict)
+                                          (GHC.Generics.K1
+                                             GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)))
+                    @ x
+                    (GHC.Generics.:*:
+                       @ (GHC.Generics.M1
+                            GHC.Generics.S
+                            ('GHC.Generics.MetaSel
+                               ('GHC.Base.Just "courseId")
+                               'GHC.Generics.NoSourceUnpackedness
+                               'GHC.Generics.SourceStrict
+                               'GHC.Generics.DecidedUnpack)
+                            (GHC.Generics.K1 GHC.Generics.R GHC.Int.Int32))
+                       @ (GHC.Generics.M1
+                            GHC.Generics.S
+                            ('GHC.Generics.MetaSel
+                               ('GHC.Base.Just "studentId")
+                               'GHC.Generics.NoSourceUnpackedness
+                               'GHC.Generics.SourceStrict
+                               'GHC.Generics.DecidedStrict)
+                            (GHC.Generics.K1 GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)))
+                       @ x
+                       (GHC.Int.I32# dt)
+                         `cast`
+                       (Trans
+                            (Sym (GHC.Generics.N:K1[0]
+                                      <GHC.Generics.R>_P <GHC.Int.Int32>_R <x>_P))
+                            (Sym (GHC.Generics.N:M1[0]
+                                      <GHC.Generics.S>_P
+                                      <'GHC.Generics.MetaSel
+                                         ('GHC.Base.Just "courseId")
+                                         'GHC.Generics.NoSourceUnpackedness
+                                         'GHC.Generics.SourceStrict
+                                         'GHC.Generics.DecidedUnpack>_P
+                                      <GHC.Generics.K1 GHC.Generics.R GHC.Int.Int32>_R) <x>_N))
+                       g2
+                         `cast`
+                       (Trans
+                            (Sym (GHC.Generics.N:K1[0]
+                                      <GHC.Generics.R>_P <GHC.Base.Maybe GHC.Int.Int32>_R <x>_P))
+                            (Sym (GHC.Generics.N:M1[0]
+                                      <GHC.Generics.S>_P
+                                      <'GHC.Generics.MetaSel
+                                         ('GHC.Base.Just "studentId")
+                                         'GHC.Generics.NoSourceUnpackedness
+                                         'GHC.Generics.SourceStrict
+                                         'GHC.Generics.DecidedStrict>_P
+                                      <GHC.Generics.K1
+                                         GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)>_R) <x>_N)))
+                    (GHC.Generics.:*:
+                       @ (GHC.Generics.M1
+                            GHC.Generics.S
+                            ('GHC.Generics.MetaSel
+                               ('GHC.Base.Just "lectureId")
+                               'GHC.Generics.NoSourceUnpackedness
+                               'GHC.Generics.SourceStrict
+                               'GHC.Generics.DecidedStrict)
+                            (GHC.Generics.K1 GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)))
+                       @ (GHC.Generics.M1
+                            GHC.Generics.S
+                            ('GHC.Generics.MetaSel
+                               ('GHC.Base.Just "score")
+                               'GHC.Generics.NoSourceUnpackedness
+                               'GHC.Generics.SourceStrict
+                               'GHC.Generics.DecidedStrict)
+                            (GHC.Generics.K1 GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)))
+                       @ x
+                       g3
+                         `cast`
+                       (Trans
+                            (Sym (GHC.Generics.N:K1[0]
+                                      <GHC.Generics.R>_P <GHC.Base.Maybe GHC.Int.Int32>_R <x>_P))
+                            (Sym (GHC.Generics.N:M1[0]
+                                      <GHC.Generics.S>_P
+                                      <'GHC.Generics.MetaSel
+                                         ('GHC.Base.Just "lectureId")
+                                         'GHC.Generics.NoSourceUnpackedness
+                                         'GHC.Generics.SourceStrict
+                                         'GHC.Generics.DecidedStrict>_P
+                                      <GHC.Generics.K1
+                                         GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)>_R) <x>_N))
+                       g4
+                         `cast`
+                       (Trans
+                            (Sym (GHC.Generics.N:K1[0]
+                                      <GHC.Generics.R>_P <GHC.Base.Maybe GHC.Int.Int32>_R <x>_P))
+                            (Sym (GHC.Generics.N:M1[0]
+                                      <GHC.Generics.S>_P
+                                      <'GHC.Generics.MetaSel
+                                         ('GHC.Base.Just "score")
+                                         'GHC.Generics.NoSourceUnpackedness
+                                         'GHC.Generics.SourceStrict
+                                         'GHC.Generics.DecidedStrict>_P
+                                      <GHC.Generics.K1
+                                         GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)>_R) <x>_N))))
+                   `cast`
+                 (Sym (GHC.Generics.N:M1[0]
+                           <GHC.Generics.C>_P
+                           <'GHC.Generics.MetaCons
+                              "Course" 'GHC.Generics.PrefixI 'GHC.Types.True>_P
+                           <(GHC.Generics.M1
+                               GHC.Generics.S
+                               ('GHC.Generics.MetaSel
+                                  ('GHC.Base.Just "courseId")
+                                  'GHC.Generics.NoSourceUnpackedness
+                                  'GHC.Generics.SourceStrict
+                                  'GHC.Generics.DecidedUnpack)
+                               (GHC.Generics.K1 GHC.Generics.R GHC.Int.Int32)
+                             GHC.Generics.:*: GHC.Generics.M1
+                                                GHC.Generics.S
+                                                ('GHC.Generics.MetaSel
+                                                   ('GHC.Base.Just "studentId")
+                                                   'GHC.Generics.NoSourceUnpackedness
+                                                   'GHC.Generics.SourceStrict
+                                                   'GHC.Generics.DecidedStrict)
+                                                (GHC.Generics.K1
+                                                   GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)))
+                            GHC.Generics.:*: (GHC.Generics.M1
+                                                GHC.Generics.S
+                                                ('GHC.Generics.MetaSel
+                                                   ('GHC.Base.Just "lectureId")
+                                                   'GHC.Generics.NoSourceUnpackedness
+                                                   'GHC.Generics.SourceStrict
+                                                   'GHC.Generics.DecidedStrict)
+                                                (GHC.Generics.K1
+                                                   GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32))
+                                              GHC.Generics.:*: GHC.Generics.M1
+                                                                 GHC.Generics.S
+                                                                 ('GHC.Generics.MetaSel
+                                                                    ('GHC.Base.Just "score")
+                                                                    'GHC.Generics.NoSourceUnpackedness
+                                                                    'GHC.Generics.SourceStrict
+                                                                    'GHC.Generics.DecidedStrict)
+                                                                 (GHC.Generics.K1
+                                                                    GHC.Generics.R
+                                                                    (GHC.Base.Maybe
+                                                                       GHC.Int.Int32)))>_R) <x>_N) }) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fGenericCourse_$cfrom ::
+    Database.Relations.Course.Course
+    -> GHC.Generics.Rep Database.Relations.Course.Course x
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSSS),1*U(U,U,U,U)>m,
+     Unfolding: InlineRule (0, True, True)
+                Database.Relations.Course.$fGenericCourse1
+                  `cast`
+                (forall (x :: <GHC.Types.*>_N).
+                 <Database.Relations.Course.Course>_R
+                 ->_R Trans
+                          (Sym (GHC.Generics.N:M1[0]
+                                    <GHC.Generics.D>_P
+                                    <'GHC.Generics.MetaData
+                                       "Course"
+                                       "Database.Relations.Course"
+                                       "Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u"
+                                       'GHC.Types.False>_P
+                                    <GHC.Generics.M1
+                                       GHC.Generics.C
+                                       ('GHC.Generics.MetaCons
+                                          "Course" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                                       ((GHC.Generics.M1
+                                           GHC.Generics.S
+                                           ('GHC.Generics.MetaSel
+                                              ('GHC.Base.Just "courseId")
+                                              'GHC.Generics.NoSourceUnpackedness
+                                              'GHC.Generics.SourceStrict
+                                              'GHC.Generics.DecidedUnpack)
+                                           (GHC.Generics.K1 GHC.Generics.R GHC.Int.Int32)
+                                         GHC.Generics.:*: GHC.Generics.M1
+                                                            GHC.Generics.S
+                                                            ('GHC.Generics.MetaSel
+                                                               ('GHC.Base.Just "studentId")
+                                                               'GHC.Generics.NoSourceUnpackedness
+                                                               'GHC.Generics.SourceStrict
+                                                               'GHC.Generics.DecidedStrict)
+                                                            (GHC.Generics.K1
+                                                               GHC.Generics.R
+                                                               (GHC.Base.Maybe GHC.Int.Int32)))
+                                        GHC.Generics.:*: (GHC.Generics.M1
+                                                            GHC.Generics.S
+                                                            ('GHC.Generics.MetaSel
+                                                               ('GHC.Base.Just "lectureId")
+                                                               'GHC.Generics.NoSourceUnpackedness
+                                                               'GHC.Generics.SourceStrict
+                                                               'GHC.Generics.DecidedStrict)
+                                                            (GHC.Generics.K1
+                                                               GHC.Generics.R
+                                                               (GHC.Base.Maybe GHC.Int.Int32))
+                                                          GHC.Generics.:*: GHC.Generics.M1
+                                                                             GHC.Generics.S
+                                                                             ('GHC.Generics.MetaSel
+                                                                                ('GHC.Base.Just
+                                                                                   "score")
+                                                                                'GHC.Generics.NoSourceUnpackedness
+                                                                                'GHC.Generics.SourceStrict
+                                                                                'GHC.Generics.DecidedStrict)
+                                                                             (GHC.Generics.K1
+                                                                                GHC.Generics.R
+                                                                                (GHC.Base.Maybe
+                                                                                   GHC.Int.Int32))))>_R))
+                          (Sub (Sym (Database.Relations.Course.Rep_Course[0]))) <x>_N) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fGenericCourse_$cto ::
+    GHC.Generics.Rep Database.Relations.Course.Course x
+    -> Database.Relations.Course.Course
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(S(SS)S(SS)),1*U(1*U(U,U),1*U(U,U))>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ x
+                   (ds :: GHC.Generics.Rep Database.Relations.Course.Course x) ->
+                 case ds
+                        `cast`
+                      (Trans
+                           (Sub (Database.Relations.Course.Rep_Course[0]))
+                           (Trans
+                                (GHC.Generics.N:M1[0]
+                                     <GHC.Generics.D>_P
+                                     <'GHC.Generics.MetaData
+                                        "Course"
+                                        "Database.Relations.Course"
+                                        "Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u"
+                                        'GHC.Types.False>_P
+                                     <GHC.Generics.M1
+                                        GHC.Generics.C
+                                        ('GHC.Generics.MetaCons
+                                           "Course" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                                        ((GHC.Generics.M1
+                                            GHC.Generics.S
+                                            ('GHC.Generics.MetaSel
+                                               ('GHC.Base.Just "courseId")
+                                               'GHC.Generics.NoSourceUnpackedness
+                                               'GHC.Generics.SourceStrict
+                                               'GHC.Generics.DecidedUnpack)
+                                            (GHC.Generics.K1 GHC.Generics.R GHC.Int.Int32)
+                                          GHC.Generics.:*: GHC.Generics.M1
+                                                             GHC.Generics.S
+                                                             ('GHC.Generics.MetaSel
+                                                                ('GHC.Base.Just "studentId")
+                                                                'GHC.Generics.NoSourceUnpackedness
+                                                                'GHC.Generics.SourceStrict
+                                                                'GHC.Generics.DecidedStrict)
+                                                             (GHC.Generics.K1
+                                                                GHC.Generics.R
+                                                                (GHC.Base.Maybe GHC.Int.Int32)))
+                                         GHC.Generics.:*: (GHC.Generics.M1
+                                                             GHC.Generics.S
+                                                             ('GHC.Generics.MetaSel
+                                                                ('GHC.Base.Just "lectureId")
+                                                                'GHC.Generics.NoSourceUnpackedness
+                                                                'GHC.Generics.SourceStrict
+                                                                'GHC.Generics.DecidedStrict)
+                                                             (GHC.Generics.K1
+                                                                GHC.Generics.R
+                                                                (GHC.Base.Maybe GHC.Int.Int32))
+                                                           GHC.Generics.:*: GHC.Generics.M1
+                                                                              GHC.Generics.S
+                                                                              ('GHC.Generics.MetaSel
+                                                                                 ('GHC.Base.Just
+                                                                                    "score")
+                                                                                 'GHC.Generics.NoSourceUnpackedness
+                                                                                 'GHC.Generics.SourceStrict
+                                                                                 'GHC.Generics.DecidedStrict)
+                                                                              (GHC.Generics.K1
+                                                                                 GHC.Generics.R
+                                                                                 (GHC.Base.Maybe
+                                                                                    GHC.Int.Int32))))>_R)
+                                (GHC.Generics.N:M1[0]
+                                     <GHC.Generics.C>_P
+                                     <'GHC.Generics.MetaCons
+                                        "Course" 'GHC.Generics.PrefixI 'GHC.Types.True>_P
+                                     <(GHC.Generics.M1
+                                         GHC.Generics.S
+                                         ('GHC.Generics.MetaSel
+                                            ('GHC.Base.Just "courseId")
+                                            'GHC.Generics.NoSourceUnpackedness
+                                            'GHC.Generics.SourceStrict
+                                            'GHC.Generics.DecidedUnpack)
+                                         (GHC.Generics.K1 GHC.Generics.R GHC.Int.Int32)
+                                       GHC.Generics.:*: GHC.Generics.M1
+                                                          GHC.Generics.S
+                                                          ('GHC.Generics.MetaSel
+                                                             ('GHC.Base.Just "studentId")
+                                                             'GHC.Generics.NoSourceUnpackedness
+                                                             'GHC.Generics.SourceStrict
+                                                             'GHC.Generics.DecidedStrict)
+                                                          (GHC.Generics.K1
+                                                             GHC.Generics.R
+                                                             (GHC.Base.Maybe GHC.Int.Int32)))
+                                      GHC.Generics.:*: (GHC.Generics.M1
+                                                          GHC.Generics.S
+                                                          ('GHC.Generics.MetaSel
+                                                             ('GHC.Base.Just "lectureId")
+                                                             'GHC.Generics.NoSourceUnpackedness
+                                                             'GHC.Generics.SourceStrict
+                                                             'GHC.Generics.DecidedStrict)
+                                                          (GHC.Generics.K1
+                                                             GHC.Generics.R
+                                                             (GHC.Base.Maybe GHC.Int.Int32))
+                                                        GHC.Generics.:*: GHC.Generics.M1
+                                                                           GHC.Generics.S
+                                                                           ('GHC.Generics.MetaSel
+                                                                              ('GHC.Base.Just
+                                                                                 "score")
+                                                                              'GHC.Generics.NoSourceUnpackedness
+                                                                              'GHC.Generics.SourceStrict
+                                                                              'GHC.Generics.DecidedStrict)
+                                                                           (GHC.Generics.K1
+                                                                              GHC.Generics.R
+                                                                              (GHC.Base.Maybe
+                                                                                 GHC.Int.Int32)))>_R)) <x>_N) of wild { GHC.Generics.:*: ds1 ds2 ->
+                 case ds1 of wild1 { GHC.Generics.:*: ds3 ds4 ->
+                 case ds2 of wild2 { GHC.Generics.:*: ds5 ds6 ->
+                 Database.Relations.Course.$WCourse
+                   ds3
+                     `cast`
+                   (Trans
+                        (GHC.Generics.N:M1[0]
+                             <GHC.Generics.S>_P
+                             <'GHC.Generics.MetaSel
+                                ('GHC.Base.Just "courseId")
+                                'GHC.Generics.NoSourceUnpackedness
+                                'GHC.Generics.SourceStrict
+                                'GHC.Generics.DecidedUnpack>_P
+                             <GHC.Generics.K1 GHC.Generics.R GHC.Int.Int32>_R <x>_N)
+                        (GHC.Generics.N:K1[0] <GHC.Generics.R>_P <GHC.Int.Int32>_R <x>_P))
+                   ds4
+                     `cast`
+                   (Trans
+                        (GHC.Generics.N:M1[0]
+                             <GHC.Generics.S>_P
+                             <'GHC.Generics.MetaSel
+                                ('GHC.Base.Just "studentId")
+                                'GHC.Generics.NoSourceUnpackedness
+                                'GHC.Generics.SourceStrict
+                                'GHC.Generics.DecidedStrict>_P
+                             <GHC.Generics.K1
+                                GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)>_R <x>_N)
+                        (GHC.Generics.N:K1[0]
+                             <GHC.Generics.R>_P <GHC.Base.Maybe GHC.Int.Int32>_R <x>_P))
+                   ds5
+                     `cast`
+                   (Trans
+                        (GHC.Generics.N:M1[0]
+                             <GHC.Generics.S>_P
+                             <'GHC.Generics.MetaSel
+                                ('GHC.Base.Just "lectureId")
+                                'GHC.Generics.NoSourceUnpackedness
+                                'GHC.Generics.SourceStrict
+                                'GHC.Generics.DecidedStrict>_P
+                             <GHC.Generics.K1
+                                GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)>_R <x>_N)
+                        (GHC.Generics.N:K1[0]
+                             <GHC.Generics.R>_P <GHC.Base.Maybe GHC.Int.Int32>_R <x>_P))
+                   ds6
+                     `cast`
+                   (Trans
+                        (GHC.Generics.N:M1[0]
+                             <GHC.Generics.S>_P
+                             <'GHC.Generics.MetaSel
+                                ('GHC.Base.Just "score")
+                                'GHC.Generics.NoSourceUnpackedness
+                                'GHC.Generics.SourceStrict
+                                'GHC.Generics.DecidedStrict>_P
+                             <GHC.Generics.K1
+                                GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)>_R <x>_N)
+                        (GHC.Generics.N:K1[0]
+                             <GHC.Generics.R>_P
+                             <GHC.Base.Maybe GHC.Int.Int32>_R
+                             <x>_P)) } } }) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fHasColumnConstraintNotNullCourse ::
+    Database.Record.KeyConstraint.HasColumnConstraint
+      Database.Record.KeyConstraint.NotNull
+      Database.Relations.Course.Course
+  DFunId
+  {- Strictness: m, Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Database.Relations.Course.$fHasColumnConstraintNotNullCourse_$ccolumnConstraint
+                  `cast`
+                (Sym (Database.Record.KeyConstraint.N:HasColumnConstraint[0]) <Database.Record.KeyConstraint.NotNull>_N <Database.Relations.Course.Course>_N) -}
+6b940dd8ec59522d06c27d9d706ee9c5
+  $fHasColumnConstraintNotNullCourse1 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fHasColumnConstraintNotNullCourse_$ccolumnConstraint ::
+    Database.Record.KeyConstraint.ColumnConstraint
+      Database.Record.KeyConstraint.NotNull
+      Database.Relations.Course.Course
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                Database.Relations.Course.$fHasColumnConstraintNotNullCourse1
+                  `cast`
+                (Sym (Database.Record.KeyConstraint.N:ColumnConstraint[0]
+                          <Database.Record.KeyConstraint.NotNull>_P
+                          <Database.Relations.Course.Course>_P)) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fHasColumnConstraintPrimaryCourse ::
+    Database.Record.KeyConstraint.HasColumnConstraint
+      Database.Record.KeyConstraint.Primary
+      Database.Relations.Course.Course
+  DFunId
+  {- Strictness: m, Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Database.Relations.Course.$fHasColumnConstraintPrimaryCourse_$ccolumnConstraint
+                  `cast`
+                (Sym (Database.Record.KeyConstraint.N:HasColumnConstraint[0]) <Database.Record.KeyConstraint.Primary>_N <Database.Relations.Course.Course>_N) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fHasColumnConstraintPrimaryCourse_$ccolumnConstraint ::
+    Database.Record.KeyConstraint.ColumnConstraint
+      Database.Record.KeyConstraint.Primary
+      Database.Relations.Course.Course
+  {- Strictness: m,
+     Unfolding: InlineRule (0, True, True)
+                Database.Relations.Course.$fHasColumnConstraintNotNullCourse1
+                  `cast`
+                (Sym (Database.Record.KeyConstraint.N:ColumnConstraint[0]
+                          <Database.Record.KeyConstraint.Primary>_P
+                          <Database.Relations.Course.Course>_P)) -}
+33dda173f182b9637220cf3bb5469c01
+  $fHasConstraintKeyPrimaryCourseInt1 :: [GHC.Types.Int]
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   Database.Relations.Course.$fHasColumnConstraintNotNullCourse1
+                   (GHC.Types.[] @ GHC.Types.Int)) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fHasConstraintKeyPrimaryCourseInt32 ::
+    Database.Relational.Query.Constraint.HasConstraintKey
+      Database.Record.KeyConstraint.Primary
+      Database.Relations.Course.Course
+      GHC.Int.Int32
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Database.Record.KeyConstraint.Primary
+                  @ Database.Relations.Course.Course
+                  @ GHC.Int.Int32
+                  (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                    `cast`
+                  (Sym (Database.Record.Persistable.N:PersistableWidth[0]) <GHC.Int.Int32>_N)
+                  Database.Relations.Course.$fHasConstraintKeyPrimaryCourseInt32_$cconstraintKey -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fHasConstraintKeyPrimaryCourseInt32_$cconstraintKey ::
+    Database.Relational.Query.Constraint.Key
+      Database.Record.KeyConstraint.Primary
+      Database.Relations.Course.Course
+      GHC.Int.Int32
+  {- Strictness: m,
+     Unfolding: (Database.Relational.Query.Constraint.Key
+                   @ Database.Record.KeyConstraint.Primary
+                   @ Database.Relations.Course.Course
+                   @ GHC.Int.Int32
+                   Database.Relations.Course.$fHasConstraintKeyPrimaryCourseInt1
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fHasKeyConstraintPrimaryCourse ::
+    Database.Record.KeyConstraint.HasKeyConstraint
+      Database.Record.KeyConstraint.Primary
+      Database.Relations.Course.Course
+  DFunId
+  {- Strictness: m2, Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Database.Relations.Course.$fHasKeyConstraintPrimaryCourse_$ckeyConstraint
+                  `cast`
+                (Sym (Database.Record.KeyConstraint.N:HasKeyConstraint[0]) <Database.Record.KeyConstraint.Primary>_N <Database.Relations.Course.Course>_N) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fHasKeyConstraintPrimaryCourse_$ckeyConstraint ::
+    Database.Record.KeyConstraint.KeyConstraint
+      Database.Record.KeyConstraint.Primary
+      Database.Relations.Course.Course
+  {- Strictness: m2,
+     Unfolding: InlineRule (0, True, True)
+                Database.Relations.Course.$fHasConstraintKeyPrimaryCourseInt1
+                  `cast`
+                (Sym (Database.Record.KeyConstraint.N:KeyConstraint[0]
+                          <Database.Record.KeyConstraint.Primary>_P
+                          <Database.Relations.Course.Course>_P)) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fPersistableWidthCourse ::
+    Database.Record.Persistable.PersistableWidth
+      Database.Relations.Course.Course
+  DFunId
+  {- Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Database.Relations.Course.$fPersistableWidthCourse_$s$dmpersistableWidth
+                  `cast`
+                (Sym (Database.Record.Persistable.N:PersistableWidth[0]) <Database.Relations.Course.Course>_N) -}
+2a268d84379b44f4a1c336fced7d58c6
+  $fPersistableWidthCourse1 ::
+    Database.Record.Persistable.GFieldWidthList
+      (GHC.Generics.D1
+         ('GHC.Generics.MetaData
+            "Course"
+            "Database.Relations.Course"
+            "Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u"
+            'GHC.Types.False)
+         (GHC.Generics.C1
+            ('GHC.Generics.MetaCons
+               "Course" 'GHC.Generics.PrefixI 'GHC.Types.True)
+            ((GHC.Generics.S1
+                ('GHC.Generics.MetaSel
+                   ('GHC.Base.Just "courseId")
+                   'GHC.Generics.NoSourceUnpackedness
+                   'GHC.Generics.SourceStrict
+                   'GHC.Generics.DecidedUnpack)
+                (GHC.Generics.Rec0 GHC.Int.Int32)
+              GHC.Generics.:*: GHC.Generics.S1
+                                 ('GHC.Generics.MetaSel
+                                    ('GHC.Base.Just "studentId")
+                                    'GHC.Generics.NoSourceUnpackedness
+                                    'GHC.Generics.SourceStrict
+                                    'GHC.Generics.DecidedStrict)
+                                 (GHC.Generics.Rec0 (GHC.Base.Maybe GHC.Int.Int32)))
+             GHC.Generics.:*: (GHC.Generics.S1
+                                 ('GHC.Generics.MetaSel
+                                    ('GHC.Base.Just "lectureId")
+                                    'GHC.Generics.NoSourceUnpackedness
+                                    'GHC.Generics.SourceStrict
+                                    'GHC.Generics.DecidedStrict)
+                                 (GHC.Generics.Rec0 (GHC.Base.Maybe GHC.Int.Int32))
+                               GHC.Generics.:*: GHC.Generics.S1
+                                                  ('GHC.Generics.MetaSel
+                                                     ('GHC.Base.Just "score")
+                                                     'GHC.Generics.NoSourceUnpackedness
+                                                     'GHC.Generics.SourceStrict
+                                                     'GHC.Generics.DecidedStrict)
+                                                  (GHC.Generics.Rec0
+                                                     (GHC.Base.Maybe GHC.Int.Int32))))))
+  {- Arity: 1, Strictness: <L,U>m2,
+     Unfolding: InlineRule (0, True, True)
+                Database.Relations.Course.$fPersistableWidthCourse2
+                  `cast`
+                (Trans
+                     (forall (a2 :: <*>_N).
+                      Trans
+                          (Sym (Data.DList.N:DList[0] <GHC.Types.Int>_R))
+                          (Trans
+                               (Sym (Data.Functor.Const.N:Const[0]
+                                         <*>_N
+                                         <Data.DList.DList GHC.Types.Int>_R
+                                         <GHC.Generics.M1
+                                            GHC.Generics.D
+                                            ('GHC.Generics.MetaData
+                                               "Course"
+                                               "Database.Relations.Course"
+                                               "Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u"
+                                               'GHC.Types.False)
+                                            (GHC.Generics.M1
+                                               GHC.Generics.C
+                                               ('GHC.Generics.MetaCons
+                                                  "Course" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                                               ((GHC.Generics.S1
+                                                   ('GHC.Generics.MetaSel
+                                                      ('GHC.Base.Just "courseId")
+                                                      'GHC.Generics.NoSourceUnpackedness
+                                                      'GHC.Generics.SourceStrict
+                                                      'GHC.Generics.DecidedUnpack)
+                                                   (GHC.Generics.Rec0 GHC.Int.Int32)
+                                                 GHC.Generics.:*: GHC.Generics.S1
+                                                                    ('GHC.Generics.MetaSel
+                                                                       ('GHC.Base.Just "studentId")
+                                                                       'GHC.Generics.NoSourceUnpackedness
+                                                                       'GHC.Generics.SourceStrict
+                                                                       'GHC.Generics.DecidedStrict)
+                                                                    (GHC.Generics.Rec0
+                                                                       (GHC.Base.Maybe
+                                                                          GHC.Int.Int32)))
+                                                GHC.Generics.:*: (GHC.Generics.S1
+                                                                    ('GHC.Generics.MetaSel
+                                                                       ('GHC.Base.Just "lectureId")
+                                                                       'GHC.Generics.NoSourceUnpackedness
+                                                                       'GHC.Generics.SourceStrict
+                                                                       'GHC.Generics.DecidedStrict)
+                                                                    (GHC.Generics.Rec0
+                                                                       (GHC.Base.Maybe
+                                                                          GHC.Int.Int32))
+                                                                  GHC.Generics.:*: GHC.Generics.S1
+                                                                                     ('GHC.Generics.MetaSel
+                                                                                        ('GHC.Base.Just
+                                                                                           "score")
+                                                                                        'GHC.Generics.NoSourceUnpackedness
+                                                                                        'GHC.Generics.SourceStrict
+                                                                                        'GHC.Generics.DecidedStrict)
+                                                                                     (GHC.Generics.Rec0
+                                                                                        (GHC.Base.Maybe
+                                                                                           GHC.Int.Int32)))))
+                                            a2>_P))
+                               (Sym (Database.Record.Persistable.N:ProductConst[0]) <Data.DList.DList
+                                                                                       GHC.Types.Int>_N <GHC.Generics.M1
+                                                                                                           GHC.Generics.D
+                                                                                                           ('GHC.Generics.MetaData
+                                                                                                              "Course"
+                                                                                                              "Database.Relations.Course"
+                                                                                                              "Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u"
+                                                                                                              'GHC.Types.False)
+                                                                                                           (GHC.Generics.M1
+                                                                                                              GHC.Generics.C
+                                                                                                              ('GHC.Generics.MetaCons
+                                                                                                                 "Course"
+                                                                                                                 'GHC.Generics.PrefixI
+                                                                                                                 'GHC.Types.True)
+                                                                                                              ((GHC.Generics.S1
+                                                                                                                  ('GHC.Generics.MetaSel
+                                                                                                                     ('GHC.Base.Just
+                                                                                                                        "courseId")
+                                                                                                                     'GHC.Generics.NoSourceUnpackedness
+                                                                                                                     'GHC.Generics.SourceStrict
+                                                                                                                     'GHC.Generics.DecidedUnpack)
+                                                                                                                  (GHC.Generics.Rec0
+                                                                                                                     GHC.Int.Int32)
+                                                                                                                GHC.Generics.:*: GHC.Generics.S1
+                                                                                                                                   ('GHC.Generics.MetaSel
+                                                                                                                                      ('GHC.Base.Just
+                                                                                                                                         "studentId")
+                                                                                                                                      'GHC.Generics.NoSourceUnpackedness
+                                                                                                                                      'GHC.Generics.SourceStrict
+                                                                                                                                      'GHC.Generics.DecidedStrict)
+                                                                                                                                   (GHC.Generics.Rec0
+                                                                                                                                      (GHC.Base.Maybe
+                                                                                                                                         GHC.Int.Int32)))
+                                                                                                               GHC.Generics.:*: (GHC.Generics.S1
+                                                                                                                                   ('GHC.Generics.MetaSel
+                                                                                                                                      ('GHC.Base.Just
+                                                                                                                                         "lectureId")
+                                                                                                                                      'GHC.Generics.NoSourceUnpackedness
+                                                                                                                                      'GHC.Generics.SourceStrict
+                                                                                                                                      'GHC.Generics.DecidedStrict)
+                                                                                                                                   (GHC.Generics.Rec0
+                                                                                                                                      (GHC.Base.Maybe
+                                                                                                                                         GHC.Int.Int32))
+                                                                                                                                 GHC.Generics.:*: GHC.Generics.S1
+                                                                                                                                                    ('GHC.Generics.MetaSel
+                                                                                                                                                       ('GHC.Base.Just
+                                                                                                                                                          "score")
+                                                                                                                                                       'GHC.Generics.NoSourceUnpackedness
+                                                                                                                                                       'GHC.Generics.SourceStrict
+                                                                                                                                                       'GHC.Generics.DecidedStrict)
+                                                                                                                                                    (GHC.Generics.Rec0
+                                                                                                                                                       (GHC.Base.Maybe
+                                                                                                                                                          GHC.Int.Int32)))))
+                                                                                                           a2>_N)))
+                     (Sym (Database.Record.Persistable.N:GFieldWidthList[0]
+                               <GHC.Generics.M1
+                                  GHC.Generics.D
+                                  ('GHC.Generics.MetaData
+                                     "Course"
+                                     "Database.Relations.Course"
+                                     "Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u"
+                                     'GHC.Types.False)
+                                  (GHC.Generics.M1
+                                     GHC.Generics.C
+                                     ('GHC.Generics.MetaCons
+                                        "Course" 'GHC.Generics.PrefixI 'GHC.Types.True)
+                                     ((GHC.Generics.S1
+                                         ('GHC.Generics.MetaSel
+                                            ('GHC.Base.Just "courseId")
+                                            'GHC.Generics.NoSourceUnpackedness
+                                            'GHC.Generics.SourceStrict
+                                            'GHC.Generics.DecidedUnpack)
+                                         (GHC.Generics.Rec0 GHC.Int.Int32)
+                                       GHC.Generics.:*: GHC.Generics.S1
+                                                          ('GHC.Generics.MetaSel
+                                                             ('GHC.Base.Just "studentId")
+                                                             'GHC.Generics.NoSourceUnpackedness
+                                                             'GHC.Generics.SourceStrict
+                                                             'GHC.Generics.DecidedStrict)
+                                                          (GHC.Generics.Rec0
+                                                             (GHC.Base.Maybe GHC.Int.Int32)))
+                                      GHC.Generics.:*: (GHC.Generics.S1
+                                                          ('GHC.Generics.MetaSel
+                                                             ('GHC.Base.Just "lectureId")
+                                                             'GHC.Generics.NoSourceUnpackedness
+                                                             'GHC.Generics.SourceStrict
+                                                             'GHC.Generics.DecidedStrict)
+                                                          (GHC.Generics.Rec0
+                                                             (GHC.Base.Maybe GHC.Int.Int32))
+                                                        GHC.Generics.:*: GHC.Generics.S1
+                                                                           ('GHC.Generics.MetaSel
+                                                                              ('GHC.Base.Just
+                                                                                 "score")
+                                                                              'GHC.Generics.NoSourceUnpackedness
+                                                                              'GHC.Generics.SourceStrict
+                                                                              'GHC.Generics.DecidedStrict)
+                                                                           (GHC.Generics.Rec0
+                                                                              (GHC.Base.Maybe
+                                                                                 GHC.Int.Int32)))))>_N))) -}
+45e30384ddc86b5fb1b3bfeb74c3d72e
+  $fPersistableWidthCourse2 :: [GHC.Types.Int] -> [GHC.Types.Int]
+  {- Arity: 1, Strictness: <L,U>m2,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a2 (eta :: [GHC.Types.Int]) ->
+                 GHC.Types.:
+                   @ GHC.Types.Int
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                     `cast`
+                   (Trans
+                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                          GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                        (Trans
+                             (Data.Functor.Const.N:Const[0]
+                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <GHC.Int.Int32>_P)
+                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                   (GHC.Types.:
+                      @ GHC.Types.Int
+                      (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                        `cast`
+                      (Trans
+                           (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                             GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                           (Trans
+                                (Data.Functor.Const.N:Const[0]
+                                     <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <GHC.Int.Int32>_P)
+                                (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                      (GHC.Types.:
+                         @ GHC.Types.Int
+                         (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                           `cast`
+                         (Trans
+                              (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                                GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                              (Trans
+                                   (Data.Functor.Const.N:Const[0]
+                                        <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <GHC.Int.Int32>_P)
+                                   (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                         (GHC.Types.:
+                            @ GHC.Types.Int
+                            (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                              `cast`
+                            (Trans
+                                 (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                                   GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                                 (Trans
+                                      (Data.Functor.Const.N:Const[0]
+                                           <*>_N
+                                           <Data.Monoid.Sum GHC.Types.Int>_R
+                                           <GHC.Int.Int32>_P)
+                                      (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                            eta)))) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fPersistableWidthCourse_$s$dmpersistableWidth ::
+    Database.Record.Persistable.PersistableRecordWidth
+      Database.Relations.Course.Course
+  {- Unfolding: InlineRule (-3, True, False)
+                (Database.Record.Persistable.pmapConst
+                   @ (GHC.Arr.Array GHC.Types.Int GHC.Types.Int)
+                   @ (Data.Monoid.Sum GHC.Types.Int)
+                   @ Database.Relations.Course.Course
+                   (\ (a2 :: GHC.Arr.Array GHC.Types.Int GHC.Types.Int)[OneShot] ->
+                    case a2 of wild { GHC.Arr.Array l u dt ds ->
+                    GHC.Base.$
+                      @ 'GHC.Types.PtrRepLifted
+                      @ GHC.Types.Int
+                      @ GHC.Types.Int
+                      (GHC.Arr.unsafeAt @ GHC.Types.Int @ GHC.Types.Int wild)
+                      (Database.Record.Persistable.$dmpersistableWidth_$slessSafeIndex
+                         (l, u)
+                         (GHC.Types.I# dt)
+                         (GHC.Base.$
+                            @ 'GHC.Types.PtrRepLifted
+                            @ (GHC.Types.Int, GHC.Types.Int)
+                            @ GHC.Types.Int
+                            (Data.Tuple.snd @ GHC.Types.Int @ GHC.Types.Int)
+                            (l, u))) })
+                     `cast`
+                   (<GHC.Arr.Array GHC.Types.Int GHC.Types.Int>_R
+                    ->_R Sym (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R))
+                   (Database.Record.Persistable.genericFieldOffsets
+                      @ Database.Relations.Course.Course
+                      Database.Relations.Course.$fGenericCourse
+                      Database.Relations.Course.$fPersistableWidthCourse1
+                        `cast`
+                      (Database.Record.Persistable.GFieldWidthList
+                         (Sym (Database.Relations.Course.Rep_Course[0])))_R)) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fProductConstructor(->) ::
+    Database.Relational.Query.ProjectableClass.ProductConstructor
+      (GHC.Int.Int32
+       -> GHC.Base.Maybe GHC.Int.Int32
+       -> GHC.Base.Maybe GHC.Int.Int32
+       -> GHC.Base.Maybe GHC.Int.Int32
+       -> Database.Relations.Course.Course)
+  DFunId
+  {- Arity: 4, HasNoCafRefs, Strictness: <S,U><S,U><S,U><S,U>m,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Database.Relations.Course.$WCourse
+                  `cast`
+                (Sym (Database.Relational.Query.ProjectableClass.N:ProductConstructor[0]
+                          <GHC.Int.Int32
+                           -> GHC.Base.Maybe GHC.Int.Int32
+                           -> GHC.Base.Maybe GHC.Int.Int32
+                           -> GHC.Base.Maybe GHC.Int.Int32
+                           -> Database.Relations.Course.Course>_N)) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fShowConstantTermsSQLCourse ::
+    Database.Relational.Query.ProjectableClass.ShowConstantTermsSQL
+      Database.Relations.Course.Course
+  DFunId
+  {- Arity: 1, Strictness: <S(LSSS),1*U(U,U,U,U)>,
+     Inline: INLINE (sat-args=0),
+     Unfolding: InlineRule (0, False, True)
+                Database.Relations.Course.$fShowConstantTermsSQLCourse_$cshowConstantTermsSQL'
+                  `cast`
+                (Sym (Database.Relational.Query.ProjectableClass.N:ShowConstantTermsSQL[0]
+                          <Database.Relations.Course.Course>_N)) -}
+ff6f4696b1c58914ca8396d2aa236819
+  $fShowConstantTermsSQLCourse1 ::
+    [Database.Relational.Query.Internal.SQL.StringSQL]
+    -> [Database.Relational.Query.Internal.SQL.StringSQL]
+  {- Arity: 1,
+     Unfolding: (GHC.Base.++
+                   @ Database.Relational.Query.Internal.SQL.StringSQL
+                   Database.Relations.Course.$fShowConstantTermsSQLCourse2) -}
+328e664603136eae6421d2767a2b753d
+  $fShowConstantTermsSQLCourse2 ::
+    [Database.Relational.Query.Internal.SQL.StringSQL]
+  {- Unfolding: (Database.Relational.Query.Pure.$wxs 1#) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fShowConstantTermsSQLCourse_$cshowConstantTermsSQL' ::
+    Database.Relations.Course.Course
+    -> Data.DList.DList
+         Database.Relational.Query.Internal.SQL.StringSQL
+  {- Arity: 1, Strictness: <S(LSSS),1*U(U,U,U,U)>, Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: Database.Relations.Course.Course) ->
+                 case w of ww { Database.Relations.Course.Course ww1 ww2 ww3 ww4 ->
+                 Database.Relations.Course.$w$cshowConstantTermsSQL'
+                   ww1
+                   ww2
+                   ww3
+                   ww4 }) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fShowCourse :: GHC.Show.Show Database.Relations.Course.Course
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Database.Relations.Course.Course
+                  Database.Relations.Course.$fShowCourse_$cshowsPrec
+                  Database.Relations.Course.$fShowCourse_$cshow
+                  Database.Relations.Course.$fShowCourse_$cshowList -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fShowCourse1 :: Database.Relations.Course.Course -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (\ (w :: Database.Relations.Course.Course)
+                   (w1 :: GHC.Base.String) ->
+                 case w of ww { Database.Relations.Course.Course ww1 ww2 ww3 ww4 ->
+                 Database.Relations.Course.$w$cshowsPrec 0# ww1 ww2 ww3 ww4 w1 }) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fShowCourse_$cshow ::
+    Database.Relations.Course.Course -> GHC.Base.String
+  {- Arity: 1, Strictness: <S(LSSS),1*U(U,U,U,U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: Database.Relations.Course.Course) ->
+                 Database.Relations.Course.$fShowCourse_$cshowsPrec
+                   GHC.Show.shows22
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fShowCourse_$cshowList ::
+    [Database.Relations.Course.Course] -> GHC.Show.ShowS
+  {- Arity: 2,
+     Unfolding: (GHC.Show.showList__
+                   @ Database.Relations.Course.Course
+                   Database.Relations.Course.$fShowCourse1) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fShowCourse_$cshowsPrec ::
+    GHC.Types.Int -> Database.Relations.Course.Course -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <S(S),1*U(U)><S(LSSS),1*U(U,U,U,U)><L,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ (w :: GHC.Types.Int)
+                   (w1 :: Database.Relations.Course.Course)
+                   (w2 :: GHC.Base.String) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 case w1 of ww2 { Database.Relations.Course.Course ww3 ww4 ww5 ww6 ->
+                 Database.Relations.Course.$w$cshowsPrec
+                   ww1
+                   ww3
+                   ww4
+                   ww5
+                   ww6
+                   w2 } }) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fTableDerivableCourse ::
+    Database.Relational.Query.Table.TableDerivable
+      Database.Relations.Course.Course
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Database.Relations.Course.Course
+                  Database.Relations.Course.$fPersistableWidthCourse_$s$dmpersistableWidth
+                    `cast`
+                  (Sym (Database.Record.Persistable.N:PersistableWidth[0]) <Database.Relations.Course.Course>_N)
+                  Database.Relations.Course.$fTableDerivableCourse_$cderivedTable -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fTableDerivableCourse_$cderivedTable ::
+    Database.Relational.Query.Table.Table
+      Database.Relations.Course.Course
+  {- Unfolding: InlineRule (0, True, True)
+                Database.Relations.Course.tableOfCourse -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fToSqlSqlValueCourse ::
+    Database.Record.ToSql.ToSql
+      Database.HDBC.SqlValue.SqlValue Database.Relations.Course.Course
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Database.HDBC.SqlValue.SqlValue
+                  @ Database.Relations.Course.Course
+                  Database.Relations.Course.$fPersistableWidthCourse_$s$dmpersistableWidth
+                    `cast`
+                  (Sym (Database.Record.Persistable.N:PersistableWidth[0]) <Database.Relations.Course.Course>_N)
+                  Database.Relations.Course.$fToSqlSqlValueCourse_$crecordToSql -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fToSqlSqlValueCourse1 ::
+    Database.Relations.Course.Course
+    -> Database.Record.ToSql.ToSqlM Database.HDBC.SqlValue.SqlValue ()
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSSS),1*U(U,U,U,U)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: Database.Relations.Course.Course) ->
+                 case w of ww { Database.Relations.Course.Course ww1 ww2 ww3 ww4 ->
+                 let {
+                   a2 :: GHC.Int.Int32 {- Strictness: m -} = GHC.Int.I32# ww1
+                 } in
+                 let {
+                   ds :: Database.HDBC.SqlValue.SqlValue
+                   = Database.HDBC.SqlValue.SqlInt32 a2
+                 } in
+                 (GHC.Tuple.(),
+                  (\ (eta1 :: [Database.HDBC.SqlValue.SqlValue]) ->
+                   GHC.Types.:
+                     @ Database.HDBC.SqlValue.SqlValue
+                     ds
+                     (let {
+                        $j :: ()
+                              -> Data.DList.DList Database.HDBC.SqlValue.SqlValue
+                              -> [Database.HDBC.SqlValue.SqlValue]
+                          {- Arity: 2 -}
+                        = \ (b2 :: ())[OneShot]
+                            (w' :: Data.DList.DList
+                                     Database.HDBC.SqlValue.SqlValue)[OneShot] ->
+                          w'
+                            `cast`
+                          (Data.DList.N:DList[0] <Database.HDBC.SqlValue.SqlValue>_R)
+                            (case ww3 of wild {
+                               GHC.Base.Nothing
+                               -> let {
+                                    xs :: [Database.HDBC.SqlValue.SqlValue]
+                                    = case ww4 of wild1 {
+                                        GHC.Base.Nothing
+                                        -> Database.Relations.Course.$fToSqlSqlValueCourse2 eta1
+                                        GHC.Base.Just r
+                                        -> GHC.Base.++
+                                             @ Database.HDBC.SqlValue.SqlValue
+                                             (GHC.Types.:
+                                                @ Database.HDBC.SqlValue.SqlValue
+                                                (Database.HDBC.SqlValue.SqlInt32 r)
+                                                (GHC.Types.[] @ Database.HDBC.SqlValue.SqlValue))
+                                             eta1 }
+                                  } in
+                                  letrec {
+                                    $wgo :: GHC.Prim.Int# -> [Database.HDBC.SqlValue.SqlValue]
+                                      {- Arity: 1, Strictness: <S,U>, Inline: [0] -}
+                                    = \ (ww5 :: GHC.Prim.Int#) ->
+                                      case GHC.Prim.tagToEnum#
+                                             @ GHC.Types.Bool
+                                             (GHC.Prim.<=# ww5 0#) of wild1 {
+                                        GHC.Types.False
+                                        -> GHC.Types.:
+                                             @ Database.HDBC.SqlValue.SqlValue
+                                             Database.HDBC.SqlValue.SqlNull
+                                             ($wgo (GHC.Prim.-# ww5 1#))
+                                        GHC.Types.True -> xs }
+                                  } in
+                                  $wgo 1#
+                               GHC.Base.Just r
+                               -> GHC.Base.++
+                                    @ Database.HDBC.SqlValue.SqlValue
+                                    (GHC.Types.:
+                                       @ Database.HDBC.SqlValue.SqlValue
+                                       (Database.HDBC.SqlValue.SqlInt32 r)
+                                       (GHC.Types.[] @ Database.HDBC.SqlValue.SqlValue))
+                                    (case ww4 of wild1 {
+                                       GHC.Base.Nothing
+                                       -> Database.Relations.Course.$fToSqlSqlValueCourse2 eta1
+                                       GHC.Base.Just r1
+                                       -> GHC.Base.++
+                                            @ Database.HDBC.SqlValue.SqlValue
+                                            (GHC.Types.:
+                                               @ Database.HDBC.SqlValue.SqlValue
+                                               (Database.HDBC.SqlValue.SqlInt32 r1)
+                                               (GHC.Types.[] @ Database.HDBC.SqlValue.SqlValue))
+                                            eta1 }) })
+                      } in
+                      case ww2 of wild {
+                        GHC.Base.Nothing
+                        -> $j
+                             GHC.Tuple.()
+                             Database.Relations.Course.$fToSqlSqlValueCourse2
+                               `cast`
+                             (Sym (Data.DList.N:DList[0] <Database.HDBC.SqlValue.SqlValue>_R))
+                        GHC.Base.Just r
+                        -> $j
+                             GHC.Tuple.()
+                             (GHC.Base.++
+                                @ Database.HDBC.SqlValue.SqlValue
+                                (GHC.Types.:
+                                   @ Database.HDBC.SqlValue.SqlValue
+                                   (Database.HDBC.SqlValue.SqlInt32 r)
+                                   (GHC.Types.[] @ Database.HDBC.SqlValue.SqlValue)))
+                               `cast`
+                             (Sym (Data.DList.N:DList[0]
+                                       <Database.HDBC.SqlValue.SqlValue>_R)) }))
+                    `cast`
+                  (Sym (Data.DList.N:DList[0] <Database.HDBC.SqlValue.SqlValue>_R)))
+                   `cast`
+                 (Trans
+                      (Sym (Data.Functor.Identity.N:Identity[0]
+                                <((), Data.DList.DList Database.HDBC.SqlValue.SqlValue)>_R))
+                      (Sym (Control.Monad.Trans.Writer.Lazy.N:WriterT[0]
+                                <Data.DList.DList Database.HDBC.SqlValue.SqlValue>_N
+                                <Data.Functor.Identity.Identity>_R
+                                <()>_N))) }) -}
+96a43af3077125c24cb7e0b5e26274cd
+  $fToSqlSqlValueCourse2 ::
+    [Database.HDBC.SqlValue.SqlValue]
+    -> [Database.HDBC.SqlValue.SqlValue]
+  {- Arity: 1, HasNoCafRefs,
+     Unfolding: (\ (xs :: [Database.HDBC.SqlValue.SqlValue]) ->
+                 letrec {
+                   $wgo :: GHC.Prim.Int# -> [Database.HDBC.SqlValue.SqlValue]
+                     {- Arity: 1, Strictness: <S,U>, Inline: [0] -}
+                   = \ (ww2 :: GHC.Prim.Int#) ->
+                     case GHC.Prim.tagToEnum#
+                            @ GHC.Types.Bool
+                            (GHC.Prim.<=# ww2 0#) of wild1 {
+                       GHC.Types.False
+                       -> GHC.Types.:
+                            @ Database.HDBC.SqlValue.SqlValue
+                            Database.HDBC.SqlValue.SqlNull
+                            ($wgo (GHC.Prim.-# ww2 1#))
+                       GHC.Types.True -> xs }
+                 } in
+                 $wgo 1#) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $fToSqlSqlValueCourse_$crecordToSql ::
+    Database.Record.ToSql.RecordToSql
+      Database.HDBC.SqlValue.SqlValue Database.Relations.Course.Course
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSSS),1*U(U,U,U,U)>m,
+     Unfolding: InlineRule (0, True, True)
+                Database.Relations.Course.$fToSqlSqlValueCourse1
+                  `cast`
+                (Sym (Database.Record.ToSql.N:RecordToSql[0]
+                          <Database.HDBC.SqlValue.SqlValue>_N
+                          <Database.Relations.Course.Course>_R)) -}
+9f98984ba37a0058d40ae48b758e79cc
+  $tc'Course :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   7854943581048645681##
+                   16175748399933489999##
+                   Database.Relations.Course.$trModule
+                   Database.Relations.Course.$tc'Course1) -}
+a90d5bfabdd4d433a4c8745f8c7de351
+  $tc'Course1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Course"#) -}
+dad2153195fb75354f39441a4dea67a9
+  $tcCourse :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   624638254016638743##
+                   6935285116899625469##
+                   Database.Relations.Course.$trModule
+                   Database.Relations.Course.$tcCourse1) -}
+2c98fac3093fa3294424d2490972dd89
+  $tcCourse1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Course"#) -}
+fd47a1c9363826eeee51791b468c216a
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   Database.Relations.Course.$trModule2
+                   Database.Relations.Course.$trModule1) -}
+2266c7fba313531aac519ab9f76f3dc7
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Database.Relations.Course"#) -}
+80c9bf558a2d64d7e4fa91e4df7f89b7
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u"#) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  $w$crecordFromSql ::
+    [Database.HDBC.SqlValue.SqlValue]
+    -> (# Database.Relations.Course.Course,
+          [Database.HDBC.SqlValue.SqlValue] #)
+  {- Arity: 1, Strictness: <L,U>, Inline: [0],
+     Unfolding: (\ (w :: [Database.HDBC.SqlValue.SqlValue]) ->
+                 let {
+                   ds1 :: (GHC.Generics.M1
+                             GHC.Generics.S
+                             ('GHC.Generics.MetaSel
+                                ('GHC.Base.Just "studentId")
+                                'GHC.Generics.NoSourceUnpackedness
+                                'GHC.Generics.SourceStrict
+                                'GHC.Generics.DecidedStrict)
+                             (GHC.Generics.Rec0 (GHC.Base.Maybe GHC.Int.Int32))
+                             GHC.Prim.Any,
+                           [Database.HDBC.SqlValue.SqlValue])
+                   = case Database.Relations.Course.$w$dGFromSql2
+                            @ GHC.Prim.Any
+                            (case w of wild {
+                               [] -> GHC.List.scanl2 @ Database.HDBC.SqlValue.SqlValue
+                               : ds2 xs -> xs }) of ww { (#,#) ww1 ww2 ->
+                     (ww1, ww2) }
+                 } in
+                 let {
+                   ds :: (GHC.Generics.M1
+                            GHC.Generics.S
+                            ('GHC.Generics.MetaSel
+                               ('GHC.Base.Just "lectureId")
+                               'GHC.Generics.NoSourceUnpackedness
+                               'GHC.Generics.SourceStrict
+                               'GHC.Generics.DecidedStrict)
+                            (GHC.Generics.Rec0 (GHC.Base.Maybe GHC.Int.Int32))
+                            GHC.Prim.Any,
+                          [Database.HDBC.SqlValue.SqlValue])
+                   = case Database.Relations.Course.$w$dGFromSql1
+                            @ GHC.Prim.Any
+                            (case ds1 of wild { (,) a2 vals' ->
+                             vals' }) of ww { (#,#) ww1 ww2 ->
+                     (ww1, ww2) }
+                 } in
+                 let {
+                   ds2 :: (GHC.Generics.M1
+                             GHC.Generics.S
+                             ('GHC.Generics.MetaSel
+                                ('GHC.Base.Just "score")
+                                'GHC.Generics.NoSourceUnpackedness
+                                'GHC.Generics.SourceStrict
+                                'GHC.Generics.DecidedStrict)
+                             (GHC.Generics.Rec0 (GHC.Base.Maybe GHC.Int.Int32))
+                             GHC.Prim.Any,
+                           [Database.HDBC.SqlValue.SqlValue])
+                   = case Database.Relations.Course.$w$dGFromSql
+                            @ GHC.Prim.Any
+                            (case ds of wild { (,) a2 vals' ->
+                             vals' }) of ww { (#,#) ww1 ww2 ->
+                     (ww1, ww2) }
+                 } in
+                 (# case Database.HDBC.SqlValue.$fConvertibleSqlValueInt32_$csafeConvert
+                           (GHC.List.head @ Database.HDBC.SqlValue.SqlValue w) of wild {
+                      Data.Either.Left e
+                      -> case e of ww { Data.Convertible.Base.ConvertError ww1 ww2 ww3 ww4 ->
+                         case Data.Convertible.Base.convert2 @ GHC.Int.Int32 ww1 ww2 ww3 ww4
+                         ret_ty Database.Relations.Course.Course
+                         of {} }
+                      Data.Either.Right r
+                      -> case r of dt { GHC.Int.I32# dt1 ->
+                         case ds1 of wild1 { (,) a2 vals' ->
+                         case a2
+                                `cast`
+                              (Trans
+                                   (GHC.Generics.N:M1[0]
+                                        <GHC.Generics.S>_P
+                                        <'GHC.Generics.MetaSel
+                                           ('GHC.Base.Just "studentId")
+                                           'GHC.Generics.NoSourceUnpackedness
+                                           'GHC.Generics.SourceStrict
+                                           'GHC.Generics.DecidedStrict>_P
+                                        <GHC.Generics.K1
+                                           GHC.Generics.R
+                                           (GHC.Base.Maybe GHC.Int.Int32)>_R <GHC.Prim.Any>_N)
+                                   (GHC.Generics.N:K1[0]
+                                        <GHC.Generics.R>_P
+                                        <GHC.Base.Maybe GHC.Int.Int32>_R
+                                        <GHC.Prim.Any>_P)) of dt2 { DEFAULT ->
+                         case ds of wild2 { (,) a4 vals'1 ->
+                         case a4
+                                `cast`
+                              (Trans
+                                   (GHC.Generics.N:M1[0]
+                                        <GHC.Generics.S>_P
+                                        <'GHC.Generics.MetaSel
+                                           ('GHC.Base.Just "lectureId")
+                                           'GHC.Generics.NoSourceUnpackedness
+                                           'GHC.Generics.SourceStrict
+                                           'GHC.Generics.DecidedStrict>_P
+                                        <GHC.Generics.K1
+                                           GHC.Generics.R
+                                           (GHC.Base.Maybe GHC.Int.Int32)>_R <GHC.Prim.Any>_N)
+                                   (GHC.Generics.N:K1[0]
+                                        <GHC.Generics.R>_P
+                                        <GHC.Base.Maybe GHC.Int.Int32>_R
+                                        <GHC.Prim.Any>_P)) of dt3 { DEFAULT ->
+                         case ds2 of wild3 { (,) a5 vals'2 ->
+                         case a5
+                                `cast`
+                              (Trans
+                                   (GHC.Generics.N:M1[0]
+                                        <GHC.Generics.S>_P
+                                        <'GHC.Generics.MetaSel
+                                           ('GHC.Base.Just "score")
+                                           'GHC.Generics.NoSourceUnpackedness
+                                           'GHC.Generics.SourceStrict
+                                           'GHC.Generics.DecidedStrict>_P
+                                        <GHC.Generics.K1
+                                           GHC.Generics.R
+                                           (GHC.Base.Maybe GHC.Int.Int32)>_R <GHC.Prim.Any>_N)
+                                   (GHC.Generics.N:K1[0]
+                                        <GHC.Generics.R>_P
+                                        <GHC.Base.Maybe GHC.Int.Int32>_R
+                                        <GHC.Prim.Any>_P)) of dt4 { DEFAULT ->
+                         Database.Relations.Course.Course dt1 dt2 dt3 dt4 } } } } } } } },
+                    case ds2 of wild { (,) a2 vals' -> vals' } #)) -}
+aa0eda195a11ef9aef31c41502ac65a8
+  $w$cshowConstantTermsSQL' ::
+    GHC.Prim.Int#
+    -> GHC.Base.Maybe GHC.Int.Int32
+    -> GHC.Base.Maybe GHC.Int.Int32
+    -> GHC.Base.Maybe GHC.Int.Int32
+    -> Data.DList.DList
+         Database.Relational.Query.Internal.SQL.StringSQL
+  {- Arity: 4, Strictness: <L,U><S,U><S,U><S,U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Prim.Int#)
+                   (ww1 :: GHC.Base.Maybe GHC.Int.Int32)
+                   (ww2 :: GHC.Base.Maybe GHC.Int.Int32)
+                   (ww3 :: GHC.Base.Maybe GHC.Int.Int32) ->
+                 let {
+                   xs :: Data.DList.DList Language.SQL.Keyword.Internal.Type.Keyword
+                   = Database.Relations.Course.$w$dGShowConstantTermsSQL1
+                       @ GHC.Prim.Any
+                       (GHC.Int.I32# ww)
+                         `cast`
+                       (Trans
+                            (Sym (GHC.Generics.N:K1[0]
+                                      <GHC.Generics.R>_P <GHC.Int.Int32>_R <GHC.Prim.Any>_P))
+                            (Sym (GHC.Generics.N:M1[0]
+                                      <GHC.Generics.S>_P
+                                      <'GHC.Generics.MetaSel
+                                         ('GHC.Base.Just "courseId")
+                                         'GHC.Generics.NoSourceUnpackedness
+                                         'GHC.Generics.SourceStrict
+                                         'GHC.Generics.DecidedUnpack>_P
+                                      <GHC.Generics.K1
+                                         GHC.Generics.R GHC.Int.Int32>_R) <GHC.Prim.Any>_N))
+                       ww1
+                         `cast`
+                       (Trans
+                            (Sym (GHC.Generics.N:K1[0]
+                                      <GHC.Generics.R>_P
+                                      <GHC.Base.Maybe GHC.Int.Int32>_R
+                                      <GHC.Prim.Any>_P))
+                            (Sym (GHC.Generics.N:M1[0]
+                                      <GHC.Generics.S>_P
+                                      <'GHC.Generics.MetaSel
+                                         ('GHC.Base.Just "studentId")
+                                         'GHC.Generics.NoSourceUnpackedness
+                                         'GHC.Generics.SourceStrict
+                                         'GHC.Generics.DecidedStrict>_P
+                                      <GHC.Generics.K1
+                                         GHC.Generics.R
+                                         (GHC.Base.Maybe GHC.Int.Int32)>_R) <GHC.Prim.Any>_N))
+                 } in
+                 let {
+                   ys :: Data.DList.DList Language.SQL.Keyword.Internal.Type.Keyword
+                   = Database.Relations.Course.$w$dGShowConstantTermsSQL
+                       @ GHC.Prim.Any
+                       ww2
+                         `cast`
+                       (Trans
+                            (Sym (GHC.Generics.N:K1[0]
+                                      <GHC.Generics.R>_P
+                                      <GHC.Base.Maybe GHC.Int.Int32>_R
+                                      <GHC.Prim.Any>_P))
+                            (Sym (GHC.Generics.N:M1[0]
+                                      <GHC.Generics.S>_P
+                                      <'GHC.Generics.MetaSel
+                                         ('GHC.Base.Just "lectureId")
+                                         'GHC.Generics.NoSourceUnpackedness
+                                         'GHC.Generics.SourceStrict
+                                         'GHC.Generics.DecidedStrict>_P
+                                      <GHC.Generics.K1
+                                         GHC.Generics.R
+                                         (GHC.Base.Maybe GHC.Int.Int32)>_R) <GHC.Prim.Any>_N))
+                       ww3
+                         `cast`
+                       (Trans
+                            (Sym (GHC.Generics.N:K1[0]
+                                      <GHC.Generics.R>_P
+                                      <GHC.Base.Maybe GHC.Int.Int32>_R
+                                      <GHC.Prim.Any>_P))
+                            (Sym (GHC.Generics.N:M1[0]
+                                      <GHC.Generics.S>_P
+                                      <'GHC.Generics.MetaSel
+                                         ('GHC.Base.Just "score")
+                                         'GHC.Generics.NoSourceUnpackedness
+                                         'GHC.Generics.SourceStrict
+                                         'GHC.Generics.DecidedStrict>_P
+                                      <GHC.Generics.K1
+                                         GHC.Generics.R
+                                         (GHC.Base.Maybe GHC.Int.Int32)>_R) <GHC.Prim.Any>_N))
+                 } in
+                 (\ (eta :: [Language.SQL.Keyword.Internal.Type.Keyword]) ->
+                  xs
+                    `cast`
+                  (Data.DList.N:DList[0]
+                       <Language.SQL.Keyword.Internal.Type.Keyword>_R)
+                    (ys
+                       `cast`
+                     (Data.DList.N:DList[0]
+                          <Language.SQL.Keyword.Internal.Type.Keyword>_R)
+                       eta))
+                   `cast`
+                 (Sym (Data.DList.N:DList[0]
+                           <Language.SQL.Keyword.Internal.Type.Keyword>_R))) -}
+6b1f670b25e6dd6b906a605d91e69652
+  $w$cshowsPrec ::
+    GHC.Prim.Int#
+    -> GHC.Prim.Int#
+    -> GHC.Base.Maybe GHC.Int.Int32
+    -> GHC.Base.Maybe GHC.Int.Int32
+    -> GHC.Base.Maybe GHC.Int.Int32
+    -> GHC.Base.String
+    -> GHC.Base.String
+  {- Arity: 6, Strictness: <S,U><L,U><S,U><S,U><S,U><L,U>,
+     Inline: [0] -}
+d6cd43e961eb36cd01d044f77c39896b
+  $w$dGFromSql ::
+    [Database.HDBC.SqlValue.SqlValue]
+    -> (# GHC.Generics.M1
+            GHC.Generics.S
+            ('GHC.Generics.MetaSel
+               ('GHC.Base.Just "score")
+               'GHC.Generics.NoSourceUnpackedness
+               'GHC.Generics.SourceStrict
+               'GHC.Generics.DecidedStrict)
+            (GHC.Generics.K1 GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32))
+            a1,
+          [Database.HDBC.SqlValue.SqlValue] #)
+  {- Arity: 1, Strictness: <L,U>, Inline: [0],
+     Unfolding: (\ @ a2 (w :: [Database.HDBC.SqlValue.SqlValue]) ->
+                 let {
+                   ds :: (GHC.Base.Maybe GHC.Int.Int32,
+                          [Database.HDBC.SqlValue.SqlValue])
+                   = case Database.HDBC.SqlValue.$fEqSqlValue_$c==
+                            (GHC.List.$w!! @ Database.HDBC.SqlValue.SqlValue w 0#)
+                            Database.HDBC.SqlValue.SqlNull of wild {
+                       GHC.Types.False
+                       -> (GHC.Base.Just
+                             @ GHC.Int.Int32
+                             (case Database.HDBC.SqlValue.$fConvertibleSqlValueInt32_$csafeConvert
+                                     (GHC.List.head @ Database.HDBC.SqlValue.SqlValue w) of wild1 {
+                                Data.Either.Left e
+                                -> Data.Convertible.Base.convert1 @ GHC.Int.Int32 e
+                                Data.Either.Right r -> r }),
+                           case w of wild1 {
+                             [] -> GHC.List.scanl2 @ Database.HDBC.SqlValue.SqlValue
+                             : ds1 xs -> xs })
+                       GHC.Types.True
+                       -> (GHC.Base.Nothing @ GHC.Int.Int32,
+                           case w of wild1 {
+                             [] -> GHC.List.scanl2 @ Database.HDBC.SqlValue.SqlValue
+                             : ds1 xs -> xs }) }
+                 } in
+                 (# case ds of wild { (,) a3 vals' ->
+                    a3
+                      `cast`
+                    (Trans
+                         (Sym (GHC.Generics.N:K1[0]
+                                   <GHC.Generics.R>_P <GHC.Base.Maybe GHC.Int.Int32>_R <a2>_P))
+                         (Sym (GHC.Generics.N:M1[0]
+                                   <GHC.Generics.S>_P
+                                   <'GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "score")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.SourceStrict
+                                      'GHC.Generics.DecidedStrict>_P
+                                   <GHC.Generics.K1
+                                      GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)>_R) <a2>_N)) },
+                    case ds of wild { (,) a3 vals' -> vals' } #)) -}
+78ecf8e67335f8d1311579557f0b32d6
+  $w$dGFromSql1 ::
+    [Database.HDBC.SqlValue.SqlValue]
+    -> (# GHC.Generics.M1
+            GHC.Generics.S
+            ('GHC.Generics.MetaSel
+               ('GHC.Base.Just "lectureId")
+               'GHC.Generics.NoSourceUnpackedness
+               'GHC.Generics.SourceStrict
+               'GHC.Generics.DecidedStrict)
+            (GHC.Generics.K1 GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32))
+            a1,
+          [Database.HDBC.SqlValue.SqlValue] #)
+  {- Arity: 1, Strictness: <L,U>, Inline: [0],
+     Unfolding: (\ @ a2 (w :: [Database.HDBC.SqlValue.SqlValue]) ->
+                 let {
+                   ds :: (GHC.Base.Maybe GHC.Int.Int32,
+                          [Database.HDBC.SqlValue.SqlValue])
+                   = case Database.HDBC.SqlValue.$fEqSqlValue_$c==
+                            (GHC.List.$w!! @ Database.HDBC.SqlValue.SqlValue w 0#)
+                            Database.HDBC.SqlValue.SqlNull of wild {
+                       GHC.Types.False
+                       -> (GHC.Base.Just
+                             @ GHC.Int.Int32
+                             (case Database.HDBC.SqlValue.$fConvertibleSqlValueInt32_$csafeConvert
+                                     (GHC.List.head @ Database.HDBC.SqlValue.SqlValue w) of wild1 {
+                                Data.Either.Left e
+                                -> Data.Convertible.Base.convert1 @ GHC.Int.Int32 e
+                                Data.Either.Right r -> r }),
+                           case w of wild1 {
+                             [] -> GHC.List.scanl2 @ Database.HDBC.SqlValue.SqlValue
+                             : ds1 xs -> xs })
+                       GHC.Types.True
+                       -> (GHC.Base.Nothing @ GHC.Int.Int32,
+                           case w of wild1 {
+                             [] -> GHC.List.scanl2 @ Database.HDBC.SqlValue.SqlValue
+                             : ds1 xs -> xs }) }
+                 } in
+                 (# case ds of wild { (,) a3 vals' ->
+                    a3
+                      `cast`
+                    (Trans
+                         (Sym (GHC.Generics.N:K1[0]
+                                   <GHC.Generics.R>_P <GHC.Base.Maybe GHC.Int.Int32>_R <a2>_P))
+                         (Sym (GHC.Generics.N:M1[0]
+                                   <GHC.Generics.S>_P
+                                   <'GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "lectureId")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.SourceStrict
+                                      'GHC.Generics.DecidedStrict>_P
+                                   <GHC.Generics.K1
+                                      GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)>_R) <a2>_N)) },
+                    case ds of wild { (,) a3 vals' -> vals' } #)) -}
+5da39d78a43b49ae7ef4d8f18385886f
+  $w$dGFromSql2 ::
+    [Database.HDBC.SqlValue.SqlValue]
+    -> (# GHC.Generics.M1
+            GHC.Generics.S
+            ('GHC.Generics.MetaSel
+               ('GHC.Base.Just "studentId")
+               'GHC.Generics.NoSourceUnpackedness
+               'GHC.Generics.SourceStrict
+               'GHC.Generics.DecidedStrict)
+            (GHC.Generics.K1 GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32))
+            a1,
+          [Database.HDBC.SqlValue.SqlValue] #)
+  {- Arity: 1, Strictness: <L,U>, Inline: [0],
+     Unfolding: (\ @ a2 (w :: [Database.HDBC.SqlValue.SqlValue]) ->
+                 let {
+                   ds :: (GHC.Base.Maybe GHC.Int.Int32,
+                          [Database.HDBC.SqlValue.SqlValue])
+                   = case Database.HDBC.SqlValue.$fEqSqlValue_$c==
+                            (GHC.List.$w!! @ Database.HDBC.SqlValue.SqlValue w 0#)
+                            Database.HDBC.SqlValue.SqlNull of wild {
+                       GHC.Types.False
+                       -> (GHC.Base.Just
+                             @ GHC.Int.Int32
+                             (case Database.HDBC.SqlValue.$fConvertibleSqlValueInt32_$csafeConvert
+                                     (GHC.List.head @ Database.HDBC.SqlValue.SqlValue w) of wild1 {
+                                Data.Either.Left e
+                                -> Data.Convertible.Base.convert1 @ GHC.Int.Int32 e
+                                Data.Either.Right r -> r }),
+                           case w of wild1 {
+                             [] -> GHC.List.scanl2 @ Database.HDBC.SqlValue.SqlValue
+                             : ds1 xs -> xs })
+                       GHC.Types.True
+                       -> (GHC.Base.Nothing @ GHC.Int.Int32,
+                           case w of wild1 {
+                             [] -> GHC.List.scanl2 @ Database.HDBC.SqlValue.SqlValue
+                             : ds1 xs -> xs }) }
+                 } in
+                 (# case ds of wild { (,) a3 vals' ->
+                    a3
+                      `cast`
+                    (Trans
+                         (Sym (GHC.Generics.N:K1[0]
+                                   <GHC.Generics.R>_P <GHC.Base.Maybe GHC.Int.Int32>_R <a2>_P))
+                         (Sym (GHC.Generics.N:M1[0]
+                                   <GHC.Generics.S>_P
+                                   <'GHC.Generics.MetaSel
+                                      ('GHC.Base.Just "studentId")
+                                      'GHC.Generics.NoSourceUnpackedness
+                                      'GHC.Generics.SourceStrict
+                                      'GHC.Generics.DecidedStrict>_P
+                                   <GHC.Generics.K1
+                                      GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)>_R) <a2>_N)) },
+                    case ds of wild { (,) a3 vals' -> vals' } #)) -}
+f47dd671e479156fb922a7e94deeca03
+  $w$dGShowConstantTermsSQL ::
+    GHC.Generics.M1
+      GHC.Generics.S
+      ('GHC.Generics.MetaSel
+         ('GHC.Base.Just "lectureId")
+         'GHC.Generics.NoSourceUnpackedness
+         'GHC.Generics.SourceStrict
+         'GHC.Generics.DecidedStrict)
+      (GHC.Generics.Rec0 (GHC.Base.Maybe GHC.Int.Int32))
+      a1
+    -> GHC.Generics.M1
+         GHC.Generics.S
+         ('GHC.Generics.MetaSel
+            ('GHC.Base.Just "score")
+            'GHC.Generics.NoSourceUnpackedness
+            'GHC.Generics.SourceStrict
+            'GHC.Generics.DecidedStrict)
+         (GHC.Generics.Rec0 (GHC.Base.Maybe GHC.Int.Int32))
+         a1
+    -> Data.DList.DList
+         Database.Relational.Query.Internal.SQL.StringSQL
+  {- Arity: 2, Strictness: <L,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ @ a2
+                   (ww :: GHC.Generics.M1
+                            GHC.Generics.S
+                            ('GHC.Generics.MetaSel
+                               ('GHC.Base.Just "lectureId")
+                               'GHC.Generics.NoSourceUnpackedness
+                               'GHC.Generics.SourceStrict
+                               'GHC.Generics.DecidedStrict)
+                            (GHC.Generics.Rec0 (GHC.Base.Maybe GHC.Int.Int32))
+                            a2)
+                   (ww1 :: GHC.Generics.M1
+                             GHC.Generics.S
+                             ('GHC.Generics.MetaSel
+                                ('GHC.Base.Just "score")
+                                'GHC.Generics.NoSourceUnpackedness
+                                'GHC.Generics.SourceStrict
+                                'GHC.Generics.DecidedStrict)
+                             (GHC.Generics.Rec0 (GHC.Base.Maybe GHC.Int.Int32))
+                             a2) ->
+                 let {
+                   xs :: Data.DList.DList Language.SQL.Keyword.Internal.Type.Keyword
+                   = case ww
+                            `cast`
+                          (Trans
+                               (GHC.Generics.N:M1[0]
+                                    <GHC.Generics.S>_P
+                                    <'GHC.Generics.MetaSel
+                                       ('GHC.Base.Just "lectureId")
+                                       'GHC.Generics.NoSourceUnpackedness
+                                       'GHC.Generics.SourceStrict
+                                       'GHC.Generics.DecidedStrict>_P
+                                    <GHC.Generics.K1
+                                       GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)>_R <a2>_N)
+                               (GHC.Generics.N:K1[0]
+                                    <GHC.Generics.R>_P
+                                    <GHC.Base.Maybe GHC.Int.Int32>_R
+                                    <a2>_P)) of wild {
+                       GHC.Base.Nothing
+                       -> Database.Relations.Course.$fShowConstantTermsSQLCourse1
+                            `cast`
+                          (Sym (Data.DList.N:DList[0]
+                                    <Database.Relational.Query.Internal.SQL.StringSQL>_R))
+                       GHC.Base.Just a3
+                       -> (GHC.Types.:
+                             @ Database.Relational.Query.Internal.SQL.StringSQL
+                             (Language.SQL.Keyword.Internal.Type.Sequence
+                                (GHC.Base.++ @ GHC.Types.Char (GHC.Int.$fShowInt32_$cshow a3))
+                                  `cast`
+                                (Sym (Language.SQL.Keyword.Internal.Type.N:DString[0]))))
+                            `cast`
+                          (Sym (Data.DList.N:DList[0]
+                                    <Database.Relational.Query.Internal.SQL.StringSQL>_R)) }
+                 } in
+                 let {
+                   ys :: Data.DList.DList Language.SQL.Keyword.Internal.Type.Keyword
+                   = case ww1
+                            `cast`
+                          (Trans
+                               (GHC.Generics.N:M1[0]
+                                    <GHC.Generics.S>_P
+                                    <'GHC.Generics.MetaSel
+                                       ('GHC.Base.Just "score")
+                                       'GHC.Generics.NoSourceUnpackedness
+                                       'GHC.Generics.SourceStrict
+                                       'GHC.Generics.DecidedStrict>_P
+                                    <GHC.Generics.K1
+                                       GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)>_R <a2>_N)
+                               (GHC.Generics.N:K1[0]
+                                    <GHC.Generics.R>_P
+                                    <GHC.Base.Maybe GHC.Int.Int32>_R
+                                    <a2>_P)) of wild {
+                       GHC.Base.Nothing
+                       -> Database.Relations.Course.$fShowConstantTermsSQLCourse1
+                            `cast`
+                          (Sym (Data.DList.N:DList[0]
+                                    <Database.Relational.Query.Internal.SQL.StringSQL>_R))
+                       GHC.Base.Just a3
+                       -> (GHC.Types.:
+                             @ Database.Relational.Query.Internal.SQL.StringSQL
+                             (Language.SQL.Keyword.Internal.Type.Sequence
+                                (GHC.Base.++ @ GHC.Types.Char (GHC.Int.$fShowInt32_$cshow a3))
+                                  `cast`
+                                (Sym (Language.SQL.Keyword.Internal.Type.N:DString[0]))))
+                            `cast`
+                          (Sym (Data.DList.N:DList[0]
+                                    <Database.Relational.Query.Internal.SQL.StringSQL>_R)) }
+                 } in
+                 (\ (eta :: [Language.SQL.Keyword.Internal.Type.Keyword]) ->
+                  xs
+                    `cast`
+                  (Data.DList.N:DList[0]
+                       <Language.SQL.Keyword.Internal.Type.Keyword>_R)
+                    (ys
+                       `cast`
+                     (Data.DList.N:DList[0]
+                          <Language.SQL.Keyword.Internal.Type.Keyword>_R)
+                       eta))
+                   `cast`
+                 (Sym (Data.DList.N:DList[0]
+                           <Language.SQL.Keyword.Internal.Type.Keyword>_R))) -}
+dc564d7fad6163b035d1b04f18adfe77
+  $w$dGShowConstantTermsSQL1 ::
+    GHC.Generics.M1
+      GHC.Generics.S
+      ('GHC.Generics.MetaSel
+         ('GHC.Base.Just "courseId")
+         'GHC.Generics.NoSourceUnpackedness
+         'GHC.Generics.SourceStrict
+         'GHC.Generics.DecidedUnpack)
+      (GHC.Generics.Rec0 GHC.Int.Int32)
+      a1
+    -> GHC.Generics.M1
+         GHC.Generics.S
+         ('GHC.Generics.MetaSel
+            ('GHC.Base.Just "studentId")
+            'GHC.Generics.NoSourceUnpackedness
+            'GHC.Generics.SourceStrict
+            'GHC.Generics.DecidedStrict)
+         (GHC.Generics.Rec0 (GHC.Base.Maybe GHC.Int.Int32))
+         a1
+    -> Data.DList.DList
+         Database.Relational.Query.Internal.SQL.StringSQL
+  {- Arity: 2, Strictness: <L,1*U(U)><L,1*U>, Inline: [0],
+     Unfolding: (\ @ a2
+                   (ww :: GHC.Generics.M1
+                            GHC.Generics.S
+                            ('GHC.Generics.MetaSel
+                               ('GHC.Base.Just "courseId")
+                               'GHC.Generics.NoSourceUnpackedness
+                               'GHC.Generics.SourceStrict
+                               'GHC.Generics.DecidedUnpack)
+                            (GHC.Generics.Rec0 GHC.Int.Int32)
+                            a2)
+                   (ww1 :: GHC.Generics.M1
+                             GHC.Generics.S
+                             ('GHC.Generics.MetaSel
+                                ('GHC.Base.Just "studentId")
+                                'GHC.Generics.NoSourceUnpackedness
+                                'GHC.Generics.SourceStrict
+                                'GHC.Generics.DecidedStrict)
+                             (GHC.Generics.Rec0 (GHC.Base.Maybe GHC.Int.Int32))
+                             a2) ->
+                 let {
+                   xs :: GHC.Base.String
+                   = case ww
+                            `cast`
+                          (Trans
+                               (GHC.Generics.N:M1[0]
+                                    <GHC.Generics.S>_P
+                                    <'GHC.Generics.MetaSel
+                                       ('GHC.Base.Just "courseId")
+                                       'GHC.Generics.NoSourceUnpackedness
+                                       'GHC.Generics.SourceStrict
+                                       'GHC.Generics.DecidedUnpack>_P
+                                    <GHC.Generics.K1 GHC.Generics.R GHC.Int.Int32>_R <a2>_N)
+                               (GHC.Generics.N:K1[0]
+                                    <GHC.Generics.R>_P
+                                    <GHC.Int.Int32>_R
+                                    <a2>_P)) of wild { GHC.Int.I32# x# ->
+                     case GHC.Show.$wshowSignedInt
+                            0#
+                            x#
+                            (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                     GHC.Types.: @ GHC.Types.Char ww5 ww6 } }
+                 } in
+                 let {
+                   xs1 :: [GHC.Types.Char] -> [GHC.Types.Char] {- Arity: 1 -}
+                   = GHC.Base.++ @ GHC.Types.Char xs
+                 } in
+                 let {
+                   xs2 :: Language.SQL.Keyword.Internal.Type.Keyword
+                   = Language.SQL.Keyword.Internal.Type.Sequence
+                       xs1 `cast` (Sym (Language.SQL.Keyword.Internal.Type.N:DString[0]))
+                 } in
+                 let {
+                   ys :: Data.DList.DList Language.SQL.Keyword.Internal.Type.Keyword
+                   = case ww1
+                            `cast`
+                          (Trans
+                               (GHC.Generics.N:M1[0]
+                                    <GHC.Generics.S>_P
+                                    <'GHC.Generics.MetaSel
+                                       ('GHC.Base.Just "studentId")
+                                       'GHC.Generics.NoSourceUnpackedness
+                                       'GHC.Generics.SourceStrict
+                                       'GHC.Generics.DecidedStrict>_P
+                                    <GHC.Generics.K1
+                                       GHC.Generics.R (GHC.Base.Maybe GHC.Int.Int32)>_R <a2>_N)
+                               (GHC.Generics.N:K1[0]
+                                    <GHC.Generics.R>_P
+                                    <GHC.Base.Maybe GHC.Int.Int32>_R
+                                    <a2>_P)) of wild {
+                       GHC.Base.Nothing
+                       -> Database.Relations.Course.$fShowConstantTermsSQLCourse1
+                            `cast`
+                          (Sym (Data.DList.N:DList[0]
+                                    <Database.Relational.Query.Internal.SQL.StringSQL>_R))
+                       GHC.Base.Just a3
+                       -> (GHC.Types.:
+                             @ Database.Relational.Query.Internal.SQL.StringSQL
+                             (Language.SQL.Keyword.Internal.Type.Sequence
+                                (GHC.Base.++ @ GHC.Types.Char (GHC.Int.$fShowInt32_$cshow a3))
+                                  `cast`
+                                (Sym (Language.SQL.Keyword.Internal.Type.N:DString[0]))))
+                            `cast`
+                          (Sym (Data.DList.N:DList[0]
+                                    <Database.Relational.Query.Internal.SQL.StringSQL>_R)) }
+                 } in
+                 (\ (eta :: [Language.SQL.Keyword.Internal.Type.Keyword]) ->
+                  GHC.Types.:
+                    @ Database.Relational.Query.Internal.SQL.StringSQL
+                    xs2
+                    (ys
+                       `cast`
+                     (Data.DList.N:DList[0]
+                          <Language.SQL.Keyword.Internal.Type.Keyword>_R)
+                       eta))
+                   `cast`
+                 (Sym (Data.DList.N:DList[0]
+                           <Language.SQL.Keyword.Internal.Type.Keyword>_R))) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  data Course
+    = Course {courseId :: {-# UNPACK #-}GHC.Int.Int32,
+              studentId :: !GHC.Base.Maybe GHC.Int.Int32,
+              lectureId :: !GHC.Base.Maybe GHC.Int.Int32,
+              score :: !GHC.Base.Maybe GHC.Int.Int32}
+5dd52c6b5064c4c27bf89b5e7a761312
+  axiom Rep_Course::
+      GHC.Generics.Rep Database.Relations.Course.Course
+        = GHC.Generics.D1
+            ('GHC.Generics.MetaData
+               "Course"
+               "Database.Relations.Course"
+               "Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u"
+               'GHC.Types.False)
+            (GHC.Generics.C1
+               ('GHC.Generics.MetaCons
+                  "Course" 'GHC.Generics.PrefixI 'GHC.Types.True)
+               ((GHC.Generics.S1
+                   ('GHC.Generics.MetaSel
+                      ('GHC.Base.Just "courseId")
+                      'GHC.Generics.NoSourceUnpackedness
+                      'GHC.Generics.SourceStrict
+                      'GHC.Generics.DecidedUnpack)
+                   (GHC.Generics.Rec0 GHC.Int.Int32)
+                 GHC.Generics.:*: GHC.Generics.S1
+                                    ('GHC.Generics.MetaSel
+                                       ('GHC.Base.Just "studentId")
+                                       'GHC.Generics.NoSourceUnpackedness
+                                       'GHC.Generics.SourceStrict
+                                       'GHC.Generics.DecidedStrict)
+                                    (GHC.Generics.Rec0 (GHC.Base.Maybe GHC.Int.Int32)))
+                GHC.Generics.:*: (GHC.Generics.S1
+                                    ('GHC.Generics.MetaSel
+                                       ('GHC.Base.Just "lectureId")
+                                       'GHC.Generics.NoSourceUnpackedness
+                                       'GHC.Generics.SourceStrict
+                                       'GHC.Generics.DecidedStrict)
+                                    (GHC.Generics.Rec0 (GHC.Base.Maybe GHC.Int.Int32))
+                                  GHC.Generics.:*: GHC.Generics.S1
+                                                     ('GHC.Generics.MetaSel
+                                                        ('GHC.Base.Just "score")
+                                                        'GHC.Generics.NoSourceUnpackedness
+                                                        'GHC.Generics.SourceStrict
+                                                        'GHC.Generics.DecidedStrict)
+                                                     (GHC.Generics.Rec0
+                                                        (GHC.Base.Maybe GHC.Int.Int32)))))
+02245d68ce7758aa0595fcc2f3910b5f
+  columnOffsetsCourse :: GHC.Arr.Array GHC.Types.Int GHC.Types.Int
+  {- Unfolding: (Database.Record.Persistable.offsets
+                   Database.Relations.Course.columnOffsetsCourse1) -}
+cd5818916977c6c6ffb54ea0d51f6af0
+  columnOffsetsCourse1 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                     `cast`
+                   (Trans
+                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                          GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                        (Trans
+                             (Data.Functor.Const.N:Const[0]
+                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <GHC.Int.Int32>_P)
+                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                   Database.Relations.Course.columnOffsetsCourse2) -}
+56d145682eb3afd08aa531ed60d83c20
+  columnOffsetsCourse2 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                     `cast`
+                   (Trans
+                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                          GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                        (Trans
+                             (Data.Functor.Const.N:Const[0]
+                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <GHC.Int.Int32>_P)
+                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                   Database.Relations.Course.columnOffsetsCourse3) -}
+305030e702abd123ac5840b38e04b3f3
+  columnOffsetsCourse3 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                     `cast`
+                   (Trans
+                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                          GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                        (Trans
+                             (Data.Functor.Const.N:Const[0]
+                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <GHC.Int.Int32>_P)
+                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                   Database.Relations.Course.columnOffsetsCourse4) -}
+1167ef9277bf6b58a2f1d549e0a01883
+  columnOffsetsCourse4 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                     `cast`
+                   (Trans
+                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                          GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                        (Trans
+                             (Data.Functor.Const.N:Const[0]
+                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <GHC.Int.Int32>_P)
+                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                   (GHC.Types.[] @ GHC.Types.Int)) -}
+e325fa883af934bc0b4d34e1c8611f0a
+  course ::
+    Database.Relational.Query.Monad.BaseType.Relation
+      () Database.Relations.Course.Course
+  {- Arity: 2, Strictness: <L,U><L,A>m,
+     Unfolding: InlineRule (0, True, True)
+                Database.Relations.Course.course1
+                  `cast`
+                (Trans
+                     (<GHC.Types.Int>_R
+                      ->_R Trans
+                               (<Database.Relational.Query.Internal.Config.Config>_R
+                                ->_R Sym (Data.Functor.Identity.N:Identity[0]
+                                              <(Database.Relational.Query.Internal.Sub.SubQuery,
+                                                GHC.Types.Int)>_R))
+                               (Trans
+                                    (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                              <*>_N
+                                              <Database.Relational.Query.Internal.Config.Config>_R
+                                              <Data.Functor.Identity.Identity>_R
+                                              <(Database.Relational.Query.Internal.Sub.SubQuery,
+                                                GHC.Types.Int)>_N))
+                                    (Sym (Database.Relational.Query.Monad.Trans.Config.N:QueryConfig[0]) <Data.Functor.Identity.Identity>_N <(Database.Relational.Query.Internal.Sub.SubQuery,
+                                                                                                                                              GHC.Types.Int)>_N)))
+                     (Trans
+                          (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
+                                    <GHC.Types.Int>_N
+                                    <Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                                       Data.Functor.Identity.Identity>_R
+                                    <Database.Relational.Query.Internal.Sub.SubQuery>_N))
+                          (Trans
+                               (Sym (Database.Relational.Query.Monad.Trans.Qualify.N:Qualify[0]) <Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                                                                                                    Data.Functor.Identity.Identity>_N <Database.Relational.Query.Internal.Sub.SubQuery>_N)
+                               (Sym (Database.Relational.Query.Monad.BaseType.N:Relation[0]
+                                         <()>_P <Database.Relations.Course.Course>_P))))) -}
+be3c9ebdbf12db63381c1eb67beac738
+  course1 ::
+    GHC.Types.Int
+    -> Database.Relational.Query.Internal.Config.Config
+    -> (Database.Relational.Query.Internal.Sub.SubQuery, GHC.Types.Int)
+  {- Arity: 2, Strictness: <L,U><L,A>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ (eta :: GHC.Types.Int)
+                   (eta1 :: Database.Relational.Query.Internal.Config.Config) ->
+                 (Database.Relational.Query.Internal.Sub.Table
+                    Database.Relations.Course.tableOfCourse
+                      `cast`
+                    (Database.Relational.Query.Table.N:Table[0]
+                         <Database.Relations.Course.Course>_P),
+                  eta)) -}
+031ef06f111983ce8a9fdce597125f3b
+  courseId :: Database.Relations.Course.Course -> GHC.Int.Int32
+  RecSel Left Database.Relations.Course.Course
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SLLL),1*U(U,A,A,A)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Database.Relations.Course.Course) ->
+                 case ds of wild { Database.Relations.Course.Course dt ds1 ds2 ds3 ->
+                 GHC.Int.I32# dt }) -}
+709d2b801730445d2f78f3a560039dc6
+  courseId' ::
+    Database.Relational.Query.Pi.Unsafe.Pi
+      Database.Relations.Course.Course GHC.Int.Int32
+  {- Arity: 1, Strictness: <L,A>m,
+     Unfolding: InlineRule (0, True, True)
+                Database.Relations.Course.courseId'1
+                  `cast`
+                (Sym (Database.Relational.Query.Pi.Unsafe.N:Pi[0]
+                          <Database.Relations.Course.Course>_P <GHC.Int.Int32>_P)) -}
+7a76328c83c603cd4ad71d58e83954fc
+  courseId'1 ::
+    Database.Record.Persistable.PersistableRecordWidth
+      Database.Relations.Course.Course
+    -> (Database.Relational.Query.Pi.Unsafe.Pi'
+          Database.Relations.Course.Course GHC.Int.Int32,
+        Database.Record.Persistable.ProductConst
+          (Data.Monoid.Sum GHC.Types.Int) GHC.Int.Int32)
+  {- Arity: 1, Strictness: <L,A>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (eta1 :: Database.Record.Persistable.PersistableRecordWidth
+                              Database.Relations.Course.Course) ->
+                 (Database.Relational.Query.Pi.Unsafe.Leftest
+                    @ Database.Relations.Course.Course
+                    @ GHC.Int.Int32
+                    Database.Relations.Course.courseId'2,
+                  Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)) -}
+8563bea0fb18ed5936a20fe64054cc55
+  courseId'10 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   "libraries/array/Data/Array/Base.hs"#) -}
+565e04bc93b598a5b2ee7a0b65e2e4c3
+  courseId'11 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Data.Array.Base"#) -}
+a2dc4fcf0078ef080fca54c71c353fae
+  courseId'12 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "array-0.5.1.1"#) -}
+8ed1e3267fc468d49e812cfb5ad70c10
+  courseId'13 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "error"#) -}
+f477053aa1ed38f9d027dab1fb9541d1
+  courseId'14 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Int"#) -}
+1dab6ad554095d43abb0b45974c8bac1
+  courseId'2 :: GHC.Types.Int
+  {- Unfolding: (case Database.Relations.Course.columnOffsetsCourse of wild { GHC.Arr.Array l u dt ds1 ->
+                 case l of wild1 { GHC.Types.I# m ->
+                 case u of wild2 { GHC.Types.I# n ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<=# m 0#) of wild4 {
+                   GHC.Types.False
+                   -> GHC.Arr.indexError
+                        @ GHC.Types.Int
+                        @ GHC.Types.Int
+                        GHC.Show.$fShowInt
+                        (wild1, wild2)
+                        Database.Relations.Course.$fHasColumnConstraintNotNullCourse1
+                        Database.Relations.Course.courseId'14
+                   GHC.Types.True
+                   -> case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.<=# 0# n) of wild5 {
+                        GHC.Types.False
+                        -> GHC.Arr.indexError
+                             @ GHC.Types.Int
+                             @ GHC.Types.Int
+                             GHC.Show.$fShowInt
+                             (wild1, wild2)
+                             Database.Relations.Course.$fHasColumnConstraintNotNullCourse1
+                             Database.Relations.Course.courseId'14
+                        GHC.Types.True
+                        -> let {
+                             w :: GHC.Prim.Int# = GHC.Prim.-# 0# m
+                           } in
+                           let {
+                             $j :: GHC.Prim.Void# -> GHC.Types.Int
+                               {- Arity: 1, Strictness: <B,A>x -}
+                             = \ (w1 :: GHC.Prim.Void#)[OneShot] ->
+                               GHC.Err.error
+                                 @ 'GHC.Types.PtrRepLifted
+                                 @ GHC.Types.Int
+                                 Database.Relations.Course.courseId'4
+                                   `cast`
+                                 (Sym (GHC.Classes.N:IP[0]
+                                           <"callStack">_N <GHC.Stack.Types.CallStack>_N))
+                                 (GHC.CString.unpackAppendCString#
+                                    "Error in array index; "#
+                                    (case GHC.Show.$wshowSignedInt
+                                            0#
+                                            w
+                                            (GHC.Types.[]
+                                               @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                                     GHC.Base.++
+                                       @ GHC.Types.Char
+                                       (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                                       (GHC.CString.unpackAppendCString#
+                                          " not in range [0.."#
+                                          (case GHC.Show.$wshowSignedInt
+                                                  0#
+                                                  dt
+                                                  (GHC.Types.[]
+                                                     @ GHC.Types.Char) of ww1 { (#,#) ww2 ww3 ->
+                                           GHC.Base.++
+                                             @ GHC.Types.Char
+                                             (GHC.Types.: @ GHC.Types.Char ww2 ww3)
+                                             Database.Relations.Course.courseId'3 })) }))
+                           } in
+                           case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.<=# 0# w) of wild6 {
+                             GHC.Types.False -> $j GHC.Prim.void#
+                             GHC.Types.True
+                             -> case GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.<# w dt) of wild7 {
+                                  GHC.Types.False -> $j GHC.Prim.void#
+                                  GHC.Types.True
+                                  -> case GHC.Prim.indexArray#
+                                            @ GHC.Types.Int
+                                            ds1
+                                            w of ds4 { Unit# ipv ->
+                                     ipv } } } } } } } }) -}
+a8a49ac8177d6fe8007ff3d976c6ef5c
+  courseId'3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# ")"#) -}
+4ec3e348d1fae0cda0a150f5030a1022
+  courseId'4 :: GHC.Stack.Types.CallStack
+  {- Strictness: m2,
+     Unfolding: (GHC.Stack.Types.PushCallStack
+                   Database.Relations.Course.courseId'13
+                   Database.Relations.Course.courseId'5
+                   GHC.Stack.Types.EmptyCallStack) -}
+c86f1b5fbc56aa712c4be36c6c89a842
+  courseId'5 :: GHC.Stack.Types.SrcLoc
+  {- Strictness: m,
+     Unfolding: (GHC.Stack.Types.SrcLoc
+                   Database.Relations.Course.courseId'12
+                   Database.Relations.Course.courseId'11
+                   Database.Relations.Course.courseId'10
+                   Database.Relations.Course.courseId'9
+                   Database.Relations.Course.courseId'8
+                   Database.Relations.Course.courseId'7
+                   Database.Relations.Course.courseId'6) -}
+8953bc6561096212ecae68b61ef13870
+  courseId'6 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 76#) -}
+bf2614e8b54a83c840ff63861bc935b6
+  courseId'7 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 88#) -}
+137e26721414c5ad26388c63f49b1502
+  courseId'8 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 31#) -}
+ed8f5abe90f62ecd616d83232ca4ccc6
+  courseId'9 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 87#) -}
+9f936d9eb5193870665c1c7fcd3a432a
+  insertCourse ::
+    Database.Relational.Query.Type.Insert
+      Database.Relations.Course.Course
+  {- Unfolding: (case Database.Relational.Query.Type.$wtypedInsertValue'
+                        @ Database.Relations.Course.Course
+                        @ Database.Relations.Course.Course
+                        Database.Relational.Query.Internal.Config.defaultConfig
+                        Database.Relations.Course.tableOfCourse
+                        Database.Relations.Course.insertCourse1
+                          `cast`
+                        (Sym (Database.Relational.Query.Effect.N:InsertTarget[0]
+                                  <Database.Relations.Course.Course>_N
+                                  <Database.Relations.Course.Course>_N)) of ww { (#,#) ww1 ww2 ->
+                 Database.Relational.Query.Type.Insert
+                   @ Database.Relations.Course.Course
+                   ww1
+                   ww2 }) -}
+597fa2245b79b63bbeefe54cebd9e3b0
+  insertCourse1 ::
+    Database.Relational.Query.Monad.Register.Register
+      Database.Relations.Course.Course
+      (Database.Relational.Query.Projectable.PlaceHolders
+         Database.Relations.Course.Course)
+  {- Unfolding: (Database.Relational.Query.Effect.piRegister
+                   @ Database.Relations.Course.Course
+                   @ Database.Relations.Course.Course
+                   (case Database.Record.Persistable.offsets
+                           (GHC.Types.:
+                              @ GHC.Types.Int
+                              (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                                `cast`
+                              (Trans
+                                   (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                                     GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                                   (Trans
+                                        (Data.Functor.Const.N:Const[0]
+                                             <*>_N
+                                             <Data.Monoid.Sum GHC.Types.Int>_R
+                                             <GHC.Int.Int32>_P)
+                                        (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                              (GHC.Types.:
+                                 @ GHC.Types.Int
+                                 (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                                   `cast`
+                                 (Trans
+                                      (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                                        GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                                      (Trans
+                                           (Data.Functor.Const.N:Const[0]
+                                                <*>_N
+                                                <Data.Monoid.Sum GHC.Types.Int>_R
+                                                <GHC.Int.Int32>_P)
+                                           (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                                 (GHC.Types.:
+                                    @ GHC.Types.Int
+                                    (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                                      `cast`
+                                    (Trans
+                                         (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                                           GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                                         (Trans
+                                              (Data.Functor.Const.N:Const[0]
+                                                   <*>_N
+                                                   <Data.Monoid.Sum GHC.Types.Int>_R
+                                                   <GHC.Int.Int32>_P)
+                                              (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                                    (GHC.Types.:
+                                       @ GHC.Types.Int
+                                       (Database.Record.Persistable.unsafeValueWidth
+                                          @ GHC.Int.Int32)
+                                         `cast`
+                                       (Trans
+                                            (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                                              GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                                            (Trans
+                                                 (Data.Functor.Const.N:Const[0]
+                                                      <*>_N
+                                                      <Data.Monoid.Sum GHC.Types.Int>_R
+                                                      <GHC.Int.Int32>_P)
+                                                 (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                                       (GHC.Types.[]
+                                          @ GHC.Types.Int))))) of wild { GHC.Arr.Array l u dt ds ->
+                    case l of wild1 { GHC.Types.I# m ->
+                    case u of wild2 { GHC.Types.I# n ->
+                    case GHC.Prim.tagToEnum#
+                           @ GHC.Types.Bool
+                           (GHC.Prim.<=# m n) of wild4 {
+                      GHC.Types.False
+                      -> (GHC.Arr.indexError
+                            @ GHC.Types.Int
+                            @ GHC.Types.Int
+                            GHC.Show.$fShowInt
+                            (wild1, wild2)
+                            wild2
+                            (GHC.CString.unpackCString# "Int"#))
+                           `cast`
+                         (Trans
+                              (Sym (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R))
+                              (Trans
+                                   (Sym (Data.Functor.Const.N:Const[0]
+                                             <*>_N
+                                             <Data.Monoid.Sum GHC.Types.Int>_R
+                                             <Database.Relations.Course.Course>_P))
+                                   (Trans
+                                        (Sym (Database.Record.Persistable.N:ProductConst[0]) <Data.Monoid.Sum
+                                                                                                GHC.Types.Int>_N)
+                                        (Sym (Database.Record.Persistable.N:PersistableWidth[0])) <Database.Relations.Course.Course>_N)))
+                      GHC.Types.True
+                      -> case GHC.Prim.indexArray#
+                                @ GHC.Types.Int
+                                ds
+                                (GHC.Prim.-# n m) of ds4 { Unit# ipv ->
+                         ipv
+                           `cast`
+                         (Trans
+                              (Sym (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R))
+                              (Trans
+                                   (Sym (Data.Functor.Const.N:Const[0]
+                                             <*>_N
+                                             <Data.Monoid.Sum GHC.Types.Int>_R
+                                             <Database.Relations.Course.Course>_P))
+                                   (Trans
+                                        (Sym (Database.Record.Persistable.N:ProductConst[0]) <Data.Monoid.Sum
+                                                                                                GHC.Types.Int>_N)
+                                        (Sym (Database.Record.Persistable.N:PersistableWidth[0])) <Database.Relations.Course.Course>_N))) } } } } })
+                   (Database.Relational.Query.Pi.Unsafe.$fCategoryTYPEPi2
+                      @ Database.Relations.Course.Course)
+                     `cast`
+                   (Sym (Database.Relational.Query.Pi.Unsafe.N:Pi[0]
+                             <Database.Relations.Course.Course>_P
+                             <Database.Relations.Course.Course>_P))) -}
+0d3120a0afc954fad2d2e6f7575df197
+  insertQueryCourse ::
+    Database.Relational.Query.Monad.BaseType.Relation
+      p0 Database.Relations.Course.Course
+    -> Database.Relational.Query.Type.InsertQuery p0
+  {- Arity: 1, Strictness: <C(C(S(SL))),1*C1(C1(U(1*U,A)))>,
+     Unfolding: InlineRule (0, True, True)
+                Database.Relations.Course.insertQueryCourse1
+                  `cast`
+                (forall (p0 :: <*>_N).
+                 <Database.Relational.Query.Monad.BaseType.Relation
+                    p0 Database.Relations.Course.Course>_R
+                 ->_R Sym (Database.Relational.Query.Type.N:InsertQuery[0]
+                               <p0>_P)) -}
+a88847a9b013138d311aa602f0501b57
+  insertQueryCourse1 ::
+    Database.Relational.Query.Monad.BaseType.Relation
+      p0 Database.Relations.Course.Course
+    -> GHC.Base.String
+  {- Arity: 1, Strictness: <C(C(S(SL))),1*C1(C1(U(1*U,A)))>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ p0
+                   (eta1 :: Database.Relational.Query.Monad.BaseType.Relation
+                              p0 Database.Relations.Course.Course) ->
+                 Database.Relational.Query.Type.insertQuerySQL
+                   @ Database.Relations.Course.Course
+                   @ Database.Relations.Course.Course
+                   @ p0
+                   Database.Relational.Query.Internal.Config.defaultConfig
+                   Database.Relations.Course.tableOfCourse
+                   (Database.Relational.Query.Pi.Unsafe.$fCategoryTYPEPi2
+                      @ Database.Relations.Course.Course)
+                     `cast`
+                   (Sym (Database.Relational.Query.Pi.Unsafe.N:Pi[0]
+                             <Database.Relations.Course.Course>_P
+                             <Database.Relations.Course.Course>_P))
+                   eta1) -}
+9779e29c13d709401b83bae8cfb196c3
+  lectureId ::
+    Database.Relations.Course.Course -> GHC.Base.Maybe GHC.Int.Int32
+  RecSel Left Database.Relations.Course.Course
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLSL),1*U(A,A,U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Database.Relations.Course.Course) ->
+                 case ds of wild { Database.Relations.Course.Course dt ds1 ds2 ds3 ->
+                 ds2 }) -}
+08cb9dc9d3de0a68d1afdd1f9d5a65cf
+  lectureId' ::
+    Database.Relational.Query.Pi.Unsafe.Pi
+      Database.Relations.Course.Course (GHC.Base.Maybe GHC.Int.Int32)
+  {- Arity: 1, Strictness: <L,A>m,
+     Unfolding: InlineRule (0, True, True)
+                Database.Relations.Course.lectureId'1
+                  `cast`
+                (Sym (Database.Relational.Query.Pi.Unsafe.N:Pi[0]
+                          <Database.Relations.Course.Course>_P
+                          <GHC.Base.Maybe GHC.Int.Int32>_P)) -}
+452e446a33e641807d5ad8f1113d58a3
+  lectureId'1 ::
+    Database.Record.Persistable.PersistableRecordWidth
+      Database.Relations.Course.Course
+    -> (Database.Relational.Query.Pi.Unsafe.Pi'
+          Database.Relations.Course.Course (GHC.Base.Maybe GHC.Int.Int32),
+        Database.Record.Persistable.ProductConst
+          (Data.Monoid.Sum GHC.Types.Int) (GHC.Base.Maybe GHC.Int.Int32))
+  {- Arity: 1, Strictness: <L,A>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (eta1 :: Database.Record.Persistable.PersistableRecordWidth
+                              Database.Relations.Course.Course) ->
+                 (Database.Relational.Query.Pi.Unsafe.Leftest
+                    @ Database.Relations.Course.Course
+                    @ (GHC.Base.Maybe GHC.Int.Int32)
+                    Database.Relations.Course.lectureId'2,
+                  (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                    `cast`
+                  (Trans
+                       (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                         GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                       (Trans
+                            (Data.Functor.Const.N:Const[0]
+                                 <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <GHC.Int.Int32>_P)
+                            (Trans
+                                 (Sym (Data.Functor.Const.N:Const[0]
+                                           <*>_N
+                                           <Data.Monoid.Sum GHC.Types.Int>_R
+                                           <GHC.Base.Maybe GHC.Int.Int32>_P))
+                                 (Sym (Database.Record.Persistable.N:ProductConst[0]) <Data.Monoid.Sum
+                                                                                         GHC.Types.Int>_N <GHC.Base.Maybe
+                                                                                                             GHC.Int.Int32>_N)))))) -}
+a8c7a30751051fd001cc0a12314ab758
+  lectureId'2 :: GHC.Types.Int
+  {- Unfolding: (case Database.Relations.Course.columnOffsetsCourse of wild { GHC.Arr.Array l u dt ds1 ->
+                 case l of wild1 { GHC.Types.I# m ->
+                 case u of wild2 { GHC.Types.I# n ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<=# m 2#) of wild4 {
+                   GHC.Types.False
+                   -> GHC.Arr.indexError
+                        @ GHC.Types.Int
+                        @ GHC.Types.Int
+                        GHC.Show.$fShowInt
+                        (wild1, wild2)
+                        Database.Relations.Course.lectureId'3
+                        Database.Relations.Course.courseId'14
+                   GHC.Types.True
+                   -> case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.<=# 2# n) of wild5 {
+                        GHC.Types.False
+                        -> GHC.Arr.indexError
+                             @ GHC.Types.Int
+                             @ GHC.Types.Int
+                             GHC.Show.$fShowInt
+                             (wild1, wild2)
+                             Database.Relations.Course.lectureId'3
+                             Database.Relations.Course.courseId'14
+                        GHC.Types.True
+                        -> let {
+                             w :: GHC.Prim.Int# = GHC.Prim.-# 2# m
+                           } in
+                           let {
+                             $j :: GHC.Prim.Void# -> GHC.Types.Int
+                               {- Arity: 1, Strictness: <B,A>x -}
+                             = \ (w1 :: GHC.Prim.Void#)[OneShot] ->
+                               GHC.Err.error
+                                 @ 'GHC.Types.PtrRepLifted
+                                 @ GHC.Types.Int
+                                 Database.Relations.Course.courseId'4
+                                   `cast`
+                                 (Sym (GHC.Classes.N:IP[0]
+                                           <"callStack">_N <GHC.Stack.Types.CallStack>_N))
+                                 (GHC.CString.unpackAppendCString#
+                                    "Error in array index; "#
+                                    (case GHC.Show.$wshowSignedInt
+                                            0#
+                                            w
+                                            (GHC.Types.[]
+                                               @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                                     GHC.Base.++
+                                       @ GHC.Types.Char
+                                       (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                                       (GHC.CString.unpackAppendCString#
+                                          " not in range [0.."#
+                                          (case GHC.Show.$wshowSignedInt
+                                                  0#
+                                                  dt
+                                                  (GHC.Types.[]
+                                                     @ GHC.Types.Char) of ww1 { (#,#) ww2 ww3 ->
+                                           GHC.Base.++
+                                             @ GHC.Types.Char
+                                             (GHC.Types.: @ GHC.Types.Char ww2 ww3)
+                                             Database.Relations.Course.courseId'3 })) }))
+                           } in
+                           case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.<=# 0# w) of wild6 {
+                             GHC.Types.False -> $j GHC.Prim.void#
+                             GHC.Types.True
+                             -> case GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.<# w dt) of wild7 {
+                                  GHC.Types.False -> $j GHC.Prim.void#
+                                  GHC.Types.True
+                                  -> case GHC.Prim.indexArray#
+                                            @ GHC.Types.Int
+                                            ds1
+                                            w of ds4 { Unit# ipv ->
+                                     ipv } } } } } } } }) -}
+9ccda52b499b342b3a6da8dac43f98e9
+  lectureId'3 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 2#) -}
+bb149c02f0ff9c62ee92a977a1c1376a
+  score ::
+    Database.Relations.Course.Course -> GHC.Base.Maybe GHC.Int.Int32
+  RecSel Left Database.Relations.Course.Course
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLLS),1*U(A,A,A,U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Database.Relations.Course.Course) ->
+                 case ds of wild { Database.Relations.Course.Course dt ds1 ds2 ds3 ->
+                 ds3 }) -}
+adc7e5a3357eadd521bff6436ee0842e
+  score' ::
+    Database.Relational.Query.Pi.Unsafe.Pi
+      Database.Relations.Course.Course (GHC.Base.Maybe GHC.Int.Int32)
+  {- Arity: 1, Strictness: <L,A>m,
+     Unfolding: InlineRule (0, True, True)
+                Database.Relations.Course.score'1
+                  `cast`
+                (Sym (Database.Relational.Query.Pi.Unsafe.N:Pi[0]
+                          <Database.Relations.Course.Course>_P
+                          <GHC.Base.Maybe GHC.Int.Int32>_P)) -}
+7e999575c57cf43fb5190aabdaa670c6
+  score'1 ::
+    Database.Record.Persistable.PersistableRecordWidth
+      Database.Relations.Course.Course
+    -> (Database.Relational.Query.Pi.Unsafe.Pi'
+          Database.Relations.Course.Course (GHC.Base.Maybe GHC.Int.Int32),
+        Database.Record.Persistable.ProductConst
+          (Data.Monoid.Sum GHC.Types.Int) (GHC.Base.Maybe GHC.Int.Int32))
+  {- Arity: 1, Strictness: <L,A>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (eta1 :: Database.Record.Persistable.PersistableRecordWidth
+                              Database.Relations.Course.Course) ->
+                 (Database.Relational.Query.Pi.Unsafe.Leftest
+                    @ Database.Relations.Course.Course
+                    @ (GHC.Base.Maybe GHC.Int.Int32)
+                    Database.Relations.Course.score'2,
+                  (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                    `cast`
+                  (Trans
+                       (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                         GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                       (Trans
+                            (Data.Functor.Const.N:Const[0]
+                                 <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <GHC.Int.Int32>_P)
+                            (Trans
+                                 (Sym (Data.Functor.Const.N:Const[0]
+                                           <*>_N
+                                           <Data.Monoid.Sum GHC.Types.Int>_R
+                                           <GHC.Base.Maybe GHC.Int.Int32>_P))
+                                 (Sym (Database.Record.Persistable.N:ProductConst[0]) <Data.Monoid.Sum
+                                                                                         GHC.Types.Int>_N <GHC.Base.Maybe
+                                                                                                             GHC.Int.Int32>_N)))))) -}
+d0f57446637dc0144345c10370fefd0f
+  score'2 :: GHC.Types.Int
+  {- Unfolding: (case Database.Relations.Course.columnOffsetsCourse of wild { GHC.Arr.Array l u dt ds1 ->
+                 case l of wild1 { GHC.Types.I# m ->
+                 case u of wild2 { GHC.Types.I# n ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<=# m 3#) of wild4 {
+                   GHC.Types.False
+                   -> GHC.Arr.indexError
+                        @ GHC.Types.Int
+                        @ GHC.Types.Int
+                        GHC.Show.$fShowInt
+                        (wild1, wild2)
+                        Database.Relations.Course.score'3
+                        Database.Relations.Course.courseId'14
+                   GHC.Types.True
+                   -> case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.<=# 3# n) of wild5 {
+                        GHC.Types.False
+                        -> GHC.Arr.indexError
+                             @ GHC.Types.Int
+                             @ GHC.Types.Int
+                             GHC.Show.$fShowInt
+                             (wild1, wild2)
+                             Database.Relations.Course.score'3
+                             Database.Relations.Course.courseId'14
+                        GHC.Types.True
+                        -> let {
+                             w :: GHC.Prim.Int# = GHC.Prim.-# 3# m
+                           } in
+                           let {
+                             $j :: GHC.Prim.Void# -> GHC.Types.Int
+                               {- Arity: 1, Strictness: <B,A>x -}
+                             = \ (w1 :: GHC.Prim.Void#)[OneShot] ->
+                               GHC.Err.error
+                                 @ 'GHC.Types.PtrRepLifted
+                                 @ GHC.Types.Int
+                                 Database.Relations.Course.courseId'4
+                                   `cast`
+                                 (Sym (GHC.Classes.N:IP[0]
+                                           <"callStack">_N <GHC.Stack.Types.CallStack>_N))
+                                 (GHC.CString.unpackAppendCString#
+                                    "Error in array index; "#
+                                    (case GHC.Show.$wshowSignedInt
+                                            0#
+                                            w
+                                            (GHC.Types.[]
+                                               @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                                     GHC.Base.++
+                                       @ GHC.Types.Char
+                                       (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                                       (GHC.CString.unpackAppendCString#
+                                          " not in range [0.."#
+                                          (case GHC.Show.$wshowSignedInt
+                                                  0#
+                                                  dt
+                                                  (GHC.Types.[]
+                                                     @ GHC.Types.Char) of ww1 { (#,#) ww2 ww3 ->
+                                           GHC.Base.++
+                                             @ GHC.Types.Char
+                                             (GHC.Types.: @ GHC.Types.Char ww2 ww3)
+                                             Database.Relations.Course.courseId'3 })) }))
+                           } in
+                           case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.<=# 0# w) of wild6 {
+                             GHC.Types.False -> $j GHC.Prim.void#
+                             GHC.Types.True
+                             -> case GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.<# w dt) of wild7 {
+                                  GHC.Types.False -> $j GHC.Prim.void#
+                                  GHC.Types.True
+                                  -> case GHC.Prim.indexArray#
+                                            @ GHC.Types.Int
+                                            ds1
+                                            w of ds4 { Unit# ipv ->
+                                     ipv } } } } } } } }) -}
+ee4a3a3674c93b05901f4b739e66ba65
+  score'3 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 3#) -}
+0769817098838cbabbe44713c89e3e8c
+  selectCourse ::
+    Database.Relational.Query.Type.Query
+      GHC.Int.Int32 Database.Relations.Course.Course
+  {- Unfolding: InlineRule (0, True, True)
+                Database.Relations.Course.selectCourse1
+                  `cast`
+                (Sym (Database.Relational.Query.Type.N:Query[0]
+                          <GHC.Int.Int32>_P <Database.Relations.Course.Course>_P)) -}
+826e458441621b2874fcc22810ba5d6a
+  selectCourse1 :: GHC.Base.String
+  {- Unfolding: (Database.Relational.Query.Type.relationalQuerySQL
+                   @ GHC.Int.Int32
+                   @ Database.Relations.Course.Course
+                   Database.Relational.Query.Internal.Config.defaultConfig
+                   Database.Relations.Course.selectCourse2
+                   (GHC.Types.[] @ Language.SQL.Keyword.Internal.Type.Keyword)) -}
+1da598caeda1818d06923b9448ecd6c9
+  selectCourse2 ::
+    Database.Relational.Query.Monad.BaseType.Relation
+      GHC.Int.Int32 Database.Relations.Course.Course
+  {- Unfolding: (Database.Relational.Query.Derives.specifiedKey
+                   @ GHC.Int.Int32
+                   @ Database.Relations.Course.Course
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                     `cast`
+                   (Sym (Database.Record.Persistable.N:PersistableWidth[0]) <GHC.Int.Int32>_N)
+                   Database.Relations.Course.selectCourse3
+                     `cast`
+                   (Sym (Database.Relational.Query.Pi.Unsafe.N:Pi[0]
+                             <Database.Relations.Course.Course>_P <GHC.Int.Int32>_P))
+                   Database.Relations.Course.course1
+                     `cast`
+                   (Trans
+                        (<GHC.Types.Int>_R
+                         ->_R Trans
+                                  (<Database.Relational.Query.Internal.Config.Config>_R
+                                   ->_R Sym (Data.Functor.Identity.N:Identity[0]
+                                                 <(Database.Relational.Query.Internal.Sub.SubQuery,
+                                                   GHC.Types.Int)>_R))
+                                  (Trans
+                                       (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                                 <*>_N
+                                                 <Database.Relational.Query.Internal.Config.Config>_R
+                                                 <Data.Functor.Identity.Identity>_R
+                                                 <(Database.Relational.Query.Internal.Sub.SubQuery,
+                                                   GHC.Types.Int)>_N))
+                                       (Sym (Database.Relational.Query.Monad.Trans.Config.N:QueryConfig[0]) <Data.Functor.Identity.Identity>_N <(Database.Relational.Query.Internal.Sub.SubQuery,
+                                                                                                                                                 GHC.Types.Int)>_N)))
+                        (Trans
+                             (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
+                                       <GHC.Types.Int>_N
+                                       <Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                                          Data.Functor.Identity.Identity>_R
+                                       <Database.Relational.Query.Internal.Sub.SubQuery>_N))
+                             (Trans
+                                  (Sym (Database.Relational.Query.Monad.Trans.Qualify.N:Qualify[0]) <Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                                                                                                       Data.Functor.Identity.Identity>_N <Database.Relational.Query.Internal.Sub.SubQuery>_N)
+                                  (Sym (Database.Relational.Query.Monad.BaseType.N:Relation[0]
+                                            <()>_P <Database.Relations.Course.Course>_P)))))) -}
+731485ccb3f6febb0842a32a8b48afb5
+  selectCourse3 ::
+    Database.Record.Persistable.PersistableRecordWidth
+      Database.Relations.Course.Course
+    -> (Database.Relational.Query.Pi.Unsafe.Pi'
+          Database.Relations.Course.Course GHC.Int.Int32,
+        Database.Record.Persistable.PersistableRecordWidth GHC.Int.Int32)
+  {- Arity: 1,
+     Unfolding: (\ (eta1 :: Database.Record.Persistable.PersistableRecordWidth
+                              Database.Relations.Course.Course) ->
+                 Database.Relations.Course.selectCourse_lvl44) -}
+ef5da692a74c9c939e8f17c79bef9154
+  selectCourse_lvl43 ::
+    Database.Relational.Query.Pi.Unsafe.Pi'
+      Database.Relations.Course.Course GHC.Int.Int32
+  {- HasNoCafRefs,
+     Unfolding: (Database.Relational.Query.Pi.Unsafe.Map
+                   @ Database.Relations.Course.Course
+                   @ GHC.Int.Int32
+                   Database.Relations.Course.$fHasConstraintKeyPrimaryCourseInt1) -}
+c711ce279884f0d5c1f3638989dad904
+  selectCourse_lvl44 ::
+    (Database.Relational.Query.Pi.Unsafe.Pi'
+       Database.Relations.Course.Course GHC.Int.Int32,
+     Database.Record.Persistable.PersistableRecordWidth GHC.Int.Int32)
+  {- Strictness: m,
+     Unfolding: ((Database.Relations.Course.selectCourse_lvl43,
+                  Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)) -}
+307ebeb4262e4e68c6f3c2f80d381701
+  studentId ::
+    Database.Relations.Course.Course -> GHC.Base.Maybe GHC.Int.Int32
+  RecSel Left Database.Relations.Course.Course
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSLL),1*U(A,U,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Database.Relations.Course.Course) ->
+                 case ds of wild { Database.Relations.Course.Course dt ds1 ds2 ds3 ->
+                 ds1 }) -}
+772c9ee9a65323f16cf57e2ec99acf14
+  studentId' ::
+    Database.Relational.Query.Pi.Unsafe.Pi
+      Database.Relations.Course.Course (GHC.Base.Maybe GHC.Int.Int32)
+  {- Arity: 1, Strictness: <L,A>m,
+     Unfolding: InlineRule (0, True, True)
+                Database.Relations.Course.studentId'1
+                  `cast`
+                (Sym (Database.Relational.Query.Pi.Unsafe.N:Pi[0]
+                          <Database.Relations.Course.Course>_P
+                          <GHC.Base.Maybe GHC.Int.Int32>_P)) -}
+698b3722998a253af3a62598fccabfc7
+  studentId'1 ::
+    Database.Record.Persistable.PersistableRecordWidth
+      Database.Relations.Course.Course
+    -> (Database.Relational.Query.Pi.Unsafe.Pi'
+          Database.Relations.Course.Course (GHC.Base.Maybe GHC.Int.Int32),
+        Database.Record.Persistable.ProductConst
+          (Data.Monoid.Sum GHC.Types.Int) (GHC.Base.Maybe GHC.Int.Int32))
+  {- Arity: 1, Strictness: <L,A>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (eta1 :: Database.Record.Persistable.PersistableRecordWidth
+                              Database.Relations.Course.Course) ->
+                 (Database.Relational.Query.Pi.Unsafe.Leftest
+                    @ Database.Relations.Course.Course
+                    @ (GHC.Base.Maybe GHC.Int.Int32)
+                    Database.Relations.Course.studentId'2,
+                  (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                    `cast`
+                  (Trans
+                       (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                         GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                       (Trans
+                            (Data.Functor.Const.N:Const[0]
+                                 <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <GHC.Int.Int32>_P)
+                            (Trans
+                                 (Sym (Data.Functor.Const.N:Const[0]
+                                           <*>_N
+                                           <Data.Monoid.Sum GHC.Types.Int>_R
+                                           <GHC.Base.Maybe GHC.Int.Int32>_P))
+                                 (Sym (Database.Record.Persistable.N:ProductConst[0]) <Data.Monoid.Sum
+                                                                                         GHC.Types.Int>_N <GHC.Base.Maybe
+                                                                                                             GHC.Int.Int32>_N)))))) -}
+a4a59cc394713e891388af523637ad17
+  studentId'2 :: GHC.Types.Int
+  {- Unfolding: (case Database.Relations.Course.columnOffsetsCourse of wild { GHC.Arr.Array l u dt ds1 ->
+                 case l of wild1 { GHC.Types.I# m ->
+                 case u of wild2 { GHC.Types.I# n ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<=# m 1#) of wild4 {
+                   GHC.Types.False
+                   -> GHC.Arr.indexError
+                        @ GHC.Types.Int
+                        @ GHC.Types.Int
+                        GHC.Show.$fShowInt
+                        (wild1, wild2)
+                        Database.Relations.Course.studentId'3
+                        Database.Relations.Course.courseId'14
+                   GHC.Types.True
+                   -> case GHC.Prim.tagToEnum#
+                             @ GHC.Types.Bool
+                             (GHC.Prim.<=# 1# n) of wild5 {
+                        GHC.Types.False
+                        -> GHC.Arr.indexError
+                             @ GHC.Types.Int
+                             @ GHC.Types.Int
+                             GHC.Show.$fShowInt
+                             (wild1, wild2)
+                             Database.Relations.Course.studentId'3
+                             Database.Relations.Course.courseId'14
+                        GHC.Types.True
+                        -> let {
+                             w :: GHC.Prim.Int# = GHC.Prim.-# 1# m
+                           } in
+                           let {
+                             $j :: GHC.Prim.Void# -> GHC.Types.Int
+                               {- Arity: 1, Strictness: <B,A>x -}
+                             = \ (w1 :: GHC.Prim.Void#)[OneShot] ->
+                               GHC.Err.error
+                                 @ 'GHC.Types.PtrRepLifted
+                                 @ GHC.Types.Int
+                                 Database.Relations.Course.courseId'4
+                                   `cast`
+                                 (Sym (GHC.Classes.N:IP[0]
+                                           <"callStack">_N <GHC.Stack.Types.CallStack>_N))
+                                 (GHC.CString.unpackAppendCString#
+                                    "Error in array index; "#
+                                    (case GHC.Show.$wshowSignedInt
+                                            0#
+                                            w
+                                            (GHC.Types.[]
+                                               @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                                     GHC.Base.++
+                                       @ GHC.Types.Char
+                                       (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                                       (GHC.CString.unpackAppendCString#
+                                          " not in range [0.."#
+                                          (case GHC.Show.$wshowSignedInt
+                                                  0#
+                                                  dt
+                                                  (GHC.Types.[]
+                                                     @ GHC.Types.Char) of ww1 { (#,#) ww2 ww3 ->
+                                           GHC.Base.++
+                                             @ GHC.Types.Char
+                                             (GHC.Types.: @ GHC.Types.Char ww2 ww3)
+                                             Database.Relations.Course.courseId'3 })) }))
+                           } in
+                           case GHC.Prim.tagToEnum#
+                                  @ GHC.Types.Bool
+                                  (GHC.Prim.<=# 0# w) of wild6 {
+                             GHC.Types.False -> $j GHC.Prim.void#
+                             GHC.Types.True
+                             -> case GHC.Prim.tagToEnum#
+                                       @ GHC.Types.Bool
+                                       (GHC.Prim.<# w dt) of wild7 {
+                                  GHC.Types.False -> $j GHC.Prim.void#
+                                  GHC.Types.True
+                                  -> case GHC.Prim.indexArray#
+                                            @ GHC.Types.Int
+                                            ds1
+                                            w of ds4 { Unit# ipv ->
+                                     ipv } } } } } } } }) -}
+8b99e48f05bf24804b999594a7c8dc80
+  studentId'3 :: GHC.Types.Int
+  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 1#) -}
+5dd52c6b5064c4c27bf89b5e7a761312
+  tableOfCourse ::
+    Database.Relational.Query.Table.Table
+      Database.Relations.Course.Course
+  {- Unfolding: (case Database.Relational.Query.Table.$wtable
+                        @ Database.Relations.Course.Course
+                        Database.Relations.Course.tableOfCourse9
+                        Database.Relations.Course.tableOfCourse1 of ww { (#,,#) ww1 ww2 ww3 ->
+                 (Database.Relational.Query.Internal.UntypedTable.Untyped
+                    ww1
+                    ww2
+                    ww3)
+                   `cast`
+                 (Sym (Database.Relational.Query.Table.N:Table[0]
+                           <Database.Relations.Course.Course>_P)) }) -}
+24f91d41df30bb89a57038a6a9152bc3
+  tableOfCourse1 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Database.Relations.Course.tableOfCourse8
+                   Database.Relations.Course.tableOfCourse2) -}
+497dfd9c79052c6641bf9ed263168559
+  tableOfCourse2 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Database.Relations.Course.tableOfCourse7
+                   Database.Relations.Course.tableOfCourse3) -}
+ddd569c5b2939db5d240ac3c49e96507
+  tableOfCourse3 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Database.Relations.Course.tableOfCourse6
+                   Database.Relations.Course.tableOfCourse4) -}
+95e646c9504da2c7f7ade6b7d285908e
+  tableOfCourse4 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Database.Relations.Course.tableOfCourse5
+                   (GHC.Types.[] @ GHC.Base.String)) -}
+dc58fe63a30b9882f2bda139f9ef158f
+  tableOfCourse5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "score"#) -}
+a3f5262a42cb546c39266f54d99d2c2b
+  tableOfCourse6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "lecture_id"#) -}
+c66915453b56c707c65747c2815519af
+  tableOfCourse7 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "student_id"#) -}
+962eafc747d68e2c272f54e9a63f2b64
+  tableOfCourse8 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "course_id"#) -}
+cbd29391d6a2272e49418005874f4bb8
+  tableOfCourse9 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "PUBLIC.course"#) -}
+7ea2c04e3107305dcaefc30c32c40857
+  updateCourse ::
+    Database.Relational.Query.Type.KeyUpdate
+      GHC.Int.Int32 Database.Relations.Course.Course
+  {- Strictness: m,
+     Unfolding: (Database.Relational.Query.Type.KeyUpdate
+                   @ GHC.Int.Int32
+                   @ Database.Relations.Course.Course
+                   Database.Relations.Course.updateCourse_key
+                     `cast`
+                   (Sym (Database.Relational.Query.Pi.Unsafe.N:Pi[0]
+                             <Database.Relations.Course.Course>_P <GHC.Int.Int32>_P))
+                   Database.Relations.Course.updateCourse1) -}
+32378a4edee50758f886270084ae299a
+  updateCourse1 :: GHC.Base.String
+  {- Unfolding: (Database.Relational.Query.SQL.updateOtherThanKeySQL
+                   @ Database.Relations.Course.Course
+                   @ GHC.Int.Int32
+                   Database.Relations.Course.tableOfCourse
+                   Database.Relations.Course.updateCourse_key
+                     `cast`
+                   (Sym (Database.Relational.Query.Pi.Unsafe.N:Pi[0]
+                             <Database.Relations.Course.Course>_P <GHC.Int.Int32>_P))) -}
+12dcd574bf5678b1b8c4e20f32f1e481
+  updateCourse_key ::
+    Database.Record.Persistable.PersistableRecordWidth
+      Database.Relations.Course.Course
+    -> (Database.Relational.Query.Pi.Unsafe.Pi'
+          Database.Relations.Course.Course GHC.Int.Int32,
+        Database.Record.Persistable.PersistableRecordWidth GHC.Int.Int32)
+  {- Arity: 1, Strictness: <L,A>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (eta2 :: Database.Record.Persistable.PersistableRecordWidth
+                              Database.Relations.Course.Course) ->
+                 (Database.Relational.Query.Pi.Unsafe.Map
+                    @ Database.Relations.Course.Course
+                    @ GHC.Int.Int32
+                    Database.Relations.Course.$fHasConstraintKeyPrimaryCourseInt1,
+                  Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)) -}
+instance Database.Record.FromSql.FromSql [Database.HDBC.SqlValue.SqlValue,
+                                          Database.Relations.Course.Course]
+  = Database.Relations.Course.$fFromSqlSqlValueCourse
+instance GHC.Generics.Generic [Database.Relations.Course.Course]
+  = Database.Relations.Course.$fGenericCourse
+instance Database.Record.KeyConstraint.HasColumnConstraint [Database.Record.KeyConstraint.NotNull,
+                                                            Database.Relations.Course.Course]
+  = Database.Relations.Course.$fHasColumnConstraintNotNullCourse
+instance Database.Record.KeyConstraint.HasColumnConstraint [Database.Record.KeyConstraint.Primary,
+                                                            Database.Relations.Course.Course]
+  = Database.Relations.Course.$fHasColumnConstraintPrimaryCourse
+instance Database.Relational.Query.Constraint.HasConstraintKey [Database.Record.KeyConstraint.Primary,
+                                                                Database.Relations.Course.Course,
+                                                                GHC.Int.Int32]
+  = Database.Relations.Course.$fHasConstraintKeyPrimaryCourseInt32
+instance Database.Record.KeyConstraint.HasKeyConstraint [Database.Record.KeyConstraint.Primary,
+                                                         Database.Relations.Course.Course]
+  = Database.Relations.Course.$fHasKeyConstraintPrimaryCourse
+instance Database.Record.Persistable.PersistableWidth [Database.Relations.Course.Course]
+  = Database.Relations.Course.$fPersistableWidthCourse
+instance Database.Relational.Query.ProjectableClass.ProductConstructor [(->)]
+  = Database.Relations.Course.$fProductConstructor(->)
+instance Database.Relational.Query.ProjectableClass.ShowConstantTermsSQL [Database.Relations.Course.Course]
+  = Database.Relations.Course.$fShowConstantTermsSQLCourse
+instance GHC.Show.Show [Database.Relations.Course.Course]
+  = Database.Relations.Course.$fShowCourse
+instance Database.Relational.Query.Table.TableDerivable [Database.Relations.Course.Course]
+  = Database.Relations.Course.$fTableDerivableCourse
+instance Database.Record.ToSql.ToSql [Database.HDBC.SqlValue.SqlValue,
+                                      Database.Relations.Course.Course]
+  = Database.Relations.Course.$fToSqlSqlValueCourse
+family instance GHC.Generics.Rep [Database.Relations.Course.Course]
+  = Database.Relations.Course.Rep_Course
+"SPEC/Database.Relations.Course $dmpersistableWidth @ Course" [ALWAYS] forall ($dGFieldWidthList :: Database.Record.Persistable.GFieldWidthList
+                                                                                                      (GHC.Generics.Rep
+                                                                                                         Database.Relations.Course.Course))
+                                                                              ($dGeneric :: GHC.Generics.Generic
+                                                                                              Database.Relations.Course.Course)
+                                                                              ($dPersistableWidth :: Database.Record.Persistable.PersistableWidth
+                                                                                                       Database.Relations.Course.Course)
+  Database.Record.Persistable.$dmpersistableWidth @ Database.Relations.Course.Course
+                                                  $dPersistableWidth
+                                                  $dGeneric
+                                                  $dGFieldWidthList
+  = Database.Relations.Course.$fPersistableWidthCourse_$s$dmpersistableWidth
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

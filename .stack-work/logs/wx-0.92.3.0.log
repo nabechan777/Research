@@ -1,0 +1,22 @@
+Configuring wx-0.92.3.0...
+Building wx-0.92.3.0...
+Preprocessing library wx-0.92.3.0...
+[ 1 of 16] Compiling Graphics.UI.WX.Types ( src/Graphics/UI/WX/Types.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/Types.o )
+[ 2 of 16] Compiling Graphics.UI.WX.Attributes ( src/Graphics/UI/WX/Attributes.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/Attributes.o )
+[ 3 of 16] Compiling Graphics.UI.WX.Layout ( src/Graphics/UI/WX/Layout.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/Layout.o )
+[ 4 of 16] Compiling Graphics.UI.WX.Classes ( src/Graphics/UI/WX/Classes.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/Classes.o )
+[ 5 of 16] Compiling Graphics.UI.WX.Events ( src/Graphics/UI/WX/Events.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/Events.o )
+[ 6 of 16] Compiling Graphics.UI.WX.Media ( src/Graphics/UI/WX/Media.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/Media.o )
+[ 7 of 16] Compiling Graphics.UI.WX.Menu ( src/Graphics/UI/WX/Menu.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/Menu.o )
+[ 8 of 16] Compiling Graphics.UI.WX.Timer ( src/Graphics/UI/WX/Timer.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/Timer.o )
+[ 9 of 16] Compiling Graphics.UI.WX.Variable ( src/Graphics/UI/WX/Variable.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/Variable.o )
+[10 of 16] Compiling Graphics.UI.WX.Window ( src/Graphics/UI/WX/Window.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/Window.o )
+[11 of 16] Compiling Graphics.UI.WX.Controls ( src/Graphics/UI/WX/Controls.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/Controls.o )
+[12 of 16] Compiling Graphics.UI.WX.Draw ( src/Graphics/UI/WX/Draw.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/Draw.o )
+[13 of 16] Compiling Graphics.UI.WX.TopLevelWindow ( src/Graphics/UI/WX/TopLevelWindow.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/TopLevelWindow.o )
+[14 of 16] Compiling Graphics.UI.WX.Frame ( src/Graphics/UI/WX/Frame.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/Frame.o )
+[15 of 16] Compiling Graphics.UI.WX.Dialogs ( src/Graphics/UI/WX/Dialogs.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/Dialogs.o )
+[16 of 16] Compiling Graphics.UI.WX   ( src/Graphics/UI/WX.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX.o )
+Installing library in
+/Users/Daiki/Git/Research/.stack-work/install/x86_64-osx/lts-9.13/8.0.2/lib/x86_64-osx-ghc-8.0.2/wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz
+Registering wx-0.92.3.0...
