@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2017-12-10 04:12:24.171275 UTC
+2017-12-18 08:03:43.934592 UTC
 
 interface main@main:Main 8002
-  interface hash: 1782c74998168ad5830ab2ebcecf78cb
-  ABI hash: 4a388cea365b7c2bde1b4860a2af81ed
-  export-list hash: 40dcf2a190e62ae0267df0edc52ba985
+  interface hash: daa2c83dc6d0cd7550f96e34379fd77f
+  ABI hash: 5c0be1cf5576ae5b5fdbdacb652ddf7d
+  export-list hash: 40ffd47abe971774d8362409497fa8ea
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: d750630d4f22a6d8b63e57e0708d07d3
   sig of: Nothing
@@ -13,7 +13,6 @@ interface main@main:Main 8002
   where
 exports:
   Main.main
-  Main.mainImpl
 module dependencies:
 package dependencies: HDBC-2.4.0.2@HDBC-2.4.0.2-CMf0h3SvMqFJUriR2hhqrA
                       HDBC-postgresql-2.3.2.5@HDBC-postgresql-2.3.2.5-8DjPA5M2Phy2z1B24f9HKN
@@ -112,11 +111,8 @@ family instance modules: Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379
                          text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text
                          text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text.Lazy
 import  -/  Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Library.AccessDatabase ca6ad32183b95a9162fd8dc1de2c20d2
-import  -/  Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Library.InsertDB fbbe038c862eb307d6c2ce97c6987a9d
-import  -/  Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Library.Interface d725e515517db33b2dd892ce03429d52
-import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Library.Interface d5b10a36d42ca7ceb2fd1a1085b97976
 import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
-import  -/  base-4.9.1.0:System.IO c9de64c5f5407c4cf1c52500c4d15200
 import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
 d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule :: GHC.Types.Module
@@ -130,49 +126,19 @@ d6831ef04cb9301b090dfae6f7bb7ec7
   $trModule2 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS "main"#) -}
-8b6f09c740830be06422257be0d29bad
+ad48f94cca947a3a7d864e8c45f9082e
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
-                Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-30077a0b816f54556a2e05e50eadb21b
+                Library.Interface.run1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+dde9ab37c669a10751aae8943277d17a
   main1 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: InlineRule (1, True, False)
-                (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case GHC.IO.Handle.Internals.wantReadableHandle_1
-                        @ GHC.Base.String
-                        GHC.IO.Handle.Text.hGetLine4
-                        GHC.IO.Handle.FD.stdin
-                        GHC.IO.Handle.Text.hGetLine2
-                          `cast`
-                        (<GHC.IO.Handle.Types.Handle__>_R
-                         ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R))
-                        s of ds1 { (#,#) ipv ipv1 ->
-                 Main.main2 ipv1 ipv }) -}
-2b41e92cb124d2e320f5648ecf09fb60
-  main2 ::
-    [GHC.Types.Char]
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 2, Strictness: <S,U><S,U> -}
-e486e62a5d43165a8d58cf3f02a16728
-  main3 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1,
      Unfolding: (GHC.TopHandler.runMainIO1
                    @ ()
-                   Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
-8479ec12cab70d8b3410d8a72fc2e6d4
-  mainImpl :: GHC.Base.String -> GHC.Types.IO ()
-  {- Arity: 2, Strictness: <S,U><S,U>,
-     Unfolding: InlineRule (0, True, True)
-                Main.main2
-                  `cast`
-                (<[GHC.Types.Char]>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+                   Library.Interface.run1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:

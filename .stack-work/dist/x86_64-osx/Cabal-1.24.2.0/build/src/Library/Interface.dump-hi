@@ -1,37 +1,89 @@
 
 ==================== FINAL INTERFACE ====================
-2017-12-09 07:19:13.633878 UTC
+2017-12-18 08:13:33.564797 UTC
 
 interface Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Library.Interface 8002
-  interface hash: 16fd5655605330a71a191bf03172ba69
-  ABI hash: d725e515517db33b2dd892ce03429d52
-  export-list hash: f3c950d66c84e5de0e1c97793faa9735
+  interface hash: 791886fc3989827a331cdef89d66bf3f
+  ABI hash: d5b10a36d42ca7ceb2fd1a1085b97976
+  export-list hash: 422ab939c45d240ec6846e98a08c6974
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: e47d04c2c32dd373ac3335b6f4283ab2
   sig of: Nothing
   used TH splices: False
   where
 exports:
-  Library.Interface.createChoices
-  Library.Interface.createFrame
+  Library.Interface.createCourseRegistration
+  Library.Interface.createRecord
+  Library.Interface.createSemesterInformation
+  Library.Interface.createStudentInformation
   Library.Interface.run
-  Library.Interface.OneDayLecture
+  Library.Interface.Common
+  Library.Interface.EachLecture
   Library.Interface.OneWeekLecture
-module dependencies:
-package dependencies: array-0.5.1.1@array-0.5.1.1 base-4.9.1.0
+  Library.Interface.Period
+  Library.Interface.Semester
+  Library.Interface.Specilize
+module dependencies: Database.Record.TH.PostgreSQL
+                     Database.Relations.Student
+package dependencies: HDBC-2.4.0.2@HDBC-2.4.0.2-CMf0h3SvMqFJUriR2hhqrA
+                      HDBC-postgresql-2.3.2.5@HDBC-postgresql-2.3.2.5-8DjPA5M2Phy2z1B24f9HKN
+                      HDBC-session-0.1.1.1@HDBC-session-0.1.1.1-8iI0BgP0QiAFY1v4elsx1d
+                      array-0.5.1.1@array-0.5.1.1 base-4.9.1.0
+                      binary-0.8.3.0@binary-0.8.3.0
                       bytestring-0.10.8.1@bytestring-0.10.8.1
                       containers-0.5.7.1@containers-0.5.7.1
+                      convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE
                       deepseq-1.4.2.0@deepseq-1.4.2.0 directory-1.3.0.0@directory-1.3.0.0
-                      filepath-1.4.1.1@filepath-1.4.1.1 ghc-prim-0.5.0.0
-                      integer-gmp-1.0.0.1 stm-2.4.4.1@stm-2.4.4.1-JQn4hNPyYjP5m9AcbI88Ve
-                      time-1.6.0.1@time-1.6.0.1 unix-2.7.2.1@unix-2.7.2.1
+                      dlist-0.8.0.3@dlist-0.8.0.3-BHFBNaw8k6n9WiaUNzoXpk
+                      filepath-1.4.1.1@filepath-1.4.1.1
+                      ghc-boot-th-8.0.2@ghc-boot-th-8.0.2 ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1 mtl-2.2.1@mtl-2.2.1-BLKBelFsPB3BoFeSWSOYj6
+                      names-th-0.2.0.3@names-th-0.2.0.3-FWd9uhhaPk73vacdw3xBxG
+                      old-locale-1.0.0.7@old-locale-1.0.0.7-KGBP1BSKxH5GCm0LnZP04j
+                      old-time-1.1.0.3@old-time-1.1.0.3-KWRsMSdY26c2L27Y9n9cyq
+                      parsec-3.1.11@parsec-3.1.11-1aqiimsgq2dCv7eoaC8WuX
+                      persistable-record-0.5.1.1@persistable-record-0.5.1.1-8Nzb50WMmIH2ecrfnqIMY
+                      pretty-1.1.3.3@pretty-1.1.3.3
+                      relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8
+                      relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0
+                      relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa
+                      sql-words-0.1.5.1@sql-words-0.1.5.1-6ekOanNrtOKYD1ABcjRAD
+                      stm-2.4.4.1@stm-2.4.4.1-JQn4hNPyYjP5m9AcbI88Ve
+                      template-haskell-2.11.1.0
+                      text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00
+                      th-data-compat-0.0.2.4@th-data-compat-0.0.2.4-GbISCvWnyQk60k5xubIzhH
+                      th-reify-compat-0.0.1.3@th-reify-compat-0.0.1.3-FdL2m7tyb2p89Gevm936I5
+                      time-1.6.0.1@time-1.6.0.1
+                      time-locale-compat-0.1.1.3@time-locale-compat-0.1.1.3-KZ1jqNx8uhlHjmuPPj6V1Y
+                      transformers-0.5.2.0@transformers-0.5.2.0 unix-2.7.2.1@unix-2.7.2.1
+                      utf8-string-1.0.1.1@utf8-string-1.0.1.1-1DpjxLeTvGg7ttZZojxJR5
                       wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz
                       wxcore-0.92.3.0@wxcore-0.92.3.0-7crw4DOSyVYLnCcwhdBKS4
 orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+         binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
+         bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE:Data.Convertible.Instances.C
+         convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE:Data.Convertible.Instances.Map
+         convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE:Data.Convertible.Instances.Num
+         convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE:Data.Convertible.Instances.Text
+         convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE:Data.Convertible.Instances.Time
+         persistable-record-0.5.1.1@persistable-record-0.5.1.1-8Nzb50WMmIH2ecrfnqIMY:Database.Record.Instances
+         persistable-record-0.5.1.1@persistable-record-0.5.1.1-8Nzb50WMmIH2ecrfnqIMY:Database.Record.TupleInstances
+         relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Monad.Aggregate
+         relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Projection
+         relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Pure
+         relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.TupleInstances
+         relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0:Database.HDBC.Record.Persistable
+         relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0:Database.HDBC.Schema.PostgreSQL
+         relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0:Database.HDBC.SqlValueExtra
          stm-2.4.4.1@stm-2.4.4.1-JQn4hNPyYjP5m9AcbI88Ve:Control.Monad.STM
+         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text
+         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text.Lazy
+         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text.Show
          time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
          time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
          time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
          wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Controls
          wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Dialogs
          wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Draw
@@ -41,19 +93,45 @@ orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
          wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.TopLevelWindow
          wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Variable
          wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Window
-family instance modules: base-4.9.1.0:Control.Applicative
-                         base-4.9.1.0:Data.Complex base-4.9.1.0:Data.Either
-                         base-4.9.1.0:Data.Functor.Const base-4.9.1.0:Data.Functor.Identity
-                         base-4.9.1.0:Data.List.NonEmpty base-4.9.1.0:Data.Monoid
-                         base-4.9.1.0:Data.Semigroup base-4.9.1.0:Data.Type.Equality
-                         base-4.9.1.0:Data.Version base-4.9.1.0:Data.Void
-                         base-4.9.1.0:GHC.Exts base-4.9.1.0:GHC.Generics
-                         base-4.9.1.0:GHC.IO.Exception base-4.9.1.0:GHC.TypeLits
+family instance modules: Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Student
+                         base-4.9.1.0:Control.Applicative base-4.9.1.0:Data.Complex
+                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
+                         base-4.9.1.0:Data.Functor.Identity base-4.9.1.0:Data.List.NonEmpty
+                         base-4.9.1.0:Data.Monoid base-4.9.1.0:Data.Semigroup
+                         base-4.9.1.0:Data.Type.Equality base-4.9.1.0:Data.Version
+                         base-4.9.1.0:Data.Void base-4.9.1.0:GHC.Exts
+                         base-4.9.1.0:GHC.Generics base-4.9.1.0:GHC.IO.Exception
+                         base-4.9.1.0:GHC.TypeLits
                          containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
                          containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         dlist-0.8.0.3@dlist-0.8.0.3-BHFBNaw8k6n9WiaUNzoXpk:Data.DList
+                         ghc-boot-th-8.0.2@ghc-boot-th-8.0.2:GHC.LanguageExtensions.Type
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
+                         relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa:Database.Relational.Schema.PgCatalog.PgAttribute
+                         relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa:Database.Relational.Schema.PgCatalog.PgClass
+                         relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa:Database.Relational.Schema.PgCatalog.PgConstraint
+                         relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa:Database.Relational.Schema.PgCatalog.PgNamespace
+                         relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa:Database.Relational.Schema.PgCatalog.PgType
+                         template-haskell-2.11.1.0:Language.Haskell.TH.Syntax
+                         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text
+                         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text.Lazy
+import  -/  Database.Relations.Student 7d94e9ecfbca41d2a0c7c904e7ba3289
+  exports: 26481ebac2346a26b6d558ee88f43ebe
+  Student 28d36bc2fd1ef502717c5f53412c14d0
+  Student f8b27d68bc355eaf4dff6876392cc31e
+  department 48ec2b242d7886bbdedd8770019e8914
+  faculty cb93d34496206d7bc993eb32e93f6384
+  name a7514900a20fc64f9a27644746ca9fc1
+  semester 978a059a1f499465d981b94c08fd6d46
+  studentNumber 53cb97c4b3603ce02aac2a9388abdabb
 import  -/  base-4.9.1.0:Data.Traversable 556020d7cf3c4a34a774600512918a37
 import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
 import  -/  base-4.9.1.0:GHC.List ab8c4e523e6c479c549d3bcd5fc4a439
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
 import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
 import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
 import  -/  wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX 580e6e327edc42b60df1e18c3a1ae8dd
@@ -64,7 +142,6 @@ import  -/  wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Frame 
 import  -/  wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Layout 155b606047d018d49f14bf002c61fe72
 import  -/  wxcore-0.92.3.0@wxcore-0.92.3.0-7crw4DOSyVYLnCcwhdBKS4:Graphics.UI.WXCore.Layout 12a5f5b0fd742a112b4ce3f8d327f98a
 import  -/  wxcore-0.92.3.0@wxcore-0.92.3.0-7crw4DOSyVYLnCcwhdBKS4:Graphics.UI.WXCore.WxcClassTypes d8b54310f824ba76594f80c10bbb7459
-import  -/  wxcore-0.92.3.0@wxcore-0.92.3.0-7crw4DOSyVYLnCcwhdBKS4:Graphics.UI.WXCore.WxcTypes 30d2cf586e9de67cea5712514876afd6
 12669b34c12f2d512658f046736184d8
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
@@ -80,322 +157,475 @@ f73d8dbbe36349fe272a8a9b96673716
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS
                    "Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u"#) -}
-dbbe5a10e6bdffba005694d0ea324e78
-  $wxs :: GHC.Prim.Int# -> [[[[GHC.Types.Char]]]]
-  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
-acf629705b896cb3afae4d4529718cb8
-  type OneDayLecture = [[GHC.Base.String]]
+625f35d1bbb37eb6e127d428d0b9ad80
+  $wcreateRecord ::
+    Graphics.UI.WXCore.WxcClassTypes.Frame ()
+    -> Library.Interface.Common
+    -> Library.Interface.Specilize
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Graphics.UI.WXCore.Layout.Layout #)
+  {- Arity: 4, Strictness: <L,U><L,1*U(U)><L,1*U(U)><S,U>,
+     Inline: [0] -}
+1ebba351f98f1679c7a7d0f5441ea840
+  $wcreateSemesterInformation ::
+    Library.Interface.Semester
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Graphics.UI.WXCore.Layout.Layout #)
+  {- Arity: 2, Strictness: <L,U><S,U>, Inline: [0],
+     Unfolding: (\ (w :: Library.Interface.Semester)
+                   (w8 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# w8,
+                    case Graphics.UI.WXCore.Layout.$wboxed
+                           Library.Interface.createSemesterInformation6
+                           (let {
+                              w9 :: Graphics.UI.WXCore.Layout.Layout
+                              = Graphics.UI.WXCore.Layout.Label
+                                  Graphics.UI.WXCore.Layout.optionsDefault
+                                  w
+                            } in
+                            let {
+                              w10 :: [Graphics.UI.WXCore.Layout.Layout]
+                              = GHC.Types.:
+                                  @ Graphics.UI.WXCore.Layout.Layout
+                                  w9
+                                  (GHC.Types.[] @ Graphics.UI.WXCore.Layout.Layout)
+                            } in
+                            let {
+                              w11 :: [Graphics.UI.WXCore.Layout.Layout]
+                              = GHC.Types.:
+                                  @ Graphics.UI.WXCore.Layout.Layout
+                                  Library.Interface.createSemesterInformation4
+                                  w10
+                            } in
+                            let {
+                              hashstretch1 :: Data.Monoid.Any
+                              = Graphics.UI.WXCore.Layout.grid_go1
+                                  (Data.OldList.transpose_$stranspose
+                                     @ Graphics.UI.WXCore.Layout.Layout
+                                     w11
+                                     (GHC.Types.[] @ [Graphics.UI.WXCore.Layout.Layout]))
+                            } in
+                            let {
+                              w12 :: [[Graphics.UI.WXCore.Layout.Layout]]
+                              = GHC.Types.:
+                                  @ [Graphics.UI.WXCore.Layout.Layout]
+                                  w11
+                                  (GHC.Types.[] @ [Graphics.UI.WXCore.Layout.Layout])
+                            } in
+                            let {
+                              hasvstretch1 :: Data.Monoid.Any
+                              = Graphics.UI.WXCore.Layout.grid_go w12
+                            } in
+                            Graphics.UI.WXCore.Layout.Grid
+                              (Graphics.UI.WXCore.Layout.LayoutOptions
+                                 hashstretch1 `cast` (Data.Monoid.N:Any[0])
+                                 hasvstretch1 `cast` (Data.Monoid.N:Any[0])
+                                 (GHC.Types.[] @ Graphics.UI.WXCore.Layout.Margin)
+                                 Graphics.UI.WXCore.Layout.layoutFromWindow1
+                                 Graphics.UI.WXCore.Layout.AlignLeft
+                                 Graphics.UI.WXCore.Layout.AlignTop
+                                 (case hasvstretch1 `cast` (Data.Monoid.N:Any[0]) of wild {
+                                    GHC.Types.False
+                                    -> case hashstretch1 `cast` (Data.Monoid.N:Any[0]) of wild1 {
+                                         GHC.Types.False -> Graphics.UI.WXCore.Layout.FillNone
+                                         GHC.Types.True -> Graphics.UI.WXCore.Layout.Fill }
+                                    GHC.Types.True -> Graphics.UI.WXCore.Layout.Fill })
+                                 (GHC.Base.Nothing @ Graphics.UI.WXCore.WxcTypes.Size)
+                                 GHC.Types.False)
+                              Library.Interface.createSemesterInformation2
+                              w12) of ww { (#,,#) ww1 ww2 ww3 ->
+                    Graphics.UI.WXCore.Layout.TextBox ww1 ww2 ww3 } #)) -}
+3fe5d24c20dadf5923ef49de800e8ea0
+  $wcreateStudentInformation ::
+    Database.Relations.Student.Student
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Graphics.UI.WXCore.Layout.Layout #)
+  {- Arity: 2, Strictness: <L,U(A,U,U,U,U,U)><S,U>, Inline: [0],
+     Unfolding: (\ (w :: Database.Relations.Student.Student)
+                   (w8 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 (# w8,
+                    case Graphics.UI.WXCore.Layout.$wboxed
+                           Library.Interface.createStudentInformation12
+                           (let {
+                              y :: GHC.Base.String
+                              = case w of wild { Database.Relations.Student.Student dt dt1 ds1 ds2 ds3 ds4 ->
+                                case GHC.Show.$wshowSignedInt
+                                       0#
+                                       dt1
+                                       (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                                GHC.Types.: @ GHC.Types.Char ww5 ww6 } }
+                            } in
+                            let {
+                              w9 :: Graphics.UI.WXCore.Layout.Layout
+                              = Graphics.UI.WXCore.Layout.Label
+                                  Graphics.UI.WXCore.Layout.optionsDefault
+                                  y
+                            } in
+                            let {
+                              w10 :: [Graphics.UI.WXCore.Layout.Layout]
+                              = GHC.Types.:
+                                  @ Graphics.UI.WXCore.Layout.Layout
+                                  w9
+                                  (GHC.Types.[] @ Graphics.UI.WXCore.Layout.Layout)
+                            } in
+                            let {
+                              w11 :: [Graphics.UI.WXCore.Layout.Layout]
+                              = GHC.Types.:
+                                  @ Graphics.UI.WXCore.Layout.Layout
+                                  Library.Interface.createStudentInformation10
+                                  w10
+                            } in
+                            let {
+                              ys :: GHC.Base.String
+                              = case w of wild { Database.Relations.Student.Student dt dt1 ds1 ds2 ds3 ds4 ->
+                                ds1 }
+                            } in
+                            let {
+                              ys1 :: Graphics.UI.WXCore.Layout.Layout
+                              = Graphics.UI.WXCore.Layout.Label
+                                  Graphics.UI.WXCore.Layout.optionsDefault
+                                  ys
+                            } in
+                            let {
+                              w12 :: [Graphics.UI.WXCore.Layout.Layout]
+                              = GHC.Types.:
+                                  @ Graphics.UI.WXCore.Layout.Layout
+                                  ys1
+                                  (GHC.Types.[] @ Graphics.UI.WXCore.Layout.Layout)
+                            } in
+                            let {
+                              w13 :: [Graphics.UI.WXCore.Layout.Layout]
+                              = GHC.Types.:
+                                  @ Graphics.UI.WXCore.Layout.Layout
+                                  Library.Interface.createStudentInformation8
+                                  w12
+                            } in
+                            let {
+                              ys2 :: GHC.Base.String
+                              = case w of wild { Database.Relations.Student.Student dt dt1 ds1 ds2 ds3 ds4 ->
+                                ds2 }
+                            } in
+                            let {
+                              ys3 :: Graphics.UI.WXCore.Layout.Layout
+                              = Graphics.UI.WXCore.Layout.Label
+                                  Graphics.UI.WXCore.Layout.optionsDefault
+                                  ys2
+                            } in
+                            let {
+                              w14 :: [Graphics.UI.WXCore.Layout.Layout]
+                              = GHC.Types.:
+                                  @ Graphics.UI.WXCore.Layout.Layout
+                                  ys3
+                                  (GHC.Types.[] @ Graphics.UI.WXCore.Layout.Layout)
+                            } in
+                            let {
+                              w15 :: [Graphics.UI.WXCore.Layout.Layout]
+                              = GHC.Types.:
+                                  @ Graphics.UI.WXCore.Layout.Layout
+                                  Library.Interface.createStudentInformation6
+                                  w14
+                            } in
+                            let {
+                              ys4 :: GHC.Base.String
+                              = case w of wild { Database.Relations.Student.Student dt dt1 ds1 ds2 ds3 ds4 ->
+                                ds3 }
+                            } in
+                            let {
+                              ys5 :: Graphics.UI.WXCore.Layout.Layout
+                              = Graphics.UI.WXCore.Layout.Label
+                                  Graphics.UI.WXCore.Layout.optionsDefault
+                                  ys4
+                            } in
+                            let {
+                              w16 :: [Graphics.UI.WXCore.Layout.Layout]
+                              = GHC.Types.:
+                                  @ Graphics.UI.WXCore.Layout.Layout
+                                  ys5
+                                  (GHC.Types.[] @ Graphics.UI.WXCore.Layout.Layout)
+                            } in
+                            let {
+                              w17 :: [Graphics.UI.WXCore.Layout.Layout]
+                              = GHC.Types.:
+                                  @ Graphics.UI.WXCore.Layout.Layout
+                                  Library.Interface.createStudentInformation4
+                                  w16
+                            } in
+                            let {
+                              ys6 :: GHC.Base.String
+                              = case w of wild { Database.Relations.Student.Student dt dt1 ds1 ds2 ds3 ds4 ->
+                                ds4 }
+                            } in
+                            let {
+                              ys7 :: Graphics.UI.WXCore.Layout.Layout
+                              = Graphics.UI.WXCore.Layout.Label
+                                  Graphics.UI.WXCore.Layout.optionsDefault
+                                  ys6
+                            } in
+                            let {
+                              w18 :: [Graphics.UI.WXCore.Layout.Layout]
+                              = GHC.Types.:
+                                  @ Graphics.UI.WXCore.Layout.Layout
+                                  ys7
+                                  (GHC.Types.[] @ Graphics.UI.WXCore.Layout.Layout)
+                            } in
+                            let {
+                              w19 :: [Graphics.UI.WXCore.Layout.Layout]
+                              = GHC.Types.:
+                                  @ Graphics.UI.WXCore.Layout.Layout
+                                  Library.Interface.createStudentInformation2
+                                  w18
+                            } in
+                            let {
+                              w20 :: [[Graphics.UI.WXCore.Layout.Layout]]
+                              = GHC.Types.:
+                                  @ [Graphics.UI.WXCore.Layout.Layout]
+                                  w19
+                                  (GHC.Types.[] @ [Graphics.UI.WXCore.Layout.Layout])
+                            } in
+                            let {
+                              w21 :: [[Graphics.UI.WXCore.Layout.Layout]]
+                              = GHC.Types.: @ [Graphics.UI.WXCore.Layout.Layout] w17 w20
+                            } in
+                            let {
+                              w22 :: [[Graphics.UI.WXCore.Layout.Layout]]
+                              = GHC.Types.: @ [Graphics.UI.WXCore.Layout.Layout] w15 w21
+                            } in
+                            let {
+                              w23 :: [[Graphics.UI.WXCore.Layout.Layout]]
+                              = GHC.Types.: @ [Graphics.UI.WXCore.Layout.Layout] w13 w22
+                            } in
+                            let {
+                              hashstretch1 :: Data.Monoid.Any
+                              = Graphics.UI.WXCore.Layout.grid_go1
+                                  (Data.OldList.transpose_$stranspose
+                                     @ Graphics.UI.WXCore.Layout.Layout
+                                     w11
+                                     w23)
+                            } in
+                            let {
+                              w24 :: [[Graphics.UI.WXCore.Layout.Layout]]
+                              = GHC.Types.: @ [Graphics.UI.WXCore.Layout.Layout] w11 w23
+                            } in
+                            let {
+                              hasvstretch1 :: Data.Monoid.Any
+                              = Graphics.UI.WXCore.Layout.grid_go w24
+                            } in
+                            Graphics.UI.WXCore.Layout.Grid
+                              (Graphics.UI.WXCore.Layout.LayoutOptions
+                                 hashstretch1 `cast` (Data.Monoid.N:Any[0])
+                                 hasvstretch1 `cast` (Data.Monoid.N:Any[0])
+                                 (GHC.Types.[] @ Graphics.UI.WXCore.Layout.Margin)
+                                 Graphics.UI.WXCore.Layout.layoutFromWindow1
+                                 Graphics.UI.WXCore.Layout.AlignLeft
+                                 Graphics.UI.WXCore.Layout.AlignTop
+                                 (case hasvstretch1 `cast` (Data.Monoid.N:Any[0]) of wild {
+                                    GHC.Types.False
+                                    -> case hashstretch1 `cast` (Data.Monoid.N:Any[0]) of wild1 {
+                                         GHC.Types.False -> Graphics.UI.WXCore.Layout.FillNone
+                                         GHC.Types.True -> Graphics.UI.WXCore.Layout.Fill }
+                                    GHC.Types.True -> Graphics.UI.WXCore.Layout.Fill })
+                                 (GHC.Base.Nothing @ Graphics.UI.WXCore.WxcTypes.Size)
+                                 GHC.Types.False)
+                              Library.Interface.createSemesterInformation2
+                              w24) of ww { (#,,#) ww1 ww2 ww3 ->
+                    Graphics.UI.WXCore.Layout.TextBox ww1 ww2 ww3 } #)) -}
+0ba3b93009d14332230856e58fe9fd46
+  type Common = GHC.Types.Int
+f0b6c4fcc6f0637e517b952e08515de2
+  type EachLecture = [[GHC.Base.String]]
 e9ac0e38d5631ab42a32b3e00c3f8f8b
   type OneWeekLecture = [[[GHC.Base.String]]]
-4bcbf76b7371aca2448f6d92bb847759
-  createChoices ::
+8562a26a8047f5180de9cdea47c2f205
+  type Period = GHC.Base.String
+ae3196cc39cdba170401eb6413350418
+  type Semester = GHC.Base.String
+8ccf10b38821aa449086bb003107e865
+  type Specilize = GHC.Types.Int
+ff0b7bef90e05da4d8d39868f931d70e
+  createCourseRegistration ::
     Graphics.UI.WXCore.WxcClassTypes.Frame ()
     -> Library.Interface.OneWeekLecture
     -> GHC.Types.IO Graphics.UI.WXCore.Layout.Layout
   {- Arity: 3, Strictness: <L,U><S,1*U><S,U>,
      Unfolding: InlineRule (0, True, True)
-                Library.Interface.createChoices1
+                Library.Interface.createCourseRegistration1
                   `cast`
                 (<Graphics.UI.WXCore.WxcClassTypes.Frame ()>_R
                  ->_R <Library.Interface.OneWeekLecture>_R
                  ->_R Sym (GHC.Types.N:IO[0]
                                <Graphics.UI.WXCore.Layout.Layout>_R)) -}
-cc56cb91bdb9ce2a99910c3b1bbf8141
-  createChoices1 ::
+81facc5015ce06354d71785a5a1294b4
+  createCourseRegistration1 ::
     Graphics.UI.WXCore.WxcClassTypes.Frame ()
     -> Library.Interface.OneWeekLecture
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
           Graphics.UI.WXCore.Layout.Layout #)
-  {- Arity: 3, Strictness: <L,U><S,1*U><S,U>,
-     Unfolding: (\ (f :: Graphics.UI.WXCore.WxcClassTypes.Frame ())
-                   (wl :: Library.Interface.OneWeekLecture)
-                   (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case Library.Interface.createChoices7
-                        (GHC.Base.map
-                           @ [[GHC.Base.String]]
-                           @ (GHC.Types.IO Graphics.UI.WXCore.Layout.Layout)
-                           (\ (ol :: Library.Interface.OneDayLecture)
-                              (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                            case Library.Interface.createChoices6
-                                   (GHC.Base.map
-                                      @ [GHC.Base.String]
-                                      @ (GHC.Types.IO (Graphics.UI.WXCore.WxcClassTypes.Choice ()))
-                                      (\ (l :: [GHC.Base.String]) ->
-                                       Graphics.UI.WX.Controls.choiceEx
-                                         @ (Graphics.UI.WXCore.WxcClassTypes.CTopLevelWindow
-                                              (Graphics.UI.WXCore.WxcClassTypes.CFrame ()))
-                                         f
-                                         Graphics.UI.WX.Controls.$fSelectionObject17
-                                         (GHC.Types.:
-                                            @ (Graphics.UI.WX.Attributes.Prop
-                                                 (Graphics.UI.WXCore.WxcClassTypes.Choice ()))
-                                            (Graphics.UI.WX.Attributes.:=
-                                               @ (Graphics.UI.WXCore.WxcClassTypes.Choice ())
-                                               @ [GHC.Base.String]
-                                               (Graphics.UI.WX.Controls.$fItemsObject[]2_$citems
-                                                  @ ())
-                                               l)
-                                            (GHC.Types.[]
-                                               @ (Graphics.UI.WX.Attributes.Prop
-                                                    (Graphics.UI.WXCore.WxcClassTypes.Choice ())))))
-                                      ol)
-                                   s1 of ds1 { (#,#) ipv ipv1 ->
-                            (# ipv,
-                               let {
-                                 w2 :: [[Graphics.UI.WXCore.Layout.Layout]]
-                                 = GHC.Base.map
-                                     @ (Graphics.UI.WXCore.WxcObject.Object
-                                          (Graphics.UI.WXCore.WxcClassTypes.CWxObject
-                                             (Graphics.UI.WXCore.WxcClassTypes.CEvtHandler
-                                                (Graphics.UI.WXCore.WxcClassTypes.CWindow
-                                                   (Graphics.UI.WXCore.WxcClassTypes.CControl
-                                                      (Graphics.UI.WXCore.WxcClassTypes.CChoice
-                                                         ()))))))
-                                     @ [Graphics.UI.WXCore.Layout.Layout]
-                                     Library.Interface.createChoices5
-                                     ipv1
-                               } in
-                               let {
-                                 hashstretch :: Data.Monoid.Any
-                                 = Graphics.UI.WXCore.Layout.grid_go1
-                                     (Data.OldList.transpose @ Graphics.UI.WXCore.Layout.Layout w2)
-                               } in
-                               let {
-                                 hasvstretch :: Data.Monoid.Any
-                                 = Graphics.UI.WXCore.Layout.grid_go w2
-                               } in
-                               Graphics.UI.WXCore.Layout.Grid
-                                 (Graphics.UI.WXCore.Layout.LayoutOptions
-                                    hashstretch `cast` (Data.Monoid.N:Any[0])
-                                    hasvstretch `cast` (Data.Monoid.N:Any[0])
-                                    (GHC.Types.[] @ Graphics.UI.WXCore.Layout.Margin)
-                                    Graphics.UI.WXCore.Layout.layoutFromWindow1
-                                    Graphics.UI.WXCore.Layout.AlignLeft
-                                    Graphics.UI.WXCore.Layout.AlignTop
-                                    (case hasvstretch `cast` (Data.Monoid.N:Any[0]) of wild {
-                                       GHC.Types.False
-                                       -> case hashstretch `cast` (Data.Monoid.N:Any[0]) of wild1 {
-                                            GHC.Types.False -> Graphics.UI.WXCore.Layout.FillNone
-                                            GHC.Types.True -> Graphics.UI.WXCore.Layout.Fill }
-                                       GHC.Types.True -> Graphics.UI.WXCore.Layout.Fill })
-                                    (GHC.Base.Nothing @ Graphics.UI.WXCore.WxcTypes.Size)
-                                    GHC.Types.False)
-                                 Library.Interface.createChoices4
-                                 w2 #) })
-                             `cast`
-                           (<Library.Interface.OneDayLecture>_R
-                            ->_R Sym (GHC.Types.N:IO[0] <Graphics.UI.WXCore.Layout.Layout>_R))
-                           wl)
-                        s of ds1 { (#,#) ipv ipv1 ->
-                 (# ipv,
-                    let {
-                      hashstretch :: Data.Monoid.Any
-                      = Graphics.UI.WXCore.Layout.grid_go1
-                          (Data.OldList.transpose_$stranspose
-                             @ Graphics.UI.WXCore.Layout.Layout
-                             ipv1
-                             (GHC.Types.[] @ [Graphics.UI.WXCore.Layout.Layout]))
-                    } in
-                    let {
-                      w2 :: [[Graphics.UI.WXCore.Layout.Layout]]
-                      = GHC.Types.:
-                          @ [Graphics.UI.WXCore.Layout.Layout]
-                          ipv1
-                          (GHC.Types.[] @ [Graphics.UI.WXCore.Layout.Layout])
-                    } in
-                    let {
-                      hasvstretch :: Data.Monoid.Any
-                      = Graphics.UI.WXCore.Layout.grid_go w2
-                    } in
-                    Graphics.UI.WXCore.Layout.Grid
-                      (Graphics.UI.WXCore.Layout.LayoutOptions
-                         hashstretch `cast` (Data.Monoid.N:Any[0])
-                         hasvstretch `cast` (Data.Monoid.N:Any[0])
-                         (GHC.Types.[] @ Graphics.UI.WXCore.Layout.Margin)
-                         Graphics.UI.WXCore.Layout.layoutFromWindow1
-                         Graphics.UI.WXCore.Layout.AlignLeft
-                         Graphics.UI.WXCore.Layout.AlignTop
-                         (case hasvstretch `cast` (Data.Monoid.N:Any[0]) of wild {
-                            GHC.Types.False
-                            -> case hashstretch `cast` (Data.Monoid.N:Any[0]) of wild1 {
-                                 GHC.Types.False -> Graphics.UI.WXCore.Layout.FillNone
-                                 GHC.Types.True -> Graphics.UI.WXCore.Layout.Fill }
-                            GHC.Types.True -> Graphics.UI.WXCore.Layout.Fill })
-                         (GHC.Base.Nothing @ Graphics.UI.WXCore.WxcTypes.Size)
-                         GHC.Types.False)
-                      Library.Interface.createChoices2
-                      w2 #) }) -}
-fad66ec349229ef18fffc0c60dbf40f8
-  createChoices2 :: Graphics.UI.WXCore.WxcTypes.Size2D GHC.Types.Int
-  {- HasNoCafRefs,
-     Unfolding: (Graphics.UI.WXCore.WxcTypes.Size
-                   @ GHC.Types.Int
-                   Library.Interface.createChoices3
-                   Graphics.UI.WXCore.Layout.column2) -}
-53139353db28141761d78773da890f53
-  createChoices3 :: GHC.Types.Int
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 10#) -}
-0b3d436cf6e16d048ef6f73238c0a2db
-  createChoices4 :: Graphics.UI.WXCore.WxcTypes.Size2D GHC.Types.Int
-  {- HasNoCafRefs,
-     Unfolding: (Graphics.UI.WXCore.WxcTypes.Size
-                   @ GHC.Types.Int
-                   Graphics.UI.WXCore.Layout.column2
-                   Library.Interface.createChoices3) -}
-35a5807ed8c359c1ce70264f8c97a558
-  createChoices5 ::
-    Graphics.UI.WXCore.WxcObject.Object
-      (Graphics.UI.WXCore.WxcClassTypes.CWxObject
-         (Graphics.UI.WXCore.WxcClassTypes.CEvtHandler
-            (Graphics.UI.WXCore.WxcClassTypes.CWindow
-               (Graphics.UI.WXCore.WxcClassTypes.CControl
-                  (Graphics.UI.WXCore.WxcClassTypes.CChoice ())))))
-    -> [Graphics.UI.WXCore.Layout.Layout]
-  {- Arity: 1,
-     Unfolding: (\ (x7 :: Graphics.UI.WXCore.WxcObject.Object
-                            (Graphics.UI.WXCore.WxcClassTypes.CWxObject
-                               (Graphics.UI.WXCore.WxcClassTypes.CEvtHandler
-                                  (Graphics.UI.WXCore.WxcClassTypes.CWindow
-                                     (Graphics.UI.WXCore.WxcClassTypes.CControl
-                                        (Graphics.UI.WXCore.WxcClassTypes.CChoice ())))))) ->
-                 GHC.Types.:
-                   @ Graphics.UI.WXCore.Layout.Layout
-                   (Graphics.UI.WXCore.Layout.layoutFromWindow
-                      @ (Graphics.UI.WXCore.WxcClassTypes.CControl
-                           (Graphics.UI.WXCore.WxcClassTypes.CChoice ()))
-                      x7)
-                   (GHC.Types.[] @ Graphics.UI.WXCore.Layout.Layout)) -}
-4dbe419bb6f648dfb3d9649a289e7a6c
-  createChoices6 ::
-    [GHC.Types.IO (Graphics.UI.WXCore.WxcClassTypes.Choice ())]
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
-          [Graphics.UI.WXCore.WxcClassTypes.Choice ()] #)
-  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,U> -}
-62ec2e2e4a7e1da474e395d16b9b2a8d
-  createChoices7 ::
-    [GHC.Types.IO Graphics.UI.WXCore.Layout.Layout]
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
-          [Graphics.UI.WXCore.Layout.Layout] #)
-  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,U> -}
-4a32f86c0483eabff62e061d09760b9e
-  createFrame ::
-    GHC.Types.IO (Graphics.UI.WXCore.WxcClassTypes.Frame ())
-  {- Arity: 1, Strictness: <S,U>,
+  {- Arity: 3, Strictness: <L,U><S,1*U><S,U> -}
+f808552680ae0d6f6a15bbe763688db3
+  createRecord ::
+    Graphics.UI.WXCore.WxcClassTypes.Frame ()
+    -> (Library.Interface.Common, Library.Interface.Specilize)
+    -> GHC.Types.IO Graphics.UI.WXCore.Layout.Layout
+  {- Arity: 3, Strictness: <L,U><S,1*U(1*U(U),1*U(U))><S,U>,
      Unfolding: InlineRule (0, True, True)
-                Library.Interface.createFrame1
+                Library.Interface.createRecord1
                   `cast`
-                (Sym (GHC.Types.N:IO[0]
-                          <Graphics.UI.WXCore.WxcClassTypes.Frame ()>_R)) -}
-593943d863005e2998849af7c74657ad
-  createFrame1 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
+                (<Graphics.UI.WXCore.WxcClassTypes.Frame ()>_R
+                 ->_R <(Library.Interface.Common, Library.Interface.Specilize)>_R
+                 ->_R Sym (GHC.Types.N:IO[0]
+                               <Graphics.UI.WXCore.Layout.Layout>_R)) -}
+6dc1865dd7fa00896eab4294c4865a68
+  createRecord1 ::
+    Graphics.UI.WXCore.WxcClassTypes.Frame ()
+    -> (Library.Interface.Common, Library.Interface.Specilize)
+    -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld,
-          Graphics.UI.WXCore.WxcClassTypes.Frame () #)
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: InlineRule (1, True, True)
-                (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 Library.Interface.createFrame2
-                   `cast`
-                 (GHC.Types.N:IO[0] <Graphics.UI.WXCore.WxcClassTypes.Frame ()>_R)
-                   s) -}
-332afe777057cb36c6e6174934a24a8f
-  createFrame10 :: GHC.Types.Int
-  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 1000#) -}
-e5ea5f3811b0eda0c9c9c00dba7f6515
-  createFrame11 ::
-    Graphics.UI.WX.Attributes.Prop
-      (Graphics.UI.WXCore.WxcClassTypes.Frame ())
-  {- Unfolding: (Graphics.UI.WX.Attributes.:=
-                   @ (Graphics.UI.WXCore.WxcClassTypes.Frame ())
-                   @ GHC.Base.String
-                   (Graphics.UI.WX.Window.$fTextualObject_$ctext
-                      @ (Graphics.UI.WXCore.WxcClassTypes.CTopLevelWindow
-                           (Graphics.UI.WXCore.WxcClassTypes.CFrame ())))
-                   Library.Interface.createFrame12) -}
-91c5a54fc7a5602c7b5d5ae3d384f808
-  createFrame12 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "Research"#) -}
-b95ec71d29a747c6073a5637f7636c6e
-  createFrame2 ::
-    GHC.Types.IO (Graphics.UI.WXCore.WxcClassTypes.Frame ())
-  {- Unfolding: (Graphics.UI.WX.Frame.frameEx
-                   @ GHC.Prim.Any
-                   Graphics.UI.WXCore.Frame.frameDefaultStyle
-                   Library.Interface.createFrame3
-                   (Graphics.UI.WXCore.WxcObject.objectNull
-                      @ (Graphics.UI.WXCore.WxcClassTypes.CWxObject
-                           (Graphics.UI.WXCore.WxcClassTypes.CEvtHandler
-                              (Graphics.UI.WXCore.WxcClassTypes.CWindow GHC.Prim.Any))))) -}
-a3853a353d014c4e5b6ad878ddbdc589
-  createFrame3 ::
-    [Graphics.UI.WX.Attributes.Prop
-       (Graphics.UI.WXCore.WxcClassTypes.Frame ())]
-  {- Unfolding: (GHC.Types.:
-                   @ (Graphics.UI.WX.Attributes.Prop
-                        (Graphics.UI.WXCore.WxcClassTypes.Frame ()))
-                   Library.Interface.createFrame11
-                   Library.Interface.createFrame4) -}
-419d535c5b5d3996d220dbae247a1aa0
-  createFrame4 ::
-    [Graphics.UI.WX.Attributes.Prop
-       (Graphics.UI.WXCore.WxcClassTypes.Frame ())]
-  {- Unfolding: (GHC.Types.:
-                   @ (Graphics.UI.WX.Attributes.Prop
-                        (Graphics.UI.WXCore.WxcClassTypes.Frame ()))
-                   Library.Interface.createFrame7
-                   Library.Interface.createFrame5) -}
-8b9a8786894f00a4df0cde208a441ca6
-  createFrame5 ::
-    [Graphics.UI.WX.Attributes.Prop
-       (Graphics.UI.WXCore.WxcClassTypes.Frame ())]
-  {- Unfolding: (GHC.Types.:
-                   @ (Graphics.UI.WX.Attributes.Prop
-                        (Graphics.UI.WXCore.WxcClassTypes.Frame ()))
-                   Library.Interface.createFrame6
-                   (GHC.Types.[]
-                      @ (Graphics.UI.WX.Attributes.Prop
-                           (Graphics.UI.WXCore.WxcClassTypes.Frame ())))) -}
-45fa5b5476bd0a0de39ed71f173cc4f7
-  createFrame6 ::
-    Graphics.UI.WX.Attributes.Prop
-      (Graphics.UI.WXCore.WxcClassTypes.Frame ())
-  {- Unfolding: (Graphics.UI.WX.Attributes.:=
-                   @ (Graphics.UI.WXCore.WxcClassTypes.Frame ())
-                   @ GHC.Types.Bool
-                   (Graphics.UI.WX.TopLevelWindow.windowResizeable
-                      @ (Graphics.UI.WXCore.WxcClassTypes.CTopLevelWindow
-                           (Graphics.UI.WXCore.WxcClassTypes.CFrame ())))
-                   GHC.Types.True) -}
-a50c11193e936206de9acb44c768a682
-  createFrame7 ::
-    Graphics.UI.WX.Attributes.Prop
-      (Graphics.UI.WXCore.WxcClassTypes.Frame ())
-  {- Unfolding: (Graphics.UI.WX.Attributes.:=
-                   @ (Graphics.UI.WXCore.WxcClassTypes.Frame ())
-                   @ Graphics.UI.WXCore.WxcTypes.Size
-                   (Graphics.UI.WX.Window.$fDimensionsObject_$cclientSize
-                      @ (Graphics.UI.WXCore.WxcClassTypes.CTopLevelWindow
-                           (Graphics.UI.WXCore.WxcClassTypes.CFrame ())))
-                   Library.Interface.createFrame8) -}
-37b3452a061676a48920f1b4d0b9a105
-  createFrame8 :: Graphics.UI.WXCore.WxcTypes.Size2D GHC.Types.Int
+          Graphics.UI.WXCore.Layout.Layout #)
+  {- Arity: 3, Strictness: <L,U><S,1*U(1*U(U),1*U(U))><S,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, False)
+                (\ (w :: Graphics.UI.WXCore.WxcClassTypes.Frame ())
+                   (w8 :: (Library.Interface.Common, Library.Interface.Specilize))
+                   (w9 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case w8 of ww { (,) ww1 ww2 ->
+                 Library.Interface.$wcreateRecord w ww1 ww2 w9 }) -}
+0be00a5a78e3d8694119be617632baa2
+  createSemesterInformation ::
+    Graphics.UI.WXCore.WxcClassTypes.Frame ()
+    -> Library.Interface.Semester
+    -> GHC.Types.IO Graphics.UI.WXCore.Layout.Layout
+  {- Arity: 3, Strictness: <L,A><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Library.Interface.createSemesterInformation1
+                  `cast`
+                (<Graphics.UI.WXCore.WxcClassTypes.Frame ()>_R
+                 ->_R <Library.Interface.Semester>_R
+                 ->_R Sym (GHC.Types.N:IO[0]
+                               <Graphics.UI.WXCore.Layout.Layout>_R)) -}
+56dd0389ce3b1cd6f50268e598da6f09
+  createSemesterInformation1 ::
+    Graphics.UI.WXCore.WxcClassTypes.Frame ()
+    -> Library.Interface.Semester
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Graphics.UI.WXCore.Layout.Layout #)
+  {- Arity: 3, Strictness: <L,A><L,U><S,U>, Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, True)
+                (\ (w :: Graphics.UI.WXCore.WxcClassTypes.Frame ())
+                   (w8 :: Library.Interface.Semester)
+                   (w9 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 Library.Interface.$wcreateSemesterInformation w8 w9) -}
+e409a2b369da4fd42abc79bf1ef1c2d6
+  createSemesterInformation2 ::
+    Graphics.UI.WXCore.WxcTypes.Size2D GHC.Types.Int
   {- HasNoCafRefs,
      Unfolding: (Graphics.UI.WXCore.WxcTypes.Size
                    @ GHC.Types.Int
-                   Library.Interface.createFrame10
-                   Library.Interface.createFrame9) -}
-fa0ac3e97ed96982ae9b93a9c8d88d98
-  createFrame9 :: GHC.Types.Int
-  {- HasNoCafRefs, Unfolding: (GHC.Types.I# 700#) -}
-827796ed4622f0b9d93e34d77c5e4823
+                   Library.Interface.createSemesterInformation3
+                   Library.Interface.createSemesterInformation3) -}
+2ffa8756edc4dc5045a858352801002d
+  createSemesterInformation3 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 5#) -}
+28c404a12f743ec5fc9870ed7c9c9837
+  createSemesterInformation4 :: Graphics.UI.WXCore.Layout.Layout
+  {- Strictness: m4,
+     Unfolding: (Graphics.UI.WXCore.Layout.Label
+                   Graphics.UI.WXCore.Layout.optionsDefault
+                   Library.Interface.createSemesterInformation5) -}
+51e45f0f181e71984b8dfee0d37f5ac2
+  createSemesterInformation5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCStringUtf8#
+                   "\\228\\187\\138\\229\\173\\166\\230\\156\\159:"#) -}
+6e50e85531dd342a5ee87d71e53fc035
+  createSemesterInformation6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCStringUtf8#
+                   "\\229\\173\\166\\230\\156\\159"#) -}
+e9f4d7745b7dd101ac497d3f34b9ad14
+  createStudentInformation ::
+    Graphics.UI.WXCore.WxcClassTypes.Frame ()
+    -> Database.Relations.Student.Student
+    -> GHC.Types.IO Graphics.UI.WXCore.Layout.Layout
+  {- Arity: 3, Strictness: <L,A><L,U(A,U,U,U,U,U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Library.Interface.createStudentInformation1
+                  `cast`
+                (<Graphics.UI.WXCore.WxcClassTypes.Frame ()>_R
+                 ->_R <Database.Relations.Student.Student>_R
+                 ->_R Sym (GHC.Types.N:IO[0]
+                               <Graphics.UI.WXCore.Layout.Layout>_R)) -}
+ea095f35ac05e5c38db9b6e6603d73f9
+  createStudentInformation1 ::
+    Graphics.UI.WXCore.WxcClassTypes.Frame ()
+    -> Database.Relations.Student.Student
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Graphics.UI.WXCore.Layout.Layout #)
+  {- Arity: 3, Strictness: <L,A><L,U(A,U,U,U,U,U)><S,U>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (3, True, True)
+                (\ (w :: Graphics.UI.WXCore.WxcClassTypes.Frame ())
+                   (w8 :: Database.Relations.Student.Student)
+                   (w9 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 Library.Interface.$wcreateStudentInformation w8 w9) -}
+0153847803088453ee8067fef8be0cb2
+  createStudentInformation10 :: Graphics.UI.WXCore.Layout.Layout
+  {- Unfolding: (Graphics.UI.WXCore.Layout.Label
+                   Graphics.UI.WXCore.Layout.optionsDefault
+                   Library.Interface.createStudentInformation11) -}
+9fd3e7de31a48b32b10f35cb7720df1d
+  createStudentInformation11 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCStringUtf8#
+                   "\\229\\173\\166\\231\\148\\159\\232\\168\\188\\231\\149\\170\\229\\143\\183:"#) -}
+ae170bed7493861b7492f4bcf58dbb63
+  createStudentInformation12 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCStringUtf8#
+                   "\\229\\173\\166\\231\\148\\159"#) -}
+39e8370967560358211a24c01aaf62c6
+  createStudentInformation2 :: Graphics.UI.WXCore.Layout.Layout
+  {- Unfolding: (Graphics.UI.WXCore.Layout.Label
+                   Graphics.UI.WXCore.Layout.optionsDefault
+                   Library.Interface.createStudentInformation3) -}
+0f082eef01db46d06e9dfacf9f9a4813
+  createStudentInformation3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCStringUtf8#
+                   "\\227\\130\\187\\227\\131\\161\\227\\130\\185\\227\\130\\191\\227\\131\\188:"#) -}
+b9e460f4b209cfd228cb208d14ca353c
+  createStudentInformation4 :: Graphics.UI.WXCore.Layout.Layout
+  {- Unfolding: (Graphics.UI.WXCore.Layout.Label
+                   Graphics.UI.WXCore.Layout.optionsDefault
+                   Library.Interface.createStudentInformation5) -}
+b71bc36fa7457e09417d081afc1f8ee5
+  createStudentInformation5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCStringUtf8#
+                   "\\229\\173\\166\\231\\167\\145:"#) -}
+1226d8cc517c16ce5155b1714401c909
+  createStudentInformation6 :: Graphics.UI.WXCore.Layout.Layout
+  {- Unfolding: (Graphics.UI.WXCore.Layout.Label
+                   Graphics.UI.WXCore.Layout.optionsDefault
+                   Library.Interface.createStudentInformation7) -}
+ce58d4d94077d03d71862123f5ead2d8
+  createStudentInformation7 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCStringUtf8#
+                   "\\229\\173\\166\\233\\131\\168:"#) -}
+e4e3c4bae832fdf6ce17e434a4171fae
+  createStudentInformation8 :: Graphics.UI.WXCore.Layout.Layout
+  {- Unfolding: (Graphics.UI.WXCore.Layout.Label
+                   Graphics.UI.WXCore.Layout.optionsDefault
+                   Library.Interface.createStudentInformation9) -}
+fe2837b7e9e50622ff575a0508143e2f
+  createStudentInformation9 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCStringUtf8#
+                   "\\230\\176\\143\\229\\144\\141:"#) -}
+5b59719a7a7ba5a54ae04d768063380b
   run :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Library.Interface.run1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-8392b041a087f814c6855aca6bff0a60
+976920fe26d69dfa3a96ac7dc7345ad3
   run1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -418,44 +648,11 @@ fa0ac3e97ed96982ae9b93a9c8d88d98
                                                                           GHC.Prim.RealWorld #)}
                         ds3 of wild1 { Unit# ds4 ->
                  (# ds4, GHC.Tuple.() #) } } } }) -}
-5b600f76585ef9d51a04ebff3191aedc
+73490cf07704516abfb7ebaa8f53db41
   run2 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 1,
-     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case {__pkg_ccall_GC wxcore-0.92.3.0@wxcore-0.92.3.0-7crw4DOSyVYLnCcwhdBKS4 ELJApp_InitAllImageHandlers GHC.Prim.State#
-                                                                                                                           GHC.Prim.RealWorld
-                                                                                                                         -> (# GHC.Prim.State#
-                                                                                                                                 GHC.Prim.RealWorld #)}
-                        s of wild { Unit# ds2 ->
-                 case Library.Interface.createFrame2
-                        `cast`
-                      (GHC.Types.N:IO[0] <Graphics.UI.WXCore.WxcClassTypes.Frame ()>_R)
-                        ds2 of ds1 { (#,#) ipv ipv1 ->
-                 case Library.Interface.createChoices1
-                        ipv1
-                        Library.Interface.run3
-                        ipv of ds4 { (#,#) ipv2 ipv3 ->
-                 case Graphics.UI.WX.Attributes.set1
-                        @ (Graphics.UI.WXCore.WxcClassTypes.Frame ())
-                        ipv1
-                        (GHC.Types.:
-                           @ (Graphics.UI.WX.Attributes.Prop
-                                (Graphics.UI.WXCore.WxcClassTypes.Frame ()))
-                           (Graphics.UI.WX.Attributes.:=
-                              @ (Graphics.UI.WXCore.WxcClassTypes.Frame ())
-                              @ Graphics.UI.WXCore.Layout.Layout
-                              (Graphics.UI.WX.TopLevelWindow.$fFormObject_$clayout @ ())
-                              ipv3)
-                           (GHC.Types.[]
-                              @ (Graphics.UI.WX.Attributes.Prop
-                                   (Graphics.UI.WXCore.WxcClassTypes.Frame ()))))
-                        ipv2 of ds5 { (#,#) ipv4 ipv5 ->
-                 (# ipv4, GHC.Tuple.() #) } } } }) -}
-6263d073fee5ccda8de2ddfacb20dca1
-  run3 :: [[[[GHC.Types.Char]]]]
-  {- Unfolding: (Library.Interface.$wxs 7#) -}
+  {- Arity: 1 -}
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:

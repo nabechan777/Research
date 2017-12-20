@@ -18,7 +18,6 @@ import Database.HDBC.Session
 import Database.HDBC.PostgreSQL
 import Database.Record hiding (unique)
 import Database.Relational.Query hiding (unique)
--- import Database.Relational.Query
 
 runRelation :: (ToSql SqlValue p, IConnection conn, FromSql SqlValue a)
             => conn -> Relation p a -> p -> IO [a]
