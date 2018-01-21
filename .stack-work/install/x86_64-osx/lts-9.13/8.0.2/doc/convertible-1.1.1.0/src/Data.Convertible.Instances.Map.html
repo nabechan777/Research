@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">{- |
+   Module     : Data.Convertible.Instances.Map
+   Copyright  : Copyright (C) 2009-2011 John Goerzen
+   License    : BSD3
+
+   Maintainer : John Goerzen &lt;jgoerzen@complete.org&gt;
+   Stability  : provisional
+   Portability: portable
+
+Instances to convert between Map and association list.
+
+Copyright (C) 2009-2011 John Goerzen &lt;jgoerzen@complete.org&gt;
+
+All rights reserved.
+
+For license and copyright information, see the file LICENSE
+
+-}</span><span>
+</span><a name="line-19"></a><span>
+</span><a name="line-20"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Convertible</span><span class="hs-operator">.</span><span class="hs-identifier">Instances</span><span class="hs-operator">.</span><span class="hs-identifier">Map</span><span class="hs-special">(</span><span class="hs-special">)</span><span>
+</span><a name="line-21"></a><span class="hs-keyword">where</span><span>
+</span><a name="line-22"></a><span>
+</span><a name="line-23"></a><span class="hs-keyword">import</span><span> </span><a href="Data.Convertible.Base.html"><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Convertible</span><span class="hs-operator">.</span><span class="hs-identifier">Base</span></a><span>
+</span><a name="line-24"></a><span>
+</span><a name="line-25"></a><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Map</span><span> </span><span class="hs-keyword">as</span><span> </span><span class="hs-identifier">Map</span><span>
+</span><a name="line-26"></a><span>
+</span><a name="line-27"></a><span class="hs-keyword">instance</span><span> </span><span class="hs-identifier hs-type">Ord</span><span> </span><a href="#local-6989586621679030002"><span class="hs-identifier hs-type">k</span></a><span> </span><span class="hs-glyph">=&gt;</span><span> </span><a href="Data.Convertible.Base.html#Convertible"><span class="hs-identifier hs-type">Convertible</span></a><span> </span><span class="hs-special">[</span><span class="hs-special">(</span><a href="#local-6989586621679030002"><span class="hs-identifier hs-type">k</span></a><span class="hs-special">,</span><span> </span><a href="#local-6989586621679030003"><span class="hs-identifier hs-type">a</span></a><span class="hs-special">)</span><span class="hs-special">]</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Map</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">Map</span><span> </span><a href="#local-6989586621679030002"><span class="hs-identifier hs-type">k</span></a><span> </span><a href="#local-6989586621679030003"><span class="hs-identifier hs-type">a</span></a><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-28"></a><span>    </span><a name="local-8214565720323797059"><a href="Data.Convertible.Base.html#safeConvert"><span class="hs-identifier">safeConvert</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">return</span><span> </span><span class="hs-operator hs-var">.</span><span> </span><span class="hs-identifier hs-var">Map</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">fromList</span><span>
+</span><a name="line-29"></a><span class="hs-keyword">instance</span><span> </span><a href="Data.Convertible.Base.html#Convertible"><span class="hs-identifier hs-type">Convertible</span></a><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Map</span><span class="hs-operator hs-type">.</span><span class="hs-identifier hs-type">Map</span><span> </span><a href="#local-6989586621679029503"><span class="hs-identifier hs-type">k</span></a><span> </span><a href="#local-6989586621679029504"><span class="hs-identifier hs-type">a</span></a><span class="hs-special">)</span><span> </span><span class="hs-special">[</span><span class="hs-special">(</span><a href="#local-6989586621679029503"><span class="hs-identifier hs-type">k</span></a><span class="hs-special">,</span><span> </span><a href="#local-6989586621679029504"><span class="hs-identifier hs-type">a</span></a><span class="hs-special">)</span><span class="hs-special">]</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-30"></a><span>    </span><a name="local-8214565720323797059"><a href="Data.Convertible.Base.html#safeConvert"><span class="hs-identifier">safeConvert</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">return</span><span> </span><span class="hs-operator hs-var">.</span><span> </span><span class="hs-identifier hs-var">Map</span><span class="hs-operator hs-var">.</span><span class="hs-identifier hs-var">toList</span><span>
+</span><a name="line-31"></a></pre></body></html>

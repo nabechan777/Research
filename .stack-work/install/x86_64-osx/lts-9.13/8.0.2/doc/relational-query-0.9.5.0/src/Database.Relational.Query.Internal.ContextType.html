@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE EmptyDataDecls #-}</span><span>
+</span><a name="line-2"></a><span>
+</span><a name="line-3"></a><span class="hs-comment">-- |</span><span>
+</span><a name="line-4"></a><span class="hs-comment">-- Module      : Database.Relational.Query.Internal.ContextType</span><span>
+</span><a name="line-5"></a><span class="hs-comment">-- Copyright   : 2013-2017 Kei Hibino</span><span>
+</span><a name="line-6"></a><span class="hs-comment">-- License     : BSD3</span><span>
+</span><a name="line-7"></a><span class="hs-comment">--</span><span>
+</span><a name="line-8"></a><span class="hs-comment">-- Maintainer  : ex8k.hibino@gmail.com</span><span>
+</span><a name="line-9"></a><span class="hs-comment">-- Stability   : experimental</span><span>
+</span><a name="line-10"></a><span class="hs-comment">-- Portability : unknown</span><span>
+</span><a name="line-11"></a><span class="hs-comment">--</span><span>
+</span><a name="line-12"></a><span class="hs-comment">-- This module defines query context tag types.</span><span>
+</span><a name="line-13"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Database</span><span class="hs-operator">.</span><span class="hs-identifier">Relational</span><span class="hs-operator">.</span><span class="hs-identifier">Query</span><span class="hs-operator">.</span><span class="hs-identifier">Internal</span><span class="hs-operator">.</span><span class="hs-identifier">ContextType</span><span> </span><span class="hs-special">(</span><span>
+</span><a name="line-14"></a><span>  </span><a href="Database.Relational.Query.Internal.ContextType.html#Flat"><span class="hs-identifier hs-type">Flat</span></a><span class="hs-special">,</span><span> </span><a href="Database.Relational.Query.Internal.ContextType.html#Aggregated"><span class="hs-identifier hs-type">Aggregated</span></a><span class="hs-special">,</span><span> </span><a href="Database.Relational.Query.Internal.ContextType.html#Exists"><span class="hs-identifier hs-type">Exists</span></a><span class="hs-special">,</span><span> </span><a href="Database.Relational.Query.Internal.ContextType.html#OverWindow"><span class="hs-identifier hs-type">OverWindow</span></a><span class="hs-special">,</span><span>
+</span><a name="line-15"></a><span>
+</span><a name="line-16"></a><span>  </span><a href="Database.Relational.Query.Internal.ContextType.html#Set"><span class="hs-identifier hs-type">Set</span></a><span class="hs-special">,</span><span> </span><a href="Database.Relational.Query.Internal.ContextType.html#SetList"><span class="hs-identifier hs-type">SetList</span></a><span class="hs-special">,</span><span> </span><a href="Database.Relational.Query.Internal.ContextType.html#Power"><span class="hs-identifier hs-type">Power</span></a><span class="hs-special">,</span><span>
+</span><a name="line-17"></a><span>  </span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-18"></a><span>
+</span><a name="line-19"></a><span class="hs-comment">-- | Type tag for flat (not-aggregated) query</span><span>
+</span><a name="line-20"></a><span class="hs-keyword">data</span><span> </span><a name="Flat"><a href="Database.Relational.Query.Internal.ContextType.html#Flat"><span class="hs-identifier">Flat</span></a></a><span>
+</span><a name="line-21"></a><span>
+</span><a name="line-22"></a><span class="hs-comment">-- | Type tag for aggregated query</span><span>
+</span><a name="line-23"></a><span class="hs-keyword">data</span><span> </span><a name="Aggregated"><a href="Database.Relational.Query.Internal.ContextType.html#Aggregated"><span class="hs-identifier">Aggregated</span></a></a><span>
+</span><a name="line-24"></a><span>
+</span><a name="line-25"></a><span class="hs-comment">-- | Type tag for exists predicate</span><span>
+</span><a name="line-26"></a><span class="hs-keyword">data</span><span> </span><a name="Exists"><a href="Database.Relational.Query.Internal.ContextType.html#Exists"><span class="hs-identifier">Exists</span></a></a><span>
+</span><a name="line-27"></a><span>
+</span><a name="line-28"></a><span class="hs-comment">-- | Type tag for window function building</span><span>
+</span><a name="line-29"></a><span class="hs-keyword">data</span><span> </span><a name="OverWindow"><a href="Database.Relational.Query.Internal.ContextType.html#OverWindow"><span class="hs-identifier">OverWindow</span></a></a><span>
+</span><a name="line-30"></a><span>
+</span><a name="line-31"></a><span>
+</span><a name="line-32"></a><span class="hs-comment">-- | Type tag for normal aggregatings set</span><span>
+</span><a name="line-33"></a><span class="hs-keyword">data</span><span> </span><a name="Set"><a href="Database.Relational.Query.Internal.ContextType.html#Set"><span class="hs-identifier">Set</span></a></a><span>
+</span><a name="line-34"></a><span>
+</span><a name="line-35"></a><span class="hs-comment">-- | Type tag for aggregatings GROUPING SETS</span><span>
+</span><a name="line-36"></a><span class="hs-keyword">data</span><span> </span><a name="SetList"><a href="Database.Relational.Query.Internal.ContextType.html#SetList"><span class="hs-identifier">SetList</span></a></a><span>
+</span><a name="line-37"></a><span>
+</span><a name="line-38"></a><span class="hs-comment">-- | Type tag for aggregatings power set</span><span>
+</span><a name="line-39"></a><span class="hs-keyword">data</span><span> </span><a name="Power"><a href="Database.Relational.Query.Internal.ContextType.html#Power"><span class="hs-identifier">Power</span></a></a><span>
+</span><a name="line-40"></a></pre></body></html>

@@ -16,6 +16,16 @@ Preprocessing executable 'wxdirect' for wxdirect-0.92.3.0...
 [11 of 12] Compiling CompileHeader    ( src/CompileHeader.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/wxdirect/wxdirect-tmp/CompileHeader.o )
 [12 of 12] Compiling Main             ( src/Main.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/wxdirect/wxdirect-tmp/Main.o )
 Linking .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/wxdirect/wxdirect ...
+Running Haddock for wxdirect-0.92.3.0...
+Preprocessing library wxdirect-0.92.3.0...
+Haddock coverage:
+   0% (  0 /  1) in 'Application.Wxdirect'
+  Missing documentation for:
+    Module header
+Documentation created:
+.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/doc/html/wxdirect/index.html,
+.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/doc/html/wxdirect/wxdirect.txt
+Preprocessing executable 'wxdirect' for wxdirect-0.92.3.0...
 Installing library in
 /Users/Daiki/Git/Research/.stack-work/install/x86_64-osx/lts-9.13/8.0.2/lib/x86_64-osx-ghc-8.0.2/wxdirect-0.92.3.0-LGjDmaXygzn4mgqM3mytpV
 Installing executable(s) in

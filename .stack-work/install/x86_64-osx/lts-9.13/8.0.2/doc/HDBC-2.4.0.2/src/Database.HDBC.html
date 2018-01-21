@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">{- |
+   Module     : Database.HDBC
+   Copyright  : Copyright (C) 2005-2011 John Goerzen
+   License    : BSD3
+
+   Maintainer : John Goerzen &lt;jgoerzen@complete.org&gt;
+   Stability  : provisional
+   Portability: portable
+
+Welcome to HDBC, the Haskell Database Connectivity library.
+
+Written by John Goerzen, jgoerzen\@complete.org
+-}</span><span>
+</span><a name="line-14"></a><span>
+</span><a name="line-15"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Database</span><span class="hs-operator">.</span><span class="hs-identifier">HDBC</span><span> </span><span>
+</span><a name="line-16"></a><span>    </span><span class="hs-special">(</span><span class="hs-comment">-- * Introduction</span><span>
+</span><a name="line-17"></a><span>     </span><span class="hs-comment">-- $introduction</span><span>
+</span><a name="line-18"></a><span>
+</span><a name="line-19"></a><span>     </span><span class="hs-comment">-- ** Features</span><span>
+</span><a name="line-20"></a><span>     </span><span class="hs-comment">-- $features</span><span>
+</span><a name="line-21"></a><span>
+</span><a name="line-22"></a><span>     </span><span class="hs-comment">-- ** Available Drivers</span><span>
+</span><a name="line-23"></a><span>     </span><span class="hs-comment">-- $drivers</span><span>
+</span><a name="line-24"></a><span>
+</span><a name="line-25"></a><span>     </span><span class="hs-comment">-- * Typing of transfer data</span><span>
+</span><a name="line-26"></a><span>     </span><a href="Database.HDBC.SqlValue.html#SqlValue"><span class="hs-identifier hs-type">SqlValue</span></a><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a name="line-27"></a><span>     </span><a href="Database.HDBC.SqlValue.html#toSql"><span class="hs-identifier hs-var">toSql</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.SqlValue.html#fromSql"><span class="hs-identifier hs-var">fromSql</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.SqlValue.html#safeFromSql"><span class="hs-identifier hs-var">safeFromSql</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.SqlValue.html#nToSql"><span class="hs-identifier hs-var">nToSql</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.SqlValue.html#iToSql"><span class="hs-identifier hs-var">iToSql</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.SqlValue.html#posixToSql"><span class="hs-identifier hs-var">posixToSql</span></a><span class="hs-special">,</span><span> </span><span>
+</span><a name="line-28"></a><span>
+</span><a name="line-29"></a><span>     </span><span class="hs-comment">-- * Database Connections</span><span>
+</span><a name="line-30"></a><span>     </span><a href="Database.HDBC.Types.html#IConnection"><span class="hs-identifier hs-type">IConnection</span></a><span class="hs-special">,</span><span>
+</span><a name="line-31"></a><span>     </span><a href="Database.HDBC.Types.html#disconnect"><span class="hs-identifier hs-var">disconnect</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Types.html#clone"><span class="hs-identifier hs-var">clone</span></a><span class="hs-special">,</span><span>
+</span><a name="line-32"></a><span>     </span><span class="hs-comment">-- ** Wrapped Connections</span><span>
+</span><a name="line-33"></a><span>     </span><a href="Database.HDBC.Types.html#ConnWrapper"><span class="hs-identifier hs-type">ConnWrapper</span></a><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Types.html#withWConn"><span class="hs-identifier hs-var">withWConn</span></a><span class="hs-special">,</span><span>
+</span><a name="line-34"></a><span>     </span><span class="hs-comment">-- ** Preparing Queries</span><span>
+</span><a name="line-35"></a><span>     </span><a href="Database.HDBC.Types.html#run"><span class="hs-identifier hs-var">run</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Types.html#runRaw"><span class="hs-identifier hs-var">runRaw</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#sRun"><span class="hs-identifier hs-var">sRun</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Types.html#prepare"><span class="hs-identifier hs-var">prepare</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#quickQuery%27"><span class="hs-identifier hs-var">quickQuery'</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#quickQuery"><span class="hs-identifier hs-var">quickQuery</span></a><span class="hs-special">,</span><span>
+</span><a name="line-36"></a><span>
+</span><a name="line-37"></a><span>     </span><span class="hs-comment">-- ** Transaction Handling</span><span>
+</span><a name="line-38"></a><span>     </span><span class="hs-comment">-- $transactions</span><span>
+</span><a name="line-39"></a><span>     </span><a href="Database.HDBC.Types.html#commit"><span class="hs-identifier hs-var">commit</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Types.html#rollback"><span class="hs-identifier hs-var">rollback</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#withTransaction"><span class="hs-identifier hs-var">withTransaction</span></a><span class="hs-special">,</span><span>
+</span><a name="line-40"></a><span>
+</span><a name="line-41"></a><span>     </span><span class="hs-comment">-- ** Connection Inquiries</span><span>
+</span><a name="line-42"></a><span>     </span><a href="Database.HDBC.Types.html#hdbcDriverName"><span class="hs-identifier hs-var">hdbcDriverName</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Types.html#hdbcClientVer"><span class="hs-identifier hs-var">hdbcClientVer</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Types.html#proxiedClientName"><span class="hs-identifier hs-var">proxiedClientName</span></a><span class="hs-special">,</span><span>
+</span><a name="line-43"></a><span>     </span><a href="Database.HDBC.Types.html#proxiedClientVer"><span class="hs-identifier hs-var">proxiedClientVer</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Types.html#dbServerVer"><span class="hs-identifier hs-var">dbServerVer</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Types.html#dbTransactionSupport"><span class="hs-identifier hs-var">dbTransactionSupport</span></a><span class="hs-special">,</span><span>
+</span><a name="line-44"></a><span>     </span><a href="Database.HDBC.Types.html#getTables"><span class="hs-identifier hs-var">getTables</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Types.html#describeTable"><span class="hs-identifier hs-var">describeTable</span></a><span class="hs-special">,</span><span>
+</span><a name="line-45"></a><span>
+</span><a name="line-46"></a><span>     </span><span class="hs-comment">-- * Statements</span><span>
+</span><a name="line-47"></a><span>     </span><a href="Database.HDBC.Statement.html#Statement"><span class="hs-identifier hs-type">Statement</span></a><span class="hs-special">,</span><span>
+</span><a name="line-48"></a><span>     </span><span class="hs-comment">-- ** Execution</span><span>
+</span><a name="line-49"></a><span>     </span><a href="Database.HDBC.Statement.html#execute"><span class="hs-identifier hs-var">execute</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Statement.html#executeRaw"><span class="hs-identifier hs-var">executeRaw</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#sExecute"><span class="hs-identifier hs-var">sExecute</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Statement.html#executeMany"><span class="hs-identifier hs-var">executeMany</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#sExecuteMany"><span class="hs-identifier hs-var">sExecuteMany</span></a><span class="hs-special">,</span><span>
+</span><a name="line-50"></a><span>     </span><span class="hs-comment">-- ** Fetching Results</span><span>
+</span><a name="line-51"></a><span>     </span><a href="Database.HDBC.Statement.html#fetchRow"><span class="hs-identifier hs-var">fetchRow</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#fetchRowAL"><span class="hs-identifier hs-var">fetchRowAL</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#fetchRowMap"><span class="hs-identifier hs-var">fetchRowMap</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#sFetchRow"><span class="hs-identifier hs-var">sFetchRow</span></a><span class="hs-special">,</span><span> </span><span>
+</span><a name="line-52"></a><span>     </span><a href="Database.HDBC.Utils.html#fetchAllRows"><span class="hs-identifier hs-var">fetchAllRows</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#fetchAllRows%27"><span class="hs-identifier hs-var">fetchAllRows'</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#fetchAllRowsAL"><span class="hs-identifier hs-var">fetchAllRowsAL</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#fetchAllRowsAL%27"><span class="hs-identifier hs-var">fetchAllRowsAL'</span></a><span class="hs-special">,</span><span>
+</span><a name="line-53"></a><span>     </span><a href="Database.HDBC.Utils.html#fetchAllRowsMap"><span class="hs-identifier hs-var">fetchAllRowsMap</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#fetchAllRowsMap%27"><span class="hs-identifier hs-var">fetchAllRowsMap'</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#sFetchAllRows"><span class="hs-identifier hs-var">sFetchAllRows</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#sFetchAllRows%27"><span class="hs-identifier hs-var">sFetchAllRows'</span></a><span class="hs-special">,</span><span>
+</span><a name="line-54"></a><span>     </span><a href="Database.HDBC.Statement.html#getColumnNames"><span class="hs-identifier hs-var">getColumnNames</span></a><span class="hs-special">,</span><span>
+</span><a name="line-55"></a><span>     </span><span class="hs-comment">-- ** Statement Inquires</span><span>
+</span><a name="line-56"></a><span>     </span><a href="Database.HDBC.Statement.html#describeResult"><span class="hs-identifier hs-var">describeResult</span></a><span class="hs-special">,</span><span>
+</span><a name="line-57"></a><span>     </span><span class="hs-comment">-- ** Miscellaneous</span><span>
+</span><a name="line-58"></a><span>     </span><a href="Database.HDBC.Statement.html#finish"><span class="hs-identifier hs-var">finish</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Statement.html#originalQuery"><span class="hs-identifier hs-var">originalQuery</span></a><span class="hs-special">,</span><span>
+</span><a name="line-59"></a><span>
+</span><a name="line-60"></a><span>     </span><span class="hs-comment">-- * Exceptions</span><span>
+</span><a name="line-61"></a><span>     </span><a href="Database.HDBC.Statement.html#SqlError"><span class="hs-identifier hs-type">SqlError</span></a><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a name="line-62"></a><span>     </span><a href="Database.HDBC.Utils.html#throwSqlError"><span class="hs-identifier hs-var">throwSqlError</span></a><span class="hs-special">,</span><span>
+</span><a name="line-63"></a><span>     </span><a href="Database.HDBC.Utils.html#catchSql"><span class="hs-identifier hs-var">catchSql</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#handleSql"><span class="hs-identifier hs-var">handleSql</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#sqlExceptions"><span class="hs-identifier hs-var">sqlExceptions</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#handleSqlError"><span class="hs-identifier hs-var">handleSqlError</span></a><span class="hs-special">,</span><span>
+</span><a name="line-64"></a><span>
+</span><a name="line-65"></a><span>     </span><span class="hs-comment">-- * Column Types</span><span>
+</span><a name="line-66"></a><span>     </span><span class="hs-comment">-- | These are defined in &quot;Database.HDBC.ColTypes&quot; but are</span><span>
+</span><a name="line-67"></a><span>     </span><span class="hs-comment">-- available to programs importing &quot;Database.HDBC&quot; by default as well.</span><span>
+</span><a name="line-68"></a><span>     </span><span class="hs-comment">-- See &quot;Database.HDBC.ColTypes&quot; for documentation.</span><span>
+</span><a name="line-69"></a><span>     </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Database</span><span class="hs-operator">.</span><span class="hs-identifier">HDBC</span><span class="hs-operator">.</span><span class="hs-identifier">ColTypes</span><span>
+</span><a name="line-70"></a><span>
+</span><a name="line-71"></a><span>     </span><span class="hs-comment">-- * Threading</span><span>
+</span><a name="line-72"></a><span>     </span><span class="hs-comment">-- $threading</span><span>
+</span><a name="line-73"></a><span>    </span><span class="hs-special">)</span><span>
+</span><a name="line-74"></a><span>
+</span><a name="line-75"></a><span class="hs-keyword">where</span><span>
+</span><a name="line-76"></a><span class="hs-keyword">import</span><span> </span><a href="Database.HDBC.Utils.html"><span class="hs-identifier">Database</span><span class="hs-operator">.</span><span class="hs-identifier">HDBC</span><span class="hs-operator">.</span><span class="hs-identifier">Utils</span></a><span class="hs-special">(</span><a href="Database.HDBC.Utils.html#catchSql"><span class="hs-identifier hs-var">catchSql</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#handleSql"><span class="hs-identifier hs-var">handleSql</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#sqlExceptions"><span class="hs-identifier hs-var">sqlExceptions</span></a><span class="hs-special">,</span><span>
+</span><a name="line-77"></a><span>                           </span><a href="Database.HDBC.Utils.html#handleSqlError"><span class="hs-identifier hs-var">handleSqlError</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#withTransaction"><span class="hs-identifier hs-var">withTransaction</span></a><span class="hs-special">,</span><span>
+</span><a name="line-78"></a><span>                           </span><a href="Database.HDBC.Utils.html#sFetchAllRows"><span class="hs-identifier hs-var">sFetchAllRows</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#fetchAllRows"><span class="hs-identifier hs-var">fetchAllRows</span></a><span class="hs-special">,</span><span>
+</span><a name="line-79"></a><span>                           </span><a href="Database.HDBC.Utils.html#sFetchAllRows%27"><span class="hs-identifier hs-var">sFetchAllRows'</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#fetchAllRows%27"><span class="hs-identifier hs-var">fetchAllRows'</span></a><span class="hs-special">,</span><span>
+</span><a name="line-80"></a><span>                           </span><a href="Database.HDBC.Utils.html#sRun"><span class="hs-identifier hs-var">sRun</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#sExecute"><span class="hs-identifier hs-var">sExecute</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#sExecuteMany"><span class="hs-identifier hs-var">sExecuteMany</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#sFetchRow"><span class="hs-identifier hs-var">sFetchRow</span></a><span class="hs-special">,</span><span>
+</span><a name="line-81"></a><span>                           </span><a href="Database.HDBC.Utils.html#quickQuery"><span class="hs-identifier hs-var">quickQuery</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#fetchRowMap"><span class="hs-identifier hs-var">fetchRowMap</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#fetchAllRowsMap"><span class="hs-identifier hs-var">fetchAllRowsMap</span></a><span class="hs-special">,</span><span>
+</span><a name="line-82"></a><span>                           </span><a href="Database.HDBC.Utils.html#quickQuery%27"><span class="hs-identifier hs-var">quickQuery'</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#fetchAllRowsMap%27"><span class="hs-identifier hs-var">fetchAllRowsMap'</span></a><span class="hs-special">,</span><span>
+</span><a name="line-83"></a><span>                           </span><a href="Database.HDBC.Utils.html#fetchRowAL"><span class="hs-identifier hs-var">fetchRowAL</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#fetchAllRowsAL"><span class="hs-identifier hs-var">fetchAllRowsAL</span></a><span class="hs-special">,</span><span>
+</span><a name="line-84"></a><span>                           </span><a href="Database.HDBC.Utils.html#fetchAllRowsAL%27"><span class="hs-identifier hs-var">fetchAllRowsAL'</span></a><span class="hs-special">,</span><span> </span><a href="Database.HDBC.Utils.html#throwSqlError"><span class="hs-identifier hs-var">throwSqlError</span></a><span class="hs-special">)</span><span>
+</span><a name="line-85"></a><span class="hs-keyword">import</span><span> </span><a href="Database.HDBC.Types.html"><span class="hs-identifier">Database</span><span class="hs-operator">.</span><span class="hs-identifier">HDBC</span><span class="hs-operator">.</span><span class="hs-identifier">Types</span></a><span>
+</span><a name="line-86"></a><span class="hs-keyword">import</span><span> </span><a href="Database.HDBC.ColTypes.html"><span class="hs-identifier">Database</span><span class="hs-operator">.</span><span class="hs-identifier">HDBC</span><span class="hs-operator">.</span><span class="hs-identifier">ColTypes</span></a><span>
+</span><a name="line-87"></a><span>
+</span><a name="line-88"></a><span class="hs-comment">{- $introduction
+
+Welcome to HDBC, Haskell Database Connectivity.
+
+HDBC provides an abstraction layer between Haskell programs and SQL
+relational databases.  This lets you write database code once, in
+Haskell, and have it work with any number of backend SQL databases
+(MySQL, Oracle, PostgreSQL, ODBC-compliant databases, etc.)
+
+HDBC is modeled loosely on Perl's DBI interface
+&lt;http://search.cpan.org/~timb/DBI/DBI.pm&gt;, though it has also
+been influenced by Python's DB-API v2, JDBC in Java, and HSQL in
+Haskell.
+
+HDBC is a from-scratch effort.  It is not a reimplementation of HSQL,
+though its purpose is the same.
+-}</span><span>
+</span><a name="line-105"></a><span>
+</span><a name="line-106"></a><span class="hs-comment">{- $features
+
+Features of HDBC include:
+
+ * Ability to use replacable parameters to let one query be
+   executed multiple times (eliminates the need for an escape
+   function)
+
+ * Ability to access returned rows by column number
+
+ * Ability to read data from the SQL server on-demand rather than
+   reading the entire result set up front
+
+ * HUnit testsuite for each backend driver
+
+ * Well-defined standard API and easy backend driver implementation
+
+ * Lazy reading of the entire result set (think hGetContents, but
+   for the results of SELECT) (see 'sFetchAllRows')
+
+ * Support for translation between Haskell and SQL types
+
+ * Support for querying database server properties
+
+ * Add-on package (hdbc-missingh) to integrate with MissingH,
+   providing a database backend for AnyDBM
+
+ * Support for querying metadata such as column names
+
+ * Support for querying additional metadata (column types, etc.)
+-}</span><span>
+</span><a name="line-137"></a><span>
+</span><a name="line-138"></a><span class="hs-comment">{- $drivers
+
+Here is a list of known drivers as of January 26, 2009:
+
+[@Sqlite v3@] Available from &lt;http://software.complete.org/hdbc-sqlite3&gt;.  Or, to
+participate in development, use 
+@git clone &lt;git://git.complete.org/hdbc-sqlite3&gt;@
+
+[@PostgreSQL@] Available from &lt;http://software.complete.org/hdbc-postgresql&gt;.  Or, to
+participate in development, use
+@git clone &lt;git://git.complete.org/hdbc-postgresql&gt;@
+
+[@ODBC@] Available from &lt;http://software.complete.org/hdbc-odbc&gt;.  Or, to
+partitipace in development, use
+@git clone &lt;git://git.complete.org/hdbc-odbc&gt;@
+
+[@MySQL@] MySQL users have two choices: the first is the ODBC driver, which works
+and has been tested against MySQL on both Linux\/Unix and Windows platforms.  There is
+also an alpha-quality native MySQL driver available for download at
+&lt;http://hackage.haskell.org/cgi-bin/hackage-scripts/package/HDBC-mysql&gt; with a homepage
+at &lt;http://www.maubi.net/~waterson/hacks/hdbc-mysql.html&gt;.
+
+In addition, there is one integration package: /hdbc-anydbm/.  This
+integrates with the AnyDBM library &lt;http://software.complete.org/anydbm&gt;.
+It lets any HDBC database act as a backend for the
+AnyDBM interface.  Available from &lt;http://software.complete.org/hdbc-anydbm&gt;.  Or,
+to participate in development, use
+@darcs get --partial &lt;http://darcs.complete.org/hdbc-anydbm&gt;@
+
+The latest version of HDBC itself is available from
+&lt;http://software.complete.org/hdbc&gt;.  Or, to participate in development, use
+@git clone &lt;git://git.complete.org/hdbc&gt;@.
+-}</span><span>
+</span><a name="line-171"></a><span>
+</span><a name="line-172"></a><span class="hs-comment">{- $transactions
+
+This section concerns itself with writing (updating) a database.
+
+In HDBC, as with many RDBMS implementations, every write to the
+database occurs within a transaction.  No changes are visible (outside
+the current transaction) until a commit operation occurs, in which
+case all changes since the transaction started are atomically
+committed.  Also, there is a rollback operation that can undo all
+changes since the transaction started.
+
+HDBC does everything within a transaction.  A transaction is implicitly entered
+when a connection to a database is established, and a transaction is
+implicitly entered after each call to 'commit' or 'rollback' as well.
+
+The practical effect of this is that you must call 'commit' after making
+changes to a database in order for those changes to become visible.  You don't
+have to call 'commit' after /every/ change, just after a batch of them.
+
+(Exceptions exist for databases that don't offer a high level of transaction
+isolation; but you should always play it safe and commit anyway.)
+
+Database developers will also be experienced with the atomicity benefits
+of transactions, an explanation of which is outside the scope of this manual.
+
+Errors occuring at the database level can leave a transaction in an
+indeterminate state, depending on the database.  Some databases will
+refuse all queries until the next 'commit' or 'rollback'.  The safe thing
+to do is to issue a 'commit' or 'rollback' after trapping any 'SqlError'.
+Alternatively, you could use 'withTransaction', which will automatically
+handle this detail for you.
+-}</span><span>
+</span><a name="line-204"></a><span>
+</span><a name="line-205"></a><span class="hs-comment">{- $threading
+
+FIXME: this is draft information
+
+Thread support in a generalized interface such as HDBC can be complicated
+because support for threading varies across database interfaces.
+
+However, applications using HDBC should be able to rely upon at least a few
+basic guarantees:
+
+ * The HDBC modules may freely be imported and used across all threads.
+
+ * HDBC modules may also freely share database connections and statements;
+   the database or HDBC driver will be responsible for locking if necessary.
+
+I use \&quot;share\&quot; in the same sense as Python's DB-API: multiple threads may use
+the resource without wrapping it in any lock.
+
+However, there are some caveats to the above:
+
+ * Not all databases support more than one active statement for a single
+   connection.  Therefore, for maximum portability, you should use
+   a different connection to the database for each simultaneous query you
+   wish to use.
+   FIXME: describe when a statement is active.
+
+ * Not all databases may support the level of multithreading described above.
+   For those that don't, safe access will be restriced in the HDBC driver
+   by using locks.  Therefore, you can write portable code, but you 
+   only get real multithreading when databases really support it.
+   Details of thread support should be documented in the HDBC
+   driver for each specific database.
+-}</span><span>
+</span><a name="line-238"></a></pre></body></html>

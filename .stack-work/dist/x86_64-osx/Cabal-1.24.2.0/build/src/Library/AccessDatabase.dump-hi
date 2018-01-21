@@ -1,22 +1,23 @@
 
 ==================== FINAL INTERFACE ====================
-2017-12-09 07:19:28.175427 UTC
+2018-01-21 07:10:58.77295 UTC
 
 interface Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Library.AccessDatabase 8002
-  interface hash: 2f707c548455e904f2e8a1403ed2a5db
-  ABI hash: ca6ad32183b95a9162fd8dc1de2c20d2
-  export-list hash: f4e08aa40c8d61402fd4537cb3adcf2a
+  interface hash: 0265b1dab43c34852ede0b5ae757dac3
+  ABI hash: 09c4fd99df85fe4faf020f3b5e0ef7db
+  export-list hash: b22e268eb7830f3e036542bebb0e0820
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: e47d04c2c32dd373ac3335b6f4283ab2
   sig of: Nothing
   used TH splices: False
   where
 exports:
-  Library.AccessDatabase.run
-  Library.AccessDatabase.selectLecture
-  Library.AccessDatabase.selectLectureName
+  Library.AccessDatabase.selectAllFromLecture
+  Library.AccessDatabase.selectAllFromLectureWherePeriod
+  Library.AccessDatabase.selectAllFromStudentWhereStudentNumber
 module dependencies: Database.Record.TH.PostgreSQL
-                     Database.Relational.Query.PostgreSQL Database.Relations.Lecture
+                     Database.Relational.Query.PostgreSQL Database.Relations.Course
+                     Database.Relations.Lecture Database.Relations.Student
 package dependencies: HDBC-2.4.0.2@HDBC-2.4.0.2-CMf0h3SvMqFJUriR2hhqrA
                       HDBC-postgresql-2.3.2.5@HDBC-postgresql-2.3.2.5-8DjPA5M2Phy2z1B24f9HKN
                       HDBC-session-0.1.1.1@HDBC-session-0.1.1.1-8iI0BgP0QiAFY1v4elsx1d
@@ -71,7 +72,9 @@ orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
          time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
          time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
          transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
-family instance modules: Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Lecture
+family instance modules: Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Course
+                         Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Lecture
+                         Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Student
                          base-4.9.1.0:Control.Applicative base-4.9.1.0:Data.Complex
                          base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
                          base-4.9.1.0:Data.Functor.Identity base-4.9.1.0:Data.List.NonEmpty
@@ -103,18 +106,28 @@ import  -/  HDBC-session-0.1.1.1@HDBC-session-0.1.1.1-8iI0BgP0QiAFY1v4elsx1d:Dat
 import  -/  Database.Relational.Query.PostgreSQL df6593be8ac5a29b6a0a6f03fbaf7268
   exports: 10a3d08f4227d28e77ea9e2d5ed2ed84
   runRelation 10cb1b3684ea7bc3e8d22bae4de4a3db
+import  -/  Database.Relations.Course 4c55c66be146c1e20dafcdefd54fd612
+  exports: 497c789105c69a20c8cb9b5f484d1906
 import  -/  Database.Relations.Lecture a3d0a6edf65f75df4bef0cc745eac654
   exports: ffaddb1d0318e4dd09285da6660414f0
   Lecture 73da2bdfb7ded481f58d0ffd5cd574e9
   lecture 997e0783ec8df3142f109e037de30294
-  name' d67291e11407ddfca98f4054a1742049
+  period' e044a19bf105c7297791f8231eff92d4
+import  -/  Database.Relations.Student 7d94e9ecfbca41d2a0c7c904e7ba3289
+  exports: 26481ebac2346a26b6d558ee88f43ebe
+  Student f8b27d68bc355eaf4dff6876392cc31e
+  student 468e79006112b305b316737a2ca80cd3
+  studentNumber' 7e8f006909308e83226c09a7bc06e31e
 import  -/  base-4.9.1.0:Data.Foldable 3e0b6967a1da89945d0e2d47266337a2
 import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Int e6f85fcab22769385fba2b5fce0acb40
 import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
 import  -/  base-4.9.1.0:System.IO c9de64c5f5407c4cf1c52500c4d15200
 import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
 import  -/  relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query 9eee3a159966e425a6f68ac3079985cb
 import  -/  relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Monad.BaseType 0d6f3b243e166c0bee65a69da6258818
+import  -/  relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Monad.Class 28e2987345d5c973438c23b92f420099
+import  -/  relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Projectable a9f4e68f4f8184f89fcd26f701221994
 import  -/  relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.ProjectableExtended 6dcd88ac436bc5e10a60e47548c5d227
 import  -/  relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Relation b88e647d987f06689e2bd0841aedb368
 2b0f10b49bbb379ea187400ba00fba20
@@ -132,599 +145,26 @@ ecf9ee11dc98711a22a25cf35d7f4ec5
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS
                    "Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u"#) -}
-93f9023734c8d4eb93ed598c83e90ee5
-  run :: GHC.Types.IO ()
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: InlineRule (0, True, True)
-                Library.AccessDatabase.run1
-                  `cast`
-                (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-e222a5633d7ef8c41bcdc3b9a1c51d6c
-  run1 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: (\ (eta :: GHC.Prim.State#
-                             GHC.Prim.RealWorld)[OneShot] ->
-                 GHC.Prim.catch#
-                   @ ()
-                   @ GHC.Exception.SomeException
-                   Library.AccessDatabase.run2 `cast` (GHC.Types.N:IO[0] <()>_R)
-                   (Database.HDBC.Session.handleSqlError'2 @ ())
-                   eta) -}
-7cc2d75a0c8b2ee9db410e061ee19722
-  run10 ::
-    [((Database.Relational.Query.Internal.BaseSQL.Order,
-       GHC.Base.Maybe Database.Relational.Query.Internal.BaseSQL.Nulls),
-      Database.Relational.Query.Internal.BaseSQL.OrderColumn)]
-    -> [((Database.Relational.Query.Internal.BaseSQL.Order,
-          GHC.Base.Maybe Database.Relational.Query.Internal.BaseSQL.Nulls),
-         Database.Relational.Query.Internal.BaseSQL.OrderColumn)]
-  {- Arity: 1, HasNoCafRefs,
-     Unfolding: (\ (eta2 :: [((Database.Relational.Query.Internal.BaseSQL.Order,
-                               GHC.Base.Maybe Database.Relational.Query.Internal.BaseSQL.Nulls),
-                              Database.Relational.Query.Internal.BaseSQL.OrderColumn)]) ->
-                 eta2) -}
-9420297462abe157a07d473884fc8bc9
-  run11 ::
-    Database.Record.Persistable.PersistableRecordWidth
-      Database.Relations.Lecture.Lecture
-  {- Unfolding: (case Database.Record.Persistable.offsets
-                        Library.AccessDatabase.run13 of wild { GHC.Arr.Array l u dt ds ->
-                 case l of wild1 { GHC.Types.I# m ->
-                 case u of wild2 { GHC.Types.I# n ->
-                 case GHC.Prim.tagToEnum#
-                        @ GHC.Types.Bool
-                        (GHC.Prim.<=# m n) of wild4 {
-                   GHC.Types.False
-                   -> (GHC.Arr.indexError
-                         @ GHC.Types.Int
-                         @ GHC.Types.Int
-                         GHC.Show.$fShowInt
-                         (wild1, wild2)
-                         wild2
-                         Library.AccessDatabase.run12)
-                        `cast`
-                      (Trans
-                           (Sym (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R))
-                           (Trans
-                                (Sym (Data.Functor.Const.N:Const[0]
-                                          <*>_N
-                                          <Data.Monoid.Sum GHC.Types.Int>_R
-                                          <Database.Relations.Lecture.Lecture>_P))
-                                (Sym (Database.Record.Persistable.N:ProductConst[0]) <Data.Monoid.Sum
-                                                                                        GHC.Types.Int>_N <Database.Relations.Lecture.Lecture>_N)))
-                   GHC.Types.True
-                   -> case GHC.Prim.indexArray#
-                             @ GHC.Types.Int
-                             ds
-                             (GHC.Prim.-# n m) of ds4 { Unit# ipv ->
-                      ipv
-                        `cast`
-                      (Trans
-                           (Sym (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R))
-                           (Trans
-                                (Sym (Data.Functor.Const.N:Const[0]
-                                          <*>_N
-                                          <Data.Monoid.Sum GHC.Types.Int>_R
-                                          <Database.Relations.Lecture.Lecture>_P))
-                                (Sym (Database.Record.Persistable.N:ProductConst[0]) <Data.Monoid.Sum
-                                                                                        GHC.Types.Int>_N <Database.Relations.Lecture.Lecture>_N))) } } } } }) -}
-615f50a482a2b040cd518a157c7fde02
-  run12 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "Int"#) -}
-c005d61f6b76b376dac3f3a733f44cb3
-  run13 :: [GHC.Types.Int]
-  {- Unfolding: (GHC.Types.:
-                   @ GHC.Types.Int
-                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
-                     `cast`
-                   (Trans
-                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
-                                                                          GHC.Types.Int>_N <GHC.Int.Int32>_N)
-                        (Trans
-                             (Data.Functor.Const.N:Const[0]
-                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <GHC.Int.Int32>_P)
-                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
-                   Library.AccessDatabase.run14) -}
-92a845fbbccf48838525b1c85b6246ea
-  run14 :: [GHC.Types.Int]
-  {- Unfolding: (GHC.Types.:
-                   @ GHC.Types.Int
-                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Base.String)
-                     `cast`
-                   (Trans
-                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
-                                                                          GHC.Types.Int>_N <[GHC.Types.Char]>_N)
-                        (Trans
-                             (Data.Functor.Const.N:Const[0]
-                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <[GHC.Types.Char]>_P)
-                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
-                   Library.AccessDatabase.run15) -}
-64e8623049fb78f9bedaa2f1a0dd9d68
-  run15 :: [GHC.Types.Int]
-  {- Unfolding: (GHC.Types.:
-                   @ GHC.Types.Int
-                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Base.String)
-                     `cast`
-                   (Trans
-                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
-                                                                          GHC.Types.Int>_N <[GHC.Types.Char]>_N)
-                        (Trans
-                             (Data.Functor.Const.N:Const[0]
-                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <[GHC.Types.Char]>_P)
-                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
-                   Library.AccessDatabase.run16) -}
-2876c3f9b44c46520494a82c154e29b2
-  run16 :: [GHC.Types.Int]
-  {- Unfolding: (GHC.Types.:
-                   @ GHC.Types.Int
-                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Base.String)
-                     `cast`
-                   (Trans
-                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
-                                                                          GHC.Types.Int>_N <[GHC.Types.Char]>_N)
-                        (Trans
-                             (Data.Functor.Const.N:Const[0]
-                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <[GHC.Types.Char]>_P)
-                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
-                   Library.AccessDatabase.run17) -}
-1025b276a691d99699916bd21f4864fb
-  run17 :: [GHC.Types.Int]
-  {- Unfolding: (GHC.Types.:
-                   @ GHC.Types.Int
-                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
-                     `cast`
-                   (Trans
-                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
-                                                                          GHC.Types.Int>_N <GHC.Int.Int32>_N)
-                        (Trans
-                             (Data.Functor.Const.N:Const[0]
-                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <GHC.Int.Int32>_P)
-                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
-                   (GHC.Types.[] @ GHC.Types.Int)) -}
-5542f61730c1c175fad75f8b4c3538ef
-  run18 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
-          Database.HDBC.PostgreSQL.ConnectionImpl.Connection #)
-  {- Arity: 1,
-     Unfolding: (Database.HDBC.PostgreSQL.Connection.connectPostgreSQL2
-                   GHC.Types.True
-                   Library.AccessDatabase.run19) -}
-2ef4f2c2aeca3fc89ccd4607e33ed7f8
-  run19 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "dbname=research"#) -}
-603ab0da21ebb8a97286dd4f708c5adb
-  run2 :: GHC.Types.IO ()
-  {- Unfolding: (GHC.Magic.lazy
-                   @ (GHC.Types.IO ())
-                   Library.AccessDatabase.run3
-                     `cast`
-                   (Sym (GHC.Types.N:IO[0] <()>_R))) -}
-6343e6d40a9f8911e7a93e24e0c2d4d0
-  run3 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 1,
-     Unfolding: (Database.HDBC.Session.withConnectionCommit2
-                   @ Database.HDBC.PostgreSQL.ConnectionImpl.Connection
-                   @ ()
-                   Database.HDBC.PostgreSQL.ConnectionImpl.$fIConnectionConnection
-                   Library.AccessDatabase.run18
-                     `cast`
-                   (Sym (GHC.Types.N:IO[0]
-                             <Database.HDBC.PostgreSQL.ConnectionImpl.Connection>_R))
-                   Library.AccessDatabase.run4
-                     `cast`
-                   (<Database.HDBC.PostgreSQL.ConnectionImpl.Connection>_R
-                    ->_R Sym (GHC.Types.N:IO[0] <()>_R))) -}
-be280a1e34551e2c0a72a2d68163022e
-  run4 ::
-    Database.HDBC.PostgreSQL.ConnectionImpl.Connection
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 2,
-     Unfolding: (\ (conn :: Database.HDBC.PostgreSQL.ConnectionImpl.Connection)
-                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 case conn of wild { Database.HDBC.PostgreSQL.ConnectionImpl.Connection ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ds12 ds13 ds14 ds15 ds16 ->
-                 case (ds7 Library.AccessDatabase.run6)
-                        `cast`
-                      (GHC.Types.N:IO[0] <Database.HDBC.Statement.Statement>_R)
-                        eta of ds { (#,#) ipv ipv1 ->
-                 case ipv1 of ww { Database.HDBC.Statement.Statement ww1 ww2 ww3 ww4 ww5 ww6 ww7 ww8 ->
-                 case Database.HDBC.Record.Query.$wrunPreparedQuery
-                        @ ()
-                        @ GHC.Base.String
-                        (Database.Record.ToSql.$fToSqlq()
-                           @ Database.HDBC.SqlValue.SqlValue)
-                        Database.HDBC.Record.Persistable.$fFromSqlSqlValue[]1
-                          `cast`
-                        (Trans
-                             (Sym (Database.Record.FromSql.N:RecordFromSql[0]
-                                       <Database.HDBC.SqlValue.SqlValue>_R <GHC.Base.String>_R))
-                             (Sym (Database.Record.FromSql.N:FromSql[0]) <Database.HDBC.SqlValue.SqlValue>_N <GHC.Base.String>_N))
-                        ww1
-                        ww5
-                        GHC.Tuple.()
-                        ipv of ds22 { (#,#) ipv2 ipv3 ->
-                 Library.AccessDatabase.run5 ipv3 ipv2 } } } }) -}
-8014042fdedf272333805fc5cf2d981d
-  run5 ::
-    [GHC.Base.String]
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 2, Strictness: <S,1*U><S,U> -}
-560ff07ad982b347665d0d955de9f8eb
-  run6 :: GHC.Base.String
-  {- Unfolding: (Database.Relational.Query.Type.relationalQuerySQL
-                   @ ()
-                   @ GHC.Base.String
-                   Database.Relational.Query.Internal.Config.defaultConfig
-                   Library.AccessDatabase.run7
-                     `cast`
-                   (Sym (Database.Relational.Query.Monad.BaseType.N:Relation[0]
-                             <()>_P <GHC.Base.String>_P))
-                   (GHC.Types.[] @ Language.SQL.Keyword.Internal.Type.Keyword)) -}
-3c61d1dde2055685d1ac6765ac92b3af
-  run7 ::
-    Database.Relational.Query.Monad.BaseType.ConfigureQuery
-      Database.Relational.Query.Internal.Sub.SubQuery
-  {- Unfolding: (Database.Relational.Query.Relation.relation1
-                   @ GHC.Base.String
-                   Library.AccessDatabase.run8
-                     `cast`
-                   (Trans
-                        (<Database.Relational.Query.Monad.Trans.JoinState.JoinContext>_R
-                         ->_R Trans
-                                  (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                                            <GHC.Types.Int>_N
-                                            <Database.Relational.Query.Monad.Trans.Config.QueryConfig
-                                               Data.Functor.Identity.Identity>_R
-                                            <((((Database.Relational.Query.Internal.Sub.Projection
-                                                   Database.Relational.Query.Internal.ContextType.Flat
-                                                   GHC.Base.String,
-                                                 Data.DList.DList
-                                                   Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
-                                                Data.DList.DList
-                                                  (Database.Relational.Query.Internal.Sub.Projection
-                                                     Database.Relational.Query.Internal.ContextType.Flat
-                                                     (GHC.Base.Maybe GHC.Types.Bool))),
-                                               Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
-                                              Data.Monoid.Last
-                                                Database.Relational.Query.Internal.BaseSQL.Duplication)>_N))
-                                  (Sym (Control.Monad.Trans.Writer.Lazy.N:WriterT[0]
-                                            <Data.Monoid.Last
-                                               Database.Relational.Query.Internal.BaseSQL.Duplication>_N
-                                            (Database.Relational.Query.Monad.Trans.Qualify.N:Qualify[0] <Database.Relational.Query.Monad.Trans.Config.QueryConfig
-                                                                                                           Data.Functor.Identity.Identity>_N)
-                                            <(((Database.Relational.Query.Internal.Sub.Projection
-                                                  Database.Relational.Query.Internal.ContextType.Flat
-                                                  GHC.Base.String,
-                                                Data.DList.DList
-                                                  Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
-                                               Data.DList.DList
-                                                 (Database.Relational.Query.Internal.Sub.Projection
-                                                    Database.Relational.Query.Internal.ContextType.Flat
-                                                    (GHC.Base.Maybe GHC.Types.Bool))),
-                                              Database.Relational.Query.Monad.Trans.JoinState.JoinContext)>_N)))
-                        (Trans
-                             (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                                       <Database.Relational.Query.Monad.Trans.JoinState.JoinContext>_N
-                                       <Control.Monad.Trans.Writer.Lazy.WriterT
-                                          (Data.Monoid.Last
-                                             Database.Relational.Query.Internal.BaseSQL.Duplication)
-                                          (Database.Relational.Query.Monad.Trans.Qualify.Qualify
-                                             (Database.Relational.Query.Monad.Trans.Config.QueryConfig
-                                                Data.Functor.Identity.Identity))>_R
-                                       <((Database.Relational.Query.Internal.Sub.Projection
-                                            Database.Relational.Query.Internal.ContextType.Flat
-                                            GHC.Base.String,
-                                          Data.DList.DList
-                                            Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
-                                         Data.DList.DList
-                                           (Database.Relational.Query.Internal.Sub.Projection
-                                              Database.Relational.Query.Internal.ContextType.Flat
-                                              (GHC.Base.Maybe GHC.Types.Bool)))>_N))
-                             (Trans
-                                  (Sym (Control.Monad.Trans.Writer.Lazy.N:WriterT[0]
-                                            <Data.DList.DList
-                                               (Database.Relational.Query.Internal.Sub.Projection
-                                                  Database.Relational.Query.Internal.ContextType.Flat
-                                                  (GHC.Base.Maybe GHC.Types.Bool))>_N
-                                            (Database.Relational.Query.Monad.Trans.Join.N:QueryJoin[0]
-                                                 <Database.Relational.Query.Monad.Trans.Qualify.Qualify
-                                                    (Database.Relational.Query.Monad.Trans.Config.QueryConfig
-                                                       Data.Functor.Identity.Identity)>_R)
-                                            <(Database.Relational.Query.Internal.Sub.Projection
-                                                Database.Relational.Query.Internal.ContextType.Flat
-                                                GHC.Base.String,
-                                              Data.DList.DList
-                                                Database.Relational.Query.Internal.BaseSQL.OrderingTerm)>_N))
-                                  (Trans
-                                       (Sym (Control.Monad.Trans.Writer.Lazy.N:WriterT[0]
-                                                 <Data.DList.DList
-                                                    Database.Relational.Query.Internal.BaseSQL.OrderingTerm>_N
-                                                 (Database.Relational.Query.Monad.Trans.Restricting.N:Restrictings[0]
-                                                      <Database.Relational.Query.Internal.ContextType.Flat>_N <Database.Relational.Query.Monad.Trans.Join.QueryJoin
-                                                                                                                 Database.Relational.Query.Monad.BaseType.ConfigureQuery>_N)
-                                                 <Database.Relational.Query.Internal.Sub.Projection
-                                                    Database.Relational.Query.Internal.ContextType.Flat
-                                                    GHC.Base.String>_N))
-                                       (Sym (Database.Relational.Query.Monad.Trans.Ordering.N:Orderings[0]
-                                                 <Database.Relational.Query.Internal.ContextType.Flat>_P) <Database.Relational.Query.Monad.Trans.Restricting.Restrictings
-                                                                                                             Database.Relational.Query.Internal.ContextType.Flat
-                                                                                                             (Database.Relational.Query.Monad.Trans.Join.QueryJoin
-                                                                                                                Database.Relational.Query.Monad.BaseType.ConfigureQuery)>_N <Database.Relational.Query.Internal.Sub.Projection
-                                                                                                                                                                               Database.Relational.Query.Internal.ContextType.Flat
-                                                                                                                                                                               GHC.Base.String>_N)))))) -}
-3c8bbef0cf9883f95f8dacf24c3d34d8
-  run8 ::
-    Database.Relational.Query.Monad.Trans.JoinState.JoinContext
-    -> GHC.Types.Int
-    -> Database.Relational.Query.Monad.Trans.Config.QueryConfig
-         Data.Functor.Identity.Identity
-         (((((Database.Relational.Query.Internal.Sub.Projection
-                Database.Relational.Query.Internal.ContextType.Flat
-                GHC.Base.String,
-              Data.DList.DList
-                Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
-             Data.DList.DList
-               (Database.Relational.Query.Internal.Sub.Projection
-                  Database.Relational.Query.Internal.ContextType.Flat
-                  (GHC.Base.Maybe GHC.Types.Bool))),
-            Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
-           Data.Monoid.Last
-             Database.Relational.Query.Internal.BaseSQL.Duplication),
-          GHC.Types.Int)
-  {- Arity: 2,
-     Unfolding: (\ (s1 :: Database.Relational.Query.Monad.Trans.JoinState.JoinContext)[OneShot]
-                   (eta :: GHC.Types.Int) ->
-                 let {
-                   eta1 :: Database.Relational.Query.Monad.Trans.Config.QueryConfig
-                             Data.Functor.Identity.Identity
-                             ((((Database.Relational.Query.Projectable.PlaceHolders (),
-                                 Database.Relational.Query.Internal.Sub.Projection
-                                   Database.Relational.Query.Internal.ContextType.Flat
-                                   Database.Relations.Lecture.Lecture),
-                                Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
-                               Data.Monoid.Last
-                                 Database.Relational.Query.Internal.BaseSQL.Duplication),
-                              GHC.Types.Int)
-                   = Database.Relational.Query.Monad.Trans.Join.$fMonadQueryQueryJoin2
-                       @ ()
-                       @ Database.Relations.Lecture.Lecture
-                       @ Database.Relational.Query.Internal.ContextType.Flat
-                       Database.Relational.Query.Internal.Sub.Just'
-                       Database.Relations.Lecture.lecture1
-                         `cast`
-                       (Trans
-                            (<GHC.Types.Int>_R
-                             ->_R Trans
-                                      (<Database.Relational.Query.Internal.Config.Config>_R
-                                       ->_R Sym (Data.Functor.Identity.N:Identity[0]
-                                                     <(Database.Relational.Query.Internal.Sub.SubQuery,
-                                                       GHC.Types.Int)>_R))
-                                      (Trans
-                                           (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
-                                                     <*>_N
-                                                     <Database.Relational.Query.Internal.Config.Config>_R
-                                                     <Data.Functor.Identity.Identity>_R
-                                                     <(Database.Relational.Query.Internal.Sub.SubQuery,
-                                                       GHC.Types.Int)>_N))
-                                           (Sym (Database.Relational.Query.Monad.Trans.Config.N:QueryConfig[0]) <Data.Functor.Identity.Identity>_N <(Database.Relational.Query.Internal.Sub.SubQuery,
-                                                                                                                                                     GHC.Types.Int)>_N)))
-                            (Trans
-                                 (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
-                                           <GHC.Types.Int>_N
-                                           <Database.Relational.Query.Monad.Trans.Config.QueryConfig
-                                              Data.Functor.Identity.Identity>_R
-                                           <Database.Relational.Query.Internal.Sub.SubQuery>_N))
-                                 (Trans
-                                      (Sym (Database.Relational.Query.Monad.Trans.Qualify.N:Qualify[0]) <Database.Relational.Query.Monad.Trans.Config.QueryConfig
-                                                                                                           Data.Functor.Identity.Identity>_N <Database.Relational.Query.Internal.Sub.SubQuery>_N)
-                                      (Sym (Database.Relational.Query.Monad.BaseType.N:Relation[0]
-                                                <()>_P <Database.Relations.Lecture.Lecture>_P)))))
-                       s1
-                       eta
-                 } in
-                 (\ (eta2 :: Database.Relational.Query.Internal.Config.Config) ->
-                  let {
-                    a1 :: Data.Functor.Identity.Identity
-                            ((((Database.Relational.Query.Projectable.PlaceHolders (),
-                                Database.Relational.Query.Internal.Sub.Projection
-                                  Database.Relational.Query.Internal.ContextType.Flat
-                                  Database.Relations.Lecture.Lecture),
-                               Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
-                              Data.Monoid.Last
-                                Database.Relational.Query.Internal.BaseSQL.Duplication),
-                             GHC.Types.Int)
-                    = eta1
-                        `cast`
-                      (Trans
-                           (Database.Relational.Query.Monad.Trans.Config.N:QueryConfig[0] <Data.Functor.Identity.Identity>_N <((((Database.Relational.Query.Projectable.PlaceHolders
-                                                                                                                                    (),
-                                                                                                                                  Database.Relational.Query.Internal.Sub.Projection
-                                                                                                                                    Database.Relational.Query.Internal.ContextType.Flat
-                                                                                                                                    Database.Relations.Lecture.Lecture),
-                                                                                                                                 Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
-                                                                                                                                Data.Monoid.Last
-                                                                                                                                  Database.Relational.Query.Internal.BaseSQL.Duplication),
-                                                                                                                               GHC.Types.Int)>_N)
-                           (Control.Monad.Trans.Reader.N:ReaderT[0]
-                                <*>_N
-                                <Database.Relational.Query.Internal.Config.Config>_R
-                                <Data.Functor.Identity.Identity>_R
-                                <((((Database.Relational.Query.Projectable.PlaceHolders (),
-                                     Database.Relational.Query.Internal.Sub.Projection
-                                       Database.Relational.Query.Internal.ContextType.Flat
-                                       Database.Relations.Lecture.Lecture),
-                                    Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
-                                   Data.Monoid.Last
-                                     Database.Relational.Query.Internal.BaseSQL.Duplication),
-                                  GHC.Types.Int)>_N))
-                        eta2
-                  } in
-                  (let {
-                     ds :: (((Database.Relational.Query.Projectable.PlaceHolders (),
-                              Database.Relational.Query.Internal.Sub.Projection
-                                Database.Relational.Query.Internal.ContextType.Flat
-                                Database.Relations.Lecture.Lecture),
-                             Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
-                            Data.Monoid.Last
-                              Database.Relational.Query.Internal.BaseSQL.Duplication)
-                     = case a1
-                              `cast`
-                            (Data.Functor.Identity.N:Identity[0]
-                                 <((((Database.Relational.Query.Projectable.PlaceHolders (),
-                                      Database.Relational.Query.Internal.Sub.Projection
-                                        Database.Relational.Query.Internal.ContextType.Flat
-                                        Database.Relations.Lecture.Lecture),
-                                     Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
-                                    Data.Monoid.Last
-                                      Database.Relational.Query.Internal.BaseSQL.Duplication),
-                                   GHC.Types.Int)>_R) of wild { (,) a2 s' ->
-                       a2 }
-                   } in
-                   (let {
-                      ds1 :: ((Database.Relational.Query.Projectable.PlaceHolders (),
-                               Database.Relational.Query.Internal.Sub.Projection
-                                 Database.Relational.Query.Internal.ContextType.Flat
-                                 Database.Relations.Lecture.Lecture),
-                              Database.Relational.Query.Monad.Trans.JoinState.JoinContext)
-                      = case ds of wild { (,) a2 w2 -> a2 }
-                    } in
-                    ((((GHC.Base.map
-                          @ Language.SQL.Keyword.Internal.Type.Keyword
-                          @ Database.Relational.Query.Internal.Sub.ProjectionUnit
-                          Database.Relational.Query.Internal.Sub.RawColumn
-                          (Database.Relational.Query.Pi.Unsafe.pi
-                             @ Database.Relations.Lecture.Lecture
-                             @ GHC.Base.String
-                             @ Database.Relational.Query.Internal.SQL.StringSQL
-                             Library.AccessDatabase.run11
-                             Database.Relations.Lecture.name'1
-                               `cast`
-                             (Sym (Database.Relational.Query.Pi.Unsafe.N:Pi[0]
-                                       <Database.Relations.Lecture.Lecture>_P <GHC.Base.String>_P))
-                             (case ds1 of wild { (,) a2 s' ->
-                              case a2 of wild1 { (,) ds2 y ->
-                              GHC.Base.map
-                                @ Database.Relational.Query.Internal.Sub.ProjectionUnit
-                                @ Language.SQL.Keyword.Internal.Type.Keyword
-                                Database.Relational.Query.Sub.columnOfProjectionUnit
-                                y `cast`
-                                (Database.Relational.Query.Internal.Sub.N:Projection[0]
-                                     <Database.Relational.Query.Internal.ContextType.Flat>_P
-                                     <Database.Relations.Lecture.Lecture>_P) } })))
-                         `cast`
-                       (Sym (Database.Relational.Query.Internal.Sub.N:Projection[0]
-                                 <Database.Relational.Query.Internal.ContextType.Flat>_P
-                                 <GHC.Base.String>_P)),
-                       Library.AccessDatabase.run10
-                         `cast`
-                       (Sym (Data.DList.N:DList[0]
-                                 <((Database.Relational.Query.Internal.BaseSQL.Order,
-                                    GHC.Base.Maybe
-                                      Database.Relational.Query.Internal.BaseSQL.Nulls),
-                                   Database.Relational.Query.Internal.BaseSQL.OrderColumn)>_R))),
-                      Library.AccessDatabase.run9
-                        `cast`
-                      (Sym (Data.DList.N:DList[0]
-                                <Database.Relational.Query.Internal.Sub.Projection
-                                   Database.Relational.Query.Internal.ContextType.Flat
-                                   (GHC.Base.Maybe GHC.Types.Bool)>_R))),
-                     case ds1 of wild { (,) a2 s' -> s' }),
-                    case ds of wild { (,) a2 w2 -> w2 }),
-                   case a1
-                          `cast`
-                        (Data.Functor.Identity.N:Identity[0]
-                             <((((Database.Relational.Query.Projectable.PlaceHolders (),
-                                  Database.Relational.Query.Internal.Sub.Projection
-                                    Database.Relational.Query.Internal.ContextType.Flat
-                                    Database.Relations.Lecture.Lecture),
-                                 Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
-                                Data.Monoid.Last
-                                  Database.Relational.Query.Internal.BaseSQL.Duplication),
-                               GHC.Types.Int)>_R) of wild { (,) a2 s' ->
-                   s' })
-                    `cast`
-                  (Sym (Data.Functor.Identity.N:Identity[0]
-                            <(((((Database.Relational.Query.Internal.Sub.Projection
-                                    Database.Relational.Query.Internal.ContextType.Flat
-                                    GHC.Base.String,
-                                  Data.DList.DList
-                                    Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
-                                 Data.DList.DList
-                                   (Database.Relational.Query.Internal.Sub.Projection
-                                      Database.Relational.Query.Internal.ContextType.Flat
-                                      (GHC.Base.Maybe GHC.Types.Bool))),
-                                Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
-                               Data.Monoid.Last
-                                 Database.Relational.Query.Internal.BaseSQL.Duplication),
-                              GHC.Types.Int)>_R)))
-                   `cast`
-                 (Trans
-                      (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
-                                <*>_N
-                                <Database.Relational.Query.Internal.Config.Config>_R
-                                <Data.Functor.Identity.Identity>_R
-                                <(((((Database.Relational.Query.Internal.Sub.Projection
-                                        Database.Relational.Query.Internal.ContextType.Flat
-                                        GHC.Base.String,
-                                      Data.DList.DList
-                                        Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
-                                     Data.DList.DList
-                                       (Database.Relational.Query.Internal.Sub.Projection
-                                          Database.Relational.Query.Internal.ContextType.Flat
-                                          (GHC.Base.Maybe GHC.Types.Bool))),
-                                    Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
-                                   Data.Monoid.Last
-                                     Database.Relational.Query.Internal.BaseSQL.Duplication),
-                                  GHC.Types.Int)>_N))
-                      (Sym (Database.Relational.Query.Monad.Trans.Config.N:QueryConfig[0]) <Data.Functor.Identity.Identity>_N <(((((Database.Relational.Query.Internal.Sub.Projection
-                                                                                                                                      Database.Relational.Query.Internal.ContextType.Flat
-                                                                                                                                      GHC.Base.String,
-                                                                                                                                    Data.DList.DList
-                                                                                                                                      Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
-                                                                                                                                   Data.DList.DList
-                                                                                                                                     (Database.Relational.Query.Internal.Sub.Projection
-                                                                                                                                        Database.Relational.Query.Internal.ContextType.Flat
-                                                                                                                                        (GHC.Base.Maybe
-                                                                                                                                           GHC.Types.Bool))),
-                                                                                                                                  Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
-                                                                                                                                 Data.Monoid.Last
-                                                                                                                                   Database.Relational.Query.Internal.BaseSQL.Duplication),
-                                                                                                                                GHC.Types.Int)>_N))) -}
-8b56687a9b8d68a314db26530ff90ae5
-  run9 ::
-    [Database.Relational.Query.Internal.Sub.Projection
-       Database.Relational.Query.Internal.ContextType.Flat
-       (GHC.Base.Maybe GHC.Types.Bool)]
-    -> [Database.Relational.Query.Internal.Sub.Projection
-          Database.Relational.Query.Internal.ContextType.Flat
-          (GHC.Base.Maybe GHC.Types.Bool)]
-  {- Arity: 1, HasNoCafRefs,
-     Unfolding: (\ (eta2 :: [Database.Relational.Query.Internal.Sub.Projection
-                               Database.Relational.Query.Internal.ContextType.Flat
-                               (GHC.Base.Maybe GHC.Types.Bool)]) ->
-                 eta2) -}
-5c5586cffef7c2617ff93f62fd35157f
-  selectLecture ::
+a9bcf99ce09ff67f39cb45cb9932e645
+  type Period = GHC.Base.String
+468a14c4584b60dbd951bcf1c105ec17
+  type StudentNumber = GHC.Int.Int32
+bf237044468485344e8c63cfd0f86b47
+  selectAllFromLecture ::
     Database.Relational.Query.Monad.BaseType.Relation
       () Database.Relations.Lecture.Lecture
   {- Unfolding: InlineRule (0, True, True)
-                Library.AccessDatabase.selectLecture1
+                Library.AccessDatabase.selectAllFromLecture1
                   `cast`
                 (Sym (Database.Relational.Query.Monad.BaseType.N:Relation[0]
                           <()>_P <Database.Relations.Lecture.Lecture>_P)) -}
-ef05a5504f840e0d559a09b387778e72
-  selectLecture1 ::
+64a3a75101e275ed26a9574d6eeab0f7
+  selectAllFromLecture1 ::
     Database.Relational.Query.Monad.BaseType.ConfigureQuery
       Database.Relational.Query.Internal.Sub.SubQuery
   {- Unfolding: (Database.Relational.Query.Relation.relation1
                    @ Database.Relations.Lecture.Lecture
-                   Library.AccessDatabase.selectLecture2
+                   Library.AccessDatabase.selectAllFromLecture2
                      `cast`
                    (Trans
                         (<Database.Relational.Query.Monad.Trans.JoinState.JoinContext>_R
@@ -810,8 +250,8 @@ ef05a5504f840e0d559a09b387778e72
                                                                                                                 Database.Relational.Query.Monad.BaseType.ConfigureQuery)>_N <Database.Relational.Query.Internal.Sub.Projection
                                                                                                                                                                                Database.Relational.Query.Internal.ContextType.Flat
                                                                                                                                                                                Database.Relations.Lecture.Lecture>_N)))))) -}
-f7114533f5615e849a9dee8d07494b96
-  selectLecture2 ::
+795873e696606baf5c0b27299cefb0c4
+  selectAllFromLecture2 ::
     Database.Relational.Query.Monad.Trans.JoinState.JoinContext
     -> GHC.Types.Int
     -> Database.Relational.Query.Monad.Trans.Config.QueryConfig
@@ -948,14 +388,14 @@ f7114533f5615e849a9dee8d07494b96
                   } in
                   (((((case ds1 of wild { (,) a2 s' ->
                        case a2 of wild1 { (,) ds2 y -> y } },
-                       Library.AccessDatabase.run10
+                       Library.AccessDatabase.selectAllFromLecture4
                          `cast`
                        (Sym (Data.DList.N:DList[0]
                                  <((Database.Relational.Query.Internal.BaseSQL.Order,
                                     GHC.Base.Maybe
                                       Database.Relational.Query.Internal.BaseSQL.Nulls),
                                    Database.Relational.Query.Internal.BaseSQL.OrderColumn)>_R))),
-                      Library.AccessDatabase.run9
+                      Library.AccessDatabase.selectAllFromLecture3
                         `cast`
                       (Sym (Data.DList.N:DList[0]
                                 <Database.Relational.Query.Internal.Sub.Projection
@@ -1023,15 +463,1165 @@ f7114533f5615e849a9dee8d07494b96
                                                                                                                                  Data.Monoid.Last
                                                                                                                                    Database.Relational.Query.Internal.BaseSQL.Duplication),
                                                                                                                                 GHC.Types.Int)>_N))) -}
-bf812b8a1ef2339afa4fdd0a79cef6e2
-  selectLectureName ::
+12b44f1287ae21a36045670252551fb2
+  selectAllFromLecture3 ::
+    [Database.Relational.Query.Internal.Sub.Projection
+       Database.Relational.Query.Internal.ContextType.Flat
+       (GHC.Base.Maybe GHC.Types.Bool)]
+    -> [Database.Relational.Query.Internal.Sub.Projection
+          Database.Relational.Query.Internal.ContextType.Flat
+          (GHC.Base.Maybe GHC.Types.Bool)]
+  {- Arity: 1, HasNoCafRefs,
+     Unfolding: (\ (eta2 :: [Database.Relational.Query.Internal.Sub.Projection
+                               Database.Relational.Query.Internal.ContextType.Flat
+                               (GHC.Base.Maybe GHC.Types.Bool)]) ->
+                 eta2) -}
+8c4ebbdbb26b70417ba66608a84acb71
+  selectAllFromLecture4 ::
+    [((Database.Relational.Query.Internal.BaseSQL.Order,
+       GHC.Base.Maybe Database.Relational.Query.Internal.BaseSQL.Nulls),
+      Database.Relational.Query.Internal.BaseSQL.OrderColumn)]
+    -> [((Database.Relational.Query.Internal.BaseSQL.Order,
+          GHC.Base.Maybe Database.Relational.Query.Internal.BaseSQL.Nulls),
+         Database.Relational.Query.Internal.BaseSQL.OrderColumn)]
+  {- Arity: 1, HasNoCafRefs,
+     Unfolding: (\ (eta2 :: [((Database.Relational.Query.Internal.BaseSQL.Order,
+                               GHC.Base.Maybe Database.Relational.Query.Internal.BaseSQL.Nulls),
+                              Database.Relational.Query.Internal.BaseSQL.OrderColumn)]) ->
+                 eta2) -}
+41bc93cf24d596bed170d672120ce382
+  selectAllFromLectureWherePeriod ::
     Database.Relational.Query.Monad.BaseType.Relation
-      () GHC.Base.String
+      Library.AccessDatabase.Period Database.Relations.Lecture.Lecture
   {- Unfolding: InlineRule (0, True, True)
-                Library.AccessDatabase.run7
+                Library.AccessDatabase.selectAllFromLectureWherePeriod1
                   `cast`
                 (Sym (Database.Relational.Query.Monad.BaseType.N:Relation[0]
-                          <()>_P <GHC.Base.String>_P)) -}
+                          <GHC.Base.String>_P <Database.Relations.Lecture.Lecture>_P)) -}
+baf75dc960bfb50db59f9029d79c62b8
+  selectAllFromLectureWherePeriod1 ::
+    Database.Relational.Query.Monad.BaseType.ConfigureQuery
+      Database.Relational.Query.Internal.Sub.SubQuery
+  {- Unfolding: (Database.Relational.Query.Monad.Simple.toSubQuery
+                   @ GHC.Base.String
+                   @ Database.Relations.Lecture.Lecture
+                   Library.AccessDatabase.selectAllFromLectureWherePeriod2
+                     `cast`
+                   (Trans
+                        (<Database.Relational.Query.Monad.Trans.JoinState.JoinContext>_R
+                         ->_R Trans
+                                  (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
+                                            <GHC.Types.Int>_N
+                                            <Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                                               Data.Functor.Identity.Identity>_R
+                                            <(((((Database.Relational.Query.Projectable.PlaceHolders
+                                                    GHC.Base.String,
+                                                  Database.Relational.Query.Internal.Sub.Projection
+                                                    Database.Relational.Query.Internal.ContextType.Flat
+                                                    Database.Relations.Lecture.Lecture),
+                                                 Data.DList.DList
+                                                   Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
+                                                Data.DList.DList
+                                                  (Database.Relational.Query.Internal.Sub.Projection
+                                                     Database.Relational.Query.Internal.ContextType.Flat
+                                                     (GHC.Base.Maybe GHC.Types.Bool))),
+                                               Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                                              Data.Monoid.Last
+                                                Database.Relational.Query.Internal.BaseSQL.Duplication)>_N))
+                                  (Sym (Control.Monad.Trans.Writer.Lazy.N:WriterT[0]
+                                            <Data.Monoid.Last
+                                               Database.Relational.Query.Internal.BaseSQL.Duplication>_N
+                                            (Database.Relational.Query.Monad.Trans.Qualify.N:Qualify[0] <Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                                                                                                           Data.Functor.Identity.Identity>_N)
+                                            <((((Database.Relational.Query.Projectable.PlaceHolders
+                                                   GHC.Base.String,
+                                                 Database.Relational.Query.Internal.Sub.Projection
+                                                   Database.Relational.Query.Internal.ContextType.Flat
+                                                   Database.Relations.Lecture.Lecture),
+                                                Data.DList.DList
+                                                  Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
+                                               Data.DList.DList
+                                                 (Database.Relational.Query.Internal.Sub.Projection
+                                                    Database.Relational.Query.Internal.ContextType.Flat
+                                                    (GHC.Base.Maybe GHC.Types.Bool))),
+                                              Database.Relational.Query.Monad.Trans.JoinState.JoinContext)>_N)))
+                        (Trans
+                             (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
+                                       <Database.Relational.Query.Monad.Trans.JoinState.JoinContext>_N
+                                       <Control.Monad.Trans.Writer.Lazy.WriterT
+                                          (Data.Monoid.Last
+                                             Database.Relational.Query.Internal.BaseSQL.Duplication)
+                                          (Database.Relational.Query.Monad.Trans.Qualify.Qualify
+                                             (Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                                                Data.Functor.Identity.Identity))>_R
+                                       <(((Database.Relational.Query.Projectable.PlaceHolders
+                                             GHC.Base.String,
+                                           Database.Relational.Query.Internal.Sub.Projection
+                                             Database.Relational.Query.Internal.ContextType.Flat
+                                             Database.Relations.Lecture.Lecture),
+                                          Data.DList.DList
+                                            Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
+                                         Data.DList.DList
+                                           (Database.Relational.Query.Internal.Sub.Projection
+                                              Database.Relational.Query.Internal.ContextType.Flat
+                                              (GHC.Base.Maybe GHC.Types.Bool)))>_N))
+                             (Trans
+                                  (Sym (Control.Monad.Trans.Writer.Lazy.N:WriterT[0]
+                                            <Data.DList.DList
+                                               (Database.Relational.Query.Internal.Sub.Projection
+                                                  Database.Relational.Query.Internal.ContextType.Flat
+                                                  (GHC.Base.Maybe GHC.Types.Bool))>_N
+                                            (Database.Relational.Query.Monad.Trans.Join.N:QueryJoin[0]
+                                                 <Database.Relational.Query.Monad.Trans.Qualify.Qualify
+                                                    (Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                                                       Data.Functor.Identity.Identity)>_R)
+                                            <((Database.Relational.Query.Projectable.PlaceHolders
+                                                 GHC.Base.String,
+                                               Database.Relational.Query.Internal.Sub.Projection
+                                                 Database.Relational.Query.Internal.ContextType.Flat
+                                                 Database.Relations.Lecture.Lecture),
+                                              Data.DList.DList
+                                                Database.Relational.Query.Internal.BaseSQL.OrderingTerm)>_N))
+                                  (Trans
+                                       (Sym (Control.Monad.Trans.Writer.Lazy.N:WriterT[0]
+                                                 <Data.DList.DList
+                                                    Database.Relational.Query.Internal.BaseSQL.OrderingTerm>_N
+                                                 (Database.Relational.Query.Monad.Trans.Restricting.N:Restrictings[0]
+                                                      <Database.Relational.Query.Internal.ContextType.Flat>_N <Database.Relational.Query.Monad.Trans.Join.QueryJoin
+                                                                                                                 Database.Relational.Query.Monad.BaseType.ConfigureQuery>_N)
+                                                 <(Database.Relational.Query.Projectable.PlaceHolders
+                                                     GHC.Base.String,
+                                                   Database.Relational.Query.Internal.Sub.Projection
+                                                     Database.Relational.Query.Internal.ContextType.Flat
+                                                     Database.Relations.Lecture.Lecture)>_N))
+                                       (Sym (Database.Relational.Query.Monad.Trans.Ordering.N:Orderings[0]
+                                                 <Database.Relational.Query.Internal.ContextType.Flat>_P) <Database.Relational.Query.Monad.Trans.Restricting.Restrictings
+                                                                                                             Database.Relational.Query.Internal.ContextType.Flat
+                                                                                                             (Database.Relational.Query.Monad.Trans.Join.QueryJoin
+                                                                                                                Database.Relational.Query.Monad.BaseType.ConfigureQuery)>_N <(Database.Relational.Query.Projectable.PlaceHolders
+                                                                                                                                                                                GHC.Base.String,
+                                                                                                                                                                              Database.Relational.Query.Internal.Sub.Projection
+                                                                                                                                                                                Database.Relational.Query.Internal.ContextType.Flat
+                                                                                                                                                                                Database.Relations.Lecture.Lecture)>_N)))))) -}
+1df0042238efd5294b67986f2a4fdd33
+  selectAllFromLectureWherePeriod10 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Int"#) -}
+e274984faef0de079e16acacc23a4315
+  selectAllFromLectureWherePeriod11 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                     `cast`
+                   (Trans
+                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                          GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                        (Trans
+                             (Data.Functor.Const.N:Const[0]
+                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <GHC.Int.Int32>_P)
+                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                   Library.AccessDatabase.selectAllFromLectureWherePeriod12) -}
+66f2c6fc2a5e6d56c6218c17f29e1abc
+  selectAllFromLectureWherePeriod12 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Base.String)
+                     `cast`
+                   (Trans
+                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                          GHC.Types.Int>_N <[GHC.Types.Char]>_N)
+                        (Trans
+                             (Data.Functor.Const.N:Const[0]
+                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <[GHC.Types.Char]>_P)
+                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                   Library.AccessDatabase.selectAllFromLectureWherePeriod13) -}
+4fa82ef58e650c054dedd6e1b5e09249
+  selectAllFromLectureWherePeriod13 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Base.String)
+                     `cast`
+                   (Trans
+                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                          GHC.Types.Int>_N <[GHC.Types.Char]>_N)
+                        (Trans
+                             (Data.Functor.Const.N:Const[0]
+                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <[GHC.Types.Char]>_P)
+                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                   Library.AccessDatabase.selectAllFromLectureWherePeriod14) -}
+27a2d62b6b8ada1e011ed87f9e9ac38f
+  selectAllFromLectureWherePeriod14 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Base.String)
+                     `cast`
+                   (Trans
+                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                          GHC.Types.Int>_N <[GHC.Types.Char]>_N)
+                        (Trans
+                             (Data.Functor.Const.N:Const[0]
+                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <[GHC.Types.Char]>_P)
+                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                   Library.AccessDatabase.selectAllFromLectureWherePeriod15) -}
+1a63cd79ee60cb18706ed6638557f5b2
+  selectAllFromLectureWherePeriod15 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                     `cast`
+                   (Trans
+                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                          GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                        (Trans
+                             (Data.Functor.Const.N:Const[0]
+                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <GHC.Int.Int32>_P)
+                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                   (GHC.Types.[] @ GHC.Types.Int)) -}
+71e111168b4b10d7d3c443b0ae8636e4
+  selectAllFromLectureWherePeriod2 ::
+    Database.Relational.Query.Monad.Trans.JoinState.JoinContext
+    -> GHC.Types.Int
+    -> Database.Relational.Query.Monad.Trans.Config.QueryConfig
+         Data.Functor.Identity.Identity
+         ((((((Database.Relational.Query.Projectable.PlaceHolders
+                 GHC.Base.String,
+               Database.Relational.Query.Internal.Sub.Projection
+                 Database.Relational.Query.Internal.ContextType.Flat
+                 Database.Relations.Lecture.Lecture),
+              Data.DList.DList
+                Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
+             Data.DList.DList
+               (Database.Relational.Query.Internal.Sub.Projection
+                  Database.Relational.Query.Internal.ContextType.Flat
+                  (GHC.Base.Maybe GHC.Types.Bool))),
+            Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+           Data.Monoid.Last
+             Database.Relational.Query.Internal.BaseSQL.Duplication),
+          GHC.Types.Int)
+  {- Arity: 2,
+     Unfolding: (\ (s1 :: Database.Relational.Query.Monad.Trans.JoinState.JoinContext)[OneShot]
+                   (eta :: GHC.Types.Int) ->
+                 let {
+                   eta1 :: Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                             Data.Functor.Identity.Identity
+                             ((((Database.Relational.Query.Projectable.PlaceHolders (),
+                                 Database.Relational.Query.Internal.Sub.Projection
+                                   Database.Relational.Query.Internal.ContextType.Flat
+                                   Database.Relations.Lecture.Lecture),
+                                Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                               Data.Monoid.Last
+                                 Database.Relational.Query.Internal.BaseSQL.Duplication),
+                              GHC.Types.Int)
+                   = Database.Relational.Query.Monad.Trans.Join.$fMonadQueryQueryJoin2
+                       @ ()
+                       @ Database.Relations.Lecture.Lecture
+                       @ Database.Relational.Query.Internal.ContextType.Flat
+                       Database.Relational.Query.Internal.Sub.Just'
+                       Database.Relations.Lecture.lecture1
+                         `cast`
+                       (Trans
+                            (<GHC.Types.Int>_R
+                             ->_R Trans
+                                      (<Database.Relational.Query.Internal.Config.Config>_R
+                                       ->_R Sym (Data.Functor.Identity.N:Identity[0]
+                                                     <(Database.Relational.Query.Internal.Sub.SubQuery,
+                                                       GHC.Types.Int)>_R))
+                                      (Trans
+                                           (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                                     <*>_N
+                                                     <Database.Relational.Query.Internal.Config.Config>_R
+                                                     <Data.Functor.Identity.Identity>_R
+                                                     <(Database.Relational.Query.Internal.Sub.SubQuery,
+                                                       GHC.Types.Int)>_N))
+                                           (Sym (Database.Relational.Query.Monad.Trans.Config.N:QueryConfig[0]) <Data.Functor.Identity.Identity>_N <(Database.Relational.Query.Internal.Sub.SubQuery,
+                                                                                                                                                     GHC.Types.Int)>_N)))
+                            (Trans
+                                 (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
+                                           <GHC.Types.Int>_N
+                                           <Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                                              Data.Functor.Identity.Identity>_R
+                                           <Database.Relational.Query.Internal.Sub.SubQuery>_N))
+                                 (Trans
+                                      (Sym (Database.Relational.Query.Monad.Trans.Qualify.N:Qualify[0]) <Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                                                                                                           Data.Functor.Identity.Identity>_N <Database.Relational.Query.Internal.Sub.SubQuery>_N)
+                                      (Sym (Database.Relational.Query.Monad.BaseType.N:Relation[0]
+                                                <()>_P <Database.Relations.Lecture.Lecture>_P)))))
+                       s1
+                       eta
+                 } in
+                 (\ (eta2 :: Database.Relational.Query.Internal.Config.Config) ->
+                  let {
+                    a1 :: Data.Functor.Identity.Identity
+                            ((((Database.Relational.Query.Projectable.PlaceHolders (),
+                                Database.Relational.Query.Internal.Sub.Projection
+                                  Database.Relational.Query.Internal.ContextType.Flat
+                                  Database.Relations.Lecture.Lecture),
+                               Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                              Data.Monoid.Last
+                                Database.Relational.Query.Internal.BaseSQL.Duplication),
+                             GHC.Types.Int)
+                    = eta1
+                        `cast`
+                      (Trans
+                           (Database.Relational.Query.Monad.Trans.Config.N:QueryConfig[0] <Data.Functor.Identity.Identity>_N <((((Database.Relational.Query.Projectable.PlaceHolders
+                                                                                                                                    (),
+                                                                                                                                  Database.Relational.Query.Internal.Sub.Projection
+                                                                                                                                    Database.Relational.Query.Internal.ContextType.Flat
+                                                                                                                                    Database.Relations.Lecture.Lecture),
+                                                                                                                                 Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                                                                                                                                Data.Monoid.Last
+                                                                                                                                  Database.Relational.Query.Internal.BaseSQL.Duplication),
+                                                                                                                               GHC.Types.Int)>_N)
+                           (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                <*>_N
+                                <Database.Relational.Query.Internal.Config.Config>_R
+                                <Data.Functor.Identity.Identity>_R
+                                <((((Database.Relational.Query.Projectable.PlaceHolders (),
+                                     Database.Relational.Query.Internal.Sub.Projection
+                                       Database.Relational.Query.Internal.ContextType.Flat
+                                       Database.Relations.Lecture.Lecture),
+                                    Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                                   Data.Monoid.Last
+                                     Database.Relational.Query.Internal.BaseSQL.Duplication),
+                                  GHC.Types.Int)>_N))
+                        eta2
+                  } in
+                  let {
+                    ds :: (((Database.Relational.Query.Projectable.PlaceHolders (),
+                             Database.Relational.Query.Internal.Sub.Projection
+                               Database.Relational.Query.Internal.ContextType.Flat
+                               Database.Relations.Lecture.Lecture),
+                            Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                           Data.Monoid.Last
+                             Database.Relational.Query.Internal.BaseSQL.Duplication)
+                    = case a1
+                             `cast`
+                           (Data.Functor.Identity.N:Identity[0]
+                                <((((Database.Relational.Query.Projectable.PlaceHolders (),
+                                     Database.Relational.Query.Internal.Sub.Projection
+                                       Database.Relational.Query.Internal.ContextType.Flat
+                                       Database.Relations.Lecture.Lecture),
+                                    Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                                   Data.Monoid.Last
+                                     Database.Relational.Query.Internal.BaseSQL.Duplication),
+                                  GHC.Types.Int)>_R) of wild { (,) a2 s' ->
+                      a2 }
+                  } in
+                  let {
+                    ds1 :: ((Database.Relational.Query.Projectable.PlaceHolders (),
+                             Database.Relational.Query.Internal.Sub.Projection
+                               Database.Relational.Query.Internal.ContextType.Flat
+                               Database.Relations.Lecture.Lecture),
+                            Database.Relational.Query.Monad.Trans.JoinState.JoinContext)
+                    = case ds of wild { (,) a2 w2 -> a2 }
+                  } in
+                  let {
+                    w :: Database.Relational.Query.Internal.Sub.Projection
+                           Database.Relational.Query.Internal.ContextType.Flat
+                           Database.Relations.Lecture.Lecture
+                    = case ds1 of wild { (,) a2 s' ->
+                      case a2 of wild1 { (,) ds2 y -> y } }
+                  } in
+                  let {
+                    eta3 :: [Language.SQL.Keyword.Internal.Type.DString]
+                    = GHC.Base.map
+                        @ Language.SQL.Keyword.Internal.Type.Keyword
+                        @ Language.SQL.Keyword.Internal.Type.DString
+                        Language.SQL.Keyword.Internal.Type.toDString
+                        (GHC.Types.:
+                           @ Language.SQL.Keyword.Internal.Type.Keyword
+                           Language.SQL.Keyword.Concat.paren3
+                           (GHC.Types.:
+                              @ Language.SQL.Keyword.Internal.Type.Keyword
+                              (Language.SQL.Keyword.Internal.Type.$fMonoidKeyword_go
+                                 (GHC.Types.:
+                                    @ Language.SQL.Keyword.Internal.Type.Keyword
+                                    (Database.Relational.Query.Internal.SQL.rowStringSQL
+                                       (GHC.Base.map
+                                          @ Language.SQL.Keyword.Internal.Type.Keyword
+                                          @ Language.SQL.Keyword.Internal.Type.Keyword
+                                          Library.AccessDatabase.selectAllFromLectureWherePeriod8
+                                          (Database.Relational.Query.Pi.Unsafe.pi
+                                             @ Database.Relations.Lecture.Lecture
+                                             @ GHC.Base.String
+                                             @ Database.Relational.Query.Internal.SQL.StringSQL
+                                             Library.AccessDatabase.selectAllFromLectureWherePeriod9
+                                             Database.Relations.Lecture.period'1
+                                               `cast`
+                                             (Sym (Database.Relational.Query.Pi.Unsafe.N:Pi[0]
+                                                       <Database.Relations.Lecture.Lecture>_P
+                                                       <GHC.Base.String>_P))
+                                             (GHC.Base.map
+                                                @ Database.Relational.Query.Internal.Sub.ProjectionUnit
+                                                @ Language.SQL.Keyword.Internal.Type.Keyword
+                                                Database.Relational.Query.Sub.columnOfProjectionUnit
+                                                w `cast`
+                                                (Database.Relational.Query.Internal.Sub.N:Projection[0]
+                                                     <Database.Relational.Query.Internal.ContextType.Flat>_P
+                                                     <Database.Relations.Lecture.Lecture>_P)))))
+                                    Library.AccessDatabase.selectAllFromLectureWherePeriod3))
+                              Database.Relational.Query.Projectable..*.3))
+                  } in
+                  let {
+                    eta4 :: GHC.Base.String -> GHC.Base.String
+                      {- Arity: 1, Strictness: <L,1*U>,
+                         Unfolding: InlineRule (1, True, False)
+                                    (\ (eta4 :: GHC.Base.String) ->
+                                     Language.SQL.Keyword.Internal.Type.$fMonoidDString2
+                                       eta3
+                                       eta4) -}
+                    = \ (eta5 :: GHC.Base.String) ->
+                      Language.SQL.Keyword.Internal.Type.$fMonoidDString2 eta3 eta5
+                  } in
+                  let {
+                    eta5 :: Language.SQL.Keyword.Internal.Type.Keyword
+                    = Language.SQL.Keyword.Internal.Type.Sequence
+                        eta4 `cast` (Sym (Language.SQL.Keyword.Internal.Type.N:DString[0]))
+                  } in
+                  let {
+                    eta6 :: Database.Relational.Query.Internal.Sub.ProjectionUnit
+                    = Database.Relational.Query.Internal.Sub.RawColumn eta5
+                  } in
+                  let {
+                    eta7 :: [Database.Relational.Query.Internal.Sub.ProjectionUnit]
+                    = GHC.Types.:
+                        @ Database.Relational.Query.Internal.Sub.ProjectionUnit
+                        eta6
+                        (GHC.Types.[]
+                           @ Database.Relational.Query.Internal.Sub.ProjectionUnit)
+                  } in
+                  ((((((Database.Relational.Query.Projectable.PlaceHolders
+                          @ GHC.Base.String,
+                        w),
+                       Library.AccessDatabase.selectAllFromLecture4
+                         `cast`
+                       (Sym (Data.DList.N:DList[0]
+                                 <((Database.Relational.Query.Internal.BaseSQL.Order,
+                                    GHC.Base.Maybe
+                                      Database.Relational.Query.Internal.BaseSQL.Nulls),
+                                   Database.Relational.Query.Internal.BaseSQL.OrderColumn)>_R))),
+                      (\ (eta8 :: [Database.Relational.Query.Internal.Sub.Projection
+                                     Database.Relational.Query.Internal.ContextType.Flat
+                                     (GHC.Base.Maybe GHC.Types.Bool)]) ->
+                       GHC.Types.:
+                         @ (Database.Relational.Query.Internal.Sub.Projection
+                              Database.Relational.Query.Internal.ContextType.Flat
+                              (GHC.Base.Maybe GHC.Types.Bool))
+                         eta7
+                           `cast`
+                         (Sym (Database.Relational.Query.Internal.Sub.N:Projection[0]
+                                   <Database.Relational.Query.Internal.ContextType.Flat>_P
+                                   <GHC.Base.Maybe GHC.Types.Bool>_P))
+                         eta8)
+                        `cast`
+                      (Sym (Data.DList.N:DList[0]
+                                <Database.Relational.Query.Internal.Sub.Projection
+                                   Database.Relational.Query.Internal.ContextType.Flat
+                                   (GHC.Base.Maybe GHC.Types.Bool)>_R))),
+                     case ds1 of wild { (,) a2 s' -> s' }),
+                    case ds of wild { (,) a2 w2 -> w2 }),
+                   case a1
+                          `cast`
+                        (Data.Functor.Identity.N:Identity[0]
+                             <((((Database.Relational.Query.Projectable.PlaceHolders (),
+                                  Database.Relational.Query.Internal.Sub.Projection
+                                    Database.Relational.Query.Internal.ContextType.Flat
+                                    Database.Relations.Lecture.Lecture),
+                                 Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                                Data.Monoid.Last
+                                  Database.Relational.Query.Internal.BaseSQL.Duplication),
+                               GHC.Types.Int)>_R) of wild { (,) a2 s' ->
+                   s' })
+                    `cast`
+                  (Sym (Data.Functor.Identity.N:Identity[0]
+                            <((((((Database.Relational.Query.Projectable.PlaceHolders
+                                     GHC.Base.String,
+                                   Database.Relational.Query.Internal.Sub.Projection
+                                     Database.Relational.Query.Internal.ContextType.Flat
+                                     Database.Relations.Lecture.Lecture),
+                                  Data.DList.DList
+                                    Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
+                                 Data.DList.DList
+                                   (Database.Relational.Query.Internal.Sub.Projection
+                                      Database.Relational.Query.Internal.ContextType.Flat
+                                      (GHC.Base.Maybe GHC.Types.Bool))),
+                                Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                               Data.Monoid.Last
+                                 Database.Relational.Query.Internal.BaseSQL.Duplication),
+                              GHC.Types.Int)>_R)))
+                   `cast`
+                 (Trans
+                      (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                <*>_N
+                                <Database.Relational.Query.Internal.Config.Config>_R
+                                <Data.Functor.Identity.Identity>_R
+                                <((((((Database.Relational.Query.Projectable.PlaceHolders
+                                         GHC.Base.String,
+                                       Database.Relational.Query.Internal.Sub.Projection
+                                         Database.Relational.Query.Internal.ContextType.Flat
+                                         Database.Relations.Lecture.Lecture),
+                                      Data.DList.DList
+                                        Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
+                                     Data.DList.DList
+                                       (Database.Relational.Query.Internal.Sub.Projection
+                                          Database.Relational.Query.Internal.ContextType.Flat
+                                          (GHC.Base.Maybe GHC.Types.Bool))),
+                                    Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                                   Data.Monoid.Last
+                                     Database.Relational.Query.Internal.BaseSQL.Duplication),
+                                  GHC.Types.Int)>_N))
+                      (Sym (Database.Relational.Query.Monad.Trans.Config.N:QueryConfig[0]) <Data.Functor.Identity.Identity>_N <((((((Database.Relational.Query.Projectable.PlaceHolders
+                                                                                                                                       GHC.Base.String,
+                                                                                                                                     Database.Relational.Query.Internal.Sub.Projection
+                                                                                                                                       Database.Relational.Query.Internal.ContextType.Flat
+                                                                                                                                       Database.Relations.Lecture.Lecture),
+                                                                                                                                    Data.DList.DList
+                                                                                                                                      Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
+                                                                                                                                   Data.DList.DList
+                                                                                                                                     (Database.Relational.Query.Internal.Sub.Projection
+                                                                                                                                        Database.Relational.Query.Internal.ContextType.Flat
+                                                                                                                                        (GHC.Base.Maybe
+                                                                                                                                           GHC.Types.Bool))),
+                                                                                                                                  Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                                                                                                                                 Data.Monoid.Last
+                                                                                                                                   Database.Relational.Query.Internal.BaseSQL.Duplication),
+                                                                                                                                GHC.Types.Int)>_N))) -}
+3264688af496a0d2d09388c10ebfb60a
+  selectAllFromLectureWherePeriod3 ::
+    [Language.SQL.Keyword.Internal.Type.Keyword]
+  {- Unfolding: (GHC.Types.:
+                   @ Language.SQL.Keyword.Internal.Type.Keyword
+                   Language.SQL.Keyword.Concat..=.1
+                   Library.AccessDatabase.selectAllFromLectureWherePeriod4) -}
+e74f1ec90e5fd271fe74c2bcb23d5289
+  selectAllFromLectureWherePeriod4 ::
+    [Language.SQL.Keyword.Internal.Type.Keyword]
+  {- Unfolding: (GHC.Types.:
+                   @ Language.SQL.Keyword.Internal.Type.Keyword
+                   Library.AccessDatabase.selectAllFromLectureWherePeriod5
+                   (GHC.Types.[] @ Language.SQL.Keyword.Internal.Type.Keyword)) -}
+0be915ac3e38fe75303fd8d3bd980ab9
+  selectAllFromLectureWherePeriod5 ::
+    Database.Relational.Query.Internal.SQL.StringSQL
+  {- Unfolding: (Database.Relational.Query.Internal.SQL.rowStringSQL
+                   Library.AccessDatabase.selectAllFromLectureWherePeriod6) -}
+b507837122d6023642b4971b211ea260
+  selectAllFromLectureWherePeriod6 ::
+    [Language.SQL.Keyword.Internal.Type.Keyword]
+  {- Unfolding: (GHC.Base.map
+                   @ Language.SQL.Keyword.Internal.Type.Keyword
+                   @ Language.SQL.Keyword.Internal.Type.Keyword
+                   Library.AccessDatabase.selectAllFromLectureWherePeriod8
+                   Library.AccessDatabase.selectAllFromLectureWherePeriod7) -}
+ebf2d8c09a5815822b5a9f8b5d467a99
+  selectAllFromLectureWherePeriod7 ::
+    [Database.Relational.Query.Internal.SQL.StringSQL]
+  {- Unfolding: (Database.Relational.Query.Projectable.$wxs1 1#) -}
+6868067600833334a667620e87ebb139
+  selectAllFromLectureWherePeriod8 ::
+    Language.SQL.Keyword.Internal.Type.Keyword
+    -> Database.Relational.Query.Internal.SQL.StringSQL
+  {- Arity: 1,
+     Unfolding: (\ (x :: Language.SQL.Keyword.Internal.Type.Keyword) ->
+                 Database.Relational.Query.Sub.columnOfProjectionUnit
+                   (Database.Relational.Query.Internal.Sub.RawColumn x)) -}
+9c63e6e714086e8ca51eb0b4a706153e
+  selectAllFromLectureWherePeriod9 ::
+    Database.Record.Persistable.PersistableRecordWidth
+      Database.Relations.Lecture.Lecture
+  {- Unfolding: (case Database.Record.Persistable.offsets
+                        Library.AccessDatabase.selectAllFromLectureWherePeriod11 of wild { GHC.Arr.Array l u dt ds ->
+                 case l of wild1 { GHC.Types.I# m ->
+                 case u of wild2 { GHC.Types.I# n ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<=# m n) of wild4 {
+                   GHC.Types.False
+                   -> (GHC.Arr.indexError
+                         @ GHC.Types.Int
+                         @ GHC.Types.Int
+                         GHC.Show.$fShowInt
+                         (wild1, wild2)
+                         wild2
+                         Library.AccessDatabase.selectAllFromLectureWherePeriod10)
+                        `cast`
+                      (Trans
+                           (Sym (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R))
+                           (Trans
+                                (Sym (Data.Functor.Const.N:Const[0]
+                                          <*>_N
+                                          <Data.Monoid.Sum GHC.Types.Int>_R
+                                          <Database.Relations.Lecture.Lecture>_P))
+                                (Sym (Database.Record.Persistable.N:ProductConst[0]) <Data.Monoid.Sum
+                                                                                        GHC.Types.Int>_N <Database.Relations.Lecture.Lecture>_N)))
+                   GHC.Types.True
+                   -> case GHC.Prim.indexArray#
+                             @ GHC.Types.Int
+                             ds
+                             (GHC.Prim.-# n m) of ds4 { Unit# ipv ->
+                      ipv
+                        `cast`
+                      (Trans
+                           (Sym (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R))
+                           (Trans
+                                (Sym (Data.Functor.Const.N:Const[0]
+                                          <*>_N
+                                          <Data.Monoid.Sum GHC.Types.Int>_R
+                                          <Database.Relations.Lecture.Lecture>_P))
+                                (Sym (Database.Record.Persistable.N:ProductConst[0]) <Data.Monoid.Sum
+                                                                                        GHC.Types.Int>_N <Database.Relations.Lecture.Lecture>_N))) } } } } }) -}
+5b9434468aa13d1b55bfd4c1546205e2
+  selectAllFromStudentWhereStudentNumber ::
+    Database.Relational.Query.Monad.BaseType.Relation
+      Library.AccessDatabase.StudentNumber
+      Database.Relations.Student.Student
+  {- Unfolding: InlineRule (0, True, True)
+                Library.AccessDatabase.selectAllFromStudentWhereStudentNumber1
+                  `cast`
+                (Sym (Database.Relational.Query.Monad.BaseType.N:Relation[0]
+                          <GHC.Int.Int32>_P <Database.Relations.Student.Student>_P)) -}
+226fa9f783e7d851b0e7c4e0839ee103
+  selectAllFromStudentWhereStudentNumber1 ::
+    Database.Relational.Query.Monad.BaseType.ConfigureQuery
+      Database.Relational.Query.Internal.Sub.SubQuery
+  {- Unfolding: (Database.Relational.Query.Monad.Simple.toSubQuery
+                   @ GHC.Int.Int32
+                   @ Database.Relations.Student.Student
+                   Library.AccessDatabase.selectAllFromStudentWhereStudentNumber2
+                     `cast`
+                   (Trans
+                        (<Database.Relational.Query.Monad.Trans.JoinState.JoinContext>_R
+                         ->_R Trans
+                                  (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
+                                            <GHC.Types.Int>_N
+                                            <Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                                               Data.Functor.Identity.Identity>_R
+                                            <(((((Database.Relational.Query.Projectable.PlaceHolders
+                                                    GHC.Int.Int32,
+                                                  Database.Relational.Query.Internal.Sub.Projection
+                                                    Database.Relational.Query.Internal.ContextType.Flat
+                                                    Database.Relations.Student.Student),
+                                                 Data.DList.DList
+                                                   Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
+                                                Data.DList.DList
+                                                  (Database.Relational.Query.Internal.Sub.Projection
+                                                     Database.Relational.Query.Internal.ContextType.Flat
+                                                     (GHC.Base.Maybe GHC.Types.Bool))),
+                                               Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                                              Data.Monoid.Last
+                                                Database.Relational.Query.Internal.BaseSQL.Duplication)>_N))
+                                  (Sym (Control.Monad.Trans.Writer.Lazy.N:WriterT[0]
+                                            <Data.Monoid.Last
+                                               Database.Relational.Query.Internal.BaseSQL.Duplication>_N
+                                            (Database.Relational.Query.Monad.Trans.Qualify.N:Qualify[0] <Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                                                                                                           Data.Functor.Identity.Identity>_N)
+                                            <((((Database.Relational.Query.Projectable.PlaceHolders
+                                                   GHC.Int.Int32,
+                                                 Database.Relational.Query.Internal.Sub.Projection
+                                                   Database.Relational.Query.Internal.ContextType.Flat
+                                                   Database.Relations.Student.Student),
+                                                Data.DList.DList
+                                                  Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
+                                               Data.DList.DList
+                                                 (Database.Relational.Query.Internal.Sub.Projection
+                                                    Database.Relational.Query.Internal.ContextType.Flat
+                                                    (GHC.Base.Maybe GHC.Types.Bool))),
+                                              Database.Relational.Query.Monad.Trans.JoinState.JoinContext)>_N)))
+                        (Trans
+                             (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
+                                       <Database.Relational.Query.Monad.Trans.JoinState.JoinContext>_N
+                                       <Control.Monad.Trans.Writer.Lazy.WriterT
+                                          (Data.Monoid.Last
+                                             Database.Relational.Query.Internal.BaseSQL.Duplication)
+                                          (Database.Relational.Query.Monad.Trans.Qualify.Qualify
+                                             (Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                                                Data.Functor.Identity.Identity))>_R
+                                       <(((Database.Relational.Query.Projectable.PlaceHolders
+                                             GHC.Int.Int32,
+                                           Database.Relational.Query.Internal.Sub.Projection
+                                             Database.Relational.Query.Internal.ContextType.Flat
+                                             Database.Relations.Student.Student),
+                                          Data.DList.DList
+                                            Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
+                                         Data.DList.DList
+                                           (Database.Relational.Query.Internal.Sub.Projection
+                                              Database.Relational.Query.Internal.ContextType.Flat
+                                              (GHC.Base.Maybe GHC.Types.Bool)))>_N))
+                             (Trans
+                                  (Sym (Control.Monad.Trans.Writer.Lazy.N:WriterT[0]
+                                            <Data.DList.DList
+                                               (Database.Relational.Query.Internal.Sub.Projection
+                                                  Database.Relational.Query.Internal.ContextType.Flat
+                                                  (GHC.Base.Maybe GHC.Types.Bool))>_N
+                                            (Database.Relational.Query.Monad.Trans.Join.N:QueryJoin[0]
+                                                 <Database.Relational.Query.Monad.Trans.Qualify.Qualify
+                                                    (Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                                                       Data.Functor.Identity.Identity)>_R)
+                                            <((Database.Relational.Query.Projectable.PlaceHolders
+                                                 GHC.Int.Int32,
+                                               Database.Relational.Query.Internal.Sub.Projection
+                                                 Database.Relational.Query.Internal.ContextType.Flat
+                                                 Database.Relations.Student.Student),
+                                              Data.DList.DList
+                                                Database.Relational.Query.Internal.BaseSQL.OrderingTerm)>_N))
+                                  (Trans
+                                       (Sym (Control.Monad.Trans.Writer.Lazy.N:WriterT[0]
+                                                 <Data.DList.DList
+                                                    Database.Relational.Query.Internal.BaseSQL.OrderingTerm>_N
+                                                 (Database.Relational.Query.Monad.Trans.Restricting.N:Restrictings[0]
+                                                      <Database.Relational.Query.Internal.ContextType.Flat>_N <Database.Relational.Query.Monad.Trans.Join.QueryJoin
+                                                                                                                 Database.Relational.Query.Monad.BaseType.ConfigureQuery>_N)
+                                                 <(Database.Relational.Query.Projectable.PlaceHolders
+                                                     GHC.Int.Int32,
+                                                   Database.Relational.Query.Internal.Sub.Projection
+                                                     Database.Relational.Query.Internal.ContextType.Flat
+                                                     Database.Relations.Student.Student)>_N))
+                                       (Sym (Database.Relational.Query.Monad.Trans.Ordering.N:Orderings[0]
+                                                 <Database.Relational.Query.Internal.ContextType.Flat>_P) <Database.Relational.Query.Monad.Trans.Restricting.Restrictings
+                                                                                                             Database.Relational.Query.Internal.ContextType.Flat
+                                                                                                             (Database.Relational.Query.Monad.Trans.Join.QueryJoin
+                                                                                                                Database.Relational.Query.Monad.BaseType.ConfigureQuery)>_N <(Database.Relational.Query.Projectable.PlaceHolders
+                                                                                                                                                                                GHC.Int.Int32,
+                                                                                                                                                                              Database.Relational.Query.Internal.Sub.Projection
+                                                                                                                                                                                Database.Relational.Query.Internal.ContextType.Flat
+                                                                                                                                                                                Database.Relations.Student.Student)>_N)))))) -}
+5ca062ae3808f0a499997cd94841aba5
+  selectAllFromStudentWhereStudentNumber2 ::
+    Database.Relational.Query.Monad.Trans.JoinState.JoinContext
+    -> GHC.Types.Int
+    -> Database.Relational.Query.Monad.Trans.Config.QueryConfig
+         Data.Functor.Identity.Identity
+         ((((((Database.Relational.Query.Projectable.PlaceHolders
+                 GHC.Int.Int32,
+               Database.Relational.Query.Internal.Sub.Projection
+                 Database.Relational.Query.Internal.ContextType.Flat
+                 Database.Relations.Student.Student),
+              Data.DList.DList
+                Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
+             Data.DList.DList
+               (Database.Relational.Query.Internal.Sub.Projection
+                  Database.Relational.Query.Internal.ContextType.Flat
+                  (GHC.Base.Maybe GHC.Types.Bool))),
+            Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+           Data.Monoid.Last
+             Database.Relational.Query.Internal.BaseSQL.Duplication),
+          GHC.Types.Int)
+  {- Arity: 2,
+     Unfolding: (\ (s1 :: Database.Relational.Query.Monad.Trans.JoinState.JoinContext)[OneShot]
+                   (eta :: GHC.Types.Int) ->
+                 let {
+                   eta1 :: Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                             Data.Functor.Identity.Identity
+                             ((((Database.Relational.Query.Projectable.PlaceHolders (),
+                                 Database.Relational.Query.Internal.Sub.Projection
+                                   Database.Relational.Query.Internal.ContextType.Flat
+                                   Database.Relations.Student.Student),
+                                Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                               Data.Monoid.Last
+                                 Database.Relational.Query.Internal.BaseSQL.Duplication),
+                              GHC.Types.Int)
+                   = Database.Relational.Query.Monad.Trans.Join.$fMonadQueryQueryJoin2
+                       @ ()
+                       @ Database.Relations.Student.Student
+                       @ Database.Relational.Query.Internal.ContextType.Flat
+                       Database.Relational.Query.Internal.Sub.Just'
+                       Database.Relations.Student.selectStudent3
+                         `cast`
+                       (Trans
+                            (<GHC.Types.Int>_R
+                             ->_R Trans
+                                      (<Database.Relational.Query.Internal.Config.Config>_R
+                                       ->_R Sym (Data.Functor.Identity.N:Identity[0]
+                                                     <(Database.Relational.Query.Internal.Sub.SubQuery,
+                                                       GHC.Types.Int)>_R))
+                                      (Trans
+                                           (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                                     <*>_N
+                                                     <Database.Relational.Query.Internal.Config.Config>_R
+                                                     <Data.Functor.Identity.Identity>_R
+                                                     <(Database.Relational.Query.Internal.Sub.SubQuery,
+                                                       GHC.Types.Int)>_N))
+                                           (Sym (Database.Relational.Query.Monad.Trans.Config.N:QueryConfig[0]) <Data.Functor.Identity.Identity>_N <(Database.Relational.Query.Internal.Sub.SubQuery,
+                                                                                                                                                     GHC.Types.Int)>_N)))
+                            (Trans
+                                 (Sym (Control.Monad.Trans.State.Lazy.N:StateT[0]
+                                           <GHC.Types.Int>_N
+                                           <Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                                              Data.Functor.Identity.Identity>_R
+                                           <Database.Relational.Query.Internal.Sub.SubQuery>_N))
+                                 (Trans
+                                      (Sym (Database.Relational.Query.Monad.Trans.Qualify.N:Qualify[0]) <Database.Relational.Query.Monad.Trans.Config.QueryConfig
+                                                                                                           Data.Functor.Identity.Identity>_N <Database.Relational.Query.Internal.Sub.SubQuery>_N)
+                                      (Sym (Database.Relational.Query.Monad.BaseType.N:Relation[0]
+                                                <()>_P <Database.Relations.Student.Student>_P)))))
+                       s1
+                       eta
+                 } in
+                 (\ (eta2 :: Database.Relational.Query.Internal.Config.Config) ->
+                  let {
+                    a1 :: Data.Functor.Identity.Identity
+                            ((((Database.Relational.Query.Projectable.PlaceHolders (),
+                                Database.Relational.Query.Internal.Sub.Projection
+                                  Database.Relational.Query.Internal.ContextType.Flat
+                                  Database.Relations.Student.Student),
+                               Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                              Data.Monoid.Last
+                                Database.Relational.Query.Internal.BaseSQL.Duplication),
+                             GHC.Types.Int)
+                    = eta1
+                        `cast`
+                      (Trans
+                           (Database.Relational.Query.Monad.Trans.Config.N:QueryConfig[0] <Data.Functor.Identity.Identity>_N <((((Database.Relational.Query.Projectable.PlaceHolders
+                                                                                                                                    (),
+                                                                                                                                  Database.Relational.Query.Internal.Sub.Projection
+                                                                                                                                    Database.Relational.Query.Internal.ContextType.Flat
+                                                                                                                                    Database.Relations.Student.Student),
+                                                                                                                                 Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                                                                                                                                Data.Monoid.Last
+                                                                                                                                  Database.Relational.Query.Internal.BaseSQL.Duplication),
+                                                                                                                               GHC.Types.Int)>_N)
+                           (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                <*>_N
+                                <Database.Relational.Query.Internal.Config.Config>_R
+                                <Data.Functor.Identity.Identity>_R
+                                <((((Database.Relational.Query.Projectable.PlaceHolders (),
+                                     Database.Relational.Query.Internal.Sub.Projection
+                                       Database.Relational.Query.Internal.ContextType.Flat
+                                       Database.Relations.Student.Student),
+                                    Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                                   Data.Monoid.Last
+                                     Database.Relational.Query.Internal.BaseSQL.Duplication),
+                                  GHC.Types.Int)>_N))
+                        eta2
+                  } in
+                  let {
+                    ds :: (((Database.Relational.Query.Projectable.PlaceHolders (),
+                             Database.Relational.Query.Internal.Sub.Projection
+                               Database.Relational.Query.Internal.ContextType.Flat
+                               Database.Relations.Student.Student),
+                            Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                           Data.Monoid.Last
+                             Database.Relational.Query.Internal.BaseSQL.Duplication)
+                    = case a1
+                             `cast`
+                           (Data.Functor.Identity.N:Identity[0]
+                                <((((Database.Relational.Query.Projectable.PlaceHolders (),
+                                     Database.Relational.Query.Internal.Sub.Projection
+                                       Database.Relational.Query.Internal.ContextType.Flat
+                                       Database.Relations.Student.Student),
+                                    Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                                   Data.Monoid.Last
+                                     Database.Relational.Query.Internal.BaseSQL.Duplication),
+                                  GHC.Types.Int)>_R) of wild { (,) a2 s' ->
+                      a2 }
+                  } in
+                  let {
+                    ds1 :: ((Database.Relational.Query.Projectable.PlaceHolders (),
+                             Database.Relational.Query.Internal.Sub.Projection
+                               Database.Relational.Query.Internal.ContextType.Flat
+                               Database.Relations.Student.Student),
+                            Database.Relational.Query.Monad.Trans.JoinState.JoinContext)
+                    = case ds of wild { (,) a2 w2 -> a2 }
+                  } in
+                  let {
+                    w :: Database.Relational.Query.Internal.Sub.Projection
+                           Database.Relational.Query.Internal.ContextType.Flat
+                           Database.Relations.Student.Student
+                    = case ds1 of wild { (,) a2 s' ->
+                      case a2 of wild1 { (,) ds2 y -> y } }
+                  } in
+                  let {
+                    eta3 :: [Language.SQL.Keyword.Internal.Type.DString]
+                    = GHC.Base.map
+                        @ Language.SQL.Keyword.Internal.Type.Keyword
+                        @ Language.SQL.Keyword.Internal.Type.DString
+                        Language.SQL.Keyword.Internal.Type.toDString
+                        (GHC.Types.:
+                           @ Language.SQL.Keyword.Internal.Type.Keyword
+                           Language.SQL.Keyword.Concat.paren3
+                           (GHC.Types.:
+                              @ Language.SQL.Keyword.Internal.Type.Keyword
+                              (Language.SQL.Keyword.Internal.Type.$fMonoidKeyword_go
+                                 (GHC.Types.:
+                                    @ Language.SQL.Keyword.Internal.Type.Keyword
+                                    (Database.Relational.Query.Internal.SQL.rowStringSQL
+                                       (GHC.Base.map
+                                          @ Language.SQL.Keyword.Internal.Type.Keyword
+                                          @ Language.SQL.Keyword.Internal.Type.Keyword
+                                          Library.AccessDatabase.selectAllFromLectureWherePeriod8
+                                          (Database.Relational.Query.Pi.Unsafe.pi
+                                             @ Database.Relations.Student.Student
+                                             @ GHC.Int.Int32
+                                             @ Database.Relational.Query.Internal.SQL.StringSQL
+                                             Library.AccessDatabase.selectAllFromStudentWhereStudentNumber3
+                                             Database.Relations.Student.studentNumber'1
+                                               `cast`
+                                             (Sym (Database.Relational.Query.Pi.Unsafe.N:Pi[0]
+                                                       <Database.Relations.Student.Student>_P
+                                                       <GHC.Int.Int32>_P))
+                                             (GHC.Base.map
+                                                @ Database.Relational.Query.Internal.Sub.ProjectionUnit
+                                                @ Language.SQL.Keyword.Internal.Type.Keyword
+                                                Database.Relational.Query.Sub.columnOfProjectionUnit
+                                                w `cast`
+                                                (Database.Relational.Query.Internal.Sub.N:Projection[0]
+                                                     <Database.Relational.Query.Internal.ContextType.Flat>_P
+                                                     <Database.Relations.Student.Student>_P)))))
+                                    Library.AccessDatabase.selectAllFromLectureWherePeriod3))
+                              Database.Relational.Query.Projectable..*.3))
+                  } in
+                  let {
+                    eta4 :: GHC.Base.String -> GHC.Base.String
+                      {- Arity: 1, Strictness: <L,1*U>,
+                         Unfolding: InlineRule (1, True, False)
+                                    (\ (eta4 :: GHC.Base.String) ->
+                                     Language.SQL.Keyword.Internal.Type.$fMonoidDString2
+                                       eta3
+                                       eta4) -}
+                    = \ (eta5 :: GHC.Base.String) ->
+                      Language.SQL.Keyword.Internal.Type.$fMonoidDString2 eta3 eta5
+                  } in
+                  let {
+                    eta5 :: Language.SQL.Keyword.Internal.Type.Keyword
+                    = Language.SQL.Keyword.Internal.Type.Sequence
+                        eta4 `cast` (Sym (Language.SQL.Keyword.Internal.Type.N:DString[0]))
+                  } in
+                  let {
+                    eta6 :: Database.Relational.Query.Internal.Sub.ProjectionUnit
+                    = Database.Relational.Query.Internal.Sub.RawColumn eta5
+                  } in
+                  let {
+                    eta7 :: [Database.Relational.Query.Internal.Sub.ProjectionUnit]
+                    = GHC.Types.:
+                        @ Database.Relational.Query.Internal.Sub.ProjectionUnit
+                        eta6
+                        (GHC.Types.[]
+                           @ Database.Relational.Query.Internal.Sub.ProjectionUnit)
+                  } in
+                  ((((((Database.Relational.Query.Projectable.PlaceHolders
+                          @ GHC.Int.Int32,
+                        w),
+                       Library.AccessDatabase.selectAllFromLecture4
+                         `cast`
+                       (Sym (Data.DList.N:DList[0]
+                                 <((Database.Relational.Query.Internal.BaseSQL.Order,
+                                    GHC.Base.Maybe
+                                      Database.Relational.Query.Internal.BaseSQL.Nulls),
+                                   Database.Relational.Query.Internal.BaseSQL.OrderColumn)>_R))),
+                      (\ (eta8 :: [Database.Relational.Query.Internal.Sub.Projection
+                                     Database.Relational.Query.Internal.ContextType.Flat
+                                     (GHC.Base.Maybe GHC.Types.Bool)]) ->
+                       GHC.Types.:
+                         @ (Database.Relational.Query.Internal.Sub.Projection
+                              Database.Relational.Query.Internal.ContextType.Flat
+                              (GHC.Base.Maybe GHC.Types.Bool))
+                         eta7
+                           `cast`
+                         (Sym (Database.Relational.Query.Internal.Sub.N:Projection[0]
+                                   <Database.Relational.Query.Internal.ContextType.Flat>_P
+                                   <GHC.Base.Maybe GHC.Types.Bool>_P))
+                         eta8)
+                        `cast`
+                      (Sym (Data.DList.N:DList[0]
+                                <Database.Relational.Query.Internal.Sub.Projection
+                                   Database.Relational.Query.Internal.ContextType.Flat
+                                   (GHC.Base.Maybe GHC.Types.Bool)>_R))),
+                     case ds1 of wild { (,) a2 s' -> s' }),
+                    case ds of wild { (,) a2 w2 -> w2 }),
+                   case a1
+                          `cast`
+                        (Data.Functor.Identity.N:Identity[0]
+                             <((((Database.Relational.Query.Projectable.PlaceHolders (),
+                                  Database.Relational.Query.Internal.Sub.Projection
+                                    Database.Relational.Query.Internal.ContextType.Flat
+                                    Database.Relations.Student.Student),
+                                 Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                                Data.Monoid.Last
+                                  Database.Relational.Query.Internal.BaseSQL.Duplication),
+                               GHC.Types.Int)>_R) of wild { (,) a2 s' ->
+                   s' })
+                    `cast`
+                  (Sym (Data.Functor.Identity.N:Identity[0]
+                            <((((((Database.Relational.Query.Projectable.PlaceHolders
+                                     GHC.Int.Int32,
+                                   Database.Relational.Query.Internal.Sub.Projection
+                                     Database.Relational.Query.Internal.ContextType.Flat
+                                     Database.Relations.Student.Student),
+                                  Data.DList.DList
+                                    Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
+                                 Data.DList.DList
+                                   (Database.Relational.Query.Internal.Sub.Projection
+                                      Database.Relational.Query.Internal.ContextType.Flat
+                                      (GHC.Base.Maybe GHC.Types.Bool))),
+                                Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                               Data.Monoid.Last
+                                 Database.Relational.Query.Internal.BaseSQL.Duplication),
+                              GHC.Types.Int)>_R)))
+                   `cast`
+                 (Trans
+                      (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                <*>_N
+                                <Database.Relational.Query.Internal.Config.Config>_R
+                                <Data.Functor.Identity.Identity>_R
+                                <((((((Database.Relational.Query.Projectable.PlaceHolders
+                                         GHC.Int.Int32,
+                                       Database.Relational.Query.Internal.Sub.Projection
+                                         Database.Relational.Query.Internal.ContextType.Flat
+                                         Database.Relations.Student.Student),
+                                      Data.DList.DList
+                                        Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
+                                     Data.DList.DList
+                                       (Database.Relational.Query.Internal.Sub.Projection
+                                          Database.Relational.Query.Internal.ContextType.Flat
+                                          (GHC.Base.Maybe GHC.Types.Bool))),
+                                    Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                                   Data.Monoid.Last
+                                     Database.Relational.Query.Internal.BaseSQL.Duplication),
+                                  GHC.Types.Int)>_N))
+                      (Sym (Database.Relational.Query.Monad.Trans.Config.N:QueryConfig[0]) <Data.Functor.Identity.Identity>_N <((((((Database.Relational.Query.Projectable.PlaceHolders
+                                                                                                                                       GHC.Int.Int32,
+                                                                                                                                     Database.Relational.Query.Internal.Sub.Projection
+                                                                                                                                       Database.Relational.Query.Internal.ContextType.Flat
+                                                                                                                                       Database.Relations.Student.Student),
+                                                                                                                                    Data.DList.DList
+                                                                                                                                      Database.Relational.Query.Internal.BaseSQL.OrderingTerm),
+                                                                                                                                   Data.DList.DList
+                                                                                                                                     (Database.Relational.Query.Internal.Sub.Projection
+                                                                                                                                        Database.Relational.Query.Internal.ContextType.Flat
+                                                                                                                                        (GHC.Base.Maybe
+                                                                                                                                           GHC.Types.Bool))),
+                                                                                                                                  Database.Relational.Query.Monad.Trans.JoinState.JoinContext),
+                                                                                                                                 Data.Monoid.Last
+                                                                                                                                   Database.Relational.Query.Internal.BaseSQL.Duplication),
+                                                                                                                                GHC.Types.Int)>_N))) -}
+8d633006120087d67969093ee17b50e9
+  selectAllFromStudentWhereStudentNumber3 ::
+    Database.Record.Persistable.PersistableRecordWidth
+      Database.Relations.Student.Student
+  {- Unfolding: (case Database.Record.Persistable.offsets
+                        Library.AccessDatabase.selectAllFromStudentWhereStudentNumber4 of wild { GHC.Arr.Array l u dt ds ->
+                 case l of wild1 { GHC.Types.I# m ->
+                 case u of wild2 { GHC.Types.I# n ->
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<=# m n) of wild4 {
+                   GHC.Types.False
+                   -> (GHC.Arr.indexError
+                         @ GHC.Types.Int
+                         @ GHC.Types.Int
+                         GHC.Show.$fShowInt
+                         (wild1, wild2)
+                         wild2
+                         Library.AccessDatabase.selectAllFromLectureWherePeriod10)
+                        `cast`
+                      (Trans
+                           (Sym (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R))
+                           (Trans
+                                (Sym (Data.Functor.Const.N:Const[0]
+                                          <*>_N
+                                          <Data.Monoid.Sum GHC.Types.Int>_R
+                                          <Database.Relations.Student.Student>_P))
+                                (Sym (Database.Record.Persistable.N:ProductConst[0]) <Data.Monoid.Sum
+                                                                                        GHC.Types.Int>_N <Database.Relations.Student.Student>_N)))
+                   GHC.Types.True
+                   -> case GHC.Prim.indexArray#
+                             @ GHC.Types.Int
+                             ds
+                             (GHC.Prim.-# n m) of ds4 { Unit# ipv ->
+                      ipv
+                        `cast`
+                      (Trans
+                           (Sym (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R))
+                           (Trans
+                                (Sym (Data.Functor.Const.N:Const[0]
+                                          <*>_N
+                                          <Data.Monoid.Sum GHC.Types.Int>_R
+                                          <Database.Relations.Student.Student>_P))
+                                (Sym (Database.Record.Persistable.N:ProductConst[0]) <Data.Monoid.Sum
+                                                                                        GHC.Types.Int>_N <Database.Relations.Student.Student>_N))) } } } } }) -}
+0e58cc1131f1fe52d0ae81c0fdf93e33
+  selectAllFromStudentWhereStudentNumber4 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                     `cast`
+                   (Trans
+                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                          GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                        (Trans
+                             (Data.Functor.Const.N:Const[0]
+                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <GHC.Int.Int32>_P)
+                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                   Library.AccessDatabase.selectAllFromStudentWhereStudentNumber5) -}
+bd5b7144fd3dc513dcd883374ad89a98
+  selectAllFromStudentWhereStudentNumber5 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Int.Int32)
+                     `cast`
+                   (Trans
+                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                          GHC.Types.Int>_N <GHC.Int.Int32>_N)
+                        (Trans
+                             (Data.Functor.Const.N:Const[0]
+                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <GHC.Int.Int32>_P)
+                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                   Library.AccessDatabase.selectAllFromStudentWhereStudentNumber6) -}
+1656ecac6a5af6dfcf01e2a6f6a3b46c
+  selectAllFromStudentWhereStudentNumber6 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Base.String)
+                     `cast`
+                   (Trans
+                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                          GHC.Types.Int>_N <[GHC.Types.Char]>_N)
+                        (Trans
+                             (Data.Functor.Const.N:Const[0]
+                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <[GHC.Types.Char]>_P)
+                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                   Library.AccessDatabase.selectAllFromStudentWhereStudentNumber7) -}
+b2c6a1ebbce64335ed71b570615369b5
+  selectAllFromStudentWhereStudentNumber7 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Base.String)
+                     `cast`
+                   (Trans
+                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                          GHC.Types.Int>_N <[GHC.Types.Char]>_N)
+                        (Trans
+                             (Data.Functor.Const.N:Const[0]
+                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <[GHC.Types.Char]>_P)
+                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                   Library.AccessDatabase.selectAllFromStudentWhereStudentNumber8) -}
+3cb9075cdf21ae22fe1519fb75b2f735
+  selectAllFromStudentWhereStudentNumber8 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Base.String)
+                     `cast`
+                   (Trans
+                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                          GHC.Types.Int>_N <[GHC.Types.Char]>_N)
+                        (Trans
+                             (Data.Functor.Const.N:Const[0]
+                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <[GHC.Types.Char]>_P)
+                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                   Library.AccessDatabase.selectAllFromStudentWhereStudentNumber9) -}
+759865fbc04610c137a85f0f2c1bb85c
+  selectAllFromStudentWhereStudentNumber9 :: [GHC.Types.Int]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Int
+                   (Database.Record.Persistable.unsafeValueWidth @ GHC.Base.String)
+                     `cast`
+                   (Trans
+                        (Database.Record.Persistable.N:ProductConst[0] <Data.Monoid.Sum
+                                                                          GHC.Types.Int>_N <[GHC.Types.Char]>_N)
+                        (Trans
+                             (Data.Functor.Const.N:Const[0]
+                                  <*>_N <Data.Monoid.Sum GHC.Types.Int>_R <[GHC.Types.Char]>_P)
+                             (Data.Monoid.N:Sum[0] <GHC.Types.Int>_R)))
+                   (GHC.Types.[] @ GHC.Types.Int)) -}
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:

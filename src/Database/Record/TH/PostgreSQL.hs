@@ -6,7 +6,7 @@ module Database.Record.TH.PostgreSQL
 
 import GHC.Generics (Generic)
 import Database.HDBC.Query.TH (defineTableFromDB)
-import Database.HDBC.Schema.Driver (typeMap)
+-- import Database.HDBC.Schema.Driver (typeMap)
 import Database.HDBC.Schema.PostgreSQL (driverPostgreSQL)
 import Database.HDBC.PostgreSQL (connectPostgreSQL)
 import Language.Haskell.TH (Q, Dec)

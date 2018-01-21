@@ -1,0 +1,77 @@
+Configuring cabal-macosx-0.2.4.1...
+Building cabal-macosx-0.2.4.1...
+Preprocessing library cabal-macosx-0.2.4.1...
+[1 of 6] Compiling Distribution.MacOSX.DG ( Distribution/MacOSX/DG.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Distribution/MacOSX/DG.o )
+[2 of 6] Compiling Distribution.MacOSX.Common ( Distribution/MacOSX/Common.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Distribution/MacOSX/Common.o )
+[3 of 6] Compiling Distribution.MacOSX.Dependencies ( Distribution/MacOSX/Dependencies.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Distribution/MacOSX/Dependencies.o )
+[4 of 6] Compiling Distribution.MacOSX.Internal ( Distribution/MacOSX/Internal.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Distribution/MacOSX/Internal.o )
+
+Distribution/MacOSX/Internal.hs:28:1: warning: [-Wdodgy-imports]
+    Module ‘Prelude’ does not export ‘catch’
+
+Distribution/MacOSX/Internal.hs:29:1: warning: [-Wdeprecations]
+    Module ‘System.Cmd’ is deprecated: Use "System.Process" instead
+
+Distribution/MacOSX/Internal.hs:29:1: warning: [-Wunused-imports]
+    The import of ‘System.Cmd’ is redundant
+      except perhaps to import instances from ‘System.Cmd’
+    To import instances alone, use: import System.Cmd()
+
+Distribution/MacOSX/Internal.hs:30:1: warning: [-Wunused-imports]
+    The import of ‘System.Exit’ is redundant
+      except perhaps to import instances from ‘System.Exit’
+    To import instances alone, use: import System.Exit()
+
+Distribution/MacOSX/Internal.hs:32:1: warning: [-Wunused-imports]
+    The import of ‘Control.Monad’ is redundant
+      except perhaps to import instances from ‘Control.Monad’
+    To import instances alone, use: import Control.Monad()
+
+Distribution/MacOSX/Internal.hs:33:1: warning: [-Wunused-imports]
+    The import of ‘System.Directory’ is redundant
+      except perhaps to import instances from ‘System.Directory’
+    To import instances alone, use: import System.Directory()
+
+Distribution/MacOSX/Internal.hs:71:25: warning: [-Wunused-matches]
+    Defined but not used: ‘app’
+[5 of 6] Compiling Distribution.MacOSX.AppBuildInfo ( Distribution/MacOSX/AppBuildInfo.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Distribution/MacOSX/AppBuildInfo.o )
+[6 of 6] Compiling Distribution.MacOSX ( Distribution/MacOSX.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Distribution/MacOSX.o )
+
+Distribution/MacOSX.hs:30:1: warning: [-Wdodgy-imports]
+    Module ‘Prelude’ does not export ‘catch’
+
+Distribution/MacOSX.hs:34:1: warning: [-Wdeprecations]
+    Module ‘System.Cmd’ is deprecated: Use "System.Process" instead
+
+Distribution/MacOSX.hs:34:1: warning: [-Wunused-imports]
+    The import of ‘System.Cmd’ is redundant
+      except perhaps to import instances from ‘System.Cmd’
+    To import instances alone, use: import System.Cmd()
+
+Distribution/MacOSX.hs:82:1: warning: [-Wtabs]
+    Tab character found here, and in three further locations.
+    Please use spaces instead.
+Preprocessing executable 'macosx-app' for cabal-macosx-0.2.4.1...
+[1 of 7] Compiling Distribution.MacOSX.DG ( Distribution/MacOSX/DG.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/macosx-app/macosx-app-tmp/Distribution/MacOSX/DG.o )
+[2 of 7] Compiling Distribution.MacOSX.Common ( Distribution/MacOSX/Common.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/macosx-app/macosx-app-tmp/Distribution/MacOSX/Common.o )
+[3 of 7] Compiling Distribution.MacOSX.Dependencies ( Distribution/MacOSX/Dependencies.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/macosx-app/macosx-app-tmp/Distribution/MacOSX/Dependencies.o )
+[4 of 7] Compiling Distribution.MacOSX.Internal ( Distribution/MacOSX/Internal.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/macosx-app/macosx-app-tmp/Distribution/MacOSX/Internal.o )
+
+Distribution/MacOSX/Internal.hs:29:1: warning: [-Wdeprecations]
+    Module ‘System.Cmd’ is deprecated: Use "System.Process" instead
+[5 of 7] Compiling Distribution.MacOSX.AppBuildInfo ( Distribution/MacOSX/AppBuildInfo.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/macosx-app/macosx-app-tmp/Distribution/MacOSX/AppBuildInfo.o )
+[6 of 7] Compiling Distribution.MacOSX ( Distribution/MacOSX.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/macosx-app/macosx-app-tmp/Distribution/MacOSX.o )
+
+Distribution/MacOSX.hs:34:1: warning: [-Wdeprecations]
+    Module ‘System.Cmd’ is deprecated: Use "System.Process" instead
+
+Distribution/MacOSX.hs:82:1: warning: [-Wtabs]
+    Tab character found here, and in three further locations.
+    Please use spaces instead.
+[7 of 7] Compiling Main             ( macosx-app.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/macosx-app/macosx-app-tmp/Main.o )
+Linking .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/macosx-app/macosx-app ...
+Installing library in
+/Users/Daiki/Git/Research/.stack-work/install/x86_64-osx/lts-9.13/8.0.2/lib/x86_64-osx-ghc-8.0.2/cabal-macosx-0.2.4.1-G9n5XJeAosB4sc5IKl6zJG
+Installing executable(s) in
+/Users/Daiki/Git/Research/.stack-work/install/x86_64-osx/lts-9.13/8.0.2/bin
+Registering cabal-macosx-0.2.4.1...

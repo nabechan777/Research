@@ -1,16 +1,16 @@
-[1 of 2] Compiling Main             ( /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack2129/HDBC-postgresql-2.3.2.5/Setup.hs, /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack2129/HDBC-postgresql-2.3.2.5/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/Main.o )
+[1 of 2] Compiling Main             ( /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack23605/HDBC-postgresql-2.3.2.5/Setup.hs, /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack23605/HDBC-postgresql-2.3.2.5/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/Main.o )
 
-/private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack2129/HDBC-postgresql-2.3.2.5/Setup.hs:49:20: warning: [-Wdeprecations]
+/private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack23605/HDBC-postgresql-2.3.2.5/Setup.hs:49:20: warning: [-Wdeprecations]
     In the use of ‘findProgramLocation’
     (imported from Distribution.Simple.Program, but defined in Distribution.Simple.Utils):
     Deprecated: "No longer used within Cabal, try findProgramOnSearchPath"
 
-/private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack2129/HDBC-postgresql-2.3.2.5/Setup.hs:50:20: warning: [-Wdeprecations]
+/private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack23605/HDBC-postgresql-2.3.2.5/Setup.hs:50:20: warning: [-Wdeprecations]
     In the use of ‘findProgramLocation’
     (imported from Distribution.Simple.Program, but defined in Distribution.Simple.Utils):
     Deprecated: "No longer used within Cabal, try findProgramOnSearchPath"
-[2 of 2] Compiling StackSetupShim   ( /Users/Daiki/.stack/setup-exe-src/setup-shim-mPHDZzAJ.hs, /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack2129/HDBC-postgresql-2.3.2.5/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/StackSetupShim.o )
-Linking /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack2129/HDBC-postgresql-2.3.2.5/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/setup ...
+[2 of 2] Compiling StackSetupShim   ( /Users/Daiki/.stack/setup-exe-src/setup-shim-mPHDZzAJ.hs, /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack23605/HDBC-postgresql-2.3.2.5/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/StackSetupShim.o )
+Linking /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack23605/HDBC-postgresql-2.3.2.5/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/setup ...
 Configuring HDBC-postgresql-2.3.2.5...
 Building HDBC-postgresql-2.3.2.5...
 Preprocessing library HDBC-postgresql-2.3.2.5...
@@ -23,6 +23,116 @@ Preprocessing library HDBC-postgresql-2.3.2.5...
 [7 of 9] Compiling Database.HDBC.PostgreSQL.ConnectionImpl ( Database/HDBC/PostgreSQL/ConnectionImpl.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL/ConnectionImpl.o )
 [8 of 9] Compiling Database.HDBC.PostgreSQL.Connection ( .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL/Connection.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL/Connection.o )
 [9 of 9] Compiling Database.HDBC.PostgreSQL ( Database/HDBC/PostgreSQL.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Database/HDBC/PostgreSQL.o )
+Running Haddock for HDBC-postgresql-2.3.2.5...
+Preprocessing library HDBC-postgresql-2.3.2.5...
+Haddock coverage:
+   0% (  0 /  9) in 'Database.HDBC.PostgreSQL.Types'
+  Missing documentation for:
+    Module header
+    ConnLock (Database/HDBC/PostgreSQL/Types.hs:7)
+    CConn (Database/HDBC/PostgreSQL/Types.hs:9)
+    WrappedCConn (Database/HDBC/PostgreSQL/Types.hs:10)
+    Conn (Database/HDBC/PostgreSQL/Types.hs:11)
+    CStmt (Database/HDBC/PostgreSQL/Types.hs:13)
+    WrappedCStmt (Database/HDBC/PostgreSQL/Types.hs:14)
+    Stmt (Database/HDBC/PostgreSQL/Types.hs:15)
+    ResultStatus (Database/HDBC/PostgreSQL/Types.hs:16)
+   0% (  0 / 13) in 'Database.HDBC.PostgreSQL.Utils'
+  Missing documentation for:
+    Module header
+    raiseError (Database/HDBC/PostgreSQL/Utils.hsc:29)
+    withConn (Database/HDBC/PostgreSQL/Utils.hsc:49)
+    withConnLocked (Database/HDBC/PostgreSQL/Utils.hsc:56)
+    withRawConn (Database/HDBC/PostgreSQL/Utils.hsc:59)
+    withStmt (Database/HDBC/PostgreSQL/Utils.hsc:62)
+    withRawStmt (Database/HDBC/PostgreSQL/Utils.hsc:65)
+    withCStringArr0 (Database/HDBC/PostgreSQL/Utils.hsc:68)
+    cleanUpBSNulls (Database/HDBC/PostgreSQL/Utils.hsc:85)
+    withAnyArr0 (Database/HDBC/PostgreSQL/Utils.hsc:92)
+    cstrUtf8BString (Database/HDBC/PostgreSQL/Utils.hsc:102)
+    genericUnwrap (Database/HDBC/PostgreSQL/Utils.hsc:113)
+    pqerrorMessage (Database/HDBC/PostgreSQL/Utils.hsc:119)
+   0% (  0 / 11) in 'Database.HDBC.PostgreSQL.Parser'
+  Missing documentation for:
+    Module header
+    escapeseq (Database/HDBC/PostgreSQL/Parser.hs:11)
+    literal (Database/HDBC/PostgreSQL/Parser.hs:15)
+    qidentifier (Database/HDBC/PostgreSQL/Parser.hs:21)
+    comment (Database/HDBC/PostgreSQL/Parser.hs:27)
+    ccomment (Database/HDBC/PostgreSQL/Parser.hs:30)
+    linecomment (Database/HDBC/PostgreSQL/Parser.hs:37)
+    qmark (Database/HDBC/PostgreSQL/Parser.hs:45)
+    escapedQmark (Database/HDBC/PostgreSQL/Parser.hs:51)
+    statement (Database/HDBC/PostgreSQL/Parser.hs:55)
+    convertSQL (Database/HDBC/PostgreSQL/Parser.hs:65)
+   0% (  0 /  4) in 'Database.HDBC.PostgreSQL.PTypeConv'
+  Missing documentation for:
+    Module header
+    colDescForPGAttr (Database/HDBC/PostgreSQL/PTypeConv.hsc:10)
+    oidToColDef (Database/HDBC/PostgreSQL/PTypeConv.hsc:42)
+    oidToColType (Database/HDBC/PostgreSQL/PTypeConv.hsc:50)
+   3% (  1 / 37) in 'Database.HDBC.PostgreSQL.Statement'
+  Missing documentation for:
+    Module header
+    l (Database/HDBC/PostgreSQL/Statement.hsc:29)
+    SState (Database/HDBC/PostgreSQL/Statement.hsc:35)
+    newSth (Database/HDBC/PostgreSQL/Statement.hsc:44)
+    fgetColumnNames (Database/HDBC/PostgreSQL/Statement.hsc:72)
+    fdescribeResult (Database/HDBC/PostgreSQL/Statement.hsc:77)
+    fexecute (Database/HDBC/PostgreSQL/Statement.hsc:83)
+    handleResultStatus (Database/HDBC/PostgreSQL/Statement.hsc:106)
+    peekCStringUTF8 (Database/HDBC/PostgreSQL/Statement.hsc:157)
+    ffetchrow (Database/HDBC/PostgreSQL/Statement.hsc:170)
+    fgetcoldef (Database/HDBC/PostgreSQL/Statement.hsc:201)
+    fexecutemany (Database/HDBC/PostgreSQL/Statement.hsc:213)
+    public_ffinish (Database/HDBC/PostgreSQL/Statement.hsc:218)
+    ffinish (Database/HDBC/PostgreSQL/Statement.hsc:226)
+    pqresultStatus (Database/HDBC/PostgreSQL/Statement.hsc:229)
+    pqexecParams (Database/HDBC/PostgreSQL/Statement.hsc:232)
+    pqexec (Database/HDBC/PostgreSQL/Statement.hsc:241)
+    pqclear (Database/HDBC/PostgreSQL/Statement.hsc:244)
+    pqclearptr (Database/HDBC/PostgreSQL/Statement.hsc:247)
+    pqclear_raw (Database/HDBC/PostgreSQL/Statement.hsc:250)
+    wrapstmt (Database/HDBC/PostgreSQL/Statement.hsc:253)
+    pqcmdTuples (Database/HDBC/PostgreSQL/Statement.hsc:256)
+    pqresStatus (Database/HDBC/PostgreSQL/Statement.hsc:258)
+    pqresultErrorMessage (Database/HDBC/PostgreSQL/Statement.hsc:261)
+    pqresultErrorField (Database/HDBC/PostgreSQL/Statement.hsc:264)
+    pqntuples (Database/HDBC/PostgreSQL/Statement.hsc:267)
+    pqnfields (Database/HDBC/PostgreSQL/Statement.hsc:270)
+    pqgetisnull (Database/HDBC/PostgreSQL/Statement.hsc:273)
+    pqgetvalue (Database/HDBC/PostgreSQL/Statement.hsc:276)
+    pqfname (Database/HDBC/PostgreSQL/Statement.hsc:279)
+    pqftype (Database/HDBC/PostgreSQL/Statement.hsc:282)
+    makeSqlValue (Database/HDBC/PostgreSQL/Statement.hsc:289)
+    fixString (Database/HDBC/PostgreSQL/Statement.hsc:363)
+    makeRationalFromDecimal (Database/HDBC/PostgreSQL/Statement.hsc:374)
+    split (Database/HDBC/PostgreSQL/Statement.hsc:385)
+    parseTime' (Database/HDBC/PostgreSQL/Statement.hsc:389)
+  99% (196 /197) in 'Database.HDBC.PostgreSQL.ErrorCodes'
+  Missing documentation for:
+    Module header
+   0% (  0 /  3) in 'Database.HDBC.PostgreSQL.ConnectionImpl'
+  Missing documentation for:
+    Module header
+    Connection (Database/HDBC/PostgreSQL/ConnectionImpl.hs:6)
+     (Database/HDBC/PostgreSQL/ConnectionImpl.hs:26)
+  29% (  2 /  7) in 'Database.HDBC.PostgreSQL.Connection'
+  Missing documentation for:
+    Module header
+    connectPostgreSQL' (Database/HDBC/PostgreSQL/Connection.hsc:51)
+    withPostgreSQL' (Database/HDBC/PostgreSQL/Connection.hsc:110)
+    begin (Database/HDBC/PostgreSQL/ConnectionImpl.hs:9)
+    Connection (Database/HDBC/PostgreSQL/ConnectionImpl.hs:6)
+  98% (205 /209) in 'Database.HDBC.PostgreSQL'
+  Missing documentation for:
+    connectPostgreSQL' (Database/HDBC/PostgreSQL/Connection.hsc:51)
+    withPostgreSQL' (Database/HDBC/PostgreSQL/Connection.hsc:110)
+    Connection (Database/HDBC/PostgreSQL/ConnectionImpl.hs:6)
+    begin (Database/HDBC/PostgreSQL/ConnectionImpl.hs:9)
+Documentation created:
+.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/doc/html/HDBC-postgresql/index.html,
+.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/doc/html/HDBC-postgresql/HDBC-postgresql.txt
 Installing library in
 /Users/Daiki/Git/Research/.stack-work/install/x86_64-osx/lts-9.13/8.0.2/lib/x86_64-osx-ghc-8.0.2/HDBC-postgresql-2.3.2.5-8DjPA5M2Phy2z1B24f9HKN
 Registering HDBC-postgresql-2.3.2.5...

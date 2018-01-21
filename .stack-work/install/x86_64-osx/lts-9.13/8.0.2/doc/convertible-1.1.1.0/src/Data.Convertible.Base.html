@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">{-
+Copyright (C) 2009-2011 John Goerzen &lt;jgoerzen@complete.org&gt;
+
+All rights reserved.
+
+For license and copyright information, see the file LICENSE
+
+-}</span><span>
+</span><a name="line-9"></a><span>
+</span><a name="line-10"></a><span class="hs-comment">{- |
+   Module     : Data.Convertible.Base
+   Copyright  : Copyright (C) 2009-2011 John Goerzen
+   License    : BSD3
+
+   Maintainer : John Goerzen &lt;jgoerzen@complete.org&gt;
+   Stability  : provisional
+   Portability: portable
+
+-}</span><span>
+</span><a name="line-20"></a><span>
+</span><a name="line-21"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Convertible</span><span class="hs-operator">.</span><span class="hs-identifier">Base</span><span class="hs-special">(</span><span> </span><span class="hs-comment">-- * The conversion process</span><span>
+</span><a name="line-22"></a><span>                              </span><a href="Data.Convertible.Base.html#convert"><span class="hs-identifier hs-var">convert</span></a><span class="hs-special">,</span><span>
+</span><a name="line-23"></a><span>                              </span><a href="Data.Convertible.Base.html#Convertible"><span class="hs-identifier hs-type">Convertible</span></a><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a name="line-24"></a><span>                              </span><span class="hs-comment">-- * Handling the results</span><span>
+</span><a name="line-25"></a><span>                              </span><a href="Data.Convertible.Base.html#ConvertResult"><span class="hs-identifier hs-type">ConvertResult</span></a><span class="hs-special">,</span><span>
+</span><a name="line-26"></a><span>                              </span><a href="Data.Convertible.Base.html#ConvertError"><span class="hs-identifier hs-type">ConvertError</span></a><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a name="line-27"></a><span>                              </span><a href="Data.Convertible.Base.html#convError"><span class="hs-identifier hs-var">convError</span></a><span class="hs-special">,</span><span>
+</span><a name="line-28"></a><span>                              </span><a href="Data.Convertible.Base.html#prettyConvertError"><span class="hs-identifier hs-var">prettyConvertError</span></a><span>
+</span><a name="line-29"></a><span>                             </span><span class="hs-special">)</span><span>
+</span><a name="line-30"></a><span class="hs-keyword">where</span><span>
+</span><a name="line-31"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Control</span><span class="hs-operator">.</span><span class="hs-identifier">Monad</span><span class="hs-operator">.</span><span class="hs-identifier">Error</span><span>
+</span><a name="line-32"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Data</span><span class="hs-operator">.</span><span class="hs-identifier">Typeable</span><span>
+</span><a name="line-33"></a><span>
+</span><a name="line-34"></a><span class="hs-comment">{- | The result of a safe conversion via 'safeConvert'. -}</span><span>
+</span><a name="line-35"></a><span class="hs-keyword">type</span><span> </span><a name="ConvertResult"><a href="Data.Convertible.Base.html#ConvertResult"><span class="hs-identifier">ConvertResult</span></a></a><span> </span><a name="local-6989586621679026999"><a href="#local-6989586621679026999"><span class="hs-identifier">a</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-type">Either</span><span> </span><a href="Data.Convertible.Base.html#ConvertError"><span class="hs-identifier hs-type">ConvertError</span></a><span> </span><a href="#local-6989586621679026999"><span class="hs-identifier hs-type">a</span></a><span>
+</span><a name="line-36"></a><span>
+</span><a name="line-37"></a><span class="hs-comment">----------------------------------------------------------------------</span><span>
+</span><a name="line-38"></a><span class="hs-comment">-- Conversions</span><span>
+</span><a name="line-39"></a><span class="hs-comment">----------------------------------------------------------------------</span><span>
+</span><a name="line-40"></a><span>
+</span><a name="line-41"></a><span class="hs-comment">{- | A typeclass that represents something that can be converted.
+A @Convertible a b@ instance represents an @a@ that can be converted to a @b@. -}</span><span>
+</span><a name="line-43"></a><span class="hs-keyword">class</span><span> </span><a name="Convertible"><a href="Data.Convertible.Base.html#Convertible"><span class="hs-identifier">Convertible</span></a></a><span> </span><a name="local-6989586621679026997"><a href="#local-6989586621679026997"><span class="hs-identifier">a</span></a></a><span> </span><a name="local-6989586621679026998"><a href="#local-6989586621679026998"><span class="hs-identifier">b</span></a></a><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-44"></a><span>    </span><span class="hs-comment">{- | Convert @a@ to @b@, returning Right on success and Left on error.
+       For a simpler interface, see 'convert'. -}</span><span>
+</span><a name="line-46"></a><span>    </span><span class="hs-identifier">safeConvert</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="#local-6989586621679026997"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="Data.Convertible.Base.html#ConvertResult"><span class="hs-identifier hs-type">ConvertResult</span></a><span> </span><a href="#local-6989586621679026998"><span class="hs-identifier hs-type">b</span></a><span>
+</span><a name="line-47"></a><span>
+</span><a name="line-48"></a><span class="hs-comment">{-
+{- | Any type can be converted to itself. -}
+instance Convertible a a where
+    safeConvert x = return x
+-}</span><span>
+</span><a name="line-53"></a><span>
+</span><a name="line-54"></a><span class="hs-comment">{-
+{- | Lists of any convertible type can be converted. -}
+instance Convertible a b =&gt; Convertible [a] [b] where
+    safeConvert = mapM safeConvert
+-}</span><span>
+</span><a name="line-59"></a><span>
+</span><a name="line-60"></a><span class="hs-comment">{- | Convert from one type of data to another.  Raises an exception if there is
+an error with the conversion.  For a function that does not raise an exception
+in that case, see 'safeConvert'. -}</span><span>
+</span><a name="line-63"></a><span class="hs-identifier">convert</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Data.Convertible.Base.html#Convertible"><span class="hs-identifier hs-type">Convertible</span></a><span> </span><a href="#local-6989586621679027287"><span class="hs-identifier hs-type">a</span></a><span> </span><a href="#local-6989586621679027288"><span class="hs-identifier hs-type">b</span></a><span> </span><span class="hs-glyph">=&gt;</span><span> </span><a href="#local-6989586621679027287"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-6989586621679027288"><span class="hs-identifier hs-type">b</span></a><span>
+</span><a name="line-64"></a><a name="convert"><a href="Data.Convertible.Base.html#convert"><span class="hs-identifier">convert</span></a></a><span> </span><a name="local-6989586621679027289"><a href="#local-6989586621679027289"><span class="hs-identifier">x</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span>
+</span><a name="line-65"></a><span>    </span><span class="hs-keyword">case</span><span> </span><a href="Data.Convertible.Base.html#safeConvert"><span class="hs-identifier hs-var">safeConvert</span></a><span> </span><a href="#local-6989586621679027289"><span class="hs-identifier hs-var">x</span></a><span> </span><span class="hs-keyword">of</span><span>
+</span><a name="line-66"></a><span>      </span><span class="hs-identifier hs-var">Left</span><span> </span><a name="local-6989586621679027290"><a href="#local-6989586621679027290"><span class="hs-identifier">e</span></a></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-var">error</span><span> </span><span class="hs-special">(</span><a href="Data.Convertible.Base.html#prettyConvertError"><span class="hs-identifier hs-var">prettyConvertError</span></a><span> </span><a href="#local-6989586621679027290"><span class="hs-identifier hs-var">e</span></a><span class="hs-special">)</span><span>
+</span><a name="line-67"></a><span>      </span><span class="hs-identifier hs-var">Right</span><span> </span><a name="local-6989586621679027325"><a href="#local-6989586621679027325"><span class="hs-identifier">r</span></a></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-6989586621679027325"><span class="hs-identifier hs-var">r</span></a><span>
+</span><a name="line-68"></a><span>
+</span><a name="line-69"></a><span class="hs-comment">{-
+instance Convertible Int Double where
+    safeConvert = return . fromIntegral
+instance Convertible Double Int where
+    safeConvert = return . truncate         -- could do bounds checking here
+instance Convertible Integer Double where
+    safeConvert = return . fromIntegral
+instance Convertible Double Integer where
+    safeConvert = return . truncate
+-}</span><span>
+</span><a name="line-79"></a><span>
+</span><a name="line-80"></a><span class="hs-comment">----------------------------------------------------------------------</span><span>
+</span><a name="line-81"></a><span class="hs-comment">-- Error Handling</span><span>
+</span><a name="line-82"></a><span class="hs-comment">----------------------------------------------------------------------</span><span>
+</span><a name="line-83"></a><span>
+</span><a name="line-84"></a><span class="hs-comment">{- | How we indicate that there was an error. -}</span><span>
+</span><a name="line-85"></a><span class="hs-keyword">data</span><span> </span><a name="ConvertError"><a href="Data.Convertible.Base.html#ConvertError"><span class="hs-identifier">ConvertError</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a name="ConvertError"><a href="Data.Convertible.Base.html#ConvertError"><span class="hs-identifier">ConvertError</span></a></a><span> </span><span class="hs-special">{</span><span>
+</span><a name="line-86"></a><span>      </span><a name="convSourceValue"><a href="Data.Convertible.Base.html#convSourceValue"><span class="hs-identifier">convSourceValue</span></a></a><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">String</span><span class="hs-special">,</span><span>
+</span><a name="line-87"></a><span>      </span><a name="convSourceType"><a href="Data.Convertible.Base.html#convSourceType"><span class="hs-identifier">convSourceType</span></a></a><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">String</span><span class="hs-special">,</span><span>
+</span><a name="line-88"></a><span>      </span><a name="convDestType"><a href="Data.Convertible.Base.html#convDestType"><span class="hs-identifier">convDestType</span></a></a><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">String</span><span class="hs-special">,</span><span>
+</span><a name="line-89"></a><span>      </span><a name="convErrorMessage"><a href="Data.Convertible.Base.html#convErrorMessage"><span class="hs-identifier">convErrorMessage</span></a></a><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-identifier hs-type">String</span><span class="hs-special">}</span><span>
+</span><a name="line-90"></a><span>                    </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Eq</span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Read</span><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Show</span><span class="hs-special">)</span><span>
+</span><a name="line-91"></a><span>
+</span><a name="line-92"></a><span class="hs-keyword">instance</span><span> </span><span class="hs-identifier hs-type">Error</span><span> </span><a href="Data.Convertible.Base.html#ConvertError"><span class="hs-identifier hs-type">ConvertError</span></a><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-93"></a><span>    </span><a name="local-8214565720323793774"><span class="hs-identifier">strMsg</span></a><span> </span><a name="local-6989586621679027335"><a href="#local-6989586621679027335"><span class="hs-identifier">x</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="Data.Convertible.Base.html#ConvertError"><span class="hs-identifier hs-var">ConvertError</span></a><span> </span><span class="hs-string">&quot;(unknown)&quot;</span><span> </span><span class="hs-string">&quot;(unknown)&quot;</span><span> </span><span class="hs-string">&quot;(unknown)&quot;</span><span> </span><a href="#local-6989586621679027335"><span class="hs-identifier hs-var">x</span></a><span>
+</span><a name="line-94"></a><span>
+</span><a name="line-95"></a><span class="hs-identifier">convError'</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Show</span><span> </span><a href="#local-6989586621679027285"><span class="hs-identifier hs-type">a</span></a><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Typeable</span><span> </span><a href="#local-6989586621679027285"><span class="hs-identifier hs-type">a</span></a><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Typeable</span><span> </span><a href="#local-6989586621679027286"><span class="hs-identifier hs-type">b</span></a><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><a name="line-96"></a><span>               </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-6989586621679027285"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-6989586621679027286"><span class="hs-identifier hs-type">b</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="Data.Convertible.Base.html#ConvertResult"><span class="hs-identifier hs-type">ConvertResult</span></a><span> </span><a href="#local-6989586621679027286"><span class="hs-identifier hs-type">b</span></a><span>
+</span><a name="line-97"></a><a name="convError%27"><a href="Data.Convertible.Base.html#convError%27"><span class="hs-identifier">convError'</span></a></a><span> </span><a name="local-6989586621679027326"><a href="#local-6989586621679027326"><span class="hs-identifier">msg</span></a></a><span> </span><a name="local-6989586621679027327"><a href="#local-6989586621679027327"><span class="hs-identifier">inpval</span></a></a><span> </span><a name="local-6989586621679027328"><a href="#local-6989586621679027328"><span class="hs-identifier">retval</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span>
+</span><a name="line-98"></a><span>     </span><span class="hs-identifier hs-var">Left</span><span> </span><span class="hs-operator hs-var">$</span><span> </span><a href="Data.Convertible.Base.html#ConvertError"><span class="hs-identifier hs-var">ConvertError</span></a><span> </span><span class="hs-special">{</span><span>
+</span><a name="line-99"></a><span>             </span><span class="hs-identifier">convSourceValue</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">show</span><span> </span><a href="#local-6989586621679027327"><span class="hs-identifier hs-var">inpval</span></a><span class="hs-special">,</span><span>
+</span><a name="line-100"></a><span>             </span><span class="hs-identifier">convSourceType</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">show</span><span> </span><span class="hs-operator hs-var">.</span><span> </span><span class="hs-identifier hs-var">typeOf</span><span> </span><span class="hs-operator hs-var">$</span><span> </span><a href="#local-6989586621679027327"><span class="hs-identifier hs-var">inpval</span></a><span class="hs-special">,</span><span>
+</span><a name="line-101"></a><span>             </span><span class="hs-identifier">convDestType</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-identifier hs-var">show</span><span> </span><span class="hs-operator hs-var">.</span><span> </span><span class="hs-identifier hs-var">typeOf</span><span> </span><span class="hs-operator hs-var">$</span><span> </span><a href="#local-6989586621679027328"><span class="hs-identifier hs-var">retval</span></a><span class="hs-special">,</span><span>
+</span><a name="line-102"></a><span>             </span><span class="hs-identifier">convErrorMessage</span><span> </span><span class="hs-glyph">=</span><span> </span><a href="#local-6989586621679027326"><span class="hs-identifier hs-var">msg</span></a><span class="hs-special">}</span><span>
+</span><a name="line-103"></a><span>    </span><span>
+</span><a name="line-104"></a><span class="hs-identifier">convError</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="hs-identifier hs-type">Show</span><span> </span><a href="#local-6989586621679027116"><span class="hs-identifier hs-type">a</span></a><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Typeable</span><span> </span><a href="#local-6989586621679027116"><span class="hs-identifier hs-type">a</span></a><span class="hs-special">,</span><span> </span><span class="hs-identifier hs-type">Typeable</span><span> </span><a href="#local-6989586621679027117"><span class="hs-identifier hs-type">b</span></a><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span>
+</span><a name="line-105"></a><span>             </span><span class="hs-identifier hs-type">String</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-6989586621679027116"><span class="hs-identifier hs-type">a</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="Data.Convertible.Base.html#ConvertResult"><span class="hs-identifier hs-type">ConvertResult</span></a><span> </span><a href="#local-6989586621679027117"><span class="hs-identifier hs-type">b</span></a><span>
+</span><a name="line-106"></a><a name="convError"><a href="Data.Convertible.Base.html#convError"><span class="hs-identifier">convError</span></a></a><span> </span><a name="local-6989586621679027329"><a href="#local-6989586621679027329"><span class="hs-identifier">msg</span></a></a><span> </span><a name="local-6989586621679027330"><a href="#local-6989586621679027330"><span class="hs-identifier">inpval</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><span>
+</span><a name="line-107"></a><span>    </span><a href="Data.Convertible.Base.html#convError%27"><span class="hs-identifier hs-var">convError'</span></a><span> </span><a href="#local-6989586621679027329"><span class="hs-identifier hs-var">msg</span></a><span> </span><a href="#local-6989586621679027330"><span class="hs-identifier hs-var">inpval</span></a><span> </span><span class="hs-identifier hs-var">undefined</span><span>
+</span><a name="line-108"></a><span>    </span><span>
+</span><a name="line-109"></a><span class="hs-identifier">prettyConvertError</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Data.Convertible.Base.html#ConvertError"><span class="hs-identifier hs-type">ConvertError</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">String</span><span>
+</span><a name="line-110"></a><a name="prettyConvertError"><a href="Data.Convertible.Base.html#prettyConvertError"><span class="hs-identifier">prettyConvertError</span></a></a><span> </span><span class="hs-special">(</span><a href="Data.Convertible.Base.html#ConvertError"><span class="hs-identifier hs-var">ConvertError</span></a><span> </span><a name="local-6989586621679027331"><a href="#local-6989586621679027331"><span class="hs-identifier">sv</span></a></a><span> </span><a name="local-6989586621679027332"><a href="#local-6989586621679027332"><span class="hs-identifier">st</span></a></a><span> </span><a name="local-6989586621679027333"><a href="#local-6989586621679027333"><span class="hs-identifier">dt</span></a></a><span> </span><a name="local-6989586621679027334"><a href="#local-6989586621679027334"><span class="hs-identifier">em</span></a></a><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a name="line-111"></a><span>    </span><span class="hs-string">&quot;Convertible: error converting source data &quot;</span><span> </span><span class="hs-operator hs-var">++</span><span> </span><a href="#local-6989586621679027331"><span class="hs-identifier hs-var">sv</span></a><span> </span><span class="hs-operator hs-var">++</span><span> </span><span class="hs-string">&quot; of type &quot;</span><span> </span><span class="hs-operator hs-var">++</span><span> </span><a href="#local-6989586621679027332"><span class="hs-identifier hs-var">st</span></a><span>
+</span><a name="line-112"></a><span>    </span><span class="hs-operator hs-var">++</span><span> </span><span class="hs-string">&quot; to type &quot;</span><span> </span><span class="hs-operator hs-var">++</span><span> </span><a href="#local-6989586621679027333"><span class="hs-identifier hs-var">dt</span></a><span> </span><span class="hs-operator hs-var">++</span><span> </span><span class="hs-string">&quot;: &quot;</span><span> </span><span class="hs-operator hs-var">++</span><span> </span><a href="#local-6989586621679027334"><span class="hs-identifier hs-var">em</span></a><span>
+</span><a name="line-113"></a><span>    </span><span>
+</span><a name="line-114"></a></pre></body></html>
