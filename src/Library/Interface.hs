@@ -1,4 +1,7 @@
-module Library.Interface (createSemesterInformation, createStudentInformation)where
+module Library.Interface
+    ( createSemesterInformation
+    , createStudentInformation
+    )where
 
 import Control.Applicative
 import Graphics.UI.WX
@@ -6,21 +9,6 @@ import qualified Database.Relations.Student as Student
 import Database.Relations.Student
 import qualified Database.Relations.Lecture as Lecture
 import Database.Relations.Lecture
-
-
--- run :: IO ()
--- run = start $ do
---     f <- frame [text := "Research"]
---     let studentData = Student 1 12345 "山田太郎" "コンピュータ理工" "コンピュータサイエンス" "4セメ"
---     semesterInformation <- createSemesterInformation f "秋"
---     studentInformation <- createStudentInformation f studentData
---     registration <- createCourseRegistration f createDummyData
---     record <- createRecord f (20, 80)
---     set f [layout := margin 10 $ column 10 [row 5 [semesterInformation, studentInformation], registration, record]]
---     return ()
---     where
---         createDummyData :: OneWeekLecture
---         createDummyData = replicate 5 $ replicate 6 ["Dummy1", "Dummy2", "Dummy3"]
 
 
 type Semester = String
@@ -37,18 +25,6 @@ createStudentInformation student = boxed "学生" $ grid 5 5 $ zipWith (\name va
     wl: 各曜日の各時限の講義のリスト
     履修登録のレイアウトを生成する。
 -}
--- createCourseRegistration :: Frame () -> OneWeekLecture -> IO (Layout)
--- createCourseRegistration f wl = do
---     rows <- sequence $ zipWith createCourseRegistration' ["1", "2", "3", "4", "5"] wl
---     return $ boxed "履修" (grid 5 5 (weeksLabel : rows))
---     where
---         weeksLabel = map label ["", "月", "火", "水", "木", "金", "土"]
---         createCourseRegistration' :: Period -> EachLecture -> IO ([Layout])
---         createCourseRegistration' p el = do
---             lectures <- sequence $ map (\l -> choice f [items := l]) el
---             return $ label p : (map widget lectures)
---
-
 type OneWeekLecture = [[Lecture]] -- [["オペレーティングシステム", "心理学の世界"], ["微分積分1", "線形代数1"], ...]
 createCourseRegistration :: Frame () -> OneWeekLecture -> IO (Layout)
 createCourseRegistration f wl =  do

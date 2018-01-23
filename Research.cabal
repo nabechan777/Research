@@ -24,6 +24,7 @@ library
                      , Database.Relations.Lecture
                      , Database.Relations.Student
                      , Database.Relations.Grade
+  ghc-options:       -fsimpl-tick-factor=49482
   build-depends:       base >= 4.7 && < 5
                      , template-haskell
                      , relational-record
@@ -39,7 +40,7 @@ library
 executable Research
   hs-source-dirs:      app
   main-is:             Main.hs
-  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -fsimpl-tick-factor=49482
   build-depends:       base
                      , Research
                      , wx

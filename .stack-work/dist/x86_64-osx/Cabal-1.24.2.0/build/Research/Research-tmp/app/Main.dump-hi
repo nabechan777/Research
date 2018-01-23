@@ -1,9 +1,9 @@
 
 ==================== FINAL INTERFACE ====================
-2018-01-21 07:32:13.021637 UTC
+2018-01-23 14:05:13.108327 UTC
 
 interface main@main:Main 8002
-  interface hash: 3c8c15ba273709cf6b64f36f948860bb
+  interface hash: 8ca665f70c2e44bd393e9a090e6a86e3
   ABI hash: 8f948d6cceea0af7185df1a96b69cdf6
   export-list hash: 2cf00623b089c98cc4443cd435fc9dae
   orphan hash: ded4dcc0b205eda5b6cc8ceca47890ad
@@ -92,6 +92,7 @@ orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
          wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Variable
          wx-0.92.3.0@wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz:Graphics.UI.WX.Window
 family instance modules: Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Course
+                         Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Grade
                          Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Lecture
                          Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Student
                          base-4.9.1.0:Control.Applicative base-4.9.1.0:Data.Complex
@@ -126,19 +127,19 @@ import  -/  HDBC-postgresql-2.3.2.5@HDBC-postgresql-2.3.2.5-8DjPA5M2Phy2z1B24f9H
 import  -/  HDBC-session-0.1.1.1@HDBC-session-0.1.1.1-8iI0BgP0QiAFY1v4elsx1d:Database.HDBC.Session 2d6858dad2b34cc8771ccd99d7cb9918
 import  -/  Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relational.Query.PostgreSQL df6593be8ac5a29b6a0a6f03fbaf7268
 import  -/  Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Course 4c55c66be146c1e20dafcdefd54fd612
+import  -/  Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Grade 58392179cdd55163bb1b7db6f901af9b
 import  -/  Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Lecture a3d0a6edf65f75df4bef0cc745eac654
 import  -/  Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Student 7d94e9ecfbca41d2a0c7c904e7ba3289
-import  -/  Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Library.AccessDatabase 09c4fd99df85fe4faf020f3b5e0ef7db
+import  -/  Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Library.AccessDatabase 5b24ea8f0d3ff0bf1f4bd49f9f4f8c3b
 import  -/  Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Library.Interface 287467e7ca3c982a919d8425c424e894
 import  -/  base-4.9.1.0:Control.Applicative 32430a90492e727f4bd80db71c28600c
 import  -/  base-4.9.1.0:Control.Monad a6784c5dab0d75c63dabec5a37843f98
 import  -/  base-4.9.1.0:Data.Foldable 3e0b6967a1da89945d0e2d47266337a2
 import  -/  base-4.9.1.0:Data.Functor 5ab1dc703df5b482e77efb697833ca3c
-import  -/  base-4.9.1.0:Data.Int 07f5a36c488acfe0ac32e81c7536b8ff
 import  -/  base-4.9.1.0:Data.Maybe d876c4ffe4b3c43755a781e8ad860d88
 import  -/  base-4.9.1.0:Data.Traversable 556020d7cf3c4a34a774600512918a37
 import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
-import  -/  base-4.9.1.0:GHC.Int e6f85fcab22769385fba2b5fce0acb40
+import  -/  base-4.9.1.0:GHC.Err 3bba35a16538d33d424682ce66876cdd
 import  -/  base-4.9.1.0:GHC.List ab8c4e523e6c479c549d3bcd5fc4a439
 import  -/  base-4.9.1.0:GHC.Num 00bfaa7b2f9d6084913c0697a8a49ec8
 import  -/  base-4.9.1.0:GHC.Real 82e4e59051a13dba1da63e1e970a69e6
