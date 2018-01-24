@@ -1,1 +1,0 @@
-#define wxVERSION_NUMBER 3000
