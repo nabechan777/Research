@@ -17,6 +17,179 @@ Preprocessing library wx-0.92.3.0...
 [14 of 16] Compiling Graphics.UI.WX.Frame ( src/Graphics/UI/WX/Frame.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/Frame.o )
 [15 of 16] Compiling Graphics.UI.WX.Dialogs ( src/Graphics/UI/WX/Dialogs.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX/Dialogs.o )
 [16 of 16] Compiling Graphics.UI.WX   ( src/Graphics/UI/WX.hs, .stack-work/dist/x86_64-osx/Cabal-1.24.2.0/build/Graphics/UI/WX.o )
+Running Haddock for wx-0.92.3.0...
+Preprocessing library wx-0.92.3.0...
+Warning: The documentation for the following packages are not installed. No
+links will be generated to these packages: wxc-0.92.3.0
+Haddock coverage:
+  65% (109 /167) in 'Graphics.UI.WX.Types'
+  Missing documentation for:
+    toCBool
+    fromCBool
+    black
+    darkgrey
+    dimgrey
+    mediumgrey
+    grey
+    lightgrey
+    white
+    red
+    green
+    blue
+    cyan
+    magenta
+    yellow
+    Point
+    pointFromVec
+    pointFromSize
+    pointMove
+    pointMoveBySize
+    pointAdd
+    pointSub
+    pointScale
+    Size
+    sizeFromPoint
+    sizeFromVec
+    sizeZero
+    Vector
+    vecFromPoint
+    vecFromSize
+    vecNegate
+    vecOrtogonal
+    vecAdd
+    vecSub
+    vecScale
+    vecBetween
+    vecLength
+    vecLengthDouble
+    Rect
+    rectTopLeft
+    rectTopRight
+    rectBottomLeft
+    rectBottomRight
+    rectBottom
+    rectRight
+    rectIsEmpty
+    rectContains
+    rectMoveTo
+    rectFromPoint
+    rectCentralPoint
+    rectCentralRect
+    rectStretchTo
+    rectCentralPointDouble
+    rectCentralRectDouble
+    rectMove
+    rectOverlaps
+    rectUnion
+    rectUnions
+ 100% ( 38 / 38) in 'Graphics.UI.WX.Attributes'
+ 100% (  6 /  6) in 'Graphics.UI.WX.Layout'
+  97% ( 31 / 32) in 'Graphics.UI.WX.Classes'
+  Missing documentation for:
+    Colored (src/Graphics/UI/WX/Classes.hs:163)
+  59% ( 55 / 94) in 'Graphics.UI.WX.Events'
+  Missing documentation for:
+    mouse (src/Graphics/UI/WX/Events.hs:167)
+    keyboard (src/Graphics/UI/WX/Events.hs:168)
+    closing (src/Graphics/UI/WX/Events.hs:170)
+    idle (src/Graphics/UI/WX/Events.hs:171)
+    resize (src/Graphics/UI/WX/Events.hs:172)
+    focus (src/Graphics/UI/WX/Events.hs:173)
+    activate (src/Graphics/UI/WX/Events.hs:174)
+    enter (src/Graphics/UI/WX/Events.hs:248)
+    leave (src/Graphics/UI/WX/Events.hs:255)
+    motion (src/Graphics/UI/WX/Events.hs:227)
+    drag (src/Graphics/UI/WX/Events.hs:220)
+    click (src/Graphics/UI/WX/Events.hs:199)
+    unclick (src/Graphics/UI/WX/Events.hs:206)
+    doubleClick (src/Graphics/UI/WX/Events.hs:213)
+    clickRight (src/Graphics/UI/WX/Events.hs:234)
+    unclickRight (src/Graphics/UI/WX/Events.hs:241)
+    anyKey (src/Graphics/UI/WX/Events.hs:314)
+    key (src/Graphics/UI/WX/Events.hs:307)
+    charKey (src/Graphics/UI/WX/Events.hs:303)
+    enterKey (src/Graphics/UI/WX/Events.hs:287)
+    tabKey (src/Graphics/UI/WX/Events.hs:287)
+    escKey (src/Graphics/UI/WX/Events.hs:287)
+    helpKey (src/Graphics/UI/WX/Events.hs:287)
+    delKey (src/Graphics/UI/WX/Events.hs:287)
+    homeKey (src/Graphics/UI/WX/Events.hs:287)
+    endKey (src/Graphics/UI/WX/Events.hs:287)
+    pgupKey (src/Graphics/UI/WX/Events.hs:288)
+    pgdownKey (src/Graphics/UI/WX/Events.hs:288)
+    downKey (src/Graphics/UI/WX/Events.hs:288)
+    upKey (src/Graphics/UI/WX/Events.hs:288)
+    leftKey (src/Graphics/UI/WX/Events.hs:288)
+    rightKey (src/Graphics/UI/WX/Events.hs:288)
+    rebind (src/Graphics/UI/WX/Events.hs:277)
+    EventCalendar
+    calendarEvent (src/Graphics/UI/WX/Events.hs:346)
+    auiNotebookOnPageCloseEvent (src/Graphics/UI/WX/Events.hs:358)
+    auiNotebookOnPageClosedEvent (src/Graphics/UI/WX/Events.hs:362)
+    auiNotebookOnPageChangingEvent (src/Graphics/UI/WX/Events.hs:366)
+    auiNotebookOnPageChangedEvent (src/Graphics/UI/WX/Events.hs:370)
+ 100% ( 18 / 18) in 'Graphics.UI.WX.Media'
+ 100% ( 43 / 43) in 'Graphics.UI.WX.Menu'
+ 100% (  4 /  4) in 'Graphics.UI.WX.Timer'
+ 100% (  2 /  2) in 'Graphics.UI.WX.Variable'
+ 100% ( 21 / 21) in 'Graphics.UI.WX.Window'
+  81% (126 /156) in 'Graphics.UI.WX.Controls'
+  Missing documentation for:
+    calendarCtrl (src/Graphics/UI/WX/Controls.hs:509)
+    date (src/Graphics/UI/WX/Controls.hs:499)
+    IsDate (src/Graphics/UI/WX/Controls.hs:478)
+    multiListBox (src/Graphics/UI/WX/Controls.hs:800)
+    singleListBoxView (src/Graphics/UI/WX/Controls.hs:856)
+    multiListBoxView (src/Graphics/UI/WX/Controls.hs:862)
+    listBoxViewAddItem (src/Graphics/UI/WX/Controls.hs:839)
+    listBoxViewGetItems (src/Graphics/UI/WX/Controls.hs:836)
+    listBoxViewSetItems (src/Graphics/UI/WX/Controls.hs:831)
+    singleListBoxViewGetSelection (src/Graphics/UI/WX/Controls.hs:844)
+    multiListBoxViewGetSelections (src/Graphics/UI/WX/Controls.hs:850)
+    listCtrlSetColumnWidths (src/Graphics/UI/WX/Controls.hs:1290)
+    listViewLayout (src/Graphics/UI/WX/Controls.hs:1306)
+    listViewSetHandler (src/Graphics/UI/WX/Controls.hs:1309)
+    listViewSelectHandle (src/Graphics/UI/WX/Controls.hs:1313)
+    listViewSetItems (src/Graphics/UI/WX/Controls.hs:1318)
+    listViewGetItems (src/Graphics/UI/WX/Controls.hs:1323)
+    listViewAddItem (src/Graphics/UI/WX/Controls.hs:1326)
+    listView (src/Graphics/UI/WX/Controls.hs:1335)
+    mediaCtrl (src/Graphics/UI/WX/Controls.hs:1407)
+    mediaCtrlEx (src/Graphics/UI/WX/Controls.hs:1434)
+    wizardEx (src/Graphics/UI/WX/Controls.hs:1482)
+    next (src/Graphics/UI/WX/Controls.hs:1452)
+    prev (src/Graphics/UI/WX/Controls.hs:1456)
+    wizardPageSize (src/Graphics/UI/WX/Controls.hs:1461)
+    wizardEvent (src/Graphics/UI/WX/Controls.hs:1506)
+    wizardCurrentPage (src/Graphics/UI/WX/Controls.hs:1499)
+    stcEvent (src/Graphics/UI/WX/Controls.hs:1520)
+    styledTextCtrl (src/Graphics/UI/WX/Controls.hs:1525)
+    styledTextCtrlEx (src/Graphics/UI/WX/Controls.hs:1529)
+  65% ( 22 / 34) in 'Graphics.UI.WX.Draw'
+  Missing documentation for:
+    Drawn (src/Graphics/UI/WX/Draw.hs:48)
+    pen (src/Graphics/UI/WX/Draw.hs:49)
+    penKind (src/Graphics/UI/WX/Draw.hs:50)
+    penWidth (src/Graphics/UI/WX/Draw.hs:51)
+    penCap (src/Graphics/UI/WX/Draw.hs:52)
+    penJoin (src/Graphics/UI/WX/Draw.hs:53)
+    penColor (src/Graphics/UI/WX/Draw.hs:54)
+    Brushed (src/Graphics/UI/WX/Draw.hs:56)
+    brush (src/Graphics/UI/WX/Draw.hs:57)
+    brushKind (src/Graphics/UI/WX/Draw.hs:58)
+    brushColor (src/Graphics/UI/WX/Draw.hs:59)
+    dcWith (src/Graphics/UI/WX/Draw.hs:109)
+ 100% (  5 /  5) in 'Graphics.UI.WX.TopLevelWindow'
+ 100% ( 25 / 25) in 'Graphics.UI.WX.Frame'
+ 100% ( 24 / 24) in 'Graphics.UI.WX.Dialogs'
+ 100% ( 18 / 18) in 'Graphics.UI.WX'
+Warning: Graphics.UI.WX.Types: could not find link destinations for:
+    unsafeIndex unsafeRangeSize
+Warning: Graphics.UI.WX.Controls: could not find link destinations for:
+    CSingleListBox CMultiListBox
+Documentation created:
+.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/doc/html/wx/index.html,
+.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/doc/html/wx/wx.txt
 Installing library in
 /Users/Daiki/Git/Research/.stack-work/install/x86_64-osx/lts-9.13/8.0.2/lib/x86_64-osx-ghc-8.0.2/wx-0.92.3.0-KU6FNMOQFkT1dV0AXT55hz
 Registering wx-0.92.3.0...

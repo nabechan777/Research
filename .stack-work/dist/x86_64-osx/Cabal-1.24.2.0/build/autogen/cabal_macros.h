@@ -77,6 +77,20 @@
   (major1) == 0 && (major2) <  92 || \
   (major1) == 0 && (major2) == 92 && (minor) <= 3)
 
+/* package reactive-banana-1.1.0.1 */
+#define VERSION_reactive_banana "1.1.0.1"
+#define MIN_VERSION_reactive_banana(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  1 || \
+  (major1) == 1 && (major2) == 1 && (minor) <= 0)
+
+/* package reactive-banana-wx-1.1.1.0 */
+#define VERSION_reactive_banana_wx "1.1.1.0"
+#define MIN_VERSION_reactive_banana_wx(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  1 || \
+  (major1) == 1 && (major2) == 1 && (minor) <= 1)
+
 /* tool cpphs-1.20.8 */
 #define TOOL_VERSION_cpphs "1.20.8"
 #define MIN_TOOL_VERSION_cpphs(major1,major2,minor) (\
@@ -132,6 +146,13 @@
   (major1) <  0 || \
   (major1) == 0 && (major2) <  68 || \
   (major1) == 0 && (major2) == 68 && (minor) <= 1)
+
+/* tool hscolour-1.24 */
+#define TOOL_VERSION_hscolour "1.24"
+#define MIN_TOOL_VERSION_hscolour(major1,major2,minor) (\
+  (major1) <  1 || \
+  (major1) == 1 && (major2) <  24 || \
+  (major1) == 1 && (major2) == 24 && (minor) <= 0)
 
 /* tool pkg-config-0.29.2 */
 #define TOOL_VERSION_pkg_config "0.29.2"

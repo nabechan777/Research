@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS grade;
 DROP TABLE IF EXISTS course;
 DROP TABLE IF EXISTS student;
 DROP TABLE IF EXISTS lecture;
@@ -24,9 +25,17 @@ CREATE TABLE lecture(
 
 CREATE TABLE course(
     course_id int PRIMARY KEY,
-    student_id int,
-    lecture_id int,
+    student_id int NOT NULL,
+    lecture_id int NOT NULL,
     score int,
     FOREIGN KEY (student_id) REFERENCES student(student_id),
     FOREIGN KEY (lecture_id) REFERENCES lecture(lecture_id)
+);
+
+CREATE TABLE grade (
+    grade_id int PRIMARY KEY,
+    student_id int NOT NULL,
+    common int NOT NULL,
+    special int NOT NULL,
+    FOREIGN KEY (student_id) REFERENCES student(student_id)
 );

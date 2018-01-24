@@ -1,6 +1,6 @@
-[1 of 2] Compiling Main             ( /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack2129/wxc-0.92.3.0/Setup.hs, /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack2129/wxc-0.92.3.0/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/Main.o )
-[2 of 2] Compiling StackSetupShim   ( /Users/Daiki/.stack/setup-exe-src/setup-shim-mPHDZzAJ.hs, /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack2129/wxc-0.92.3.0/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/StackSetupShim.o )
-Linking /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack2129/wxc-0.92.3.0/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/setup ...
+[1 of 2] Compiling Main             ( /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack23605/wxc-0.92.3.0/Setup.hs, /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack23605/wxc-0.92.3.0/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/Main.o )
+[2 of 2] Compiling StackSetupShim   ( /Users/Daiki/.stack/setup-exe-src/setup-shim-mPHDZzAJ.hs, /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack23605/wxc-0.92.3.0/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/StackSetupShim.o )
+Linking /private/var/folders/ls/s09f8k7x55357wq3bw6kkzlr0000gn/T/stack23605/wxc-0.92.3.0/.stack-work/dist/x86_64-osx/Cabal-1.24.2.0/setup/setup ...
 Configuring wxc-0.92.3.0...
 Configuring wxc to build against wxWidgets 3.0
 Building wxc

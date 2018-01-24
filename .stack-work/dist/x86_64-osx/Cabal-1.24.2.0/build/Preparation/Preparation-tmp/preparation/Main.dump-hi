@@ -1,0 +1,290 @@
+
+==================== FINAL INTERFACE ====================
+2018-01-21 12:56:09.041125 UTC
+
+interface main@main:Main 8002
+  interface hash: 31ac73387d24ae98bbf08beed1e95033
+  ABI hash: 894756e96181959a67478b0aff2a4f8e
+  export-list hash: 491ea975ca86300e2691eb7e8a93faee
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 0bae06c6c00e089fb8cca83718eea9a7
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.main
+module dependencies:
+package dependencies: HDBC-2.4.0.2@HDBC-2.4.0.2-CMf0h3SvMqFJUriR2hhqrA
+                      HDBC-postgresql-2.3.2.5@HDBC-postgresql-2.3.2.5-8DjPA5M2Phy2z1B24f9HKN
+                      HDBC-session-0.1.1.1@HDBC-session-0.1.1.1-8iI0BgP0QiAFY1v4elsx1d
+                      Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u
+                      array-0.5.1.1@array-0.5.1.1 base-4.9.1.0
+                      binary-0.8.3.0@binary-0.8.3.0
+                      bytestring-0.10.8.1@bytestring-0.10.8.1
+                      containers-0.5.7.1@containers-0.5.7.1
+                      convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE
+                      deepseq-1.4.2.0@deepseq-1.4.2.0
+                      dlist-0.8.0.3@dlist-0.8.0.3-BHFBNaw8k6n9WiaUNzoXpk
+                      ghc-boot-th-8.0.2@ghc-boot-th-8.0.2 ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1 mtl-2.2.1@mtl-2.2.1-BLKBelFsPB3BoFeSWSOYj6
+                      names-th-0.2.0.3@names-th-0.2.0.3-FWd9uhhaPk73vacdw3xBxG
+                      old-locale-1.0.0.7@old-locale-1.0.0.7-KGBP1BSKxH5GCm0LnZP04j
+                      old-time-1.1.0.3@old-time-1.1.0.3-KWRsMSdY26c2L27Y9n9cyq
+                      parsec-3.1.11@parsec-3.1.11-1aqiimsgq2dCv7eoaC8WuX
+                      persistable-record-0.5.1.1@persistable-record-0.5.1.1-8Nzb50WMmIH2ecrfnqIMY
+                      pretty-1.1.3.3@pretty-1.1.3.3
+                      relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8
+                      relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0
+                      relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa
+                      sql-words-0.1.5.1@sql-words-0.1.5.1-6ekOanNrtOKYD1ABcjRAD
+                      template-haskell-2.11.1.0
+                      text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00
+                      th-data-compat-0.0.2.4@th-data-compat-0.0.2.4-GbISCvWnyQk60k5xubIzhH
+                      th-reify-compat-0.0.1.3@th-reify-compat-0.0.1.3-FdL2m7tyb2p89Gevm936I5
+                      time-1.6.0.1@time-1.6.0.1
+                      time-locale-compat-0.1.1.3@time-locale-compat-0.1.1.3-KZ1jqNx8uhlHjmuPPj6V1Y
+                      transformers-0.5.2.0@transformers-0.5.2.0
+                      utf8-string-1.0.1.1@utf8-string-1.0.1.1-1DpjxLeTvGg7ttZZojxJR5
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+         binary-0.8.3.0@binary-0.8.3.0:Data.Binary.Generic
+         bytestring-0.10.8.1@bytestring-0.10.8.1:Data.ByteString.Builder
+         convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE:Data.Convertible.Instances.C
+         convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE:Data.Convertible.Instances.Map
+         convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE:Data.Convertible.Instances.Num
+         convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE:Data.Convertible.Instances.Text
+         convertible-1.1.1.0@convertible-1.1.1.0-FM6RC8n6JG91WdGj8q2BzE:Data.Convertible.Instances.Time
+         persistable-record-0.5.1.1@persistable-record-0.5.1.1-8Nzb50WMmIH2ecrfnqIMY:Database.Record.Instances
+         persistable-record-0.5.1.1@persistable-record-0.5.1.1-8Nzb50WMmIH2ecrfnqIMY:Database.Record.TupleInstances
+         relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Monad.Aggregate
+         relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Projection
+         relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.Pure
+         relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query.TupleInstances
+         relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0:Database.HDBC.Record.Persistable
+         relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0:Database.HDBC.Schema.PostgreSQL
+         relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0:Database.HDBC.SqlValueExtra
+         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text
+         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text.Lazy
+         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text.Show
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Calendar.Gregorian
+         time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
+         time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
+         transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
+family instance modules: Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Grade
+                         Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Lecture
+                         Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Student
+                         base-4.9.1.0:Control.Applicative base-4.9.1.0:Data.Complex
+                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
+                         base-4.9.1.0:Data.Functor.Identity base-4.9.1.0:Data.List.NonEmpty
+                         base-4.9.1.0:Data.Monoid base-4.9.1.0:Data.Semigroup
+                         base-4.9.1.0:Data.Type.Equality base-4.9.1.0:Data.Version
+                         base-4.9.1.0:Data.Void base-4.9.1.0:GHC.Exts
+                         base-4.9.1.0:GHC.Generics base-4.9.1.0:GHC.IO.Exception
+                         base-4.9.1.0:GHC.TypeLits
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntMap.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.IntSet.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Map.Base
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Sequence
+                         containers-0.5.7.1@containers-0.5.7.1:Data.Set.Base
+                         dlist-0.8.0.3@dlist-0.8.0.3-BHFBNaw8k6n9WiaUNzoXpk:Data.DList
+                         ghc-boot-th-8.0.2@ghc-boot-th-8.0.2:GHC.LanguageExtensions.Type
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3@pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
+                         relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa:Database.Relational.Schema.PgCatalog.PgAttribute
+                         relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa:Database.Relational.Schema.PgCatalog.PgClass
+                         relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa:Database.Relational.Schema.PgCatalog.PgConstraint
+                         relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa:Database.Relational.Schema.PgCatalog.PgNamespace
+                         relational-schemas-0.1.4.1@relational-schemas-0.1.4.1-D8GFg9X4V2sD9u4K7gADAa:Database.Relational.Schema.PgCatalog.PgType
+                         template-haskell-2.11.1.0:Language.Haskell.TH.Syntax
+                         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text
+                         text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text.Lazy
+import  -/  HDBC-2.4.0.2@HDBC-2.4.0.2-CMf0h3SvMqFJUriR2hhqrA:Database.HDBC.Types 4330f1e4cd537efa9f202bc55e219e96
+import  -/  HDBC-postgresql-2.3.2.5@HDBC-postgresql-2.3.2.5-8DjPA5M2Phy2z1B24f9HKN:Database.HDBC.PostgreSQL bb486b65712ed35e0e22aba86ec23205
+import  -/  HDBC-postgresql-2.3.2.5@HDBC-postgresql-2.3.2.5-8DjPA5M2Phy2z1B24f9HKN:Database.HDBC.PostgreSQL.Connection d43a30634bc614044d159702982a548f
+import  -/  HDBC-session-0.1.1.1@HDBC-session-0.1.1.1-8iI0BgP0QiAFY1v4elsx1d:Database.HDBC.Session 2d6858dad2b34cc8771ccd99d7cb9918
+import  -/  Research-0.1.0.0@Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Library.InsertDB 17f996a1d38b2b936009d06c2f8eddac
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  base-4.9.1.0:System.IO c9de64c5f5407c4cf1c52500c4d15200
+import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
+d6831ef04cb9301b090dfae6f7bb7ec7
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Main.$trModule2 Main.$trModule1) -}
+847d9fc3b8e6f0b424199f36b4999bb2
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Main"#) -}
+24ef6042833e75ffd7aa98b83ecca98d
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "main"#) -}
+d62fbcc50ed14c80b455d382f2f20cd4
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+8f6e02a89007039f1bcfc1e13f8b616b
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (eta :: GHC.Prim.State#
+                             GHC.Prim.RealWorld)[OneShot] ->
+                 GHC.Prim.catch#
+                   @ ()
+                   @ GHC.Exception.SomeException
+                   Main.main2 `cast` (GHC.Types.N:IO[0] <()>_R)
+                   (Database.HDBC.Session.handleSqlError'2 @ ())
+                   eta) -}
+5d52e954fd464c51184f6b5aa76585db
+  main2 :: GHC.Types.IO ()
+  {- Unfolding: (GHC.Magic.lazy
+                   @ (GHC.Types.IO ())
+                   Main.main3 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+c3c60058ae75e14c09d58788f78766ad
+  main3 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (\ (eta :: GHC.Prim.State#
+                             GHC.Prim.RealWorld)[OneShot] ->
+                 Database.HDBC.Session.withConnectionCommit2
+                   @ Database.HDBC.PostgreSQL.ConnectionImpl.Connection
+                   @ ()
+                   Database.HDBC.PostgreSQL.ConnectionImpl.$fIConnectionConnection
+                   Main.main7
+                     `cast`
+                   (Sym (GHC.Types.N:IO[0]
+                             <Database.HDBC.PostgreSQL.ConnectionImpl.Connection>_R))
+                   Main.main4
+                     `cast`
+                   (<Database.HDBC.PostgreSQL.ConnectionImpl.Connection>_R
+                    ->_R Sym (GHC.Types.N:IO[0] <()>_R))
+                   eta) -}
+458181ba872c0ea485e0732cf0ce63aa
+  main4 ::
+    Database.HDBC.PostgreSQL.ConnectionImpl.Connection
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2,
+     Unfolding: (\ (x :: Database.HDBC.PostgreSQL.ConnectionImpl.Connection)
+                   (eta1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 GHC.Prim.catch#
+                   @ ()
+                   @ GHC.Exception.SomeException
+                   (GHC.Magic.lazy
+                      @ (GHC.Types.IO ())
+                      (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                       case GHC.IO.Handle.Text.hPutStr2
+                              GHC.IO.Handle.FD.stdout
+                              Main.main6
+                              GHC.Types.True
+                              s of ds1 { (#,#) ipv ipv1 ->
+                       case Database.HDBC.Record.Statement.mapNoFetch1
+                              @ Database.Relational.Query.Type.Insert
+                              @ Database.HDBC.PostgreSQL.ConnectionImpl.Connection
+                              @ Database.Relations.Student.Student
+                              Database.Relational.Query.Type.untypeInsert
+                                `cast`
+                              (Sym (Database.Relational.Query.Type.N:UntypeableNoFetch[0]
+                                        <Database.Relational.Query.Type.Insert>_N))
+                              Database.HDBC.PostgreSQL.ConnectionImpl.$fIConnectionConnection
+                              Database.Relations.Student.$fToSqlSqlValueStudent
+                              x
+                              Database.Relations.Student.insertStudent
+                              Library.InsertDB.students
+                              ipv of ds2 { (#,#) ipv2 ipv3 ->
+                       case GHC.IO.Handle.Text.hPutStr2
+                              GHC.IO.Handle.FD.stdout
+                              Main.main5
+                              GHC.Types.True
+                              ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                       case GHC.IO.Handle.Text.hPutStr2
+                              GHC.IO.Handle.FD.stdout
+                              Main.main6
+                              GHC.Types.True
+                              ipv4 of ds4 { (#,#) ipv6 ipv7 ->
+                       case Database.HDBC.Record.Statement.mapNoFetch1
+                              @ Database.Relational.Query.Type.Insert
+                              @ Database.HDBC.PostgreSQL.ConnectionImpl.Connection
+                              @ Database.Relations.Lecture.Lecture
+                              Database.Relational.Query.Type.untypeInsert
+                                `cast`
+                              (Sym (Database.Relational.Query.Type.N:UntypeableNoFetch[0]
+                                        <Database.Relational.Query.Type.Insert>_N))
+                              Database.HDBC.PostgreSQL.ConnectionImpl.$fIConnectionConnection
+                              Database.Relations.Lecture.$fToSqlSqlValueLecture
+                              x
+                              Database.Relations.Lecture.insertLecture
+                              Library.InsertDB.insertLectures2
+                              ipv6 of ds5 { (#,#) ipv8 ipv9 ->
+                       case GHC.IO.Handle.Text.hPutStr2
+                              GHC.IO.Handle.FD.stdout
+                              Main.main5
+                              GHC.Types.True
+                              ipv8 of ds6 { (#,#) ipv10 ipv11 ->
+                       case GHC.IO.Handle.Text.hPutStr2
+                              GHC.IO.Handle.FD.stdout
+                              Main.main6
+                              GHC.Types.True
+                              ipv10 of ds7 { (#,#) ipv12 ipv13 ->
+                       case Database.HDBC.Record.Statement.mapNoFetch1
+                              @ Database.Relational.Query.Type.Insert
+                              @ Database.HDBC.PostgreSQL.ConnectionImpl.Connection
+                              @ Database.Relations.Grade.Grade
+                              Database.Relational.Query.Type.untypeInsert
+                                `cast`
+                              (Sym (Database.Relational.Query.Type.N:UntypeableNoFetch[0]
+                                        <Database.Relational.Query.Type.Insert>_N))
+                              Database.HDBC.PostgreSQL.ConnectionImpl.$fIConnectionConnection
+                              Database.Relations.Grade.$fToSqlSqlValueGrade
+                              x
+                              Database.Relations.Grade.insertGrade
+                              Library.InsertDB.grades
+                              ipv12 of ds8 { (#,#) ipv14 ipv15 ->
+                       case GHC.IO.Handle.Text.hPutStr2
+                              GHC.IO.Handle.FD.stdout
+                              Main.main5
+                              GHC.Types.True
+                              ipv14 of ds9 { (#,#) ipv16 ipv17 ->
+                       case x of wild { Database.HDBC.PostgreSQL.ConnectionImpl.Connection ds10 ds11 ds12 ds13 ds14 ds15 ds16 ds17 ds18 ds19 ds20 ds21 ds22 ds23 ds24 ds25 ->
+                       ds12 `cast` (GHC.Types.N:IO[0] <()>_R) ipv16 } } } } } } } } } })
+                        `cast`
+                      (Sym (GHC.Types.N:IO[0] <()>_R)))
+                     `cast`
+                   (GHC.Types.N:IO[0] <()>_R)
+                   (Database.HDBC.Session.handleSqlError'2 @ ())
+                   eta1) -}
+e4800eb7c33bbc26177f3fa338bc642f
+  main5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "finished"#) -}
+eb372d62a13fa601b698f9da0e59e226
+  main6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "start"#) -}
+7939956f0e377caa6bc87cc24c5c8225
+  main7 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Database.HDBC.PostgreSQL.ConnectionImpl.Connection #)
+  {- Arity: 1,
+     Unfolding: (Database.HDBC.PostgreSQL.Connection.connectPostgreSQL2
+                   GHC.Types.True
+                   Main.main8) -}
+24b9d96755d509a6057f0afbfe19ec52
+  main8 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "dbname=research"#) -}
+3f0d9824fcbacdcc415566e2cc435a80
+  main9 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

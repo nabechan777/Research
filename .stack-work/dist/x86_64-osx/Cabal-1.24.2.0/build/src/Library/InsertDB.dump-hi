@@ -1,22 +1,23 @@
 
 ==================== FINAL INTERFACE ====================
-2017-12-13 02:17:45.698911 UTC
+2018-01-21 12:56:05.746643 UTC
 
 interface Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Library.InsertDB 8002
-  interface hash: 601ea0a018af88db4aaad90bd3b1fb54
-  ABI hash: fbbe038c862eb307d6c2ce97c6987a9d
-  export-list hash: c2d741ce989acc8d91406c86a361c09b
+  interface hash: 2b28c919886d5b0d13c3b232de06ddd0
+  ABI hash: 17f996a1d38b2b936009d06c2f8eddac
+  export-list hash: 62d001ad597fd1738a4ee49c90e78d94
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 4e230339bcf0b4b3f42f1964e546bec1
   sig of: Nothing
   used TH splices: False
   where
 exports:
-  Library.InsertDB.lectures
-  Library.InsertDB.run
-  Library.InsertDB.students
+  Library.InsertDB.insertGrades
+  Library.InsertDB.insertLectures
+  Library.InsertDB.insertStudents
 module dependencies: Database.Record.TH.PostgreSQL
-                     Database.Relations.Lecture Database.Relations.Student
+                     Database.Relations.Grade Database.Relations.Lecture
+                     Database.Relations.Student
 package dependencies: HDBC-2.4.0.2@HDBC-2.4.0.2-CMf0h3SvMqFJUriR2hhqrA
                       HDBC-postgresql-2.3.2.5@HDBC-postgresql-2.3.2.5-8DjPA5M2Phy2z1B24f9HKN
                       HDBC-session-0.1.1.1@HDBC-session-0.1.1.1-8iI0BgP0QiAFY1v4elsx1d
@@ -71,7 +72,8 @@ orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
          time-1.6.0.1@time-1.6.0.1:Data.Time.Format.Parse
          time-1.6.0.1@time-1.6.0.1:Data.Time.LocalTime.LocalTime
          transformers-0.5.2.0@transformers-0.5.2.0:Control.Monad.Trans.Error
-family instance modules: Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Lecture
+family instance modules: Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Grade
+                         Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Lecture
                          Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relations.Student
                          base-4.9.1.0:Control.Applicative base-4.9.1.0:Data.Complex
                          base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
@@ -98,10 +100,13 @@ family instance modules: Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Relati
                          template-haskell-2.11.1.0:Language.Haskell.TH.Syntax
                          text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text
                          text-1.2.2.2@text-1.2.2.2-9UQZjEJZQFSGMffj1Z5g00:Data.Text.Lazy
-import  -/  HDBC-2.4.0.2@HDBC-2.4.0.2-CMf0h3SvMqFJUriR2hhqrA:Database.HDBC a22e22f1e7a873776849b5fdf6fb6987
+import  -/  HDBC-2.4.0.2@HDBC-2.4.0.2-CMf0h3SvMqFJUriR2hhqrA:Database.HDBC.Types 4330f1e4cd537efa9f202bc55e219e96
 import  -/  HDBC-postgresql-2.3.2.5@HDBC-postgresql-2.3.2.5-8DjPA5M2Phy2z1B24f9HKN:Database.HDBC.PostgreSQL bb486b65712ed35e0e22aba86ec23205
-import  -/  HDBC-postgresql-2.3.2.5@HDBC-postgresql-2.3.2.5-8DjPA5M2Phy2z1B24f9HKN:Database.HDBC.PostgreSQL.Connection d43a30634bc614044d159702982a548f
-import  -/  HDBC-session-0.1.1.1@HDBC-session-0.1.1.1-8iI0BgP0QiAFY1v4elsx1d:Database.HDBC.Session 2d6858dad2b34cc8771ccd99d7cb9918
+import  -/  Database.Relations.Grade 58392179cdd55163bb1b7db6f901af9b
+  exports: 60c9787066704326c71098e16e634f66
+  Grade 7181a9cbfe1df7c65df9155bf9b88ff2
+  Grade c64b9fa658ea8ab15e2c0c6fbba33c49
+  insertGrade 35e52ede48448e03c3fb91367cadf914
 import  -/  Database.Relations.Lecture a3d0a6edf65f75df4bef0cc745eac654
   exports: ffaddb1d0318e4dd09285da6660414f0
   Lecture 24401aa58c7ffb5eb9fafbafbd2cecba
@@ -114,11 +119,11 @@ import  -/  Database.Relations.Student 7d94e9ecfbca41d2a0c7c904e7ba3289
   insertStudent 2fe6735bdb387cbfcc1c84f5cb772bcc
 import  -/  base-4.9.1.0:Control.Applicative 32430a90492e727f4bd80db71c28600c
 import  -/  base-4.9.1.0:Data.Functor 5ab1dc703df5b482e77efb697833ca3c
+import  -/  base-4.9.1.0:Data.Tuple 7dc4bbb45d2e69c991ffac438beeca11
 import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
 import  -/  base-4.9.1.0:GHC.List ab8c4e523e6c479c549d3bcd5fc4a439
 import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
 import  -/  ghc-prim-0.5.0.0:GHC.Types 89f8de4f08018c9177c98d979eae0e45
-import  -/  relational-query-0.9.5.0@relational-query-0.9.5.0-17dprTVhIzzB8eMhOSb3o8:Database.Relational.Query 9eee3a159966e425a6f68ac3079985cb
 import  -/  relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0:Database.HDBC.Record e89574e145e1074df0307154e790d2f7
 import  -/  relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0:Database.HDBC.Record.Insert 40824d98caf229db369a67285eb77e20
 0eb2fdac1eabd41ac8eae63aac695945
@@ -136,149 +141,285 @@ import  -/  relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93p
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS
                    "Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u"#) -}
-f9c91d81d45ecedab7bf7507f846b058
-  lectures :: [Database.Relations.Lecture.Lecture]
-  {- Unfolding: (Library.InsertDB.lectures_go
-                   Library.InsertDB.lectures27
-                   Library.InsertDB.lectures_xs'2
-                   Library.InsertDB.lectures1
-                   Library.InsertDB.lectures_xs'1
-                   Library.InsertDB.lectures_xs') -}
-ae6d8480f4344b3bc31fa19c47e79379
-  lectures1 :: [[GHC.Types.Char]]
-  {- Unfolding: (case Library.InsertDB.lectures_c
-                        Library.InsertDB.lectures26
-                        Library.InsertDB.lectures2 of wild {
+b7cb502e1740c0bcc9ef5a2cf1bc633a
+  $wgo ::
+    [GHC.Int.Int32]
+    -> [(GHC.Base.String, GHC.Base.String)]
+    -> [[GHC.Types.Char]]
+    -> [GHC.Int.Int32]
+    -> GHC.Prim.Int#
+    -> [Database.Relations.Lecture.Lecture]
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <S,1*U><L,1*U><L,1*U><L,1*U><L,1*U>, Inline: [0] -}
+830c2fddbb6558ea2ae1d2dd219cfa85
+  grades :: [Database.Relations.Grade.Grade]
+  {- Unfolding: (Library.InsertDB.insertGrades_go
+                   Library.InsertDB.insertGrades8
+                   Library.InsertDB.insertGrades6
+                   Library.InsertDB.insertGrades4
+                   Library.InsertDB.insertGrades2) -}
+5d98120cc1492eaac8b976677e82395a
+  insertGrades ::
+    Database.HDBC.Types.IConnection conn => conn -> GHC.Types.IO ()
+  {- Arity: 3,
+     Strictness: <S(LLLLLC(C(C(S(SS(LLLC(S(SL))LLLL)))))LLLLLLLLL),1*U(A,A,A,A,A,1*C1(C1(C1(U(U,U(C(C1(U(U,U))),A,A,C(U(U,A)),A,A,A,A))))),A,A,A,A,A,A,A,A,A)><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Library.InsertDB.insertGrades1
+                  `cast`
+                (forall (conn :: <*>_N).
+                 <Database.HDBC.Types.IConnection conn>_R
+                 ->_R <conn>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+f2f491585185c696454c4659948cb9ae
+  insertGrades1 ::
+    Database.HDBC.Types.IConnection conn =>
+    conn
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 3,
+     Strictness: <S(LLLLLC(C(C(S(SS(LLLC(S(SL))LLLL)))))LLLLLLLLL),1*U(A,A,A,A,A,1*C1(C1(C1(U(U,U(C(C1(U(U,U))),A,A,C(U(U,A)),A,A,A,A))))),A,A,A,A,A,A,A,A,A)><L,U><S,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ conn
+                   ($dIConnection :: Database.HDBC.Types.IConnection conn)
+                   (conn1 :: conn)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case Database.HDBC.Record.Statement.mapNoFetch1
+                        @ Database.Relational.Query.Type.Insert
+                        @ conn
+                        @ Database.Relations.Grade.Grade
+                        Database.Relational.Query.Type.untypeInsert
+                          `cast`
+                        (Sym (Database.Relational.Query.Type.N:UntypeableNoFetch[0]
+                                  <Database.Relational.Query.Type.Insert>_N))
+                        $dIConnection
+                        Database.Relations.Grade.$fToSqlSqlValueGrade
+                        conn1
+                        Database.Relations.Grade.insertGrade
+                        Library.InsertDB.grades
+                        eta of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv, GHC.Tuple.() #) }) -}
+8b01f39e68c9f4077a6058cf9cf91421
+  insertGrades2 :: [GHC.Int.Int32]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Int.Int32
+                   Library.InsertDB.insertGrades3
+                   (GHC.Types.[] @ GHC.Int.Int32)) -}
+3a1518d778847b5c1e75aa73d3109569
+  insertGrades3 :: GHC.Int.Int32
+  {- HasNoCafRefs, Unfolding: (GHC.Int.I32# 50#) -}
+3e96736f3c8ac92572427fdaeb576183
+  insertGrades4 :: [GHC.Int.Int32]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Int.Int32
+                   Library.InsertDB.insertGrades5
+                   (GHC.Types.[] @ GHC.Int.Int32)) -}
+a8a3b0b28d7820bf3e312c5c8974ae05
+  insertGrades5 :: GHC.Int.Int32
+  {- HasNoCafRefs, Unfolding: (GHC.Int.I32# 70#) -}
+615fb4e7d681e39cbeb4f9af1a1809d3
+  insertGrades6 :: [GHC.Int.Int32]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Int.Int32
+                   Library.InsertDB.insertGrades7
+                   (GHC.Types.[] @ GHC.Int.Int32)) -}
+118e3e9cd2ea2f112b65e822b0266bb4
+  insertGrades7 :: GHC.Int.Int32
+  {- HasNoCafRefs, Unfolding: (GHC.Int.I32# 1#) -}
+6e1464ec3b40178d38faa7b0a41fa4aa
+  insertGrades8 :: [GHC.Int.Int32]
+  {- Unfolding: (GHC.Int.$fEnumInt32_go 1#) -}
+415a9f70b810771a577977e4ea3a8b72
+  insertGrades_go ::
+    [GHC.Int.Int32]
+    -> [GHC.Int.Int32]
+    -> [GHC.Int.Int32]
+    -> [GHC.Int.Int32]
+    -> [Database.Relations.Grade.Grade]
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S,1*U><L,1*U><L,1*U><L,1*U> -}
+34b0db9c4c8927a012d3963ac0358119
+  insertLectures ::
+    Database.HDBC.Types.IConnection conn => conn -> GHC.Types.IO ()
+  {- Arity: 3,
+     Strictness: <S(LLLLLC(C(C(S(SS(LLLC(S(SL))LLLL)))))LLLLLLLLL),1*U(A,A,A,A,A,1*C1(C1(C1(U(U,U(C(C1(U(U,U))),A,A,C(U(U,A)),A,A,A,A))))),A,A,A,A,A,A,A,A,A)><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Library.InsertDB.insertLectures1
+                  `cast`
+                (forall (conn :: <*>_N).
+                 <Database.HDBC.Types.IConnection conn>_R
+                 ->_R <conn>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+ee5bc329dee527d6731c9772271d1dd0
+  insertLectures1 ::
+    Database.HDBC.Types.IConnection conn =>
+    conn
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 3,
+     Strictness: <S(LLLLLC(C(C(S(SS(LLLC(S(SL))LLLL)))))LLLLLLLLL),1*U(A,A,A,A,A,1*C1(C1(C1(U(U,U(C(C1(U(U,U))),A,A,C(U(U,A)),A,A,A,A))))),A,A,A,A,A,A,A,A,A)><L,U><S,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ conn
+                   ($dIConnection :: Database.HDBC.Types.IConnection conn)
+                   (conn1 :: conn)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case Database.HDBC.Record.Statement.mapNoFetch1
+                        @ Database.Relational.Query.Type.Insert
+                        @ conn
+                        @ Database.Relations.Lecture.Lecture
+                        Database.Relational.Query.Type.untypeInsert
+                          `cast`
+                        (Sym (Database.Relational.Query.Type.N:UntypeableNoFetch[0]
+                                  <Database.Relational.Query.Type.Insert>_N))
+                        $dIConnection
+                        Database.Relations.Lecture.$fToSqlSqlValueLecture
+                        conn1
+                        Database.Relations.Lecture.insertLecture
+                        Library.InsertDB.insertLectures2
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv, GHC.Tuple.() #) }) -}
+0226c1985e12b7ba527a203a9ccef6b9
+  insertLectures10 :: [[GHC.Types.Char]]
+  {- Unfolding: (GHC.Types.:
+                   @ [GHC.Types.Char]
+                   Library.InsertDB.insertLectures13
+                   Library.InsertDB.insertLectures11) -}
+306481cbb2fec41656edd348c25a15b7
+  insertLectures11 :: [[GHC.Types.Char]]
+  {- Unfolding: (GHC.Types.:
+                   @ [GHC.Types.Char]
+                   Library.InsertDB.insertLectures12
+                   (GHC.Types.[] @ [GHC.Types.Char])) -}
+970860efb3d232f8aac68c67abb3ba41
+  insertLectures12 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Sun"#) -}
+e79f41d12cc2b60f3042ee37e82a501f
+  insertLectures13 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Sat"#) -}
+e0bb0acfeb045d58d159f19961fd6d75
+  insertLectures14 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Fri"#) -}
+f307298ca1f9a20a5a63c2fec103af8b
+  insertLectures15 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Thu"#) -}
+4e0ae9bf513d79a6158c62da2bdf03a3
+  insertLectures16 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Wed"#) -}
+dd3fc61d604a54761d10643a28fbf902
+  insertLectures17 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Tue"#) -}
+492970a8f4f13409b4c14efe74611ba8
+  insertLectures18 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "Mon"#) -}
+6e190f8ad70445bc43380a34cad11297
+  insertLectures19 :: [[GHC.Types.Char]]
+  {- Unfolding: (GHC.Types.:
+                   @ [GHC.Types.Char]
+                   Library.InsertDB.insertLectures26
+                   Library.InsertDB.insertLectures20) -}
+160a578b4116fd6fbead5d002b39b293
+  insertLectures2 :: [Database.Relations.Lecture.Lecture]
+  {- Unfolding: (Library.InsertDB.$wgo
+                   Library.InsertDB.insertGrades8
+                   Library.InsertDB.insertLectures_xs'1
+                   Library.InsertDB.insertLectures3
+                   Library.InsertDB.insertLectures_xs'
+                   200#) -}
+b8cbe79e4395b041141471717200bf9a
+  insertLectures20 :: [[GHC.Types.Char]]
+  {- Unfolding: (GHC.Types.:
+                   @ [GHC.Types.Char]
+                   Library.InsertDB.insertLectures25
+                   Library.InsertDB.insertLectures21) -}
+b6535f668c29900d7e01c2d637521555
+  insertLectures21 :: [[GHC.Types.Char]]
+  {- Unfolding: (GHC.Types.:
+                   @ [GHC.Types.Char]
+                   Library.InsertDB.insertLectures24
+                   Library.InsertDB.insertLectures22) -}
+9c23f7bd88d5ef252d597cc99cf680e3
+  insertLectures22 :: [[GHC.Types.Char]]
+  {- Unfolding: (GHC.Types.:
+                   @ [GHC.Types.Char]
+                   Library.InsertDB.insertLectures23
+                   (GHC.Types.[] @ [GHC.Types.Char])) -}
+fcaf568356773033bfdee2814820b5b8
+  insertLectures23 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "5"#) -}
+d45220b9851ee0052d61acd93ccabb50
+  insertLectures24 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "4"#) -}
+357929cbc6b90faeb64f1a67d135e112
+  insertLectures25 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "3"#) -}
+19c398520838a7f661e98935dbfdca64
+  insertLectures26 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "2"#) -}
+72dbd601cb2f124cc173a035178b618c
+  insertLectures27 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "1"#) -}
+0e65eb70ef9009c74c8c51b0222b7e4f
+  insertLectures28 ::
+    [GHC.Types.Char] -> [GHC.Types.Char] -> [GHC.Types.Char]
+  {- Arity: 2,
+     Unfolding: (\ (y :: [GHC.Types.Char]) (z :: [GHC.Types.Char]) ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   Library.InsertDB.insertLectures_x1
+                   (GHC.Base.++ @ GHC.Types.Char y z)) -}
+8b97ab5546fa6b2dff1ae81d27a0d27e
+  insertLectures3 :: [[GHC.Types.Char]]
+  {- Unfolding: (case Library.InsertDB.insertLectures_c
+                        Library.InsertDB.insertLectures28
+                        Library.InsertDB.insertLectures4 of wild {
                    [] -> GHC.List.cycle1 @ [GHC.Types.Char]
                    : ipv ipv1
                    -> letrec {
                         xs' :: [[GHC.Types.Char]] = GHC.Base.++ @ [GHC.Types.Char] wild xs'
                       } in
                       xs' }) -}
-eea2e68fcf177a77f15fd2e98d3eec5f
-  lectures10 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "Sun"#) -}
-c64b71aa230457dfa4f3ba15e180e37b
-  lectures11 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "Sat"#) -}
-6ee0776cbc2cc86ea00911f9e3bc7625
-  lectures12 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "Fri"#) -}
-c6bab682651c5fc1b81f5183514a24fb
-  lectures13 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "Thu"#) -}
-73882acc68ae2b43dda560f2c6b14a52
-  lectures14 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "Wed"#) -}
-035038f4e61fb60eeaa7b05834500480
-  lectures15 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "Tue"#) -}
-87e85094400f30112e2aa94297067d58
-  lectures16 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "Mon"#) -}
-1777877d1222a0929ed85af413e7389a
-  lectures17 :: [[GHC.Types.Char]]
-  {- Unfolding: (GHC.Types.:
-                   @ [GHC.Types.Char]
-                   Library.InsertDB.lectures24
-                   Library.InsertDB.lectures18) -}
-446bf6b2d8e3fa8aec24aa0f239ffaba
-  lectures18 :: [[GHC.Types.Char]]
-  {- Unfolding: (GHC.Types.:
-                   @ [GHC.Types.Char]
-                   Library.InsertDB.lectures23
-                   Library.InsertDB.lectures19) -}
-9eeeb67848b3a8473aff294159d295dd
-  lectures19 :: [[GHC.Types.Char]]
-  {- Unfolding: (GHC.Types.:
-                   @ [GHC.Types.Char]
-                   Library.InsertDB.lectures22
-                   Library.InsertDB.lectures20) -}
-6a8d1188c1ae329bedc020effa1840dd
-  lectures2 :: [[GHC.Types.Char]]
-  {- Unfolding: (Library.InsertDB.lectures_c
-                   Library.InsertDB.lectures3
+4a7ebcf27b685b0cf90480cc6c1bca70
+  insertLectures4 :: [[GHC.Types.Char]]
+  {- Unfolding: (Library.InsertDB.insertLectures_c
+                   Library.InsertDB.insertLectures5
                    (GHC.Types.[] @ [GHC.Types.Char])) -}
-7939af6296e58ab5a47ad9cd872cc2c4
-  lectures20 :: [[GHC.Types.Char]]
-  {- Unfolding: (GHC.Types.:
-                   @ [GHC.Types.Char]
-                   Library.InsertDB.lectures21
-                   (GHC.Types.[] @ [GHC.Types.Char])) -}
-9da081266498665493f9522022e55c4a
-  lectures21 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "5"#) -}
-36157f34dc1202d62e681c6fbc439625
-  lectures22 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "4"#) -}
-f1f5ae79379461df09ae2d8122c705d1
-  lectures23 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "3"#) -}
-0d59e799c75c100ef11c9816266b5fa7
-  lectures24 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "2"#) -}
-fc51656be28ed5540a49637abd866ec8
-  lectures25 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "1"#) -}
-8f151be0a2c987970c55f62b2e99e716
-  lectures26 ::
+34c3bbdb717b50aa2253af55b7a1a2b7
+  insertLectures5 ::
     [GHC.Types.Char] -> [GHC.Types.Char] -> [GHC.Types.Char]
   {- Arity: 2,
      Unfolding: (\ (y :: [GHC.Types.Char]) (z :: [GHC.Types.Char]) ->
                  GHC.Base.++
                    @ GHC.Types.Char
-                   Library.InsertDB.lectures_x1
+                   Library.InsertDB.insertLectures_x
                    (GHC.Base.++ @ GHC.Types.Char y z)) -}
-440970b1d7df15dc7b3db102efd20cce
-  lectures27 :: [GHC.Int.Int32]
-  {- Unfolding: (GHC.Int.$fEnumInt32_go 1#) -}
-df2d6a8f019642b03ab32a75fe9f0ac3
-  lectures3 ::
-    [GHC.Types.Char] -> [GHC.Types.Char] -> [GHC.Types.Char]
-  {- Arity: 2,
-     Unfolding: (\ (y :: [GHC.Types.Char]) (z :: [GHC.Types.Char]) ->
-                 GHC.Base.++
-                   @ GHC.Types.Char
-                   Library.InsertDB.lectures_x
-                   (GHC.Base.++ @ GHC.Types.Char y z)) -}
-0d46af2863de0ed2749b5740c3029d95
-  lectures4 :: [[GHC.Types.Char]]
+74a6e8cb4f0963a324078c24b1196248
+  insertLectures6 :: [[GHC.Types.Char]]
   {- Unfolding: (GHC.Types.:
                    @ [GHC.Types.Char]
-                   Library.InsertDB.lectures15
-                   Library.InsertDB.lectures5) -}
-f693cb7b354b763bfaa6bfb9aa05d255
-  lectures5 :: [[GHC.Types.Char]]
+                   Library.InsertDB.insertLectures17
+                   Library.InsertDB.insertLectures7) -}
+251160bb699c663546de3e6aaed26e6c
+  insertLectures7 :: [[GHC.Types.Char]]
   {- Unfolding: (GHC.Types.:
                    @ [GHC.Types.Char]
-                   Library.InsertDB.lectures14
-                   Library.InsertDB.lectures6) -}
-4cfd932f50359346fa99668bc429c5c5
-  lectures6 :: [[GHC.Types.Char]]
+                   Library.InsertDB.insertLectures16
+                   Library.InsertDB.insertLectures8) -}
+8e68b4ff187d22cf419ea8e24db90405
+  insertLectures8 :: [[GHC.Types.Char]]
   {- Unfolding: (GHC.Types.:
                    @ [GHC.Types.Char]
-                   Library.InsertDB.lectures13
-                   Library.InsertDB.lectures7) -}
-c5b8e1b105fb2c3081534337a0061acc
-  lectures7 :: [[GHC.Types.Char]]
+                   Library.InsertDB.insertLectures15
+                   Library.InsertDB.insertLectures9) -}
+0fb28fef62eae29182376d172ecfc3ee
+  insertLectures9 :: [[GHC.Types.Char]]
   {- Unfolding: (GHC.Types.:
                    @ [GHC.Types.Char]
-                   Library.InsertDB.lectures12
-                   Library.InsertDB.lectures8) -}
-ed010c6d91423c539f176d90ad8115d4
-  lectures8 :: [[GHC.Types.Char]]
-  {- Unfolding: (GHC.Types.:
-                   @ [GHC.Types.Char]
-                   Library.InsertDB.lectures11
-                   Library.InsertDB.lectures9) -}
-f80827490c173669e2a0368366b484e6
-  lectures9 :: [[GHC.Types.Char]]
-  {- Unfolding: (GHC.Types.:
-                   @ [GHC.Types.Char]
-                   Library.InsertDB.lectures10
-                   (GHC.Types.[] @ [GHC.Types.Char])) -}
-9fcded4961670d814ccc60f1e7fe459d
-  lectures_c ::
+                   Library.InsertDB.insertLectures14
+                   Library.InsertDB.insertLectures10) -}
+7c911b3a3a2ce8363e05ce1a0f34c1c1
+  insertLectures_c ::
     ([GHC.Types.Char] -> [GHC.Types.Char] -> [GHC.Types.Char])
     -> [[GHC.Types.Char]] -> [[GHC.Types.Char]]
   {- Arity: 2, Strictness: <L,C(U)><L,U>,
@@ -306,278 +447,187 @@ f80827490c173669e2a0368366b484e6
                                 [] -> z
                                 : y1 ys1 -> GHC.Types.: @ [GHC.Types.Char] (ds3 y1) (go1 ys1) }
                           } in
-                          go1 Library.InsertDB.lectures_xs1 }
+                          go1 Library.InsertDB.insertLectures_xs1 }
                  } in
-                 go Library.InsertDB.lectures_xs) -}
-4e28a808b50f35fd5ed037534b4f5ed6
-  lectures_go ::
-    [GHC.Int.Int32]
-    -> [[GHC.Types.Char]]
-    -> [[GHC.Types.Char]]
-    -> [[GHC.Types.Char]]
-    -> [GHC.Int.Int32]
-    -> [Database.Relations.Lecture.Lecture]
-  {- Arity: 5, HasNoCafRefs,
-     Strictness: <S,1*U><L,1*U><L,1*U><L,1*U><L,1*U> -}
-02d818dc2b74d9cfcb097749fd4e2ae8
-  lectures_x :: [GHC.Types.Char]
+                 go Library.InsertDB.insertLectures_xs) -}
+507d93b7d139842a7068e34bd5eac759
+  insertLectures_x :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "A"#) -}
-cd3d87f2abb70f8b513c325679275bf3
-  lectures_x1 :: [GHC.Types.Char]
+42e94efd269992d07f2c9b3f2836fee9
+  insertLectures_x1 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "S"#) -}
-d7d788c1f53a28ac8e7aa9ba08d8d52a
-  lectures_xs :: [[GHC.Types.Char]]
+f844f5eda5ab716754eb7dfc8dbfce1b
+  insertLectures_xs :: [[GHC.Types.Char]]
   {- Unfolding: (GHC.Types.:
                    @ [GHC.Types.Char]
-                   Library.InsertDB.lectures16
-                   Library.InsertDB.lectures4) -}
-78834ce7277c86febdbbecf91411d56c
-  lectures_xs' :: [GHC.Int.Int32]
-2e5f97d4f2eb7852b91368e1dc45b967
-  lectures_xs'1 :: [[GHC.Types.Char]]
-32a4156b0ef7287ae17a19c5d4dd62cb
-  lectures_xs'2 :: [[GHC.Types.Char]]
-146feb791865066492152472789b6540
-  lectures_xs1 :: [[GHC.Types.Char]]
+                   Library.InsertDB.insertLectures18
+                   Library.InsertDB.insertLectures6) -}
+802636ede2c3ccef43f99060c1221673
+  insertLectures_xs' :: [GHC.Int.Int32]
+9db02fda93acd5c932b0e8278d78aa97
+  insertLectures_xs'1 :: [([GHC.Types.Char], [GHC.Types.Char])]
+d5c4d993c7a20271cb9b3a54984d248a
+  insertLectures_xs1 :: [[GHC.Types.Char]]
   {- Unfolding: (GHC.Types.:
                    @ [GHC.Types.Char]
-                   Library.InsertDB.lectures25
-                   Library.InsertDB.lectures17) -}
-e9411b8791231eb64e76243894b94c00
-  run :: GHC.Types.IO ()
-  {- Arity: 1, Strictness: <S,U>,
+                   Library.InsertDB.insertLectures27
+                   Library.InsertDB.insertLectures19) -}
+c1629487062c4ef6fb3629d7ecaae322
+  insertStudents ::
+    Database.HDBC.Types.IConnection conn => conn -> GHC.Types.IO ()
+  {- Arity: 3,
+     Strictness: <S(LLLLLC(C(C(S(SS(LLLC(S(SL))LLLL)))))LLLLLLLLL),1*U(A,A,A,A,A,1*C1(C1(C1(U(U,U(C(C1(U(U,U))),A,A,C(U(U,A)),A,A,A,A))))),A,A,A,A,A,A,A,A,A)><L,U><S,U>,
      Unfolding: InlineRule (0, True, True)
-                Library.InsertDB.run1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-ebfaed9109e47fbb989bb87d54ecf609
-  run1 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: (\ (eta :: GHC.Prim.State#
-                             GHC.Prim.RealWorld)[OneShot] ->
-                 GHC.Prim.catch#
-                   @ ()
-                   @ GHC.Exception.SomeException
-                   Library.InsertDB.run2 `cast` (GHC.Types.N:IO[0] <()>_R)
-                   (Database.HDBC.Session.handleSqlError'2 @ ())
-                   eta) -}
-82a98f5ede560ede3354267ac5cb5e4e
-  run2 :: GHC.Types.IO ()
-  {- Unfolding: (GHC.Magic.lazy
-                   @ (GHC.Types.IO ())
-                   Library.InsertDB.run3 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
-bdfcaa7ac223c3f3715283d9d48430e1
-  run3 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 1,
-     Unfolding: (\ (eta :: GHC.Prim.State#
-                             GHC.Prim.RealWorld)[OneShot] ->
-                 Database.HDBC.Session.withConnectionCommit2
-                   @ Database.HDBC.PostgreSQL.ConnectionImpl.Connection
-                   @ ()
-                   Database.HDBC.PostgreSQL.ConnectionImpl.$fIConnectionConnection
-                   Library.InsertDB.run6
-                     `cast`
-                   (Sym (GHC.Types.N:IO[0]
-                             <Database.HDBC.PostgreSQL.ConnectionImpl.Connection>_R))
-                   Library.InsertDB.run4
-                     `cast`
-                   (<Database.HDBC.PostgreSQL.ConnectionImpl.Connection>_R
-                    ->_R Sym (GHC.Types.N:IO[0] <()>_R))
-                   eta) -}
-4ece614fb930736d3225bdfa87f9cebf
-  run4 ::
-    Database.HDBC.PostgreSQL.ConnectionImpl.Connection
+                Library.InsertDB.insertStudents1
+                  `cast`
+                (forall (conn :: <*>_N).
+                 <Database.HDBC.Types.IConnection conn>_R
+                 ->_R <conn>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+36aaee6b251c09daa52dab17ab88b715
+  insertStudents1 ::
+    Database.HDBC.Types.IConnection conn =>
+    conn
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 2,
-     Unfolding: (\ (x :: Database.HDBC.PostgreSQL.ConnectionImpl.Connection)
-                   (eta1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                 GHC.Prim.catch#
-                   @ ()
-                   @ GHC.Exception.SomeException
-                   (GHC.Magic.lazy
-                      @ (GHC.Types.IO ())
-                      (\ (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
-                       case Database.HDBC.Record.Statement.mapNoFetch1
-                              @ Database.Relational.Query.Type.Insert
-                              @ Database.HDBC.PostgreSQL.ConnectionImpl.Connection
-                              @ Database.Relations.Student.Student
-                              Database.Relational.Query.Type.untypeInsert
-                                `cast`
-                              (Sym (Database.Relational.Query.Type.N:UntypeableNoFetch[0]
-                                        <Database.Relational.Query.Type.Insert>_N))
-                              Database.HDBC.PostgreSQL.ConnectionImpl.$fIConnectionConnection
-                              Database.Relations.Student.$fToSqlSqlValueStudent
-                              x
-                              Database.Relations.Student.insertStudent
-                              Library.InsertDB.students
-                              eta of ds1 { (#,#) ipv ipv1 ->
-                       case Database.HDBC.Record.Statement.mapNoFetch1
-                              @ Database.Relational.Query.Type.Insert
-                              @ Database.HDBC.PostgreSQL.ConnectionImpl.Connection
-                              @ Database.Relations.Lecture.Lecture
-                              Database.Relational.Query.Type.untypeInsert
-                                `cast`
-                              (Sym (Database.Relational.Query.Type.N:UntypeableNoFetch[0]
-                                        <Database.Relational.Query.Type.Insert>_N))
-                              Database.HDBC.PostgreSQL.ConnectionImpl.$fIConnectionConnection
-                              Database.Relations.Lecture.$fToSqlSqlValueLecture
-                              x
-                              Database.Relations.Lecture.insertLecture
-                              Library.InsertDB.run5
-                              ipv of ds2 { (#,#) ipv2 ipv3 ->
-                       (# ipv2, GHC.Tuple.() #) } })
-                        `cast`
-                      (Sym (GHC.Types.N:IO[0] <()>_R)))
-                     `cast`
-                   (GHC.Types.N:IO[0] <()>_R)
-                   (Database.HDBC.Session.handleSqlError'2 @ ())
-                   eta1) -}
-6e28051281945e1a82af2323c2e7baa9
-  run5 :: [Database.Relations.Lecture.Lecture]
-  {- Unfolding: (GHC.List.$wunsafeTake
-                   @ Database.Relations.Lecture.Lecture
-                   80#
-                   Library.InsertDB.lectures) -}
-1dd9e399158236c5ad621acb4f0138b4
-  run6 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
-          Database.HDBC.PostgreSQL.ConnectionImpl.Connection #)
-  {- Arity: 1,
-     Unfolding: (Database.HDBC.PostgreSQL.Connection.connectPostgreSQL2
-                   GHC.Types.True
-                   Library.InsertDB.run7) -}
-e8dd5e6ed8f234bc317ceee2e3beca1c
-  run7 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# "dbname=research"#) -}
-bdf20c1ddb29e3f9f3e6e41b94027413
-  students :: [Database.Relations.Student.Student]
-  {- Unfolding: (Library.InsertDB.students_go
-                   Library.InsertDB.lectures27
-                   Library.InsertDB.students18
-                   Library.InsertDB.students13
-                   Library.InsertDB.students_xs'
-                   Library.InsertDB.students7
-                   Library.InsertDB.students1) -}
-f1975c5730cc9f5ff8234330e3c1ac7a
-  students1 :: [[GHC.Types.Char]]
+  {- Arity: 3,
+     Strictness: <S(LLLLLC(C(C(S(SS(LLLC(S(SL))LLLL)))))LLLLLLLLL),1*U(A,A,A,A,A,1*C1(C1(C1(U(U,U(C(C1(U(U,U))),A,A,C(U(U,A)),A,A,A,A))))),A,A,A,A,A,A,A,A,A)><L,U><S,U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ conn
+                   ($dIConnection :: Database.HDBC.Types.IConnection conn)
+                   (conn1 :: conn)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                 case Database.HDBC.Record.Statement.mapNoFetch1
+                        @ Database.Relational.Query.Type.Insert
+                        @ conn
+                        @ Database.Relations.Student.Student
+                        Database.Relational.Query.Type.untypeInsert
+                          `cast`
+                        (Sym (Database.Relational.Query.Type.N:UntypeableNoFetch[0]
+                                  <Database.Relational.Query.Type.Insert>_N))
+                        $dIConnection
+                        Database.Relations.Student.$fToSqlSqlValueStudent
+                        conn1
+                        Database.Relations.Student.insertStudent
+                        Library.InsertDB.students
+                        eta of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv, GHC.Tuple.() #) }) -}
+9a4784be703f24b16493fa7f5697241c
+  insertStudents10 :: [[GHC.Types.Char]]
   {- Unfolding: (GHC.Types.:
                    @ [GHC.Types.Char]
-                   Library.InsertDB.students6
-                   Library.InsertDB.students2) -}
-cb4061ab98694105e514d76630ff414d
-  students10 :: [GHC.Types.Char]
+                   Library.InsertDB.insertStudents11
+                   (GHC.Types.[] @ [GHC.Types.Char])) -}
+3cb312fcdc489506d43225dc838167a7
+  insertStudents11 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCStringUtf8#
                    "\\227\\130\\164\\227\\131\\179\\227\\131\\134\\227\\131\\170\\227\\130\\184\\227\\130\\167\\227\\131\\179\\227\\131\\136\\227\\130\\183\\227\\130\\185\\227\\131\\134\\227\\131\\160"#) -}
-b07ed37cea86724a24e2a2ded1248cd6
-  students11 :: [GHC.Types.Char]
+c7f3834b09602789ab04c70545ac3820
+  insertStudents12 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCStringUtf8#
                    "\\227\\131\\141\\227\\131\\131\\227\\131\\136\\227\\131\\175\\227\\131\\188\\227\\130\\175\\227\\131\\161\\227\\131\\135\\227\\130\\163\\227\\130\\162"#) -}
-8cdafa77363d3886ad277522e0709eb2
-  students12 :: [GHC.Types.Char]
+efe267717146b1bf01e87b2160aaf5de
+  insertStudents13 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCStringUtf8#
                    "\\227\\130\\179\\227\\131\\179\\227\\131\\148\\227\\131\\165\\227\\131\\188\\227\\130\\191\\227\\130\\181\\227\\130\\164\\227\\130\\168\\227\\131\\179\\227\\130\\185"#) -}
-71c97099766053db04302a197062ce69
-  students13 :: [[GHC.Types.Char]]
+a743e0c2e7ba21a096286bada4e95e7e
+  insertStudents14 :: [[GHC.Types.Char]]
   {- Unfolding: (GHC.Types.:
                    @ [GHC.Types.Char]
-                   Library.InsertDB.lectures_x
-                   Library.InsertDB.students14) -}
-c74b3fde0231874194005ad60d0d8113
-  students14 :: [[GHC.Types.Char]]
+                   Library.InsertDB.insertLectures_x
+                   Library.InsertDB.insertStudents15) -}
+a931581d41e56068b3a664a787eaa18b
+  insertStudents15 :: [[GHC.Types.Char]]
   {- Unfolding: (GHC.Types.:
                    @ [GHC.Types.Char]
-                   Library.InsertDB.students17
-                   Library.InsertDB.students15) -}
-b9f1432c8917c38f6c8ca01ffed23028
-  students15 :: [[GHC.Types.Char]]
+                   Library.InsertDB.insertStudents18
+                   Library.InsertDB.insertStudents16) -}
+6f756cf78956f117f0e6bd710399fb32
+  insertStudents16 :: [[GHC.Types.Char]]
   {- Unfolding: (GHC.Types.:
                    @ [GHC.Types.Char]
-                   Library.InsertDB.students16
+                   Library.InsertDB.insertStudents17
                    (GHC.Types.[] @ [GHC.Types.Char])) -}
-aea4daf41ee84b388d91e3641812d7f5
-  students16 :: [GHC.Types.Char]
+df42bf8c61fad334a8b183f7a605037d
+  insertStudents17 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "C"#) -}
-9aa8c6f561ab6070b5bd156e9794fa02
-  students17 :: [GHC.Types.Char]
+b4eaf7d13f5b99801dffa5041d9dc2db
+  insertStudents18 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "B"#) -}
-fabb1606580a10dd197cfe0bc2c5d584
-  students18 :: [GHC.Int.Int32]
+e2be08942dffe6472d91924c0606e2f0
+  insertStudents19 :: [GHC.Int.Int32]
   {- HasNoCafRefs,
      Unfolding: (GHC.Types.:
                    @ GHC.Int.Int32
-                   Library.InsertDB.students23
-                   Library.InsertDB.students19) -}
-4bbd236996f8441fdfd1180c2c40f495
-  students19 :: [GHC.Int.Int32]
-  {- HasNoCafRefs,
-     Unfolding: (GHC.Types.:
-                   @ GHC.Int.Int32
-                   Library.InsertDB.students22
-                   Library.InsertDB.students20) -}
-b285746862add26c5c375358f3626b45
-  students2 :: [[GHC.Types.Char]]
+                   Library.InsertDB.insertStudents24
+                   Library.InsertDB.insertStudents20) -}
+32d3cc9ee5d82cea7ec48ee3dfd5c994
+  insertStudents2 :: [[GHC.Types.Char]]
   {- Unfolding: (GHC.Types.:
                    @ [GHC.Types.Char]
-                   Library.InsertDB.students5
-                   Library.InsertDB.students3) -}
-cc8e10b4134468e0771b5fed77ff1c86
-  students20 :: [GHC.Int.Int32]
+                   Library.InsertDB.insertStudents7
+                   Library.InsertDB.insertStudents3) -}
+f64b4256008f9f69fbb7fda8ce2f8053
+  insertStudents20 :: [GHC.Int.Int32]
   {- HasNoCafRefs,
      Unfolding: (GHC.Types.:
                    @ GHC.Int.Int32
-                   Library.InsertDB.students21
+                   Library.InsertDB.insertStudents23
+                   Library.InsertDB.insertStudents21) -}
+ad8aec54a793444c5243ddbf76617ba5
+  insertStudents21 :: [GHC.Int.Int32]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Int.Int32
+                   Library.InsertDB.insertStudents22
                    (GHC.Types.[] @ GHC.Int.Int32)) -}
-ccbcd0771a19dba3355abe5e6ec088c0
-  students21 :: GHC.Int.Int32
+a968a887fdb6f14db84d20c49860bb39
+  insertStudents22 :: GHC.Int.Int32
   {- HasNoCafRefs, Unfolding: (GHC.Int.I32# 23453#) -}
-59f03f68f7c31cf8832f0557bb1b8a96
-  students22 :: GHC.Int.Int32
+58eaef17b3c6bb3f68ee0a388deb18d7
+  insertStudents23 :: GHC.Int.Int32
   {- HasNoCafRefs, Unfolding: (GHC.Int.I32# 23421#) -}
-0b81573de3a896067692ae2e5734c5b7
-  students23 :: GHC.Int.Int32
+cfdb329dacc6cf31995077ec5c924121
+  insertStudents24 :: GHC.Int.Int32
   {- HasNoCafRefs, Unfolding: (GHC.Int.I32# 12345#) -}
-5b9c6c67f2a4b98ed127dc90a1c0b0c3
-  students3 :: [[GHC.Types.Char]]
+8850f9fbcfe6b10b2c8b3aaf795fa86a
+  insertStudents3 :: [[GHC.Types.Char]]
   {- Unfolding: (GHC.Types.:
                    @ [GHC.Types.Char]
-                   Library.InsertDB.students4
+                   Library.InsertDB.insertStudents6
+                   Library.InsertDB.insertStudents4) -}
+d69ad8926e1bca7e497ed9eb95148994
+  insertStudents4 :: [[GHC.Types.Char]]
+  {- Unfolding: (GHC.Types.:
+                   @ [GHC.Types.Char]
+                   Library.InsertDB.insertStudents5
                    (GHC.Types.[] @ [GHC.Types.Char])) -}
-87f598db93975dde5860bce50c2ed114
-  students4 :: [GHC.Types.Char]
+4532efe3b617afe07bc815a52d2c8bb3
+  insertStudents5 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCStringUtf8#
                    "4\\227\\130\\187\\227\\131\\161"#) -}
-688de4a18d81bc04e7d3a25e9e7de354
-  students5 :: [GHC.Types.Char]
+41d31a5534457bb743f09603a0fbec66
+  insertStudents6 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCStringUtf8#
                    "6\\227\\130\\187\\227\\131\\161"#) -}
-d8b62b0127144df12a49b6e72c26184e
-  students6 :: [GHC.Types.Char]
+ffe8c09589b724b06361c404b9f31a7a
+  insertStudents7 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCStringUtf8#
                    "8\\227\\130\\187\\227\\131\\161"#) -}
-ceac4b4d3d4bf0da6de6ba0d7dff4480
-  students7 :: [[GHC.Types.Char]]
+530b095413f9e153568e1c5b5a37b84b
+  insertStudents8 :: [[GHC.Types.Char]]
   {- Unfolding: (GHC.Types.:
                    @ [GHC.Types.Char]
-                   Library.InsertDB.students12
-                   Library.InsertDB.students8) -}
-db9f0329cf36ad83fbba30a96ac1d52e
-  students8 :: [[GHC.Types.Char]]
+                   Library.InsertDB.insertStudents13
+                   Library.InsertDB.insertStudents9) -}
+4c6f48479c2d0d50d82be49429fdbfc8
+  insertStudents9 :: [[GHC.Types.Char]]
   {- Unfolding: (GHC.Types.:
                    @ [GHC.Types.Char]
-                   Library.InsertDB.students11
-                   Library.InsertDB.students9) -}
-760dc858ca7daf94286fe8be1c962555
-  students9 :: [[GHC.Types.Char]]
-  {- Unfolding: (GHC.Types.:
-                   @ [GHC.Types.Char]
-                   Library.InsertDB.students10
-                   (GHC.Types.[] @ [GHC.Types.Char])) -}
-cb5cc064c8137882c3b5c4066fd85eae
-  students_go ::
+                   Library.InsertDB.insertStudents12
+                   Library.InsertDB.insertStudents10) -}
+a1c35c73038e41f553ab873f0a67020a
+  insertStudents_go ::
     [GHC.Int.Int32]
     -> [GHC.Int.Int32]
     -> [[GHC.Types.Char]]
@@ -587,8 +637,17 @@ cb5cc064c8137882c3b5c4066fd85eae
     -> [Database.Relations.Student.Student]
   {- Arity: 6, HasNoCafRefs,
      Strictness: <S,1*U><L,1*U><L,1*U><L,1*U><L,1*U><L,1*U> -}
-66117ffbbb1227aaae461c34b3c4162a
-  students_xs' :: [[GHC.Types.Char]]
+f0bafa5f49667d8532f306f9299c7daf
+  insertStudents_xs' :: [[GHC.Types.Char]]
+82d69ed3d1f36f6ee23b027e91839378
+  students :: [Database.Relations.Student.Student]
+  {- Unfolding: (Library.InsertDB.insertStudents_go
+                   Library.InsertDB.insertGrades8
+                   Library.InsertDB.insertStudents19
+                   Library.InsertDB.insertStudents14
+                   Library.InsertDB.insertStudents_xs'
+                   Library.InsertDB.insertStudents8
+                   Library.InsertDB.insertStudents2) -}
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:

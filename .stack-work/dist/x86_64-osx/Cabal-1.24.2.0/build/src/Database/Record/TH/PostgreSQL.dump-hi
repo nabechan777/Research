@@ -1,9 +1,9 @@
 
 ==================== FINAL INTERFACE ====================
-2017-12-09 07:19:16.740847 UTC
+2018-01-21 12:55:54.016135 UTC
 
 interface Research-0.1.0.0-Hn4FdcrWuuOKVDFLG4379u:Database.Record.TH.PostgreSQL 8002
-  interface hash: ca9bea24ae90dc3b7b339e840e7dced0
+  interface hash: 857e551fffdae8596a5e6cfdfe224e11
   ABI hash: e196b55e2d7637d108cfb8ab34ba8970
   export-list hash: b41da3922b09972de925422838a4011b
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
@@ -100,7 +100,6 @@ import  -/  base-4.9.1.0:GHC.Generics 1dbec2bc7dd1c5bd8c89ed857eaed19b
 import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
 import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
 import  -/  relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0:Database.HDBC.Query.TH a10bd6807147b760c1246139de4f5964
-import  -/  relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0:Database.HDBC.Schema.Driver ecf06f0a9e356b4dd1db482d97c26625
 import  -/  relational-query-HDBC-0.6.4.1@relational-query-HDBC-0.6.4.1-9QB1S93pLy24XYDJQMAff0:Database.HDBC.Schema.PostgreSQL a2360130588d76145b139691c56dc5d7
 import  -/  template-haskell-2.11.1.0:Language.Haskell.TH d856a1f9d606be57026da48a46c8b0a9
 import  -/  template-haskell-2.11.1.0:Language.Haskell.TH.Syntax f73a6f51a55e744c097972689232ddf4

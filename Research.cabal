@@ -9,7 +9,7 @@ author:              DaikiWatanabe
 maintainer:          daiki7watanabe@gmail.com
 copyright:           2017 DaikiWatanabe
 category:            Web
-build-type:          Simple
+build-type:          Custom
 extra-source-files:  README.md
 cabal-version:       >=1.10
 
@@ -23,6 +23,8 @@ library
                      , Database.Relations.Course
                      , Database.Relations.Lecture
                      , Database.Relations.Student
+                     , Database.Relations.Grade
+  ghc-options:       -fsimpl-tick-factor=49482
   build-depends:       base >= 4.7 && < 5
                      , template-haskell
                      , relational-record
@@ -35,13 +37,28 @@ library
                      , wx
   default-language:    Haskell2010
 
-executable Research-exe
+executable Research
   hs-source-dirs:      app
   main-is:             Main.hs
-  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -fsimpl-tick-factor=49482
   build-depends:       base
                      , Research
+                     , wx
+                     , reactive-banana
+                     , reactive-banana-wx
   default-language:    Haskell2010
+
+executable Preparation
+ hs-source-dirs:      preparation
+ main-is:             Main.hs
+ ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+ build-depends:       base
+                    , Research
+                    , HDBC
+                    , HDBC-postgresql
+                    , relational-query-HDBC
+                    , HDBC-session
+ default-language:    Haskell2010
 
 test-suite Research-test
   type:                exitcode-stdio-1.0
@@ -49,9 +66,17 @@ test-suite Research-test
   main-is:             Spec.hs
   build-depends:       base
                      , Research
+                     , reactive-banana
+                     , reactive-banana-wx
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
 
 source-repository head
   type:     git
   location: https://github.com/nabechan777/Research
+
+custom-setup
+  setup-depends:
+      Cabal >=1.23
+    , base >=4.7 && <5
+    , cabal-macosx >=0.1 && <0.3

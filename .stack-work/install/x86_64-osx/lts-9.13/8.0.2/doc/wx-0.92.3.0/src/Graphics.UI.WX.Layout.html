@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span></span><span>
+</span><a name="line-2"></a><span class="hs-comment">-----------------------------------------------------------------------------------------</span><span>
+</span><a name="line-3"></a><span class="hs-comment">{-|
+Module      :  Layout
+Copyright   :  (c) Daan Leijen 2003
+License     :  BSD-style
+
+Maintainer  :  wxhaskell-devel@lists.sourceforge.net
+Stability   :  provisional
+Portability :  portable
+
+Just re-exports functionality of &quot;Graphics.UI.WXCore.Layout&quot;. See that module
+for a description of layout combinators. 
+
+Any object in the 'Form' class has a 'layout' attribute to specify the 
+layout. Here is a short example:
+
+&gt; do f &lt;- frame [text := &quot;layout demo&quot;]
+&gt;    q &lt;- button f [text := &quot;quit&quot;, on command := close f]
+&gt;    set f [layout := margin 10 $
+&gt;                     floatCentre $
+&gt;                     column 5 [label &quot;hi&quot;,widget q]]
+
+-}</span><span></span><span>
+</span><a name="line-25"></a><span class="hs-comment">-----------------------------------------------------------------------------------------</span><span>
+</span><a name="line-26"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">WX</span><span class="hs-operator">.</span><span class="hs-identifier">Layout</span><span></span><span>
+</span><a name="line-27"></a><span>             </span><span class="hs-special">(</span><span></span><span>
+</span><a name="line-28"></a><span>             </span><span class="hs-comment">-- * Classes</span><span>
+</span><a name="line-29"></a><span>               </span><a href="Graphics.UI.WX.Layout.html#Form"><span class="hs-identifier hs-type">Form</span></a><span class="hs-special">,</span><span> </span><a href="Graphics.UI.WX.Layout.html#layout"><span class="hs-identifier hs-var">layout</span></a><span></span><span>
+</span><a name="line-30"></a><span>             </span><span class="hs-comment">-- * Layout</span><span>
+</span><a name="line-31"></a><span>             </span><span class="hs-special">,</span><span> </span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">WXCore</span><span class="hs-operator">.</span><span class="hs-identifier">Layout</span><span></span><span>
+</span><a name="line-32"></a><span>             </span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span></span><span>
+</span><a name="line-33"></a><span></span><span>
+</span><a name="line-34"></a><span class="hs-keyword">import</span><span> </span><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">WXCore</span><span class="hs-operator">.</span><span class="hs-identifier">Layout</span><span></span><span>
+</span><a name="line-35"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.UI.WX.Types.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">WX</span><span class="hs-operator">.</span><span class="hs-identifier">Types</span></a><span></span><span>
+</span><a name="line-36"></a><span class="hs-keyword">import</span><span> </span><a href="Graphics.UI.WX.Attributes.html"><span class="hs-identifier">Graphics</span><span class="hs-operator">.</span><span class="hs-identifier">UI</span><span class="hs-operator">.</span><span class="hs-identifier">WX</span><span class="hs-operator">.</span><span class="hs-identifier">Attributes</span></a><span></span><span>
+</span><a name="line-37"></a><span></span><span>
+</span><a name="line-38"></a><span class="hs-comment">{--------------------------------------------------------------------
+
+--------------------------------------------------------------------}</span><span></span><span>
+</span><a name="line-41"></a><span class="hs-comment">-- | Forms can contain other widgets.</span><span>
+</span><a name="line-42"></a><span class="hs-keyword">class</span><span> </span><a name="Form"><a href="Graphics.UI.WX.Layout.html#Form"><span class="hs-identifier">Form</span></a></a><span> </span><a name="local-6989586621679064985"><a href="#local-6989586621679064985"><span class="hs-identifier">w</span></a></a><span> </span><span class="hs-keyword">where</span><span></span><span>
+</span><a name="line-43"></a><span>  </span><span class="hs-comment">-- | Set the layout of the child widgets.</span><span>
+</span><a name="line-44"></a><span>  </span><span class="hs-identifier">layout</span><span> </span><span class="hs-glyph">::</span><span> </span><a href="Graphics.UI.WX.Attributes.html#Attr"><span class="hs-identifier hs-type">Attr</span></a><span> </span><a href="#local-6989586621679064985"><span class="hs-identifier hs-type">w</span></a><span> </span><span class="hs-identifier hs-type">Layout</span><span></span><span>
+</span><a name="line-45"></a></pre></body></html>
