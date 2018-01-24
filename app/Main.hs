@@ -3,27 +3,28 @@ module Main
     ( main
     )where
 
-import Control.Monad
-import Control.Applicative
-import Graphics.UI.WX hiding (Event)
-import Reactive.Banana
-import Reactive.Banana.WX
-import Library.AccessDatabase
-import Library.Interface
-import Database.Relations.Student as Student
-import Database.Relations.Lecture as Lecture
-import Database.Relations.Course as Course
-import Database.Relations.Grade as Grade
+import           Control.Applicative
+import           Control.Monad
+import           Database.Relations.Course  as C
+import           Database.Relations.Grade   as G
+import           Database.Relations.Lecture as L
+import           Database.Relations.Student as S
+import           Graphics.UI.WX             hiding (Event)
+import           Library.AccessDatabase
+import           Library.Interface
+import           Reactive.Banana
+import           Reactive.Banana.WX
 
 -- | PostgreSQLサーバから学生, 講義の情報を取り出し、インターフェースを構築する。
 main :: IO ()
 main = handleSqlError' $ withConnectionIO (connectPostgreSQL "dbname=research") $ \conn -> start $ do
     student        <- runRelation conn selectAllFromStudentWhereStudentNumber 12345
-    lectures       <- sequence $ map (\x -> runRelation conn selectAllFromLectureWherePeriod x) period
-    grades <- runRelation conn selectAllFromGradeWhereStudentId $ Student.studentId (head student)
+    lectures       <- mapM (runRelation conn selectAllFromLectureWherePeriod) period
+    grades <- runRelation conn selectAllFromGradeWhereStudentId $ S.studentId (head student)
 
     f              <- frame [text := "履修登録"]
-    choices        <- sequence $ map (\l -> choice f [items := ("--" : map Lecture.name l)]) lectures
+    -- choices        <- mapM (\l -> choice f [items := ("--" : map L.name l)]) lectures
+    choices <- createChoices f lectures
     beforeCommonValue <- staticText f [text := (show . common . head) $ grades]
     beforeSpecilizedValue <- staticText f [text := (show . special . head) $ grades]
     afterCommonValue    <- staticText f [text := (show . common . head) $ grades]
@@ -32,14 +33,7 @@ main = handleSqlError' $ withConnectionIO (connectPostgreSQL "dbname=research") 
     Graphics.UI.WX.set f [layout := column 10 [
                              createSemesterInformation "秋"
                             ,createStudentInformation $ head student
-                            ,boxed "履修" $ grid 5 5 [
-                                 map label ["", "月", "火", "水", "木", "金", "土"]
-                                ,label "1" : take 6 (map widget choices)
-                                ,label "2" : take 6 (drop 6  (map widget choices))
-                                ,label "3" : take 6 (drop 12 (map widget choices))
-                                ,label "4" : take 6 (drop 18 (map widget choices))
-                                ,label "5" : take 6 (drop 24 (map widget choices))
-                            ]
+                            ,createRegistrationBoxed choices
                             ,boxed "成績" $ column 10 [
                                 row 5 [label "共通: ", widget beforeCommonValue, label " -> ", widget afterCommonValue],
                                 row 5 [label "専門: ", widget beforeSpecilizedValue, label " -> ", widget afterSpecilizedValue]
@@ -47,8 +41,8 @@ main = handleSqlError' $ withConnectionIO (connectPostgreSQL "dbname=research") 
 
     let netWorkDescription :: MomentIO ()
         netWorkDescription = do
-            echoices <- mapM (\c -> event0 c select) choices :: MomentIO [Event ()]
-            bchoices <- mapM (\c -> behavior c selection) choices :: MomentIO [Behavior Int]
+            echoices <- mapM (`event0` select) choices
+            bchoices <- mapM (`behavior` selection) choices
             bcommon <- behavior beforeCommonValue text
             bspecilized <- behavior beforeSpecilizedValue text
 
@@ -58,7 +52,7 @@ main = handleSqlError' $ withConnectionIO (connectPostgreSQL "dbname=research") 
                 fetchLecture ls c = Just (ls !! (c - 1))
 
                 fetchCredit :: String -> Maybe Lecture -> Int
-                fetchCredit s ml = maybe 0 tmp ml
+                fetchCredit s = maybe 0 tmp
                     where
                         tmp :: Lecture -> Int
                         tmp l = if field l == s then fromIntegral . credit $ l else 0
@@ -66,13 +60,12 @@ main = handleSqlError' $ withConnectionIO (connectPostgreSQL "dbname=research") 
                 result :: String -> Behavior Int
                 result z = result' behaviorCommonAndSpecilized
                     where
-                        bchoices' = zipWith (\b e -> imposeChanges b e) bchoices echoices
+                        bchoices' = zipWith imposeChanges bchoices echoices
 
                         behaviorCommonAndSpecilized :: Behavior String
                         behaviorCommonAndSpecilized = case z of
                             "共通" -> bcommon
                             "専門" -> bspecilized
-                            otherwise -> undefined
 
                         result' :: Behavior String -> Behavior Int
                         result' o = foldr (\a b -> (+) <$> a <*> b) (read <$> o) bs'
