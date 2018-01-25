@@ -1,7 +1,7 @@
 module Library.Interface
     ( createSemesterInformation
     , createStudentInformation
-    , createChoices
+    , createLectureChoices
     , createRegistrationBoxed
     , createStaticTextPair
     , createRecordBoxed
@@ -29,8 +29,11 @@ createStudentInformation student = boxed "学生" $ grid 5 5 $ zipWith (\name va
     履修登録のレイアウトを生成する。
 -}
 type OneWeekLecture = [[Lecture]] -- [["オペレーティングシステム", "心理学の世界"], ["微分積分1", "線形代数1"], ...]
-createChoices :: Frame () -> OneWeekLecture -> IO [Choice ()]
-createChoices f = mapM (\x -> choice f [items := "--" : map L.name x])
+createLectureChoices :: Frame () -> OneWeekLecture -> IO [Choice ()]
+createLectureChoices f = mapM (\x -> choice f [items := "--" : map L.name x])
+
+createRegistrationBotton :: Frame () -> IO (Botton ())
+createRegistrationBotton f = undefined
 
 createRegistrationBoxed :: [Choice ()] -> Layout
 createRegistrationBoxed xs = boxed "履修" $ grid 5 5 $ (tmp3 . tmp2 . tmp1) $ map widget xs
@@ -55,7 +58,7 @@ type AfterRecord = (StaticText (), StaticText ())
 createRecordBoxed ::  BeforeRecord -> AfterRecord -> Layout
 createRecordBoxed br ar = boxed "成績" $ column 10 createRow
     where
-        createRow =
-            [ row 5 [label "共通", (widget . fst) br, label " -> ", (widget . fst) ar]
-            , row 5 [label "専門", (widget . snd) br, label " -> ", (widget . snd) ar]
-            ]
+        createRow = zipWith tmp ["共通", "専門"] fstOrSnd
+            where
+                fstOrSnd = map (widget .) [fst, snd]
+                tmp t f = row 5 [label t, f br, label " -> ", f ar]

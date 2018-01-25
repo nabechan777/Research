@@ -23,14 +23,9 @@ main = handleSqlError' $ withConnectionIO (connectPostgreSQL "dbname=research") 
     grades <- runRelation conn selectAllFromGradeWhereStudentId $ S.studentId (head student)
 
     f              <- frame [text := "履修登録"]
-    choices <- createChoices f lectures
+    choices <- createLectureChoices f lectures
     before@(beforeCommonValue, beforeSpecilizedValue) <- createStaticTextPair f $ head grades
     after@(afterCommonValue, afterSpecilizedValue) <- createStaticTextPair f $ head grades
-    -- choices        <- mapM (\l -> choice f [items := ("--" : map L.name l)]) lectures
-    -- beforeCommonValue <- staticText f [text := (show . common . head) $ grades]
-    -- beforeSpecilizedValue <- staticText f [text := (show . special . head) $ grades]
-    -- afterCommonValue    <- staticText f [text := (show . common . head) $ grades]
-    -- afterSpecilizedValue <- staticText f [text := (show . special . head) $ grades]
 
     Graphics.UI.WX.set f
         [ layout := column 10
