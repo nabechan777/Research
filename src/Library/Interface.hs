@@ -1,14 +1,17 @@
 module Library.Interface
     ( createSemesterInformation
     , createStudentInformation
+    , createChoices
+    , createRegistrationBoxed
+    , createStaticTextPair
+    , createRecordBoxed
     )where
 
-import Control.Applicative
-import Graphics.UI.WX
-import qualified Database.Relations.Student as Student
-import Database.Relations.Student
-import qualified Database.Relations.Lecture as Lecture
-import Database.Relations.Lecture
+import           Control.Applicative
+import           Database.Relations.Grade   as G
+import           Database.Relations.Lecture as L
+import           Database.Relations.Student as S
+import           Graphics.UI.WX
 
 
 type Semester = String
@@ -19,36 +22,40 @@ createStudentInformation :: Student -> Layout
 createStudentInformation student = boxed "学生" $ grid 5 5 $ zipWith (\name value -> [label name, value]) atributeNames atributeValues
     where
         atributeNames = ["学生証番号:", "氏名:", "学部:", "学科:", "セメスター:"]
-        atributeValues = map label $ map (\f -> f student) [show . studentNumber, Student.name, faculty, department, semester]
+        atributeValues = map (label . (\f -> f student)) [show . studentNumber, S.name, faculty, department, semester]
 {-
     f: Frame
     wl: 各曜日の各時限の講義のリスト
     履修登録のレイアウトを生成する。
 -}
 type OneWeekLecture = [[Lecture]] -- [["オペレーティングシステム", "心理学の世界"], ["微分積分1", "線形代数1"], ...]
-createCourseRegistration :: Frame () -> OneWeekLecture -> IO (Layout)
-createCourseRegistration f wl =  do
-    choices <- sequence $ map (\l -> fmap widget (choice f [items := ("--" : (map Lecture.name l))])) wl
-    -- 各曜日のx限目の授業
-    let takeSix = take 6
-        choices_1 = (period !! 0) : (takeSix choices)
-        choices_2 = (period !! 1) : (takeSix $ drop 6 choices)
-        choices_3 = (period !! 2) : (takeSix $ drop 12 choices)
-        choices_4 = (period !! 3) : (takeSix $ drop 18 choices)
-        choices_5 = (period !! 4) : (takeSix $ drop 24 choices)
-    return $ boxed "履修" (grid 5 5 [weeksLabel, choices_1, choices_2, choices_3, choices_4, choices_5])
-    where
-        period = map (label . show) [1, 2, 3, 4, 5]
-        weeksLabel = map label ["", "月", "火", "水", "木", "金", "土"]
+createChoices :: Frame () -> OneWeekLecture -> IO [Choice ()]
+createChoices f = mapM (\x -> choice f [items := "--" : map L.name x])
 
-
-type Specilize = Int
-type Common = Int
-createRecord :: Frame () -> (Common, Specilize) -> IO (Layout)
-createRecord f (c, s) = do
-    commonValue <- fmap widget $ staticText f [text := show c]
-    specilizeValue <- fmap widget $ staticText f [text := show s]
-    return $ boxed "成績" $ row 10 [row 5 [commonLabel, commonValue], row 5 [specilizeLabel, specilizeValue]]
+createRegistrationBoxed :: [Choice ()] -> Layout
+createRegistrationBoxed xs = boxed "履修" $ grid 5 5 $ (tmp3 . tmp2 . tmp1) $ map widget xs
     where
-        commonLabel = label "共通:"
-        specilizeLabel = label "専門:"
+        tmp1 :: [Layout] -> [[Layout]]
+        tmp1 [] = []
+        tmp1 xs = take 6 xs : tmp1 (drop 6 xs)
+
+        tmp2 :: [[Layout]] -> [[Layout]]
+        tmp2 = zipWith (:) $ map label ["1", "2", "3", "4", "5"]
+
+        tmp3 = (map label ["", "月", "火", "水", "木", "金", "土"] :)
+
+createStaticTextPair :: Frame () -> Grade -> IO (StaticText (), StaticText ())
+createStaticTextPair f g = (,) <$> (createStaticText . common) g <*> (createStaticText . special) g
+    where
+        createStaticText :: (Integral a, Show a) => a -> IO (StaticText ())
+        createStaticText x = staticText f [text := show x]
+
+type BeforeRecord = (StaticText (), StaticText ())
+type AfterRecord = (StaticText (), StaticText ())
+createRecordBoxed ::  BeforeRecord -> AfterRecord -> Layout
+createRecordBoxed br ar = boxed "成績" $ column 10 createRow
+    where
+        createRow =
+            [ row 5 [label "共通", (widget . fst) br, label " -> ", (widget . fst) ar]
+            , row 5 [label "専門", (widget . snd) br, label " -> ", (widget . snd) ar]
+            ]
