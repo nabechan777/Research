@@ -23,21 +23,23 @@ main = handleSqlError' $ withConnectionIO (connectPostgreSQL "dbname=research") 
     grades <- runRelation conn selectAllFromGradeWhereStudentId $ S.studentId (head student)
 
     f              <- frame [text := "履修登録"]
-    -- choices        <- mapM (\l -> choice f [items := ("--" : map L.name l)]) lectures
     choices <- createChoices f lectures
-    beforeCommonValue <- staticText f [text := (show . common . head) $ grades]
-    beforeSpecilizedValue <- staticText f [text := (show . special . head) $ grades]
-    afterCommonValue    <- staticText f [text := (show . common . head) $ grades]
-    afterSpecilizedValue <- staticText f [text := (show . special . head) $ grades]
+    before@(beforeCommonValue, beforeSpecilizedValue) <- createStaticTextPair f $ head grades
+    after@(afterCommonValue, afterSpecilizedValue) <- createStaticTextPair f $ head grades
+    -- choices        <- mapM (\l -> choice f [items := ("--" : map L.name l)]) lectures
+    -- beforeCommonValue <- staticText f [text := (show . common . head) $ grades]
+    -- beforeSpecilizedValue <- staticText f [text := (show . special . head) $ grades]
+    -- afterCommonValue    <- staticText f [text := (show . common . head) $ grades]
+    -- afterSpecilizedValue <- staticText f [text := (show . special . head) $ grades]
 
-    Graphics.UI.WX.set f [layout := column 10 [
-                             createSemesterInformation "秋"
-                            ,createStudentInformation $ head student
-                            ,createRegistrationBoxed choices
-                            ,boxed "成績" $ column 10 [
-                                row 5 [label "共通: ", widget beforeCommonValue, label " -> ", widget afterCommonValue],
-                                row 5 [label "専門: ", widget beforeSpecilizedValue, label " -> ", widget afterSpecilizedValue]
-                            ]]]
+    Graphics.UI.WX.set f
+        [ layout := column 10
+            [ createSemesterInformation "秋"
+            , createStudentInformation $ head student
+            , createRegistrationBoxed choices
+            , createRecordBoxed before after
+            ]
+        ]
 
     let netWorkDescription :: MomentIO ()
         netWorkDescription = do

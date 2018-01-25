@@ -3,9 +3,12 @@ module Library.Interface
     , createStudentInformation
     , createChoices
     , createRegistrationBoxed
+    , createStaticTextPair
+    , createRecordBoxed
     )where
 
 import           Control.Applicative
+import           Database.Relations.Grade   as G
 import           Database.Relations.Lecture as L
 import           Database.Relations.Student as S
 import           Graphics.UI.WX
@@ -27,7 +30,7 @@ createStudentInformation student = boxed "学生" $ grid 5 5 $ zipWith (\name va
 -}
 type OneWeekLecture = [[Lecture]] -- [["オペレーティングシステム", "心理学の世界"], ["微分積分1", "線形代数1"], ...]
 createChoices :: Frame () -> OneWeekLecture -> IO [Choice ()]
-createChoices f xs = mapM (\x -> choice f [items := "--" : map L.name x]) xs
+createChoices f = mapM (\x -> choice f [items := "--" : map L.name x])
 
 createRegistrationBoxed :: [Choice ()] -> Layout
 createRegistrationBoxed xs = boxed "履修" $ grid 5 5 $ (tmp3 . tmp2 . tmp1) $ map widget xs
@@ -41,12 +44,18 @@ createRegistrationBoxed xs = boxed "履修" $ grid 5 5 $ (tmp3 . tmp2 . tmp1) $ 
 
         tmp3 = (map label ["", "月", "火", "水", "木", "金", "土"] :)
 
-type Specilized = Int
-type Common = Int
-createStaticTextPair :: Frame () -> (Common, Specilized) -> IO (StaticText (), StaticText ())
-createStaticTextPair f (c, s) = undefined
+createStaticTextPair :: Frame () -> Grade -> IO (StaticText (), StaticText ())
+createStaticTextPair f g = (,) <$> (createStaticText . common) g <*> (createStaticText . special) g
+    where
+        createStaticText :: (Integral a, Show a) => a -> IO (StaticText ())
+        createStaticText x = staticText f [text := show x]
 
 type BeforeRecord = (StaticText (), StaticText ())
 type AfterRecord = (StaticText (), StaticText ())
-createRecordBoxed ::  BeforeRecord -> AfterRecord -> IO Layout
-createRecordBoxed = undefined
+createRecordBoxed ::  BeforeRecord -> AfterRecord -> Layout
+createRecordBoxed br ar = boxed "成績" $ column 10 createRow
+    where
+        createRow =
+            [ row 5 [label "共通", (widget . fst) br, label " -> ", (widget . fst) ar]
+            , row 5 [label "専門", (widget . snd) br, label " -> ", (widget . snd) ar]
+            ]
