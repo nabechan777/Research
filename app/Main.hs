@@ -24,6 +24,7 @@ main = handleSqlError' $ withConnectionIO (connectPostgreSQL "dbname=research") 
 
     f              <- frame [text := "履修登録"]
     choices <- createLectureChoices f lectures
+    button1 <- createRegistrationBotton f
     before@(beforeCommonValue, beforeSpecilizedValue) <- createStaticTextPair f $ head grades
     after@(afterCommonValue, afterSpecilizedValue) <- createStaticTextPair f $ head grades
 
@@ -31,7 +32,7 @@ main = handleSqlError' $ withConnectionIO (connectPostgreSQL "dbname=research") 
         [ layout := column 10
             [ createSemesterInformation "秋"
             , createStudentInformation $ head student
-            , createRegistrationBoxed choices
+            , createRegistrationBoxed choices button1
             , createRecordBoxed before after
             ]
         ]
@@ -63,6 +64,7 @@ main = handleSqlError' $ withConnectionIO (connectPostgreSQL "dbname=research") 
                         behaviorCommonAndSpecilized = case z of
                             "共通" -> bcommon
                             "専門" -> bspecilized
+                            z' -> error $ z' ++ " is undefined Field value."
 
                         result' :: Behavior String -> Behavior Int
                         result' o = foldr (\a b -> (+) <$> a <*> b) (read <$> o) bs'

@@ -2,6 +2,7 @@ module Library.Interface
     ( createSemesterInformation
     , createStudentInformation
     , createLectureChoices
+    , createRegistrationBotton
     , createRegistrationBoxed
     , createStaticTextPair
     , createRecordBoxed
@@ -32,11 +33,11 @@ type OneWeekLecture = [[Lecture]] -- [["オペレーティングシステム", "
 createLectureChoices :: Frame () -> OneWeekLecture -> IO [Choice ()]
 createLectureChoices f = mapM (\x -> choice f [items := "--" : map L.name x])
 
-createRegistrationBotton :: Frame () -> IO (Botton ())
-createRegistrationBotton f = undefined
+createRegistrationBotton :: Frame () -> IO (Button ())
+createRegistrationBotton = (`button` [text := "登録", enabled := True])
 
-createRegistrationBoxed :: [Choice ()] -> Layout
-createRegistrationBoxed xs = boxed "履修" $ grid 5 5 $ (tmp3 . tmp2 . tmp1) $ map widget xs
+createRegistrationBoxed :: [Choice ()] -> Button () -> Layout
+createRegistrationBoxed xs b = boxed "履修" $ column 10 [lchoices, (floatRight . widget) b]
     where
         tmp1 :: [Layout] -> [[Layout]]
         tmp1 [] = []
@@ -46,6 +47,8 @@ createRegistrationBoxed xs = boxed "履修" $ grid 5 5 $ (tmp3 . tmp2 . tmp1) $ 
         tmp2 = zipWith (:) $ map label ["1", "2", "3", "4", "5"]
 
         tmp3 = (map label ["", "月", "火", "水", "木", "金", "土"] :)
+
+        lchoices = grid 5 5 $ (tmp3 . tmp2 . tmp1) $ map widget xs
 
 createStaticTextPair :: Frame () -> Grade -> IO (StaticText (), StaticText ())
 createStaticTextPair f g = (,) <$> (createStaticText . common) g <*> (createStaticText . special) g
