@@ -6,6 +6,7 @@ module Library.Interface
     , createRegistrationBoxed
     , createStaticTextPair
     , createRecordBoxed
+    , LectureChoice
     )where
 
 import           Control.Applicative
@@ -29,9 +30,11 @@ createStudentInformation student = boxed "学生" $ grid 5 5 $ zipWith (\name va
     wl: 各曜日の各時限の講義のリスト
     履修登録のレイアウトを生成する。
 -}
+-- 各曜日時限の授業を表す型シノニム
 type OneWeekLecture = [[Lecture]] -- [["オペレーティングシステム", "心理学の世界"], ["微分積分1", "線形代数1"], ...]
-createLectureChoices :: Frame () -> OneWeekLecture -> IO [Choice ()]
-createLectureChoices f = mapM (\x -> choice f [items := "--" : map L.name x])
+type LectureChoice = (Choice (), [Lecture])
+createLectureChoices :: Frame () -> OneWeekLecture -> IO [LectureChoice]
+createLectureChoices f = mapM (\x -> choice f [items := "--" : map L.name x] >>= (\y -> return (y, x)))
 
 createRegistrationBotton :: Frame () -> IO (Button ())
 createRegistrationBotton = (`button` [text := "登録", enabled := True])
