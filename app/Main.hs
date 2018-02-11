@@ -21,114 +21,53 @@ import           Data.Maybe
 -- | PostgreSQLサーバから学生, 講義の情報を取り出し、インターフェースを構築する。
 main :: IO ()
 main = handleSqlError' $ withConnectionIO (connectPostgreSQL "dbname=research") $ \conn -> start $ do
-    student        <- runRelation conn selectAllFromStudentWhereStudentNumber 12345
+    (student:_)    <- runRelation conn selectAllFromStudentWhereStudentNumber 12345
     lectures       <- mapM (runRelation conn selectAllFromLectureWherePeriod) period
-    grades         <- runRelation conn selectAllFromGradeWhereStudentId $ S.studentId (head student)
+    (grades:_)     <- runRelation conn selectAllFromGradeWhereStudentId $ S.studentId student
 
     f              <- frame [text := "履修登録"]
     lectureChoices <- createLectureChoices f lectures
     button1        <- createRegistrationBotton f
-    before@(beforeCommonValue, beforeSpecilizedValue) <- createStaticTextPair f $ head grades
-    after@(afterCommonValue, afterSpecilizedValue)    <- createStaticTextPair f $ head grades
+    before@(beforeCommonValue, beforeSpecilizedValue) <- createStaticTextPair f grades
+    after@(afterCommonValue, afterSpecilizedValue)    <- createStaticTextPair f grades
 
     Graphics.UI.WX.set f
         [ layout := column 10
             [ createSemesterInformation "秋"
-            , createStudentInformation $ head student
+            , createStudentInformation student
             , createRegistrationBoxed (map fst lectureChoices) button1
             , createRecordBoxed before after
             ]
         ]
 
-    choiceAddHanlders <- mapM newChoiceAddHandler lectureChoices
-    buttonAddHandler  <- newButtonAddHandler button1
-
-
     let netWorkDescription :: MomentIO ()
         netWorkDescription = mdo
 
-            -- Event
-            (echoices :: [Event [Maybe Lecture]]) <- mapM fromAddHandler choiceAddHanlders
-            (ebutton  :: Event ())                <- fromAddHandler buttonAddHandler
-
-            -- Behavior
-            (bcommon     :: Behavior String) <- fromPoll $ get beforeCommonValue text
-            (bspecilized :: Behavior String) <- fromPoll $ get beforeSpecilizedValue text
-
-            let echoices'  = foldr (\e acc -> unionWith (++) e acc) never echoices            :: Event [Maybe Lecture]
-                echoices1  = fmap ((filter (\l -> L.field l == "共通")) . catMaybes) echoices' :: Event [Lecture]
-                echoices2  = fmap ((filter (\l -> L.field l == "専門")) . catMaybes) echoices' :: Event [Lecture]
-                echoices1' = fmap ((foldr (+) 0) . (map (fromIntegral . L.credit))) echoices1 :: Event Int
-                echoices2' = fmap ((foldr (+) 0) . (map (fromIntegral . L.credit))) echoices2 :: Event Int
-
-            (bchoices1 :: Behavior Int) <- stepper 0 echoices1'
-            (bchoices2 :: Behavior Int) <- stepper 0 echoices2'
-
-            let bcommonResult     = (+) <$> fmap read bcommon     <*> bchoices1
-                bspecilizedResult = (+) <$> fmap read bspecilized <*> bchoices2
-
-            bcommonValue <- valueBLater bcommonResult
-            bspecilizedValue <- valueBLater bspecilizedResult
-
-            liftIOLater $ set afterCommonValue [text := show bcommonValue]
-            liftIOLater $ set afterSpecilizedValue [text := show bspecilizedValue]
-
-            changeCommon      <- changes bcommonResult
-            changeSpecialized <- changes bspecilizedResult
-
-            reactimate' $ (fmap (\x -> set afterCommonValue [text := show x]))     <$> changeCommon
-            reactimate' $ (fmap (\x -> set afterSpecilizedValue [text := show x])) <$> changeSpecialized
-
             -- Eventの生成
-            -- echoices    <- mapM (`event0` select) choices
-            -- ebutton     <- event0 button1 command
+            echoices    <- mapM (`event0` select) $ map fst lectureChoices
+            ebutton     <- event0 button1 command
+
+            let echoice = foldr (unionWith (\_ _ -> ())) never echoices
 
             -- Behaviorの生成
-            -- bchoices    <- mapM (`behavior` selection) choices
-            -- bcommon     <- behavior beforeCommonValue text
-            -- bspecilized <- behavior beforeSpecilizedValue text
-            --
-            -- let
-            --     -- ボタンイベントが発火した時、履修する講義をデータベースにInsertする。
-            --     buttonEvent :: Event (IO ())
-            --     buttonEvent = fmap (\_ -> action) ebutton
-            --         where
-            --             action :: IO ()
-            --             action = undefined
-            --
-            --     -- 選択した講義を返す
-            --     fetchLecture :: [Lecture] -> Int -> Maybe Lecture
-            --     fetchLecture _ 0  = Nothing
-            --     fetchLecture ls c = Just (ls !! (c - 1))
-            --
-            --     -- 選択した講義の単位数を返す
-            --     fetchCredit :: String -> Maybe Lecture -> Int
-            --     fetchCredit s = maybe 0 tmp
-            --         where
-            --             tmp :: Lecture -> Int
-            --             tmp l = if field l == s then fromIntegral . credit $ l else 0
-            --
-            --     -- 分野を受け取り、現在の総単位数と履修する講義の総単位数との和を返す
-            --     result :: String -> Behavior Int
-            --     result z = result' behaviorCommonAndSpecilized
-            --         where
-            --             bchoices' = zipWith imposeChanges bchoices echoices
-            --
-            --             behaviorCommonAndSpecilized :: Behavior String
-            --             behaviorCommonAndSpecilized = case z of
-            --                 "共通" -> bcommon
-            --                 "専門" -> bspecilized
-            --                 z' -> error $ z' ++ " is undefined Field value."
-            --
-            --             result' :: Behavior String -> Behavior Int
-            --             result' o = foldr (\a b -> (+) <$> a <*> b) (read <$> o) bs'
-            --                 where
-            --                     bs' = zipWith (\x y -> (fetchCredit z . fetchLecture x) <$> y) lectures bchoices'
-            --
-            --
-            -- sink afterCommonValue [text :== show <$> result "共通"]
-            -- sink afterSpecilizedValue [text :== show <$> result "専門"]
+            bchoice <- newLectureChoiceBehavior lectureChoices
+            bcommon     <- behavior beforeCommonValue text
+            bspecilized <- behavior beforeSpecilizedValue text
 
+            let bchoice' = fmap catMaybes $ imposeChanges bchoice echoice
+                bchoice1 = fmap (filter (\l -> L.field l == "共通")) bchoice'
+                bchoice2 = fmap (filter (\l -> L.field l == "専門")) bchoice'
+                bchoice1' = fmap (map (fromIntegral . L.credit)) bchoice1
+                bchoice2' = fmap (map (fromIntegral . L.credit)) bchoice2
+                bsum1 = fmap (foldr (+) 0) bchoice1'
+                bsum2 = fmap (foldr (+) 0) bchoice2'
+                bres1 = (+) <$> fmap read bcommon <*> bsum1
+                bres2 = (+) <$> fmap read bspecilized <*> bsum2
+
+            -- 出力
+            reactimate' =<< buttonAction student bchoice' ebutton
+            sink afterCommonValue [text :== show <$> bres1]
+            sink afterSpecilizedValue [text :== show <$> bres2]
 
     network <- compile netWorkDescription
     actuate network
@@ -141,20 +80,33 @@ main = handleSqlError' $ withConnectionIO (connectPostgreSQL "dbname=research") 
         period :: [String]
         period = (\x y z -> x ++ y ++ z) <$> xs <*> ys <*> zs
 
-newChoiceAddHandler :: LectureChoice -> IO (AddHandler [Maybe Lecture])
-newChoiceAddHandler (c, ls) = do
-    (choiceAddHandler, choiceRunHandler) <- newAddHandler
-    set c [on select := choiceAction >>= choiceRunHandler]
-    return choiceAddHandler
-    where
-        choiceAction :: IO ([Maybe Lecture])
-        choiceAction = get c selection >>= return . (\x -> if x == 0 then [Nothing] else [Just (ls !! (x - 1))])
 
-newButtonAddHandler :: Button () -> IO (AddHandler ())
-newButtonAddHandler b = do
-    (buttonAddHandler, buttonRunHandler) <- newAddHandler
-    set b [on command := buttonAction >>= buttonRunHandler]
-    return buttonAddHandler
+buttonAction :: Student -> Behavior [Lecture] -> Event () -> MomentIO (Event (Future (IO ())))
+buttonAction s bchoice ebutton = do
+    bchoice' <- stepper [] (bchoice <@ ebutton)
+    changeChoice <- changes bchoice'
+    return $ (fmap (\ls -> action s ls)) <$> changeChoice
     where
-        buttonAction :: IO ()
-        buttonAction = return ()
+        -- 履修登録をする講義をデータベースに登録するアクション。リファクタリングの余地あり
+        action :: Student -> [Lecture] -> IO ()
+        action s ls = handleSqlError' $ withConnectionIO' (connectPostgreSQL "dbname=research") $ \conn -> do
+            courses <- runRelation conn selectCourseIdFromCourse ()
+            let courseIds = map C.courseId courses
+                maxCourseId = (fromIntegral . maximum) $ courseIds
+                nextCourseId = maxCourseId + 1
+
+            let studentId = cycle [S.studentId s]
+                lectureIds = map L.lectureId ls
+                scores = cycle [Nothing]
+                course = getZipList $ Course <$> ZipList [nextCourseId..]
+                                             <*> ZipList studentId
+                                             <*> ZipList lectureIds
+                                             <*> ZipList scores
+            mapInsert conn insertCourse course
+            commit conn
+
+newLectureChoiceBehavior :: [LectureChoice] -> MomentIO (Behavior [Maybe Lecture])
+newLectureChoiceBehavior lcs = fromPoll $ tmp lcs
+    where
+        tmp :: [LectureChoice] -> IO [Maybe Lecture]
+        tmp lcs = mapM (\(c,ls) -> get c selection >>= (\n -> return $ if n == 0 then Nothing else Just (ls !! (n - 1)))) lcs

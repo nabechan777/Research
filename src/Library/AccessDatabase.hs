@@ -3,6 +3,7 @@ module Library.AccessDatabase
     , selectAllFromLectureWherePeriod
     , selectAllFromStudentWhereStudentNumber
     , selectAllFromGradeWhereStudentId
+    , selectCourseIdFromCourse
     ) where
 
 import GHC.Int
@@ -41,3 +42,8 @@ selectAllFromGradeWhereStudentId = relation' $ do
     (ph, ()) <- placeholder $ \studentId -> do
         wheres $ g ! Grade.studentId' .=. studentId
     return (ph, g)
+
+selectCourseIdFromCourse :: Relation () Course
+selectCourseIdFromCourse = relation $ do
+    courses <- query Course.course
+    return courses

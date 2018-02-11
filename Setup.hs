@@ -9,7 +9,7 @@ main = defaultMainWithHooks $ simpleUserHooks
 guiApps :: [MacApp]
 guiApps = return $ MacApp
     { appName   = "Research"
-    , appIcon   = Just "research.icns"
+    , appIcon   = Just "./resource/research.icns"
     , appPlist  = Nothing
     , resources = []
     , otherBins = []

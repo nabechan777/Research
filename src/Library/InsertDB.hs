@@ -1,8 +1,8 @@
 {-# LANGUAGE FlexibleContexts #-}
-module Library.InsertDB (
-    insertStudents,
-    insertLectures,
-    insertGrades,
+module Library.InsertDB
+    ( insertStudents
+    , insertLectures
+    , insertGrades
     ) where
 
 import           Control.Applicative
