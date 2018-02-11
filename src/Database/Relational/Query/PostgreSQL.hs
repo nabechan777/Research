@@ -1,4 +1,5 @@
-{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleContexts      #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
 
 module Database.Relational.Query.PostgreSQL
     ( module Database.HDBC
@@ -11,12 +12,12 @@ module Database.Relational.Query.PostgreSQL
     , runRelation
     ) where
 
-import Database.HDBC hiding (execute, finish, run)
+import Database.HDBC             hiding (execute, finish, run)
+import Database.HDBC.PostgreSQL
 import Database.HDBC.Query.TH
 import Database.HDBC.Record
 import Database.HDBC.Session
-import Database.HDBC.PostgreSQL
-import Database.Record hiding (unique)
+import Database.Record           hiding (unique)
 import Database.Relational.Query hiding (unique)
 
 runRelation :: (ToSql SqlValue p, IConnection conn, FromSql SqlValue a)

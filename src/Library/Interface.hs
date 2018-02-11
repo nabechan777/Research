@@ -1,10 +1,12 @@
 module Library.Interface
     ( createSemesterInformation
     , createStudentInformation
-    , createChoices
+    , createLectureChoices
+    , createRegistrationBotton
     , createRegistrationBoxed
     , createStaticTextPair
     , createRecordBoxed
+    , LectureChoice
     )where
 
 import           Control.Applicative
@@ -28,12 +30,17 @@ createStudentInformation student = boxed "学生" $ grid 5 5 $ zipWith (\name va
     wl: 各曜日の各時限の講義のリスト
     履修登録のレイアウトを生成する。
 -}
+-- 各曜日時限の授業を表す型シノニム
 type OneWeekLecture = [[Lecture]] -- [["オペレーティングシステム", "心理学の世界"], ["微分積分1", "線形代数1"], ...]
-createChoices :: Frame () -> OneWeekLecture -> IO [Choice ()]
-createChoices f = mapM (\x -> choice f [items := "--" : map L.name x])
+type LectureChoice = (Choice (), [Lecture])
+createLectureChoices :: Frame () -> OneWeekLecture -> IO [LectureChoice]
+createLectureChoices f = mapM (\x -> choice f [items := "--" : map L.name x] >>= (\y -> return (y, x)))
 
-createRegistrationBoxed :: [Choice ()] -> Layout
-createRegistrationBoxed xs = boxed "履修" $ grid 5 5 $ (tmp3 . tmp2 . tmp1) $ map widget xs
+createRegistrationBotton :: Frame () -> IO (Button ())
+createRegistrationBotton = (`button` [text := "登録", enabled := True])
+
+createRegistrationBoxed :: [Choice ()] -> Button () -> Layout
+createRegistrationBoxed xs b = boxed "履修" $ column 10 [lchoices, (floatRight . widget) b]
     where
         tmp1 :: [Layout] -> [[Layout]]
         tmp1 [] = []
@@ -43,6 +50,8 @@ createRegistrationBoxed xs = boxed "履修" $ grid 5 5 $ (tmp3 . tmp2 . tmp1) $ 
         tmp2 = zipWith (:) $ map label ["1", "2", "3", "4", "5"]
 
         tmp3 = (map label ["", "月", "火", "水", "木", "金", "土"] :)
+
+        lchoices = grid 5 5 $ (tmp3 . tmp2 . tmp1) $ map widget xs
 
 createStaticTextPair :: Frame () -> Grade -> IO (StaticText (), StaticText ())
 createStaticTextPair f g = (,) <$> (createStaticText . common) g <*> (createStaticText . special) g
@@ -55,7 +64,7 @@ type AfterRecord = (StaticText (), StaticText ())
 createRecordBoxed ::  BeforeRecord -> AfterRecord -> Layout
 createRecordBoxed br ar = boxed "成績" $ column 10 createRow
     where
-        createRow =
-            [ row 5 [label "共通", (widget . fst) br, label " -> ", (widget . fst) ar]
-            , row 5 [label "専門", (widget . snd) br, label " -> ", (widget . snd) ar]
-            ]
+        createRow = zipWith tmp ["共通", "専門"] fstOrSnd
+            where
+                fstOrSnd = map (widget .) [fst, snd]
+                tmp t f = row 5 [label t, f br, label " -> ", f ar]
