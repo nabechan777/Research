@@ -18,8 +18,11 @@
 　仕様を満たすソフトウェアの起動時の画面を下記に示す。
 
 ![アプリケーション起動時の画面](../resources/成果物（起動直後）.png "完成図（起動直後）")
+
 　この画面において、講義の選択が行われた場合、次のように変化する。
+
 ![講義選択後の画面](../resources/成果物（講義選択後）.png "完成図（講義選択後）")
+
 　MVCアーキテクチャにおいて、ModelとViewのやり取りはObserverパターンを用いて実装されることがある。本研究では、ModelとViewのやり取りの実装にFRPシステムを用いることにした。
 　イベントロジックは、次の図のように実装した。
 
@@ -37,7 +40,7 @@
  - FRPは、イベントベースのソフトウェア開発において有用であるため、とても有効な選択の１つとなり得る。
 
 ## 参考文献
- [1] Conel Elliot, Paul Hudak (1997)『Functional Reactive Animation』
- [2] Conel Elliot (2007) 『Push-Pull Functional Reactive Programming』
- [3] Stephen Blackheath, Anthony Jones (2017) 『関数型リアクティブプログラミング』翔泳社
- [4] 「FRP explanation using reactive-banana」<https://wiki.haskell.org/FRP_explanation_using_reactive-banana>
+ [1] Conel Elliot, Paul Hudak (1997)『Functional Reactive Animation』<br>
+ [2] Conel Elliot (2007) 『Push-Pull Functional Reactive Programming』<br>
+ [3] Stephen Blackheath, Anthony Jones (2017) 『関数型リアクティブプログラミング』翔泳社 <br>
+ [4] 「FRP explanation using reactive-banana」<https://wiki.haskell.org/FRP_explanation_using_reactive-banana> <br>
