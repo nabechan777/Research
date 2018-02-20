@@ -1,10 +1,10 @@
 # リアクティブプログラミングのMVCへの適用に関する考察
 
-1. はじめに
+## はじめに
 　本研究では、近年インタラクティブなプログラムの実装手法として有効なReactive Programmingが注目されている。RPの具体的な手法の１つとしてFunctional Reactive Programmingというパラダイムがある。
 　そのFRPが、MVCアーキテクチャにおいて有用性があるのかを実際にFRPライブラリを用いたソフトウェア開発を通して調査する。
 
-2. 仕様
+## 仕様
 　本研究で、開発するソフトウェアの仕様の概念は、大学の履修登録をおこなうアプリケーションである。具体的な仕様は、次のように定義する。
     - 学期の情報を表示
     - 学生の情報の表示
@@ -14,30 +14,30 @@
     - 登録ボタンの設置
 　これらの仕様を満たすソフトウェアの開発を通してFRPがMVCにおいて有用であるのか調査する。
 
-3. 実装
+## 実装
 　仕様を満たすソフトウェアの起動時の画面を下記に示す。
-<!-- アプリケーション起動時の画面の画像を貼り付ける -->
-![完成図（起動直後）](../resources/成果物（起動直後）.png "成果物（起動直後）")
+
+![アプリケーション起動時の画面](../resources/成果物（起動直後）.png "完成図（起動直後）")
 　この画面において、講義の選択が行われた場合、次のように変化する。
-![完成図（講義選択後）](../resources/成果物（講義選択後）.png "成果物（講義選択後）")
+![講義選択後の画面](../resources/成果物（講義選択後）.png "完成図（講義選択後）")
 　MVCアーキテクチャにおいて、ModelとViewのやり取りはObserverパターンを用いて実装されることがある。本研究では、ModelとViewのやり取りの実装にFRPシステムを用いることにした。
 　イベントロジックは、次の図のように実装した。
-<!-- イベントロジックの概念図を貼り付ける -->
-![イベントロジックの概念図](../resources/イベントロジックの概念図 "イベントロジックのデータフロー")
 
-4. 評価
+![イベントロジックの実装のデータフロー](../resources/イベントロジックの概念図.png "イベントロジックの概念図")
+
+## 評価
 　FRPシステムを用いたソフトウェア開発を通して、次の点からFRPシステムは有用性があると言える。
     - コンポーネントの状態を管理する必要がない。
     - 解決すべき問題に集中して開発を進めることができる。
     - 入出力とロジックを明確に分離できる。
 
-5. まとめ
+## まとめ
  - 実際にFRPシステムを用いたソフトウェア開発を行い、有用性を調査した。
  - その結果、コンポーネントの状態を開発者が管理する必要がなく、そのため開発者は解決すべき問題に集中して開発を進めることができた。
  - FRPは、イベントベースのソフトウェア開発において有用であるため、とても有効な選択の１つとなり得る。
 
-6. 参考文献
- - Conel Elliot, Paul Hudak (1997)『Functional Reactive Animation』
- - Conel Elliot (2007) 『Push-Pull Functional Reactive Programming』
- - Stephen Blackheath, Anthony Jones (2017) 『関数型リアクティブプログラミング』翔泳社
- - 「FRP explanation using reactive-banana」<https://wiki.haskell.org/FRP_explanation_using_reactive-banana>
+## 参考文献
+ [1] Conel Elliot, Paul Hudak (1997)『Functional Reactive Animation』
+ [2] Conel Elliot (2007) 『Push-Pull Functional Reactive Programming』
+ [3] Stephen Blackheath, Anthony Jones (2017) 『関数型リアクティブプログラミング』翔泳社
+ [4] 「FRP explanation using reactive-banana」<https://wiki.haskell.org/FRP_explanation_using_reactive-banana>
