@@ -3,22 +3,36 @@
 
 module Database.Relational.Query.PostgreSQL
     ( module Database.HDBC
-    , module Database.HDBC.Query.TH
-    , module Database.HDBC.Record
-    , module Database.HDBC.Session
     , module Database.HDBC.PostgreSQL
-    , module Database.Record
+    , module Database.HDBC.Session
     , module Database.Relational.Query
+    , module Database.Record
     , runRelation
     ) where
 
-import Database.HDBC             hiding (execute, finish, run)
+import Database.HDBC
+    ( IConnection
+    , SqlValue
+    )
 import Database.HDBC.PostgreSQL
-import Database.HDBC.Query.TH
+    ( connectPostgreSQL
+    )
+-- import Database.HDBC.Query.TH
 import Database.HDBC.Record
+    ( runQuery
+    )
 import Database.HDBC.Session
-import Database.Record           hiding (unique)
-import Database.Relational.Query hiding (unique)
+    ( handleSqlError'
+    , withConnectionIO'
+    )
+import Database.Record
+    ( ToSql
+    , FromSql
+    )
+import Database.Relational.Query
+    ( Relation
+    , relationalQuery
+    )
 
 runRelation :: (ToSql SqlValue p, IConnection conn, FromSql SqlValue a)
             => conn -> Relation p a -> p -> IO [a]
