@@ -14,13 +14,14 @@ import           Database.Relations.Student as S
 import           Graphics.UI.WX             hiding (Event)
 import           Library.AccessDatabase     hiding (on, set)
 import           Library.Interface
+import           Library.FRP
 import           Reactive.Banana
 import           Reactive.Banana.WX
 import           Data.Maybe
 
 -- | PostgreSQLサーバから学生, 講義の情報を取り出し、インターフェースを構築する。
 main :: IO ()
-main = handleSqlError' $ withConnectionIO (connectPostgreSQL "dbname=research") $ \conn -> start $ do
+main = handleSqlError' $ withConnectionIO' (connectPostgreSQL "dbname=research") $ \conn -> start $ do
     (student:_)    <- runRelation conn selectAllFromStudentWhereStudentNumber 12345
     lectures       <- mapM (runRelation conn selectAllFromLectureWherePeriod) period
     (grades:_)     <- runRelation conn selectAllFromGradeWhereStudentId $ S.studentId student
@@ -40,21 +41,20 @@ main = handleSqlError' $ withConnectionIO (connectPostgreSQL "dbname=research") 
             ]
         ]
 
+    addHandler <- newLectureChoiceAddHandler lectureChoices
+
     let netWorkDescription :: MomentIO ()
         netWorkDescription = mdo
 
             -- Eventの生成
-            echoices    <- mapM (`event0` select) $ map fst lectureChoices
             ebutton     <- event0 button1 command
 
-            let echoice = foldr (unionWith (\_ _ -> ())) never echoices
-
             -- Behaviorの生成
-            bchoice <- newLectureChoiceBehavior lectureChoices
+            bchoice <- fromChanges [] addHandler
             bcommon     <- behavior beforeCommonValue text
             bspecilized <- behavior beforeSpecilizedValue text
 
-            let bchoice' = fmap catMaybes $ imposeChanges bchoice echoice
+            let bchoice' = fmap catMaybes bchoice
                 bchoice1 = fmap (filter (\l -> L.field l == "共通")) bchoice'
                 bchoice2 = fmap (filter (\l -> L.field l == "専門")) bchoice'
                 bchoice1' = fmap (map (fromIntegral . L.credit)) bchoice1
@@ -79,34 +79,3 @@ main = handleSqlError' $ withConnectionIO (connectPostgreSQL "dbname=research") 
         zs = ["1", "2", "3", "4", "5"]
         period :: [String]
         period = (\x y z -> x ++ y ++ z) <$> xs <*> ys <*> zs
-
-
-buttonAction :: Student -> Behavior [Lecture] -> Event () -> MomentIO (Event (Future (IO ())))
-buttonAction s bchoice ebutton = do
-    bchoice' <- stepper [] (bchoice <@ ebutton)
-    changeChoice <- changes bchoice'
-    return $ (fmap (\ls -> action s ls)) <$> changeChoice
-    where
-        -- 履修登録をする講義をデータベースに登録するアクション。リファクタリングの余地あり
-        action :: Student -> [Lecture] -> IO ()
-        action s ls = handleSqlError' $ withConnectionIO' (connectPostgreSQL "dbname=research") $ \conn -> do
-            courses <- runRelation conn selectCourseIdFromCourse ()
-            let courseIds = map C.courseId courses
-                maxCourseId = (fromIntegral . maximum) $ courseIds
-                nextCourseId = maxCourseId + 1
-
-            let studentId = cycle [S.studentId s]
-                lectureIds = map L.lectureId ls
-                scores = cycle [Nothing]
-                course = getZipList $ Course <$> ZipList [nextCourseId..]
-                                             <*> ZipList studentId
-                                             <*> ZipList lectureIds
-                                             <*> ZipList scores
-            mapInsert conn insertCourse course
-            commit conn
-
-newLectureChoiceBehavior :: [LectureChoice] -> MomentIO (Behavior [Maybe Lecture])
-newLectureChoiceBehavior lcs = fromPoll $ tmp lcs
-    where
-        tmp :: [LectureChoice] -> IO [Maybe Lecture]
-        tmp lcs = mapM (\(c,ls) -> get c selection >>= (\n -> return $ if n == 0 then Nothing else Just (ls !! (n - 1)))) lcs

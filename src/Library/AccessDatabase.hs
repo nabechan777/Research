@@ -7,7 +7,18 @@ module Library.AccessDatabase
     ) where
 
 import GHC.Int
+    ( Int32
+    )
 import Database.Relational.Query
+    ( Relation
+    , relation
+    , relation'
+    , query
+    , placeholder
+    , wheres
+    , (!)
+    , (.=.)
+    )
 import Database.Relational.Query.PostgreSQL
 import Database.Relations.Student as Student
 import Database.Relations.Lecture as Lecture
