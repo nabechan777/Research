@@ -33,7 +33,7 @@
 #### データ型
 
 ##### Event
- 　Eventは、一連のイベントを示すデータ型である。Eventが値（オカレンス）を持つのはイベントが発生した時のみである。Reactive Bananaでは次のように考えることができる。
+ <details><summary>Eventは、一連のイベントを示すデータ型である。</summary><div>Eventが値（オカレンス）を持つのはイベントが発生した時のみである。Reactive Bananaでは次のように考えることができる。
 
  ``` haskell
  type Event a = [(Time, a)]
@@ -48,8 +48,10 @@
     fmap f e = [(time, f a) | (time, a) <- e]
  ```
 
+ </div></details>
+
 ##### Behavior
- 　Behaviorは、時間とともに変化する値を示すデータ型である。Behaviorは、常に値を持つ。Reactive Bananaでは次のように考えることができる。
+ <details><summary>Behaviorは、時間とともに変化する値を示すデータ型である。</summary><div>Behaviorは、常に値を持つ。Reactive Bananaでは次のように考えることができる。
 
  ``` Haskell
  type Behavior a = Time -> a
@@ -70,6 +72,7 @@
     fx <*> bx = \time -> fx time $ bx time
  ```
 
+ </div></details>
 
 #### プリミティブ操作
 
@@ -112,10 +115,14 @@
 ## 4.仕様
  　本研究で開発するソフトウェアの仕様は次のように定義する。
 
- <details><summary>学期情報の表示する。</summary>学期情報とは、現在行われている履修登録が前期に受ける講義の選択なのか後期に受ける講義の選択であるのか示す情報である。また、履修登録期間も表示する。これらの情報は全てテキストによって表示される。</details>
+ <details><summary>学期情報の表示する。</summary>
+ <br>
+ 学期情報とは、現在行われている履修登録が前期に受ける講義の選択なのか後期に受ける講義の選択であるのか示す情報である。また、履修登録期間も表示する。これらの情報は全てテキストによって表示される。
+ <br>
+ </details>
 
  <details><summary>学生情報の表示する。</summary><div>
-
+ <br>
  学生情報とは、次の属性を持つ情報である。
  - 学生証番号
  - 氏名
@@ -123,14 +130,31 @@
  - 学部
  - 学科
  これらは全てテキストで表示される。
-
+ <br>
  </div></details>
 
- <details><summary>講義選択を行う選択メニューの設置する。</summary></details>
+ <details><summary>講義選択を行う選択メニューの設置する。</summary><div>
+ <br>
+ 講義の情報は次のような属性を持つ情報である。
+ - ID
+ - 講義名
+ - 分野
+ - 開講期間
+ - 単位
+ 分野は、共通または専門のどちらかを示す情報であり、開講期間は、前期または後期の情報と何曜日の何時限目に行われる講義であるのかを示す情報である。これらは、選択メニューのコンポーネントによって示される。
+ <br>
+ </div></details>
 
- <details><summary>現在の総取得単位数の表示する。</summary></details>
+ <details><summary>現在の総取得単位数の表示する。</summary>
+ <br>
+ 現在の総取得単位数は、履修登録をしている学生の現在取得している単位の合計である。この情報は、テキストによって示される。
+ </details>
 
- <details><summary>講義選択後の総単位数の表示する。</summary></details>
+ <details><summary>講義選択後の総単位数の表示する。</summary>
+ <br>
+ 講義選択後の総単位数は、現在の総取得単位数と選択した講義の単位全ての合計との和である。この情報はテキストによって示される。
+ <br>
+ </details>
 
 
 <a name="Implementation"></a>
