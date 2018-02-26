@@ -1,6 +1,7 @@
 {-# LANGUAGE FlexibleContexts      #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 
+-- | relational-recordで定義されている関数群を用いて作成したクエリーを実行する関数'runRelation'を定義するモジュール
 module Database.Relational.Query.PostgreSQL
     ( module Database.HDBC
     , module Database.HDBC.PostgreSQL
@@ -34,6 +35,10 @@ import Database.Relational.Query
     , relationalQuery
     )
 
+-- | データベースとのコネクションと実行するクエリーを入力とし、クエリーの実行結果を出力とする。
 runRelation :: (ToSql SqlValue p, IConnection conn, FromSql SqlValue a)
-            => conn -> Relation p a -> p -> IO [a]
+            => conn -- ^ PostgreSQLで定義されているデータベースとのコネクション
+            -> Relation p a -- ^ 実行するクエリーを示すデータ型
+            -> p -- ^ クエリーの入力とする値
+            -> IO [a] -- ^ クエリーの実行によって出力された値のリスト
 runRelation conn q p = runQuery conn (relationalQuery q) p
