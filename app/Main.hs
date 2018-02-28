@@ -41,33 +41,56 @@ main = handleSqlError' $ withConnectionIO' (connectPostgreSQL "dbname=research")
             ]
         ]
 
-    addHandler <- newLectureChoiceAddHandler lectureChoices
+    choiceAddHandler <- newLectureChoiceAddHandler lectureChoices
+    buttonAddHandler <- newButtonAddHandler button1
 
-    let netWorkDescription :: MomentIO ()
+    let sumOfLectureCredit :: String -> [Lecture] -> Int
+        sumOfLectureCredit x = (foldr (+) 0) . (map (fromIntegral . L.credit)) . (filter (\l -> L.field l == x))
+
+        sumOfCommonLectureCredit :: [Lecture] -> Int
+        sumOfCommonLectureCredit = sumOfLectureCredit "共通"
+
+        sumOfSpecilizedLectureCredit :: [Lecture] -> Int
+        sumOfSpecilizedLectureCredit = sumOfLectureCredit "専門"
+
+        -- netWorkDescription :: MomentIO ()
+        -- netWorkDescription = mdo
+        --
+        --     -- Eventの生成
+        --     ebutton     <- event0 button1 command
+        --
+        --     -- Behaviorの生成
+        --     bchoice <- fromChanges [] choiceAddHandler
+        --     bcommon     <- behavior beforeCommonValue text
+        --     bspecilized <- behavior beforeSpecilizedValue text
+        --
+        --     let bchoice' = fmap catMaybes bchoice
+        --         bres1 = (+) <$> fmap read bcommon <*> fmap sumOfCommonLectureCredit bchoice'
+        --         bres2 = (+) <$> fmap read bspecilized <*> fmap sumOfSpecilizedLectureCredit bchoice'
+        --
+        --     -- 出力
+        --     reactimate' =<< buttonAction student bchoice' ebutton
+        --     sink afterCommonValue [text :== show <$> bres1]
+        --     sink afterSpecilizedValue [text :== show <$> bres2]
+
+        netWorkDescription :: MomentIO ()
         netWorkDescription = mdo
+            -- Event
+            echoice <- fromAddHandler choiceAddHandler
+            ebutton <- fromAddHandler buttonAddHandler
 
-            -- Eventの生成
-            ebutton     <- event0 button1 command
+            -- Behavior
+            bchoice <- stepper [] echoice'
+            bcommon <- fromPoll $ get beforeCommonValue text
+            bspecilized <- fromPoll $ get beforeSpecilizedValue text
 
-            -- Behaviorの生成
-            bchoice <- fromChanges [] addHandler
-            bcommon     <- behavior beforeCommonValue text
-            bspecilized <- behavior beforeSpecilizedValue text
+            let echoice' = fmap catMaybes echoice
+                eres1 = (+) <$> fmap read bcommon <@> fmap sumOfCommonLectureCredit echoice'
+                eres2 = (+) <$> fmap read bspecilized <@> fmap sumOfSpecilizedLectureCredit echoice'
 
-            let bchoice' = fmap catMaybes bchoice
-                bchoice1 = fmap (filter (\l -> L.field l == "共通")) bchoice'
-                bchoice2 = fmap (filter (\l -> L.field l == "専門")) bchoice'
-                bchoice1' = fmap (map (fromIntegral . L.credit)) bchoice1
-                bchoice2' = fmap (map (fromIntegral . L.credit)) bchoice2
-                bsum1 = fmap (foldr (+) 0) bchoice1'
-                bsum2 = fmap (foldr (+) 0) bchoice2'
-                bres1 = (+) <$> fmap read bcommon <*> bsum1
-                bres2 = (+) <$> fmap read bspecilized <*> bsum2
-
-            -- 出力
-            reactimate' =<< buttonAction student bchoice' ebutton
-            sink afterCommonValue [text :== show <$> bres1]
-            sink afterSpecilizedValue [text :== show <$> bres2]
+            reactimate $ (\x -> set afterCommonValue [text := show x]) <$> eres1
+            reactimate $ (\x -> set afterSpecilizedValue [text := show x]) <$> eres2
+            reactimate $ (\x -> registrationAction student x) <$> (bchoice <@ ebutton)
 
     network <- compile netWorkDescription
     actuate network
