@@ -30,6 +30,8 @@
 ## 3. Functional Reactive Programming（FRP）
  　関数型リアクティブプログラミングとは、関数型プログラミングを用いて、リアクティブプログラミングを実現するパラダイムである。関数型プログラミングとは、数学的な意味の関数に基づいてプログラミングを行うパラダイムである。関数型リアクティブプログラミングにおいて、重要な2つのデータ型（`Event`と`Behavior`）と10個のプリミティブ操作がある。
 
+ <br>
+
 #### Event
  Eventは、一連のイベントを示すデータ型である。Eventが値（オカレンス）を持つのはイベントが発生した時のみである。Reactive Bananaでは次のように考えることができる。
 
@@ -46,7 +48,7 @@
     fmap f e = [(time, f a) | (time, a) <- e]
  ```
 
-
+ <br>
 
 #### Behavior
  Behaviorは、時間とともに変化する値を示すデータ型である。Behaviorは、常に値を持つ。Reactive Bananaでは次のように考えることができる。
@@ -69,6 +71,8 @@
     (<*>) :: Behavior (a -> b) -> Behavior a -> Behavior b
     fx <*> bx = \time -> fx time $ bx time
  ```
+
+ <br>
 
 #### プリミティブ操作
 
@@ -107,8 +111,12 @@
  switchB :: (MonadMoment m) => Behavior a -> Event (Behavior a) -> m (Behavior a)
  ```
 
+ <br>
+
 #### FRPシステムのI/O
  　FRPシステムのI/Oは、MomentIOモナド内で行う。入力に関連する関数は、主に`fromAddHandler`と`fromChanges`であり、出力に関連する関数は、`reactimate`と`reactimate'`である。それぞれ詳細は後述する。なお、ここでのFRPシステムとは、Reactive Bananaを指しており、後述の説明が他のFRPシステムにおいて当てはまるとは限らない。
+
+ <br>
 
 #### FRPシステムへの入力
  　FRPシステムへの入力は、`Handler a`と`AddHandler a`を利用する。各データ型は、`Control.Event.Handler`において次のように定義されている。各データ型の生成は、`newAddHandler :: IO (AddHandler a, Handler a)`によって行う。
@@ -144,6 +152,8 @@
     forever $ fmap read getLine >>= runHandler
  ```
 
+ <br>
+
 #### FRPシステムからの出力
  　FRPシステムからの出力は、`reactimate :: Event (IO ()) -> MomentIO ()`または`reactimate' :: Event (Future (IO ())) -> MomentIO ()`で行う。ただし、2つのEventがほぼ同時に発火した場合、各Eventに適用された`reactimate`はインターリーブされる。`reactimate'`は、`Event (Future (IO ()))`を入力とし、`MomentIO ()`のアクションを実行する。`Future a`は、イベント処理が完了したのちに`MomentIO ()`のアクションを実行することを保証する。
 
@@ -160,6 +170,8 @@
     ・
     forever $ fmap read getLine >>= runHandler
  ```
+
+ <br>
 
 #### まとめ
  　標準入力から数字を入力し、数字の分だけ' * 'を出力するプログラムをReactive Bananaを用いて実装した。そのプログラムを下記に示す。
@@ -192,6 +204,8 @@
  ```
 
  `compile :: MomentIO () -> IO EventNetwork`は、FRPを用いて定義したイベントロジックを`EventNetwork`にコンパイルする。`EventNetwork`は、コンパイルされたイベントロジックを示すデータ型であり、実行中または停止中の２つの状態を取りうる。`EventNetwork`を実行状態にするには、`actuate :: EventNetwork -> IO ()`を用いる。一方、停止状態にするには、`pause :: EventNetwork -> IO ()`を実行する。
+
+ <br>
 
 <a name="Specification"></a>
 ## 4.仕様
@@ -247,6 +261,7 @@
  次の環境の元で、定義した仕様を満たすソフトウェアを開発する。
 
 ### 開発環境
+
  <dl>
     <dt>プラットフォーム</dt>
     <dd><table>
@@ -301,12 +316,99 @@
  ![イベントロジックのデータフロー](../resources/イベントロジックの概念図.png "イベントロジックの概念図")
 
  この図に用いられている図形ならびに矢印の意味は次のように定義する。
+
  - 雲型の図形 = GUIコンポーネント
  - 五角形 = FRP内の演算
  - 黒矢印 = Event
  - 白矢印 = Behavior
 
- 　Choicesは30個のChoiceを表現している。今回、FRP内へのデータの入力は選択された講義のリストの形で行うことにした。具体的には選択メニューとそのコンポーネントが持つ講義のリストとのタプルのリストを入力とし、各選択メニューに1つのコールバック関数を登録し
+
+ 　Choicesは30個のChoiceを示し、現在の共通または専門の総取得単位数を表示するコンポーネントをそれぞれCurrentCommonとCurrentSpecilizedとする。また、講義選択後の共通または専門の総単位数を表示するコンポーネントをAfterCommonとAfterSpecilizedとする。実装において、講義の情報を表すデータ型を`Lecture`とする。FRPシステム内において、Choicesのが持つ値を`Event [Maybe Lecture]`、CurrentCommonとCurrentSpecilizedが持つ値を`Behavior String`として表現する。<br>
+ 　実装したプログラムは、選択後の共通または専門の講義の総単位数をコンポーネントに表示し、登録ボタンが押された際には、データベースへの登録処理をおこなうプログラムである。`let`の内側に記述されているコードは`Event`または`Behavior`がもつ値を変換している。一方、`let`の外側はFRPシステム内における入出力を担う関数により、FRPシステムの外側のやり取りをしている。Choicesが持つ値は、`fromAddHandler :: AddHandler a -> MomentIO (Event a)`によって`Event [Maybe Lecture]`が出力される。一方、CurrentCommonとCurrentSpecilizedが持つ値は、`fromChanges`ではなく`fromPoll :: IO a -> MomentIO (Behavior a)`によって`Behavior String`が出力されている。<br>
+ 　`fromChanges :: a -> AddHandler a -> MomentIO (Behavior a)`は、次のように実装されている。
+
+ ```Haskell
+ fromChanges initialValue addHandler = do
+    e <- fromAddHandler addHandler
+    b <- stepper initialValue e
+    return b
+ ```
+
+ このことから`fromChanges`は外界でのイベントをFRP内で時間とともに変化する値として扱うことを示している。CurrentCommonとCurrentSpecilizedにおいてイベントは発生しない。よって、IOアクションの出力の値をもつBehaviorを出力する`fromPoll`を用いている。<br>
+ 　講義選択のイベントが発生してから講義選択後の各分野の総単位数の表示のプロセスは次のようになる。
+
+ 1. Choicesにおいてイベントが発生する。
+ 2. Choicesが持つ値がFRPシステム内に入力され、その値を持つEventが出力される。
+ 3. 2で出力されたEventを用いて、選択されている講義の情報のみを値として持つEventを出力する。
+ 4. 各分野の現在の総取得単位数の値を持つBehaviorに対して、Behaviorが持つ値に`(+) :: (Num a) => a -> a -> a`を適用し、これを値としてもつBehaviorを出力する。
+ 5. 3で出力されたEventについて、各分野（共通, 専門）ごとに選択している講義の単位の合計を値として持つEventを出力する。
+ 6. 4と5において出力されたBehaviorと各Eventについて、3で出力したEventに対して、2で出力したBehaviorがもつ値（`a -> a`型の関数）を適用し、その結果を値としてもつEventを出力する。
+ 7. 6で出力された各Eventについて、このEventが持つ値をAfterCommonまたはAfterSpecilizedの`text`属性に反映させるアクションをもつEventに変換する。
+ 8. 7で出力された各Eventに対して、`reactimate :: Event (IO ()) -> MomentIO ()`を適用する。
+
+
+ 　プログラムは次のようになる。
+
+ ```Haskell
+ networkDescription :: MomentIO ()
+ networkDescription = mdo
+    -- Notingを含むLectureのリストを値を持つEventをechoiceとする。
+    echoice     <- fromAddHandler choiceAddHandler
+    -- 現在の共通の総取得単位数を示す文字列の値を持つBehaviorをbcommonとする。
+    bcommon     <- fromPoll $ get beforeCommon text
+    -- 現在の専門の総取得単位数を示す文字列の値を持つBehaviorをbspecilizedとする。
+    bspecilized <- fromPoll $ get beforeSpecilized text
+
+    let -- Lectureのリストを値を持つEventをechoices'とする。
+        echoice' = fmap catMaybes echoice
+        -- 現在の共通の総取得単位数と選択している共通の講義の単位の合計の和を持つEventをeres1とする。
+        eres1    = (+) <$> fmap read bcommon     <@> fmap sumOfCommonLectureCredit echoices'
+        -- 現在の専門の総取得単位数と選択している専門の後尾の単位の合計の和を持つEventをeres2とする。
+        eres2    = (+) <$> fmap read bspecilized <@> fmap sumOfSpecilizedLectureCredit echoices'
+    ・
+    ・
+    ・
+    -- eres1が持つ値を選択後の共通の講義の総単位数を表示するコンポーネントに反映する。
+    reactimate $ changeCommonCreditText     <$> eres1
+    -- eres2が持つ値を選択後の専門の講義の総単位数を表示するコンポーネントに反映する。
+    reactimate $ changeSpecilizedCreditText <$> eres2
+ ```
+
+
+ 　登録ボタンのイベントが発生してからデータベースへの登録処理の実行のプロセスは次のようになる。
+
+ 1. Buttonにおいてイベントが発生する。
+ 2. FRPシステムに()が入力され、それを値として持つEventを出力する。
+ 3. 選択した講義の情報のリストを値としてもつEventに、`stepper :: a -> Event a -> MomentIO (Behavior a)`を適用しBehaviorを出力する。
+ 4. `const :: a -> b -> a`を持ち上げ、2で出力されたBehaviorに適用した値をもつBehaviorを出力する。
+ 5. 2と4で出力されたEventとBehaviorに、`apply :: Behavior (a -> b) -> Event a -> Event b`を適用し、選択された講義のリストを値として持つEventを出力する。
+ 6. `Student -> [Lecture] -> IO ()`型の関数を持ち上げ、5で出力されたEventがもつ値に適用し、その結果の値を持つEventを出力する。(Student = 学生の情報)
+ 7. 6で出力されたEventに、`reactimate :: Event (IO ()) -> MomentIO ()`を適用する。
+
+
+ プログラムは次のようになる。
+
+ ```Haskell
+ networkDescription :: MomentIO ()
+ networkDescription = mdo
+    ・
+    ・
+    ・
+    -- 登録ボタンのイベントによって発火するEvent
+    ebutton <- fromAddHandler buttonAddHandler
+    -- echoice'にstepper []を適用し、Behaviorを出力する。（RecusiveDo言語拡張より、前方参照が可能）
+    bchoice <- stepper [] echoice'
+
+    let echoice' = fmap catMaybes echoice
+        .
+        .
+        .
+    .
+    .
+    .
+    -- ebuttonが発火した場合のみ、bchoiceが持つ値をデータベースに登録する。
+    reactimate $ (\x -> registrationAction student x) <$> (bchoice <@ ebutton)
+ ```
 
 <a name="Evaluation"></a>
 ## 6.評価
